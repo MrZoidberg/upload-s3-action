@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: shallwefootball/s3-upload-action@master
+      - uses: MrZoidberg/s3-upload-action@master
         with:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
@@ -50,7 +50,7 @@ jobs:
           description: 'Preview my app'
           environment: preview
 
-      - uses: shallwefootball/s3-upload-action@master
+      - uses: MrZoidberg/s3-upload-action@master
         name: Upload S3
         id: S3
         with:

@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 7351:
+/***/ 4271:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -28,7 +28,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.issue = exports.issueCommand = void 0;
 const os = __importStar(__nccwpck_require__(2037));
-const utils_1 = __nccwpck_require__(5278);
+const utils_1 = __nccwpck_require__(8953);
 /**
  * Commands
  *
@@ -100,7 +100,7 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 2186:
+/***/ 1681:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -135,12 +135,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getIDToken = exports.getState = exports.saveState = exports.group = exports.endGroup = exports.startGroup = exports.info = exports.notice = exports.warning = exports.error = exports.debug = exports.isDebug = exports.setFailed = exports.setCommandEcho = exports.setOutput = exports.getBooleanInput = exports.getMultilineInput = exports.getInput = exports.addPath = exports.setSecret = exports.exportVariable = exports.ExitCode = void 0;
-const command_1 = __nccwpck_require__(7351);
-const file_command_1 = __nccwpck_require__(717);
-const utils_1 = __nccwpck_require__(5278);
+const command_1 = __nccwpck_require__(4271);
+const file_command_1 = __nccwpck_require__(2726);
+const utils_1 = __nccwpck_require__(8953);
 const os = __importStar(__nccwpck_require__(2037));
 const path = __importStar(__nccwpck_require__(1017));
-const oidc_utils_1 = __nccwpck_require__(8041);
+const oidc_utils_1 = __nccwpck_require__(7678);
 /**
  * The code to exit an action
  */
@@ -425,17 +425,17 @@ exports.getIDToken = getIDToken;
 /**
  * Summary exports
  */
-var summary_1 = __nccwpck_require__(1327);
+var summary_1 = __nccwpck_require__(9925);
 Object.defineProperty(exports, "summary", ({ enumerable: true, get: function () { return summary_1.summary; } }));
 /**
  * @deprecated use core.summary
  */
-var summary_2 = __nccwpck_require__(1327);
+var summary_2 = __nccwpck_require__(9925);
 Object.defineProperty(exports, "markdownSummary", ({ enumerable: true, get: function () { return summary_2.markdownSummary; } }));
 /**
  * Path exports
  */
-var path_utils_1 = __nccwpck_require__(2981);
+var path_utils_1 = __nccwpck_require__(1745);
 Object.defineProperty(exports, "toPosixPath", ({ enumerable: true, get: function () { return path_utils_1.toPosixPath; } }));
 Object.defineProperty(exports, "toWin32Path", ({ enumerable: true, get: function () { return path_utils_1.toWin32Path; } }));
 Object.defineProperty(exports, "toPlatformPath", ({ enumerable: true, get: function () { return path_utils_1.toPlatformPath; } }));
@@ -443,7 +443,7 @@ Object.defineProperty(exports, "toPlatformPath", ({ enumerable: true, get: funct
 
 /***/ }),
 
-/***/ 717:
+/***/ 2726:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -474,8 +474,8 @@ exports.prepareKeyValueMessage = exports.issueFileCommand = void 0;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(7147));
 const os = __importStar(__nccwpck_require__(2037));
-const uuid_1 = __nccwpck_require__(8974);
-const utils_1 = __nccwpck_require__(5278);
+const uuid_1 = __nccwpck_require__(515);
+const utils_1 = __nccwpck_require__(8953);
 function issueFileCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -508,7 +508,7 @@ exports.prepareKeyValueMessage = prepareKeyValueMessage;
 
 /***/ }),
 
-/***/ 8041:
+/***/ 7678:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -524,9 +524,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OidcClient = void 0;
-const http_client_1 = __nccwpck_require__(6255);
-const auth_1 = __nccwpck_require__(5526);
-const core_1 = __nccwpck_require__(2186);
+const http_client_1 = __nccwpck_require__(9855);
+const auth_1 = __nccwpck_require__(7264);
+const core_1 = __nccwpck_require__(1681);
 class OidcClient {
     static createHttpClient(allowRetry = true, maxRetry = 10) {
         const requestOptions = {
@@ -558,7 +558,7 @@ class OidcClient {
                 .catch(error => {
                 throw new Error(`Failed to get ID Token. \n 
         Error Code : ${error.statusCode}\n 
-        Error Message: ${error.result.message}`);
+        Error Message: ${error.message}`);
             });
             const id_token = (_a = res.result) === null || _a === void 0 ? void 0 : _a.value;
             if (!id_token) {
@@ -592,7 +592,7 @@ exports.OidcClient = OidcClient;
 
 /***/ }),
 
-/***/ 2981:
+/***/ 1745:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -657,7 +657,7 @@ exports.toPlatformPath = toPlatformPath;
 
 /***/ }),
 
-/***/ 1327:
+/***/ 9925:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -947,7 +947,7 @@ exports.summary = _summary;
 
 /***/ }),
 
-/***/ 5278:
+/***/ 8953:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -994,7 +994,7 @@ exports.toCommandProperties = toCommandProperties;
 
 /***/ }),
 
-/***/ 8974:
+/***/ 515:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1058,29 +1058,29 @@ Object.defineProperty(exports, "parse", ({
   }
 }));
 
-var _v = _interopRequireDefault(__nccwpck_require__(1595));
+var _v = _interopRequireDefault(__nccwpck_require__(137));
 
-var _v2 = _interopRequireDefault(__nccwpck_require__(6993));
+var _v2 = _interopRequireDefault(__nccwpck_require__(5788));
 
-var _v3 = _interopRequireDefault(__nccwpck_require__(1472));
+var _v3 = _interopRequireDefault(__nccwpck_require__(6354));
 
-var _v4 = _interopRequireDefault(__nccwpck_require__(6217));
+var _v4 = _interopRequireDefault(__nccwpck_require__(9458));
 
-var _nil = _interopRequireDefault(__nccwpck_require__(2381));
+var _nil = _interopRequireDefault(__nccwpck_require__(5121));
 
-var _version = _interopRequireDefault(__nccwpck_require__(427));
+var _version = _interopRequireDefault(__nccwpck_require__(3125));
 
-var _validate = _interopRequireDefault(__nccwpck_require__(2609));
+var _validate = _interopRequireDefault(__nccwpck_require__(8018));
 
-var _stringify = _interopRequireDefault(__nccwpck_require__(1458));
+var _stringify = _interopRequireDefault(__nccwpck_require__(9145));
 
-var _parse = _interopRequireDefault(__nccwpck_require__(6385));
+var _parse = _interopRequireDefault(__nccwpck_require__(3446));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 
-/***/ 5842:
+/***/ 9821:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1110,7 +1110,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 2381:
+/***/ 5121:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1125,7 +1125,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6385:
+/***/ 3446:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1136,7 +1136,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _validate = _interopRequireDefault(__nccwpck_require__(2609));
+var _validate = _interopRequireDefault(__nccwpck_require__(8018));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1177,7 +1177,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6230:
+/***/ 406:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1192,7 +1192,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 9784:
+/***/ 3628:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1223,7 +1223,7 @@ function rng() {
 
 /***/ }),
 
-/***/ 8844:
+/***/ 8163:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1253,7 +1253,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 1458:
+/***/ 9145:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1264,7 +1264,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _validate = _interopRequireDefault(__nccwpck_require__(2609));
+var _validate = _interopRequireDefault(__nccwpck_require__(8018));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1299,7 +1299,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 1595:
+/***/ 137:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1310,9 +1310,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _rng = _interopRequireDefault(__nccwpck_require__(9784));
+var _rng = _interopRequireDefault(__nccwpck_require__(3628));
 
-var _stringify = _interopRequireDefault(__nccwpck_require__(1458));
+var _stringify = _interopRequireDefault(__nccwpck_require__(9145));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1413,7 +1413,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6993:
+/***/ 5788:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1424,9 +1424,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _v = _interopRequireDefault(__nccwpck_require__(5920));
+var _v = _interopRequireDefault(__nccwpck_require__(1137));
 
-var _md = _interopRequireDefault(__nccwpck_require__(5842));
+var _md = _interopRequireDefault(__nccwpck_require__(9821));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1436,7 +1436,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 5920:
+/***/ 1137:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1448,9 +1448,9 @@ Object.defineProperty(exports, "__esModule", ({
 exports["default"] = _default;
 exports.URL = exports.DNS = void 0;
 
-var _stringify = _interopRequireDefault(__nccwpck_require__(1458));
+var _stringify = _interopRequireDefault(__nccwpck_require__(9145));
 
-var _parse = _interopRequireDefault(__nccwpck_require__(6385));
+var _parse = _interopRequireDefault(__nccwpck_require__(3446));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1521,7 +1521,7 @@ function _default(name, version, hashfunc) {
 
 /***/ }),
 
-/***/ 1472:
+/***/ 6354:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1532,9 +1532,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _rng = _interopRequireDefault(__nccwpck_require__(9784));
+var _rng = _interopRequireDefault(__nccwpck_require__(3628));
 
-var _stringify = _interopRequireDefault(__nccwpck_require__(1458));
+var _stringify = _interopRequireDefault(__nccwpck_require__(9145));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1565,7 +1565,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6217:
+/***/ 9458:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1576,9 +1576,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _v = _interopRequireDefault(__nccwpck_require__(5920));
+var _v = _interopRequireDefault(__nccwpck_require__(1137));
 
-var _sha = _interopRequireDefault(__nccwpck_require__(8844));
+var _sha = _interopRequireDefault(__nccwpck_require__(8163));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1588,7 +1588,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 2609:
+/***/ 8018:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1599,7 +1599,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _regex = _interopRequireDefault(__nccwpck_require__(6230));
+var _regex = _interopRequireDefault(__nccwpck_require__(406));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1612,7 +1612,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 427:
+/***/ 3125:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1623,7 +1623,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _validate = _interopRequireDefault(__nccwpck_require__(2609));
+var _validate = _interopRequireDefault(__nccwpck_require__(8018));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1640,7 +1640,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 5526:
+/***/ 7264:
 /***/ (function(__unused_webpack_module, exports) {
 
 "use strict";
@@ -1728,7 +1728,7 @@ exports.PersonalAccessTokenCredentialHandler = PersonalAccessTokenCredentialHand
 
 /***/ }),
 
-/***/ 6255:
+/***/ 9855:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -1766,8 +1766,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.HttpClient = exports.isHttps = exports.HttpClientResponse = exports.HttpClientError = exports.getProxyUrl = exports.MediaTypes = exports.Headers = exports.HttpCodes = void 0;
 const http = __importStar(__nccwpck_require__(3685));
 const https = __importStar(__nccwpck_require__(5687));
-const pm = __importStar(__nccwpck_require__(9835));
-const tunnel = __importStar(__nccwpck_require__(4294));
+const pm = __importStar(__nccwpck_require__(7262));
+const tunnel = __importStar(__nccwpck_require__(605));
 var HttpCodes;
 (function (HttpCodes) {
     HttpCodes[HttpCodes["OK"] = 200] = "OK";
@@ -2340,7 +2340,7 @@ const lowercaseKeys = (obj) => Object.keys(obj).reduce((c, k) => ((c[k.toLowerCa
 
 /***/ }),
 
-/***/ 9835:
+/***/ 7262:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -2408,11 +2408,11 @@ exports.checkBypass = checkBypass;
 
 /***/ }),
 
-/***/ 8291:
+/***/ 7934:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-__nccwpck_require__(3639);
-var AWS = __nccwpck_require__(8437);
+__nccwpck_require__(4025);
+var AWS = __nccwpck_require__(9811);
 var Service = AWS.Service;
 var apiLoader = AWS.apiLoader;
 
@@ -2433,17 +2433,17 @@ module.exports = AWS.CognitoIdentity;
 
 /***/ }),
 
-/***/ 3256:
+/***/ 7054:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-__nccwpck_require__(3639);
-var AWS = __nccwpck_require__(8437);
+__nccwpck_require__(4025);
+var AWS = __nccwpck_require__(9811);
 var Service = AWS.Service;
 var apiLoader = AWS.apiLoader;
 
 apiLoader.services['s3'] = {};
 AWS.S3 = Service.defineService('s3', ['2006-03-01']);
-__nccwpck_require__(6543);
+__nccwpck_require__(4795);
 Object.defineProperty(apiLoader.services['s3'], '2006-03-01', {
   get: function get() {
     var model = __nccwpck_require__(1129);
@@ -2460,17 +2460,17 @@ module.exports = AWS.S3;
 
 /***/ }),
 
-/***/ 7513:
+/***/ 8399:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-__nccwpck_require__(3639);
-var AWS = __nccwpck_require__(8437);
+__nccwpck_require__(4025);
+var AWS = __nccwpck_require__(9811);
 var Service = AWS.Service;
 var apiLoader = AWS.apiLoader;
 
 apiLoader.services['sts'] = {};
 AWS.STS = Service.defineService('sts', ['2011-06-15']);
-__nccwpck_require__(1055);
+__nccwpck_require__(6589);
 Object.defineProperty(apiLoader.services['sts'], '2011-06-15', {
   get: function get() {
     var model = __nccwpck_require__(753);
@@ -2486,7 +2486,7 @@ module.exports = AWS.STS;
 
 /***/ }),
 
-/***/ 2793:
+/***/ 3584:
 /***/ ((module) => {
 
 function apiLoader(svc, version) {
@@ -2512,12 +2512,12 @@ module.exports = apiLoader;
 
 /***/ }),
 
-/***/ 8110:
+/***/ 2549:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-__nccwpck_require__(3819);
-__nccwpck_require__(6965);
+var AWS = __nccwpck_require__(9811);
+__nccwpck_require__(5732);
+__nccwpck_require__(2255);
 var PromisesDependency;
 
 /**
@@ -3226,10 +3226,10 @@ AWS.config = new AWS.Config();
 
 /***/ }),
 
-/***/ 5566:
+/***/ 1856:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 /**
  * @api private
  */
@@ -3300,13 +3300,13 @@ module.exports = resolveRegionalEndpointsFlag;
 
 /***/ }),
 
-/***/ 8437:
+/***/ 9811:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /**
  * The main AWS namespace
  */
-var AWS = { util: __nccwpck_require__(7985) };
+var AWS = { util: __nccwpck_require__(9520) };
 
 /**
  * @api private
@@ -3325,7 +3325,7 @@ AWS.util.update(AWS, {
   /**
    * @constant
    */
-  VERSION: '2.1242.0',
+  VERSION: '2.1632.0',
 
   /**
    * @api private
@@ -3336,18 +3336,18 @@ AWS.util.update(AWS, {
    * @api private
    */
   Protocol: {
-    Json: __nccwpck_require__(83),
-    Query: __nccwpck_require__(761),
-    Rest: __nccwpck_require__(8200),
-    RestJson: __nccwpck_require__(5883),
-    RestXml: __nccwpck_require__(5143)
+    Json: __nccwpck_require__(6779),
+    Query: __nccwpck_require__(427),
+    Rest: __nccwpck_require__(5547),
+    RestJson: __nccwpck_require__(985),
+    RestXml: __nccwpck_require__(8273)
   },
 
   /**
    * @api private
    */
   XML: {
-    Builder: __nccwpck_require__(3546),
+    Builder: __nccwpck_require__(8903),
     Parser: null // conditionally set based on environment
   },
 
@@ -3355,41 +3355,42 @@ AWS.util.update(AWS, {
    * @api private
    */
   JSON: {
-    Builder: __nccwpck_require__(7495),
-    Parser: __nccwpck_require__(5474)
+    Builder: __nccwpck_require__(6775),
+    Parser: __nccwpck_require__(6851)
   },
 
   /**
    * @api private
    */
   Model: {
-    Api: __nccwpck_require__(7657),
-    Operation: __nccwpck_require__(8083),
-    Shape: __nccwpck_require__(1349),
-    Paginator: __nccwpck_require__(5938),
-    ResourceWaiter: __nccwpck_require__(1368)
+    Api: __nccwpck_require__(3449),
+    Operation: __nccwpck_require__(5767),
+    Shape: __nccwpck_require__(3145),
+    Paginator: __nccwpck_require__(8707),
+    ResourceWaiter: __nccwpck_require__(1879)
   },
 
   /**
    * @api private
    */
-  apiLoader: __nccwpck_require__(2793),
+  apiLoader: __nccwpck_require__(3584),
 
   /**
    * @api private
    */
-  EndpointCache: (__nccwpck_require__(6323)/* .EndpointCache */ .$)
+  EndpointCache: (__nccwpck_require__(5578)/* .EndpointCache */ .$)
 });
-__nccwpck_require__(5948);
-__nccwpck_require__(8903);
-__nccwpck_require__(8110);
-__nccwpck_require__(1556);
-__nccwpck_require__(4995);
-__nccwpck_require__(8652);
-__nccwpck_require__(8743);
-__nccwpck_require__(9925);
-__nccwpck_require__(9897);
-__nccwpck_require__(9127);
+__nccwpck_require__(9799);
+__nccwpck_require__(5930);
+__nccwpck_require__(2549);
+__nccwpck_require__(9906);
+__nccwpck_require__(1146);
+__nccwpck_require__(9252);
+__nccwpck_require__(4562);
+__nccwpck_require__(1673);
+__nccwpck_require__(8068);
+__nccwpck_require__(3939);
+__nccwpck_require__(3745);
 
 /**
  * @readonly
@@ -3416,10 +3417,10 @@ AWS.util.memoizedProperty(AWS, 'endpointCache', function() {
 
 /***/ }),
 
-/***/ 3819:
+/***/ 5732:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 
 /**
  * Represents your AWS security credentials, specifically the
@@ -3669,11 +3670,11 @@ AWS.util.addPromises(AWS.Credentials);
 
 /***/ }),
 
-/***/ 7083:
+/***/ 988:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var STS = __nccwpck_require__(7513);
+var AWS = __nccwpck_require__(9811);
+var STS = __nccwpck_require__(8399);
 
 /**
  * Represents temporary credentials retrieved from {AWS.STS}. Without any
@@ -3876,12 +3877,12 @@ AWS.ChainableTemporaryCredentials = AWS.util.inherit(AWS.Credentials, {
 
 /***/ }),
 
-/***/ 3498:
+/***/ 8750:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var CognitoIdentity = __nccwpck_require__(8291);
-var STS = __nccwpck_require__(7513);
+var AWS = __nccwpck_require__(9811);
+var CognitoIdentity = __nccwpck_require__(7934);
+var STS = __nccwpck_require__(8399);
 
 /**
  * Represents credentials retrieved from STS Web Identity Federation using
@@ -4268,10 +4269,10 @@ AWS.CognitoIdentityCredentials = AWS.util.inherit(AWS.Credentials, {
 
 /***/ }),
 
-/***/ 6965:
+/***/ 2255:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 
 /**
  * Creates a credential provider chain that searches for AWS credentials
@@ -4455,11 +4456,11 @@ AWS.util.addPromises(AWS.CredentialProviderChain);
 
 /***/ }),
 
-/***/ 3379:
+/***/ 5489:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-__nccwpck_require__(5768);
+var AWS = __nccwpck_require__(9811);
+__nccwpck_require__(7392);
 
 /**
  * Represents credentials received from the metadata service on an EC2 instance.
@@ -4480,6 +4481,7 @@ __nccwpck_require__(5768);
  *   maxRetries: 10, // retry 10 times
  *   retryDelayOptions: { base: 200 }, // see AWS.Config for information
  *   logger: console // see AWS.Config for information
+ *   ec2MetadataV1Disabled: false // whether to block IMDS v1 fallback.
  * });
  * ```
  *
@@ -4626,10 +4628,10 @@ AWS.EC2MetadataCredentials = AWS.util.inherit(AWS.Credentials, {
 
 /***/ }),
 
-/***/ 645:
+/***/ 1:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 
 /**
  * Represents credentials received from relative URI specified in the ECS container.
@@ -4661,10 +4663,10 @@ AWS.ECSCredentials = AWS.RemoteCredentials;
 
 /***/ }),
 
-/***/ 7714:
+/***/ 8517:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 
 /**
  * Represents credentials from the environment.
@@ -4759,10 +4761,10 @@ AWS.EnvironmentCredentials = AWS.util.inherit(AWS.Credentials, {
 
 /***/ }),
 
-/***/ 7454:
+/***/ 5444:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 
 /**
  * Represents credentials from a JSON file on disk.
@@ -4834,10 +4836,10 @@ AWS.FileSystemCredentials = AWS.util.inherit(AWS.Credentials, {
 
 /***/ }),
 
-/***/ 371:
+/***/ 5550:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var proc = __nccwpck_require__(2081);
 var iniLoader = AWS.util.iniLoader;
 
@@ -5006,16 +5008,19 @@ AWS.ProcessCredentials = AWS.util.inherit(AWS.Credentials, {
 
 /***/ }),
 
-/***/ 8764:
+/***/ 4253:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437),
+var fs = __nccwpck_require__(7147);
+
+var AWS = __nccwpck_require__(9811),
   ENV_RELATIVE_URI = 'AWS_CONTAINER_CREDENTIALS_RELATIVE_URI',
   ENV_FULL_URI = 'AWS_CONTAINER_CREDENTIALS_FULL_URI',
   ENV_AUTH_TOKEN = 'AWS_CONTAINER_AUTHORIZATION_TOKEN',
+  ENV_AUTH_TOKEN_FILE = 'AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE',
   FULL_URI_UNRESTRICTED_PROTOCOLS = ['https:'],
   FULL_URI_ALLOWED_PROTOCOLS = ['http:', 'https:'],
-  FULL_URI_ALLOWED_HOSTNAMES = ['localhost', '127.0.0.1'],
+  FULL_URI_ALLOWED_HOSTNAMES = ['localhost', '127.0.0.1', '169.254.170.23'],
   RELATIVE_URI_HOST = '169.254.170.2';
 
 /**
@@ -5124,7 +5129,16 @@ AWS.RemoteCredentials = AWS.util.inherit(AWS.Credentials, {
    * @api private
    */
   getECSAuthToken: function getECSAuthToken() {
-    if (process && process.env && process.env[ENV_FULL_URI]) {
+    if (process && process.env && (process.env[ENV_FULL_URI] || process.env[ENV_AUTH_TOKEN_FILE])) {
+      if (!process.env[ENV_AUTH_TOKEN] && process.env[ENV_AUTH_TOKEN_FILE]) {
+        try {
+          var data = fs.readFileSync(process.env[ENV_AUTH_TOKEN_FILE]).toString();
+          return data;
+        } catch (error) {
+          console.error('Error reading token file:', error);
+          throw error; // Re-throw the error to propagate it
+        }
+      }
       return process.env[ENV_AUTH_TOKEN];
     }
   },
@@ -5221,11 +5235,11 @@ AWS.RemoteCredentials = AWS.util.inherit(AWS.Credentials, {
 
 /***/ }),
 
-/***/ 5037:
+/***/ 2812:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var STS = __nccwpck_require__(7513);
+var AWS = __nccwpck_require__(9811);
+var STS = __nccwpck_require__(8399);
 
 /**
  * Represents credentials retrieved from STS SAML support.
@@ -5322,11 +5336,11 @@ AWS.SAMLCredentials = AWS.util.inherit(AWS.Credentials, {
 
 /***/ }),
 
-/***/ 3754:
+/***/ 8253:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var STS = __nccwpck_require__(7513);
+var AWS = __nccwpck_require__(9811);
+var STS = __nccwpck_require__(8399);
 var iniLoader = AWS.util.iniLoader;
 
 var ASSUME_ROLE_DEFAULT_REGION = 'us-east-1';
@@ -5519,6 +5533,7 @@ AWS.SharedIniFileCredentials = AWS.util.inherit(AWS.Credentials, {
     var externalId = roleProfile['external_id'];
     var mfaSerial = roleProfile['mfa_serial'];
     var sourceProfileName = roleProfile['source_profile'];
+    var durationSeconds = parseInt(roleProfile['duration_seconds'], 10) || undefined;
 
     // From experimentation, the following behavior mimics the AWS CLI:
     //
@@ -5573,6 +5588,7 @@ AWS.SharedIniFileCredentials = AWS.util.inherit(AWS.Credentials, {
     });
 
     var roleParams = {
+      DurationSeconds: durationSeconds,
       RoleArn: roleArn,
       RoleSessionName: roleSessionName || 'aws-sdk-js-' + Date.now()
     };
@@ -5611,10 +5627,10 @@ AWS.SharedIniFileCredentials = AWS.util.inherit(AWS.Credentials, {
 
 /***/ }),
 
-/***/ 8335:
+/***/ 5076:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var path = __nccwpck_require__(1017);
 var crypto = __nccwpck_require__(6113);
 var iniLoader = AWS.util.iniLoader;
@@ -5627,11 +5643,22 @@ var iniLoader = AWS.util.iniLoader;
  *
  * The credentials file must specify the information below to use sso:
  *
- *     [default]
+ *     [profile sso-profile]
  *     sso_account_id = 012345678901
- *     sso_region = us-east-1
+ *     sso_region = **-****-*
  *     sso_role_name = SampleRole
- *     sso_start_url = https://d-abc123.awsapps.com/start
+ *     sso_start_url = https://d-******.awsapps.com/start
+ *
+ * or using the session format:
+ *
+ *     [profile sso-token]
+ *     sso_session = prod
+ *     sso_account_id = 012345678901
+ *     sso_role_name = SampleRole
+ *
+ *     [sso-session prod]
+ *     sso_region = **-****-*
+ *     sso_start_url = https://d-******.awsapps.com/start
  *
  * This information will be automatically added to your shared credentials file by running
  * `aws configure sso`.
@@ -5684,14 +5711,8 @@ AWS.SsoCredentials = AWS.util.inherit(AWS.Credentials, {
    * @api private
    */
   load: function load(callback) {
-    /**
-     * The time window (15 mins) that SDK will treat the SSO token expires in before the defined expiration date in token.
-     * This is needed because server side may have invalidated the token before the defined expiration date.
-     *
-     * @internal
-     */
-    var EXPIRE_WINDOW_MS = 15 * 60 * 1000;
     var self = this;
+
     try {
       var profiles = AWS.util.getProfilesFromSharedConfig(iniLoader, this.filename);
       var profile = profiles[this.profile] || {};
@@ -5703,17 +5724,107 @@ AWS.SsoCredentials = AWS.util.inherit(AWS.Credentials, {
         );
       }
 
-      if (!profile.sso_start_url || !profile.sso_account_id || !profile.sso_region || !profile.sso_role_name) {
-        throw AWS.util.error(
-          new Error('Profile ' + this.profile + ' does not have valid SSO credentials. Required parameters "sso_account_id", "sso_region", ' +
-          '"sso_role_name", "sso_start_url". Reference: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html'),
-          { code: self.errorCode }
-        );
+      if (profile.sso_session) {
+        if (!profile.sso_account_id || !profile.sso_role_name) {
+          throw AWS.util.error(
+            new Error('Profile ' + this.profile + ' with session ' + profile.sso_session +
+              ' does not have valid SSO credentials. Required parameters "sso_account_id", "sso_session", ' +
+              '"sso_role_name". Reference: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html'),
+            { code: self.errorCode }
+          );
+        }
+      } else {
+        if (!profile.sso_start_url || !profile.sso_account_id || !profile.sso_region || !profile.sso_role_name) {
+          throw AWS.util.error(
+            new Error('Profile ' + this.profile + ' does not have valid SSO credentials. Required parameters "sso_account_id", "sso_region", ' +
+            '"sso_role_name", "sso_start_url". Reference: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html'),
+            { code: self.errorCode }
+          );
+        }
       }
 
+      this.getToken(this.profile, profile, function (err, token) {
+        if (err) {
+          return callback(err);
+        }
+        var request = {
+          accessToken: token,
+          accountId: profile.sso_account_id,
+          roleName: profile.sso_role_name,
+        };
+
+        if (!self.service || self.service.config.region !== profile.sso_region) {
+          self.service = new AWS.SSO({
+            region: profile.sso_region,
+            httpOptions: self.httpOptions,
+          });
+        }
+
+        self.service.getRoleCredentials(request, function(err, data) {
+          if (err || !data || !data.roleCredentials) {
+            callback(AWS.util.error(
+              err || new Error('Please log in using "aws sso login"'),
+              { code: self.errorCode }
+            ), null);
+          } else if (!data.roleCredentials.accessKeyId || !data.roleCredentials.secretAccessKey || !data.roleCredentials.sessionToken || !data.roleCredentials.expiration) {
+            throw AWS.util.error(new Error(
+              'SSO returns an invalid temporary credential.'
+            ));
+          } else {
+            self.expired = false;
+            self.accessKeyId = data.roleCredentials.accessKeyId;
+            self.secretAccessKey = data.roleCredentials.secretAccessKey;
+            self.sessionToken = data.roleCredentials.sessionToken;
+            self.expireTime = new Date(data.roleCredentials.expiration);
+            callback(null);
+          }
+        });
+      });
+    } catch (err) {
+      callback(err);
+    }
+  },
+
+  /**
+   * @private
+   * Uses legacy file system retrieval or if sso-session is set,
+   * use the SSOTokenProvider.
+   *
+   * @param {string} profileName - name of the profile.
+   * @param {object} profile - profile data containing sso_session or sso_start_url etc.
+   * @param {function} callback - called with (err, (string) token).
+   *
+   * @returns {void}
+   */
+  getToken: function getToken(profileName, profile, callback) {
+    var self = this;
+
+    if (profile.sso_session) {
+      var _iniLoader = AWS.util.iniLoader;
+      var ssoSessions = _iniLoader.loadSsoSessionsFrom();
+      var ssoSession = ssoSessions[profile.sso_session];
+      Object.assign(profile, ssoSession);
+
+      var ssoTokenProvider = new AWS.SSOTokenProvider({
+        profile: profileName,
+      });
+      ssoTokenProvider.get(function (err) {
+        if (err) {
+          return callback(err);
+        }
+        return callback(null, ssoTokenProvider.token);
+      });
+      return;
+    }
+
+    try {
+      /**
+       * The time window (15 mins) that SDK will treat the SSO token expires in before the defined expiration date in token.
+       * This is needed because server side may have invalidated the token before the defined expiration date.
+       */
+      var EXPIRE_WINDOW_MS = 15 * 60 * 1000;
       var hasher = crypto.createHash('sha1');
       var fileName = hasher.update(profile.sso_start_url).digest('hex') + '.json';
-
       var cachePath = path.join(
         iniLoader.getHomeDir(),
         '.aws',
@@ -5726,7 +5837,6 @@ AWS.SsoCredentials = AWS.util.inherit(AWS.Credentials, {
       if (cacheFile) {
         cacheContent = JSON.parse(cacheFile);
       }
-
       if (!cacheContent) {
         throw AWS.util.error(
           new Error('Cached credentials not found under ' + this.profile + ' profile. Please make sure you log in with aws sso login first'),
@@ -5746,38 +5856,9 @@ AWS.SsoCredentials = AWS.util.inherit(AWS.Credentials, {
         ));
       }
 
-      if (!self.service || self.service.config.region !== profile.sso_region) {
-        self.service = new AWS.SSO({
-          region: profile.sso_region,
-          httpOptions: this.httpOptions,
-        });
-      }
-      var request = {
-        accessToken: cacheContent.accessToken,
-        accountId: profile.sso_account_id,
-        roleName: profile.sso_role_name,
-      };
-      self.service.getRoleCredentials(request, function(err, data) {
-        if (err || !data || !data.roleCredentials) {
-          callback(AWS.util.error(
-            err || new Error('Please log in using "aws sso login"'),
-            { code: self.errorCode }
-          ), null);
-        } else if (!data.roleCredentials.accessKeyId || !data.roleCredentials.secretAccessKey || !data.roleCredentials.sessionToken || !data.roleCredentials.expiration) {
-          throw AWS.util.error(new Error(
-            'SSO returns an invalid temporary credential.'
-          ));
-        } else {
-          self.expired = false;
-          self.accessKeyId = data.roleCredentials.accessKeyId;
-          self.secretAccessKey = data.roleCredentials.secretAccessKey;
-          self.sessionToken = data.roleCredentials.sessionToken;
-          self.expireTime = new Date(data.roleCredentials.expiration);
-          callback(null);
-        }
-      });
+      return callback(null, cacheContent.accessToken);
     } catch (err) {
-      callback(err);
+      return callback(err, null);
     }
   },
 
@@ -5801,11 +5882,11 @@ AWS.SsoCredentials = AWS.util.inherit(AWS.Credentials, {
 
 /***/ }),
 
-/***/ 7360:
+/***/ 1051:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var STS = __nccwpck_require__(7513);
+var AWS = __nccwpck_require__(9811);
+var STS = __nccwpck_require__(8399);
 
 /**
  * Represents temporary credentials retrieved from {AWS.STS}. Without any
@@ -5937,12 +6018,12 @@ AWS.TemporaryCredentials = AWS.util.inherit(AWS.Credentials, {
 
 /***/ }),
 
-/***/ 4420:
+/***/ 1459:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var fs = __nccwpck_require__(7147);
-var STS = __nccwpck_require__(7513);
+var STS = __nccwpck_require__(8399);
 var iniLoader = AWS.util.iniLoader;
 
 /**
@@ -6151,11 +6232,11 @@ AWS.TokenFileWebIdentityCredentials = AWS.util.inherit(AWS.Credentials, {
 
 /***/ }),
 
-/***/ 4998:
+/***/ 3925:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var STS = __nccwpck_require__(7513);
+var AWS = __nccwpck_require__(9811);
+var STS = __nccwpck_require__(8399);
 
 /**
  * Represents credentials retrieved from STS Web Identity Federation support.
@@ -6273,11 +6354,11 @@ AWS.WebIdentityCredentials = AWS.util.inherit(AWS.Credentials, {
 
 /***/ }),
 
-/***/ 5313:
+/***/ 1052:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var util = __nccwpck_require__(7985);
+var AWS = __nccwpck_require__(9811);
+var util = __nccwpck_require__(9520);
 var endpointDiscoveryEnabledEnvs = ['AWS_ENABLE_ENDPOINT_DISCOVERY', 'AWS_ENDPOINT_DISCOVERY_ENABLED'];
 
 /**
@@ -6657,11 +6738,11 @@ module.exports = {
 
 /***/ }),
 
-/***/ 3727:
+/***/ 6118:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var eventMessageChunker = (__nccwpck_require__(3630).eventMessageChunker);
-var parseEvent = (__nccwpck_require__(2123).parseEvent);
+var eventMessageChunker = (__nccwpck_require__(280).eventMessageChunker);
+var parseEvent = (__nccwpck_require__(7280).parseEvent);
 
 function createEventStream(body, parser, model) {
     var eventMessages = eventMessageChunker(body);
@@ -6685,10 +6766,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ 8518:
+/***/ 2735:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util = (__nccwpck_require__(8437).util);
+var util = (__nccwpck_require__(9811).util);
 var Transform = (__nccwpck_require__(2781).Transform);
 var allocBuffer = util.buffer.alloc;
 
@@ -6813,7 +6894,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 3630:
+/***/ 280:
 /***/ ((module) => {
 
 /**
@@ -6850,11 +6931,11 @@ module.exports = {
 
 /***/ }),
 
-/***/ 3773:
+/***/ 9342:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var Transform = (__nccwpck_require__(2781).Transform);
-var parseEvent = (__nccwpck_require__(2123).parseEvent);
+var parseEvent = (__nccwpck_require__(7280).parseEvent);
 
 /** @type {Transform} */
 function EventUnmarshallerStream(options) {
@@ -6896,10 +6977,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ 8583:
+/***/ 5833:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util = (__nccwpck_require__(8437).util);
+var util = (__nccwpck_require__(9811).util);
 var toBuffer = util.buffer.toBuffer;
 
 /**
@@ -6996,10 +7077,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ 2123:
+/***/ 7280:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var parseMessage = (__nccwpck_require__(866).parseMessage);
+var parseMessage = (__nccwpck_require__(7871).parseMessage);
 
 /**
  *
@@ -7076,12 +7157,12 @@ module.exports = {
 
 /***/ }),
 
-/***/ 866:
+/***/ 7871:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var Int64 = (__nccwpck_require__(8583).Int64);
+var Int64 = (__nccwpck_require__(5833).Int64);
 
-var splitMessage = (__nccwpck_require__(1765).splitMessage);
+var splitMessage = (__nccwpck_require__(4189).splitMessage);
 
 var BOOLEAN_TAG = 'boolean';
 var BYTE_TAG = 'byte';
@@ -7211,10 +7292,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ 1765:
+/***/ 4189:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util = (__nccwpck_require__(8437).util);
+var util = (__nccwpck_require__(9811).util);
 var toBuffer = util.buffer.toBuffer;
 
 // All prelude components are unsigned, 32-bit integers
@@ -7288,7 +7369,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 9643:
+/***/ 1748:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /**
@@ -7298,8 +7379,8 @@ module.exports = {
  *  - event stream model
  */
 
-var EventMessageChunkerStream = (__nccwpck_require__(8518).EventMessageChunkerStream);
-var EventUnmarshallerStream = (__nccwpck_require__(3773).EventUnmarshallerStream);
+var EventMessageChunkerStream = (__nccwpck_require__(2735).EventMessageChunkerStream);
+var EventUnmarshallerStream = (__nccwpck_require__(9342).EventUnmarshallerStream);
 
 function createEventStream(stream, parser, model) {
     var eventStream = new EventUnmarshallerStream({
@@ -7334,12 +7415,12 @@ module.exports = {
 
 /***/ }),
 
-/***/ 4995:
+/***/ 1146:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var SequentialExecutor = __nccwpck_require__(5948);
-var DISCOVER_ENDPOINT = (__nccwpck_require__(5313).discoverEndpoint);
+var AWS = __nccwpck_require__(9811);
+var SequentialExecutor = __nccwpck_require__(9799);
+var DISCOVER_ENDPOINT = (__nccwpck_require__(1052).discoverEndpoint);
 /**
  * The namespace used to register global event listeners for request building
  * and sending.
@@ -7412,18 +7493,52 @@ function getOperationAuthtype(req) {
   return operation ? operation.authtype : '';
 }
 
+/**
+ * @api private
+ */
+function getIdentityType(req) {
+  var service = req.service;
+
+  if (service.config.signatureVersion) {
+    return service.config.signatureVersion;
+  }
+
+  if (service.api.signatureVersion) {
+    return service.api.signatureVersion;
+  }
+
+  return getOperationAuthtype(req);
+}
+
 AWS.EventListeners = {
   Core: new SequentialExecutor().addNamedListeners(function(add, addAsync) {
-    addAsync('VALIDATE_CREDENTIALS', 'validate',
-        function VALIDATE_CREDENTIALS(req, done) {
-      if (!req.service.api.signatureVersion && !req.service.config.signatureVersion) return done(); // none
-      req.service.config.getCredentials(function(err) {
-        if (err) {
-          req.response.error = AWS.util.error(err,
-            {code: 'CredentialsError', message: 'Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1'});
+    addAsync(
+      'VALIDATE_CREDENTIALS', 'validate',
+      function VALIDATE_CREDENTIALS(req, done) {
+        if (!req.service.api.signatureVersion && !req.service.config.signatureVersion) return done(); // none
+
+        var identityType = getIdentityType(req);
+        if (identityType === 'bearer') {
+          req.service.config.getToken(function(err) {
+            if (err) {
+              req.response.error = AWS.util.error(err, {code: 'TokenError'});
+            }
+            done();
+          });
+          return;
         }
-        done();
-      });
+
+        req.service.config.getCredentials(function(err) {
+          if (err) {
+            req.response.error = AWS.util.error(err,
+              {
+                code: 'CredentialsError',
+                message: 'Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1'
+              }
+            );
+          }
+          done();
+        });
     });
 
     add('VALIDATE_REGION', 'validate', function VALIDATE_REGION(req) {
@@ -7589,12 +7704,10 @@ AWS.EventListeners = {
 
     addAsync('SIGN', 'sign', function SIGN(req, done) {
       var service = req.service;
-      var operations = req.service.api.operations || {};
-      var operation = operations[req.operation];
-      var authtype = operation ? operation.authtype : '';
-      if (!service.api.signatureVersion && !authtype && !service.config.signatureVersion) return done(); // none
+      var identityType = getIdentityType(req);
+      if (!identityType || identityType.length === 0) return done(); // none
 
-      if (authtype === 'bearer' || service.config.signatureVersion === 'bearer') {
+      if (identityType === 'bearer') {
         service.config.getToken(function (err, token) {
           if (err) {
             req.response.error = err;
@@ -7620,6 +7733,8 @@ AWS.EventListeners = {
           try {
             var date = service.getSkewCorrectedDate();
             var SignerClass = service.getSignerClass(req);
+            var operations = req.service.api.operations || {};
+            var operation = operations[req.operation];
             var signer = new SignerClass(req.httpRequest,
               service.getSigningName(req),
               {
@@ -7859,6 +7974,7 @@ AWS.EventListeners = {
         this.httpRequest.endpoint =
           new AWS.Endpoint(resp.httpResponse.headers['location']);
         this.httpRequest.headers['Host'] = this.httpRequest.endpoint.host;
+        this.httpRequest.path = this.httpRequest.endpoint.path;
         resp.error.redirect = true;
         resp.error.retryable = true;
       }
@@ -8000,21 +8116,21 @@ AWS.EventListeners = {
   }),
 
   Json: new SequentialExecutor().addNamedListeners(function(add) {
-    var svc = __nccwpck_require__(83);
+    var svc = __nccwpck_require__(6779);
     add('BUILD', 'build', svc.buildRequest);
     add('EXTRACT_DATA', 'extractData', svc.extractData);
     add('EXTRACT_ERROR', 'extractError', svc.extractError);
   }),
 
   Rest: new SequentialExecutor().addNamedListeners(function(add) {
-    var svc = __nccwpck_require__(8200);
+    var svc = __nccwpck_require__(5547);
     add('BUILD', 'build', svc.buildRequest);
     add('EXTRACT_DATA', 'extractData', svc.extractData);
     add('EXTRACT_ERROR', 'extractError', svc.extractError);
   }),
 
   RestJson: new SequentialExecutor().addNamedListeners(function(add) {
-    var svc = __nccwpck_require__(5883);
+    var svc = __nccwpck_require__(985);
     add('BUILD', 'build', svc.buildRequest);
     add('EXTRACT_DATA', 'extractData', svc.extractData);
     add('EXTRACT_ERROR', 'extractError', svc.extractError);
@@ -8022,14 +8138,14 @@ AWS.EventListeners = {
   }),
 
   RestXml: new SequentialExecutor().addNamedListeners(function(add) {
-    var svc = __nccwpck_require__(5143);
+    var svc = __nccwpck_require__(8273);
     add('BUILD', 'build', svc.buildRequest);
     add('EXTRACT_DATA', 'extractData', svc.extractData);
     add('EXTRACT_ERROR', 'extractError', svc.extractError);
   }),
 
   Query: new SequentialExecutor().addNamedListeners(function(add) {
-    var svc = __nccwpck_require__(761);
+    var svc = __nccwpck_require__(427);
     add('BUILD', 'build', svc.buildRequest);
     add('EXTRACT_DATA', 'extractData', svc.extractData);
     add('EXTRACT_ERROR', 'extractError', svc.extractError);
@@ -8039,10 +8155,10 @@ AWS.EventListeners = {
 
 /***/ }),
 
-/***/ 1556:
+/***/ 9906:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var inherit = AWS.util.inherit;
 
 /**
@@ -8284,14 +8400,14 @@ AWS.HttpClient.getInstance = function getInstance() {
 
 /***/ }),
 
-/***/ 2310:
+/***/ 2213:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var Stream = AWS.util.stream.Stream;
 var TransformStream = AWS.util.stream.Transform;
 var ReadableStream = AWS.util.stream.Readable;
-__nccwpck_require__(1556);
+__nccwpck_require__(9906);
 var CONNECTION_REUSE_ENV_NAME = 'AWS_NODEJS_CONNECTION_REUSE_ENABLED';
 
 /**
@@ -8321,13 +8437,14 @@ AWS.NodeHttpClient = AWS.util.inherit({
       path: pathPrefix + httpRequest.path
     };
 
+    AWS.util.update(options, httpOptions);
+
     if (!httpOptions.agent) {
       options.agent = this.getAgent(useSSL, {
         keepAlive: process.env[CONNECTION_REUSE_ENV_NAME] === '1' ? true : false
       });
     }
 
-    AWS.util.update(options, httpOptions);
     delete options.proxy; // proxy isn't an HTTP option
     delete options.timeout; // timeout isn't an HTTP option
 
@@ -8509,10 +8626,10 @@ AWS.HttpClient.streamsApiVersion = ReadableStream ? 2 : 1;
 
 /***/ }),
 
-/***/ 7495:
+/***/ 6775:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util = __nccwpck_require__(7985);
+var util = __nccwpck_require__(9520);
 
 function JsonBuilder() { }
 
@@ -8578,10 +8695,10 @@ module.exports = JsonBuilder;
 
 /***/ }),
 
-/***/ 5474:
+/***/ 6851:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util = __nccwpck_require__(7985);
+var util = __nccwpck_require__(9520);
 
 function JsonParser() { }
 
@@ -8606,12 +8723,17 @@ function translateStructure(structure, shape) {
 
   var struct = {};
   var shapeMembers = shape.members;
+  var isAwsQueryCompatible = shape.api && shape.api.awsQueryCompatible;
   util.each(shapeMembers, function(name, memberShape) {
     var locationName = memberShape.isLocationName ? memberShape.name : name;
     if (Object.prototype.hasOwnProperty.call(structure, locationName)) {
       var value = structure[locationName];
       var result = translate(value, memberShape);
       if (result !== undefined) struct[name] = result;
+    } else if (isAwsQueryCompatible && memberShape.defaultValue) {
+      if (memberShape.type === 'list') {
+        struct[name] = typeof memberShape.defaultValue === 'function' ? memberShape.defaultValue() : memberShape.defaultValue;
+      }
     }
   });
   return struct;
@@ -8653,13 +8775,68 @@ module.exports = JsonParser;
 
 /***/ }),
 
-/***/ 5768:
+/***/ 3745:
+/***/ ((module) => {
+
+var warning = [
+  'The AWS SDK for JavaScript (v2) will enter maintenance mode',
+  'on September 8, 2024 and reach end-of-support on September 8, 2025.\n',
+  'Please migrate your code to use AWS SDK for JavaScript (v3).',
+  'For more information, check blog post at https://a.co/cUPnyil'
+].join('\n');
+
+module.exports = {
+  suppress: false
+};
+
+/**
+ * To suppress this message:
+ * @example
+ * require('aws-sdk/lib/maintenance_mode_message').suppress = true;
+ */
+function emitWarning() {
+  if (typeof process === 'undefined')
+    return;
+
+  // Skip maintenance mode message in Lambda environments
+  if (
+    typeof process.env === 'object' &&
+    typeof process.env.AWS_EXECUTION_ENV !== 'undefined' &&
+    process.env.AWS_EXECUTION_ENV.indexOf('AWS_Lambda_') === 0
+  ) {
+    return;
+  }
+
+  if (
+    typeof process.env === 'object' &&
+    typeof process.env.AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE !== 'undefined'
+  ) {
+    return;
+  }
+
+  if (typeof process.emitWarning === 'function') {
+    process.emitWarning(warning, {
+      type: 'NOTE'
+    });
+  }
+}
+
+setTimeout(function () {
+  if (!module.exports.suppress) {
+    emitWarning();
+  }
+}, 0);
+
+
+/***/ }),
+
+/***/ 7392:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-__nccwpck_require__(1556);
+var AWS = __nccwpck_require__(9811);
+__nccwpck_require__(9906);
 var inherit = AWS.util.inherit;
-var getMetadataServiceEndpoint = __nccwpck_require__(608);
+var getMetadataServiceEndpoint = __nccwpck_require__(6518);
 var URL = (__nccwpck_require__(7310).URL);
 
 /**
@@ -8716,12 +8893,18 @@ AWS.MetadataService = inherit({
    *   perform for timeout errors
    * @option options retryDelayOptions [map] A set of options to configure the
    *   retry delay on retryable errors. See AWS.Config for details.
+   * @option options ec2MetadataV1Disabled [boolean] Whether to block IMDS v1 fallback.
+   * @option options profile [string] A profile to check for IMDSv1 fallback settings.
+   * @option options filename [string] Optional filename for the config file.
    */
   constructor: function MetadataService(options) {
     if (options && options.host) {
       options.endpoint = 'http://' + options.host;
       delete options.host;
     }
+    this.profile = options && options.profile || process.env.AWS_PROFILE || AWS.util.defaultProfile;
+    this.ec2MetadataV1Disabled = !!(options && options.ec2MetadataV1Disabled);
+    this.filename = options && options.filename;
     AWS.util.update(this, options);
   },
 
@@ -8772,9 +8955,8 @@ AWS.MetadataService = inherit({
   loadCredentialsCallbacks: [],
 
   /**
-   * Fetches metadata token used for getting credentials
+   * Fetches metadata token used for authenticating against the instance metadata service.
    *
-   * @api private
    * @callback callback function(err, token)
    *   Called when token is loaded from the resource
    */
@@ -8803,6 +8985,36 @@ AWS.MetadataService = inherit({
   fetchCredentials: function fetchCredentials(options, cb) {
     var self = this;
     var basePath = '/latest/meta-data/iam/security-credentials/';
+
+    var isImdsV1Fallback = self.disableFetchToken
+      || !(options && options.headers && options.headers['x-aws-ec2-metadata-token']);
+
+    if (isImdsV1Fallback && !(process.env.AWS_EC2_METADATA_DISABLED)) {
+      try {
+        var profiles = AWS.util.getProfilesFromSharedConfig(AWS.util.iniLoader, this.filename);
+        var profileSettings = profiles[this.profile] || {};
+      } catch (e) {
+        profileSettings = {};
+      }
+
+      if (profileSettings.ec2_metadata_v1_disabled && profileSettings.ec2_metadata_v1_disabled !== 'false') {
+        return cb(AWS.util.error(
+          new Error('AWS EC2 Metadata v1 fallback has been blocked by AWS config file profile.')
+        ));
+      }
+
+      if (self.ec2MetadataV1Disabled) {
+        return cb(AWS.util.error(
+          new Error('AWS EC2 Metadata v1 fallback has been blocked by AWS.MetadataService::options.ec2MetadataV1Disabled=true.')
+        ));
+      }
+
+      if (process.env.AWS_EC2_METADATA_V1_DISABLED && process.env.AWS_EC2_METADATA_V1_DISABLED !== 'false') {
+        return cb(AWS.util.error(
+          new Error('AWS EC2 Metadata v1 fallback has been blocked by process.env.AWS_EC2_METADATA_V1_DISABLED.')
+        ));
+      }
+    }
 
     self.request(basePath, options, function (err, roleName) {
       if (err) {
@@ -8905,7 +9117,7 @@ module.exports = AWS.MetadataService;
 
 /***/ }),
 
-/***/ 3205:
+/***/ 6277:
 /***/ ((module) => {
 
 var getEndpoint = function() {
@@ -8920,7 +9132,7 @@ module.exports = getEndpoint;
 
 /***/ }),
 
-/***/ 5578:
+/***/ 2567:
 /***/ ((module) => {
 
 var ENV_ENDPOINT_NAME = 'AWS_EC2_METADATA_SERVICE_ENDPOINT';
@@ -8939,7 +9151,7 @@ module.exports = getEndpointConfigOptions;
 
 /***/ }),
 
-/***/ 7997:
+/***/ 7213:
 /***/ ((module) => {
 
 var getEndpointMode = function() {
@@ -8954,10 +9166,10 @@ module.exports = getEndpointMode;
 
 /***/ }),
 
-/***/ 5509:
+/***/ 291:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var EndpointMode = __nccwpck_require__(7997)();
+var EndpointMode = __nccwpck_require__(7213)();
 
 var ENV_ENDPOINT_MODE_NAME = 'AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE';
 var CONFIG_ENDPOINT_MODE_NAME = 'ec2_metadata_service_endpoint_mode';
@@ -8975,16 +9187,16 @@ module.exports = getEndpointModeConfigOptions;
 
 /***/ }),
 
-/***/ 608:
+/***/ 6518:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 
-var Endpoint = __nccwpck_require__(3205)();
-var EndpointMode = __nccwpck_require__(7997)();
+var Endpoint = __nccwpck_require__(6277)();
+var EndpointMode = __nccwpck_require__(7213)();
 
-var ENDPOINT_CONFIG_OPTIONS = __nccwpck_require__(5578)();
-var ENDPOINT_MODE_CONFIG_OPTIONS = __nccwpck_require__(5509)();
+var ENDPOINT_CONFIG_OPTIONS = __nccwpck_require__(2567)();
+var ENDPOINT_MODE_CONFIG_OPTIONS = __nccwpck_require__(291)();
 
 var getMetadataServiceEndpoint = function() {
   var endpoint = AWS.util.loadConfig(ENDPOINT_CONFIG_OPTIONS);
@@ -9006,17 +9218,17 @@ module.exports = getMetadataServiceEndpoint;
 
 /***/ }),
 
-/***/ 7657:
+/***/ 3449:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var Collection = __nccwpck_require__(1965);
-var Operation = __nccwpck_require__(8083);
-var Shape = __nccwpck_require__(1349);
-var Paginator = __nccwpck_require__(5938);
-var ResourceWaiter = __nccwpck_require__(1368);
+var Collection = __nccwpck_require__(8522);
+var Operation = __nccwpck_require__(5767);
+var Shape = __nccwpck_require__(3145);
+var Paginator = __nccwpck_require__(8707);
+var ResourceWaiter = __nccwpck_require__(1879);
 var metadata = __nccwpck_require__(7752);
 
-var util = __nccwpck_require__(7985);
+var util = __nccwpck_require__(9520);
 var property = util.property;
 var memoizedProperty = util.memoizedProperty;
 
@@ -9102,10 +9314,10 @@ module.exports = Api;
 
 /***/ }),
 
-/***/ 1965:
+/***/ 8522:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var memoizedProperty = (__nccwpck_require__(7985).memoizedProperty);
+var memoizedProperty = (__nccwpck_require__(9520).memoizedProperty);
 
 function memoize(name, value, factory, nameTr) {
   memoizedProperty(this, nameTr(name), function() {
@@ -9133,12 +9345,12 @@ module.exports = Collection;
 
 /***/ }),
 
-/***/ 8083:
+/***/ 5767:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var Shape = __nccwpck_require__(1349);
+var Shape = __nccwpck_require__(3145);
 
-var util = __nccwpck_require__(7985);
+var util = __nccwpck_require__(9520);
 var property = util.property;
 var memoizedProperty = util.memoizedProperty;
 
@@ -9259,10 +9471,10 @@ module.exports = Operation;
 
 /***/ }),
 
-/***/ 5938:
+/***/ 8707:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var property = (__nccwpck_require__(7985).property);
+var property = (__nccwpck_require__(9520).property);
 
 function Paginator(name, paginator) {
   property(this, 'inputToken', paginator.input_token);
@@ -9280,10 +9492,10 @@ module.exports = Paginator;
 
 /***/ }),
 
-/***/ 1368:
+/***/ 1879:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util = __nccwpck_require__(7985);
+var util = __nccwpck_require__(9520);
 var property = util.property;
 
 function ResourceWaiter(name, waiter, options) {
@@ -9320,12 +9532,12 @@ module.exports = ResourceWaiter;
 
 /***/ }),
 
-/***/ 1349:
+/***/ 3145:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var Collection = __nccwpck_require__(1965);
+var Collection = __nccwpck_require__(8522);
 
-var util = __nccwpck_require__(7985);
+var util = __nccwpck_require__(9520);
 
 function property(obj, name, value) {
   if (value !== null && value !== undefined) {
@@ -9734,12 +9946,12 @@ module.exports = Shape;
 
 /***/ }),
 
-/***/ 3639:
+/***/ 4025:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util = __nccwpck_require__(7985);
+var util = __nccwpck_require__(9520);
 
-var region_utils = __nccwpck_require__(9517);
+var region_utils = __nccwpck_require__(9470);
 var isFipsRegion = region_utils.isFipsRegion;
 var getRealRegion = region_utils.getRealRegion;
 
@@ -9749,19 +9961,19 @@ util.isNode = function() { return true; };
 // node.js specific modules
 util.crypto.lib = __nccwpck_require__(6113);
 util.Buffer = (__nccwpck_require__(4300).Buffer);
-util.domain = __nccwpck_require__(22);
+util.domain = __nccwpck_require__(3639);
 util.stream = __nccwpck_require__(2781);
 util.url = __nccwpck_require__(7310);
 util.querystring = __nccwpck_require__(3477);
 util.environment = 'nodejs';
 util.createEventStream = util.stream.Readable ?
-  (__nccwpck_require__(9643).createEventStream) : (__nccwpck_require__(3727).createEventStream);
-util.realClock = __nccwpck_require__(1370);
+  (__nccwpck_require__(1748).createEventStream) : (__nccwpck_require__(6118).createEventStream);
+util.realClock = __nccwpck_require__(4982);
 util.clientSideMonitoring = {
-  Publisher: (__nccwpck_require__(6807).Publisher),
-  configProvider: __nccwpck_require__(1822),
+  Publisher: (__nccwpck_require__(7705).Publisher),
+  configProvider: __nccwpck_require__(2358),
 };
-util.iniLoader = (__nccwpck_require__(9697)/* .iniLoader */ .b);
+util.iniLoader = (__nccwpck_require__(2840)/* .iniLoader */ .b);
 util.getSystemErrorName = (__nccwpck_require__(3837).getSystemErrorName);
 
 util.loadConfig = function(options) {
@@ -9796,35 +10008,35 @@ var AWS;
 /**
  * @api private
  */
-module.exports = AWS = __nccwpck_require__(8437);
+module.exports = AWS = __nccwpck_require__(9811);
 
-__nccwpck_require__(3819);
-__nccwpck_require__(6965);
-__nccwpck_require__(7360);
-__nccwpck_require__(7083);
-__nccwpck_require__(4998);
-__nccwpck_require__(3498);
-__nccwpck_require__(5037);
-__nccwpck_require__(371);
+__nccwpck_require__(5732);
+__nccwpck_require__(2255);
+__nccwpck_require__(1051);
+__nccwpck_require__(988);
+__nccwpck_require__(3925);
+__nccwpck_require__(8750);
+__nccwpck_require__(2812);
+__nccwpck_require__(5550);
 
 // Load the xml2js XML parser
-AWS.XML.Parser = __nccwpck_require__(6752);
+AWS.XML.Parser = __nccwpck_require__(6296);
 
 // Load Node HTTP client
-__nccwpck_require__(2310);
+__nccwpck_require__(2213);
 
-__nccwpck_require__(5417);
+__nccwpck_require__(3270);
 
 // Load custom credential providers
-__nccwpck_require__(4420);
-__nccwpck_require__(3379);
-__nccwpck_require__(8764);
-__nccwpck_require__(645);
-__nccwpck_require__(7714);
-__nccwpck_require__(7454);
-__nccwpck_require__(3754);
-__nccwpck_require__(371);
-__nccwpck_require__(8335);
+__nccwpck_require__(1459);
+__nccwpck_require__(5489);
+__nccwpck_require__(4253);
+__nccwpck_require__(1);
+__nccwpck_require__(8517);
+__nccwpck_require__(5444);
+__nccwpck_require__(8253);
+__nccwpck_require__(5550);
+__nccwpck_require__(5076);
 
 // Setup default providers for credentials chain
 // If this changes, please update documentation for
@@ -9842,9 +10054,9 @@ AWS.CredentialProviderChain.defaultProviders = [
 ];
 
 // Load custom token providers
-__nccwpck_require__(2647);
-__nccwpck_require__(126);
-__nccwpck_require__(327);
+__nccwpck_require__(8284);
+__nccwpck_require__(7259);
+__nccwpck_require__(1521);
 
 // Setup default providers for token chain
 // If this changes, please update documentation for
@@ -9945,10 +10157,10 @@ AWS.config = new AWS.Config();
 
 /***/ }),
 
-/***/ 9127:
+/***/ 3939:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 
 /**
  * @api private
@@ -10223,11 +10435,11 @@ AWS.ParamValidator = AWS.util.inherit({
 
 /***/ }),
 
-/***/ 7969:
+/***/ 6033:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util =  __nccwpck_require__(7985);
-var AWS = __nccwpck_require__(8437);
+var util =  __nccwpck_require__(9520);
+var AWS = __nccwpck_require__(9811);
 
 /**
  * Prepend prefix defined by API model to endpoint that's already
@@ -10319,13 +10531,13 @@ module.exports = {
 
 /***/ }),
 
-/***/ 83:
+/***/ 6779:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util = __nccwpck_require__(7985);
-var JsonBuilder = __nccwpck_require__(7495);
-var JsonParser = __nccwpck_require__(5474);
-var populateHostPrefix = (__nccwpck_require__(7969).populateHostPrefix);
+var util = __nccwpck_require__(9520);
+var JsonBuilder = __nccwpck_require__(6775);
+var JsonParser = __nccwpck_require__(6851);
+var populateHostPrefix = (__nccwpck_require__(6033).populateHostPrefix);
 
 function buildRequest(req) {
   var httpRequest = req.httpRequest;
@@ -10336,6 +10548,15 @@ function buildRequest(req) {
   var builder = new JsonBuilder();
 
   if (version === 1) version = '1.0';
+
+  if (api.awsQueryCompatible) {
+    if (!httpRequest.params) {
+      httpRequest.params = {};
+    }
+    // because Query protocol does this.
+    Object.assign(httpRequest.params, req.params);
+  }
+
   httpRequest.body = builder.build(req.params || {}, input);
   httpRequest.headers['Content-Type'] = 'application/x-amz-json-' + version;
   httpRequest.headers['X-Amz-Target'] = target;
@@ -10355,6 +10576,7 @@ function extractError(resp) {
   if (httpResponse.body.length > 0) {
     try {
       var e = JSON.parse(httpResponse.body.toString());
+
       var code = e.__type || e.code || e.Code;
       if (code) {
         error.code = code.split('#').pop();
@@ -10363,6 +10585,24 @@ function extractError(resp) {
         error.message = 'Request body must be less than 1 MB';
       } else {
         error.message = (e.message || e.Message || null);
+      }
+
+      // The minimized models do not have error shapes, so
+      // without expanding the model size, it's not possible
+      // to validate the response shape (members) or
+      // check if any are sensitive to logging.
+
+      // Assign the fields as non-enumerable, allowing specific access only.
+      for (var key in e || {}) {
+        if (key === 'code' || key === 'message') {
+          continue;
+        }
+        error['[' + key + ']'] = 'See error.' + key + ' for details.';
+        Object.defineProperty(error, key, {
+          value: e[key],
+          enumerable: false,
+          writable: true
+        });
       }
     } catch (e) {
       error.statusCode = httpResponse.statusCode;
@@ -10400,14 +10640,14 @@ module.exports = {
 
 /***/ }),
 
-/***/ 761:
+/***/ 427:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var util = __nccwpck_require__(7985);
-var QueryParamSerializer = __nccwpck_require__(5175);
-var Shape = __nccwpck_require__(1349);
-var populateHostPrefix = (__nccwpck_require__(7969).populateHostPrefix);
+var AWS = __nccwpck_require__(9811);
+var util = __nccwpck_require__(9520);
+var QueryParamSerializer = __nccwpck_require__(8400);
+var Shape = __nccwpck_require__(3145);
+var populateHostPrefix = (__nccwpck_require__(6033).populateHostPrefix);
 
 function buildRequest(req) {
   var operation = req.service.api.operations[req.operation];
@@ -10517,11 +10757,11 @@ module.exports = {
 
 /***/ }),
 
-/***/ 8200:
+/***/ 5547:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util = __nccwpck_require__(7985);
-var populateHostPrefix = (__nccwpck_require__(7969).populateHostPrefix);
+var util = __nccwpck_require__(9520);
+var populateHostPrefix = (__nccwpck_require__(6033).populateHostPrefix);
 
 function populateMethod(req) {
   req.httpRequest.method = req.service.api.operations[req.operation].httpMethod;
@@ -10672,14 +10912,15 @@ module.exports = {
 
 /***/ }),
 
-/***/ 5883:
+/***/ 985:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util = __nccwpck_require__(7985);
-var Rest = __nccwpck_require__(8200);
-var Json = __nccwpck_require__(83);
-var JsonBuilder = __nccwpck_require__(7495);
-var JsonParser = __nccwpck_require__(5474);
+var AWS = __nccwpck_require__(9811);
+var util = __nccwpck_require__(9520);
+var Rest = __nccwpck_require__(5547);
+var Json = __nccwpck_require__(6779);
+var JsonBuilder = __nccwpck_require__(6775);
+var JsonParser = __nccwpck_require__(6851);
 
 var METHODS_WITHOUT_BODY = ['GET', 'HEAD', 'DELETE'];
 
@@ -10752,7 +10993,7 @@ function extractData(resp) {
     var body = resp.httpResponse.body;
     if (payloadMember.isEventStream) {
       parser = new JsonParser();
-      resp.data[payload] = util.createEventStream(
+      resp.data[rules.payload] = util.createEventStream(
         AWS.HttpClient.streamsApiVersion === 2 ? resp.httpResponse.stream : body,
         parser,
         payloadMember
@@ -10785,12 +11026,12 @@ module.exports = {
 
 /***/ }),
 
-/***/ 5143:
+/***/ 8273:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var util = __nccwpck_require__(7985);
-var Rest = __nccwpck_require__(8200);
+var AWS = __nccwpck_require__(9811);
+var util = __nccwpck_require__(9520);
+var Rest = __nccwpck_require__(5547);
 
 function populateBody(req) {
   var input = req.service.api.operations[req.operation].input;
@@ -10900,10 +11141,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ 1822:
+/***/ 2358:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 
 /**
  * Resolve client-side monitoring configuration from either environmental variables
@@ -10989,10 +11230,10 @@ module.exports = resolveMonitoringConfig;
 
 /***/ }),
 
-/***/ 6807:
+/***/ 7705:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util = (__nccwpck_require__(8437).util);
+var util = (__nccwpck_require__(9811).util);
 var dgram = __nccwpck_require__(1891);
 var stringToBuffer = util.buffer.toBuffer;
 
@@ -11121,10 +11362,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ 5175:
+/***/ 8400:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util = __nccwpck_require__(7985);
+var util = __nccwpck_require__(9520);
 
 function QueryParamSerializer() {
 }
@@ -11168,7 +11409,9 @@ function serializeList(name, list, rules, fn) {
   var memberRules = rules.member || {};
 
   if (list.length === 0) {
-    fn.call(this, name, null);
+    if (rules.api.protocol !== 'ec2') {
+      fn.call(this, name, null);
+    }
     return;
   }
 
@@ -11212,7 +11455,7 @@ module.exports = QueryParamSerializer;
 
 /***/ }),
 
-/***/ 1370:
+/***/ 4982:
 /***/ ((module) => {
 
 module.exports = {
@@ -11226,7 +11469,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 9517:
+/***/ 9470:
 /***/ ((module) => {
 
 function isFipsRegion(region) {
@@ -11254,10 +11497,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ 8262:
+/***/ 2433:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util = __nccwpck_require__(7985);
+var util = __nccwpck_require__(9520);
 var regionConfig = __nccwpck_require__(738);
 
 function generateRegionPrefix(region) {
@@ -11278,6 +11521,7 @@ function derivedKeys(service) {
     [region, '*'],
     [regionPrefix, '*'],
     ['*', endpointPrefix],
+    [region, 'internal-*'],
     ['*', '*']
   ].map(function(item) {
     return item[0] && item[1] ? item.join('/') : null;
@@ -11322,10 +11566,21 @@ function configureEndpoint(service) {
       }
 
       // signature version
-      if (!config.signatureVersion) config.signatureVersion = 'v4';
+      if (!config.signatureVersion) {
+        // Note: config is a global object and should not be mutated here.
+        // However, we are retaining this line for backwards compatibility.
+        // The non-v4 signatureVersion will be set in a copied object below.
+        config.signatureVersion = 'v4';
+      }
+
+      var useBearer = (service.api && service.api.signatureVersion) === 'bearer';
 
       // merge config
-      applyConfig(service, config);
+      applyConfig(service, Object.assign(
+        {},
+        config,
+        { signatureVersion: useBearer ? 'bearer' : config.signatureVersion }
+      ));
       return;
     }
   }
@@ -11360,14 +11615,14 @@ module.exports = {
 
 /***/ }),
 
-/***/ 8652:
+/***/ 9252:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var AcceptorStateMachine = __nccwpck_require__(8118);
+var AWS = __nccwpck_require__(9811);
+var AcceptorStateMachine = __nccwpck_require__(5804);
 var inherit = AWS.util.inherit;
 var domain = AWS.util.domain;
-var jmespath = __nccwpck_require__(7783);
+var jmespath = __nccwpck_require__(915);
 
 /**
  * @api private
@@ -12176,7 +12431,7 @@ AWS.util.mixin(AWS.Request, AWS.SequentialExecutor);
 
 /***/ }),
 
-/***/ 9925:
+/***/ 1673:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /**
@@ -12194,9 +12449,9 @@ AWS.util.mixin(AWS.Request, AWS.SequentialExecutor);
  * language governing permissions and limitations under the License.
  */
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var inherit = AWS.util.inherit;
-var jmespath = __nccwpck_require__(7783);
+var jmespath = __nccwpck_require__(915);
 
 /**
  * @api private
@@ -12387,12 +12642,12 @@ AWS.ResourceWaiter = inherit({
 
 /***/ }),
 
-/***/ 8743:
+/***/ 4562:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var inherit = AWS.util.inherit;
-var jmespath = __nccwpck_require__(7783);
+var jmespath = __nccwpck_require__(915);
 
 /**
  * This class encapsulates the response information
@@ -12595,10 +12850,10 @@ AWS.Response = inherit({
 
 /***/ }),
 
-/***/ 1600:
+/***/ 8134:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var byteLength = AWS.util.string.byteLength;
 var Buffer = AWS.util.Buffer;
 
@@ -13334,10 +13589,10 @@ module.exports = AWS.S3.ManagedUpload;
 
 /***/ }),
 
-/***/ 5948:
+/***/ 9799:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 
 /**
  * @api private
@@ -13576,16 +13831,16 @@ module.exports = AWS.SequentialExecutor;
 
 /***/ }),
 
-/***/ 8903:
+/***/ 5930:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var Api = __nccwpck_require__(7657);
-var regionConfig = __nccwpck_require__(8262);
+var AWS = __nccwpck_require__(9811);
+var Api = __nccwpck_require__(3449);
+var regionConfig = __nccwpck_require__(2433);
 
 var inherit = AWS.util.inherit;
 var clientCount = 0;
-var region_utils = __nccwpck_require__(9517);
+var region_utils = __nccwpck_require__(9470);
 
 /**
  * The service class representing an AWS service.
@@ -14437,17 +14692,17 @@ module.exports = AWS.Service;
 
 /***/ }),
 
-/***/ 6543:
+/***/ 4795:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var v4Credentials = __nccwpck_require__(2660);
-var resolveRegionalEndpointsFlag = __nccwpck_require__(5566);
-var s3util = __nccwpck_require__(5895);
-var regionUtil = __nccwpck_require__(8262);
+var AWS = __nccwpck_require__(9811);
+var v4Credentials = __nccwpck_require__(6364);
+var resolveRegionalEndpointsFlag = __nccwpck_require__(1856);
+var s3util = __nccwpck_require__(3704);
+var regionUtil = __nccwpck_require__(2433);
 
 // Pull in managed upload extension
-__nccwpck_require__(1600);
+__nccwpck_require__(8134);
 
 /**
  * @api private
@@ -14561,6 +14816,7 @@ AWS.util.update(AWS.S3.prototype, {
    * @api private
    */
   setupRequestListeners: function setupRequestListeners(request) {
+    request.addListener('validateResponse', this.setExpiresString);
     var prependListener = true;
     request.addListener('validate', this.validateScheme);
     request.addListener('validate', this.validateBucketName, prependListener);
@@ -14720,7 +14976,7 @@ AWS.util.update(AWS.S3.prototype, {
       req.httpRequest.endpoint.hostname.indexOf('s3.amazonaws.com') >= 0
     ) {
       var insertPoint = config.endpoint.indexOf('.amazonaws.com');
-      regionalEndpoint = config.endpoint.substring(0, insertPoint) +
+      var regionalEndpoint = config.endpoint.substring(0, insertPoint) +
         '.us-east-1' + config.endpoint.substring(insertPoint);
       req.httpRequest.updateEndpoint(regionalEndpoint);
     }
@@ -15726,6 +15982,30 @@ AWS.util.update(AWS.S3.prototype, {
     var uploader = new AWS.S3.ManagedUpload(options);
     if (typeof callback === 'function') uploader.send(callback);
     return uploader;
+  },
+
+  /**
+   * @api private
+   */
+  setExpiresString: function setExpiresString(response) {
+    // Check if response contains Expires value, and populate ExpiresString.
+    if (response && response.httpResponse && response.httpResponse.headers) {
+      if ('expires' in response.httpResponse.headers) {
+        response.httpResponse.headers.expiresstring = response.httpResponse.headers.expires;
+      }
+    }
+
+    // Check if value in Expires is not a Date using parseTimestamp.
+    try {
+      if (response && response.httpResponse && response.httpResponse.headers) {
+        if ('expires' in response.httpResponse.headers) {
+          AWS.util.date.parseTimestamp(response.httpResponse.headers.expires);
+        }
+      }
+    } catch (e) {
+      console.log('AWS SDK', '(warning)', e);
+      delete response.httpResponse.headers.expires;
+    }
   }
 });
 
@@ -15748,11 +16028,11 @@ AWS.util.addPromises(AWS.S3);
 
 /***/ }),
 
-/***/ 5895:
+/***/ 3704:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var regionUtil = __nccwpck_require__(8262);
+var AWS = __nccwpck_require__(9811);
+var regionUtil = __nccwpck_require__(2433);
 
 var s3util = {
   /**
@@ -16038,11 +16318,11 @@ module.exports = s3util;
 
 /***/ }),
 
-/***/ 1055:
+/***/ 6589:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var resolveRegionalEndpointsFlag = __nccwpck_require__(5566);
+var AWS = __nccwpck_require__(9811);
+var resolveRegionalEndpointsFlag = __nccwpck_require__(1856);
 var ENV_REGIONAL_ENDPOINT_ENABLED = 'AWS_STS_REGIONAL_ENDPOINTS';
 var CONFIG_REGIONAL_ENDPOINT_ENABLED = 'sts_regional_endpoints';
 
@@ -16131,10 +16411,10 @@ AWS.util.update(AWS.STS.prototype, {
 
 /***/ }),
 
-/***/ 9697:
+/***/ 2840:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var IniLoader = (__nccwpck_require__(5417).IniLoader);
+var IniLoader = (__nccwpck_require__(3270).IniLoader);
 /**
  * Singleton object to load specified config/credentials files.
  * It will cache all the files ever loaded;
@@ -16144,10 +16424,10 @@ module.exports.b = new IniLoader();
 
 /***/ }),
 
-/***/ 5417:
+/***/ 3270:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var os = __nccwpck_require__(2037);
 var path = __nccwpck_require__(1017);
 
@@ -16295,10 +16575,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ 8382:
+/***/ 9365:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 
 /**
  * @api private
@@ -16309,17 +16589,17 @@ AWS.Signers.Bearer = AWS.util.inherit(AWS.Signers.RequestSigner, {
   },
 
   addAuthorization: function addAuthorization(token) {
-    this.request.httpRequest.headers['Authorization'] = 'Bearer ' + token.token;
+    this.request.headers['Authorization'] = 'Bearer ' + token.token;
   }
 });
 
 
 /***/ }),
 
-/***/ 328:
+/***/ 6132:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var inherit = AWS.util.inherit;
 
 /**
@@ -16442,10 +16722,10 @@ module.exports = AWS.Signers.Presign;
 
 /***/ }),
 
-/***/ 9897:
+/***/ 8068:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 
 var inherit = AWS.util.inherit;
 
@@ -16479,21 +16759,21 @@ AWS.Signers.RequestSigner.getVersion = function getVersion(version) {
   throw new Error('Unknown signing version ' + version);
 };
 
-__nccwpck_require__(8489);
-__nccwpck_require__(6458);
-__nccwpck_require__(4473);
-__nccwpck_require__(6529);
-__nccwpck_require__(8616);
-__nccwpck_require__(328);
-__nccwpck_require__(8382);
+__nccwpck_require__(6461);
+__nccwpck_require__(1938);
+__nccwpck_require__(8524);
+__nccwpck_require__(2186);
+__nccwpck_require__(1527);
+__nccwpck_require__(6132);
+__nccwpck_require__(9365);
 
 
 /***/ }),
 
-/***/ 8616:
+/***/ 1527:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var inherit = AWS.util.inherit;
 
 /**
@@ -16672,10 +16952,10 @@ module.exports = AWS.Signers.S3;
 
 /***/ }),
 
-/***/ 8489:
+/***/ 6461:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var inherit = AWS.util.inherit;
 
 /**
@@ -16727,10 +17007,10 @@ module.exports = AWS.Signers.V2;
 
 /***/ }),
 
-/***/ 6458:
+/***/ 1938:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var inherit = AWS.util.inherit;
 
 /**
@@ -16811,13 +17091,13 @@ module.exports = AWS.Signers.V3;
 
 /***/ }),
 
-/***/ 4473:
+/***/ 8524:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var inherit = AWS.util.inherit;
 
-__nccwpck_require__(6458);
+__nccwpck_require__(1938);
 
 /**
  * @api private
@@ -16843,11 +17123,11 @@ module.exports = AWS.Signers.V3Https;
 
 /***/ }),
 
-/***/ 6529:
+/***/ 2186:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
-var v4Credentials = __nccwpck_require__(2660);
+var AWS = __nccwpck_require__(9811);
+var v4Credentials = __nccwpck_require__(6364);
 var inherit = AWS.util.inherit;
 
 /**
@@ -17065,10 +17345,10 @@ module.exports = AWS.Signers.V4;
 
 /***/ }),
 
-/***/ 2660:
+/***/ 6364:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 
 /**
  * @api private
@@ -17172,7 +17452,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 8118:
+/***/ 5804:
 /***/ ((module) => {
 
 function AcceptorStateMachine(states, state) {
@@ -17224,10 +17504,10 @@ module.exports = AcceptorStateMachine;
 
 /***/ }),
 
-/***/ 2647:
+/***/ 8284:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 
 /**
  * Represents AWS token object, which contains {token}, and optional
@@ -17450,10 +17730,10 @@ AWS.util.addPromises(AWS.Token);
 
 /***/ }),
 
-/***/ 327:
+/***/ 1521:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var crypto = __nccwpck_require__(6113);
 var fs = __nccwpck_require__(7147);
 var path = __nccwpck_require__(1017);
@@ -17577,7 +17857,7 @@ AWS.SSOTokenProvider = AWS.util.inherit(AWS.Token, {
       );
     } else if (!profile['sso_session']) {
       throw AWS.util.error(
-        new Error('Profile "' + profileName + '" is missing required property "sso_session".'),
+        new Error('Profile "' + this.profile + '" is missing required property "sso_session".'),
         { code: 'SSOTokenProviderFailure' }
       );
     }
@@ -17593,12 +17873,12 @@ AWS.SSOTokenProvider = AWS.util.inherit(AWS.Token, {
       );
     } else if (!ssoSession['sso_start_url']) {
       throw AWS.util.error(
-        new Error('Sso session "' + profileName + '" is missing required property "sso_start_url".'),
+        new Error('Sso session "' + this.profile + '" is missing required property "sso_start_url".'),
         { code: 'SSOTokenProviderFailure' }
       );
     } else if (!ssoSession['sso_region']) {
       throw AWS.util.error(
-        new Error('Sso session "' + profileName + '" is missing required property "sso_region".'),
+        new Error('Sso session "' + this.profile + '" is missing required property "sso_region".'),
         { code: 'SSOTokenProviderFailure' }
       );
     }
@@ -17702,10 +17982,10 @@ AWS.SSOTokenProvider = AWS.util.inherit(AWS.Token, {
 
 /***/ }),
 
-/***/ 126:
+/***/ 7259:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 
 /**
  * Creates a token provider chain that searches for token in a list of
@@ -17874,7 +18154,7 @@ AWS.util.addPromises(AWS.TokenProviderChain);
 
 /***/ }),
 
-/***/ 7985:
+/***/ 9520:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /* eslint guard-for-in:0 */
@@ -17910,7 +18190,7 @@ var util = {
 
   userAgent: function userAgent() {
     var name = util.environment;
-    var agent = 'aws-sdk-' + name + '/' + (__nccwpck_require__(8437).VERSION);
+    var agent = 'aws-sdk-' + name + '/' + (__nccwpck_require__(9811).VERSION);
     if (name === 'nodejs') agent += ' ' + util.engine();
     return agent;
   },
@@ -18160,7 +18440,7 @@ var util = {
      *   requests.
      */
     getDate: function getDate() {
-      if (!AWS) AWS = __nccwpck_require__(8437);
+      if (!AWS) AWS = __nccwpck_require__(9811);
       if (AWS.config.systemClockOffset) { // use offset when non-zero
         return new Date(new Date().getTime() + AWS.config.systemClockOffset);
       } else {
@@ -18489,7 +18769,25 @@ var util = {
     err.name = String(options && options.name || err.name || err.code || 'Error');
     err.time = new Date();
 
-    if (originalError) err.originalError = originalError;
+    if (originalError) {
+      err.originalError = originalError;
+    }
+
+
+    for (var key in options || {}) {
+      if (key[0] === '[' && key[key.length - 1] === ']') {
+        key = key.slice(1, -1);
+        if (key === 'code' || key === 'message') {
+          continue;
+        }
+        err['[' + key + ']'] = 'See error.' + key + ' for details.';
+        Object.defineProperty(err, key, {
+          value: err[key] || (options && options[key]) || (originalError && originalError[key]),
+          enumerable: false,
+          writable: true
+        });
+      }
+    }
 
     return err;
   },
@@ -18809,7 +19107,7 @@ var util = {
    */
   uuid: {
     v4: function uuidV4() {
-      return (__nccwpck_require__(5840).v4)();
+      return (__nccwpck_require__(736).v4)();
     }
   },
 
@@ -18950,12 +19248,12 @@ module.exports = util;
 
 /***/ }),
 
-/***/ 3546:
+/***/ 8903:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var util = __nccwpck_require__(7985);
-var XmlNode = (__nccwpck_require__(397).XmlNode);
-var XmlText = (__nccwpck_require__(971).XmlText);
+var util = __nccwpck_require__(9520);
+var XmlNode = (__nccwpck_require__(8175).XmlNode);
+var XmlText = (__nccwpck_require__(1064).XmlText);
 
 function XmlBuilder() { }
 
@@ -19059,7 +19357,7 @@ module.exports = XmlBuilder;
 
 /***/ }),
 
-/***/ 8241:
+/***/ 6510:
 /***/ ((module) => {
 
 /**
@@ -19079,7 +19377,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 8464:
+/***/ 6206:
 /***/ ((module) => {
 
 /**
@@ -19105,14 +19403,14 @@ module.exports = {
 
 /***/ }),
 
-/***/ 6752:
+/***/ 6296:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var AWS = __nccwpck_require__(8437);
+var AWS = __nccwpck_require__(9811);
 var util = AWS.util;
 var Shape = AWS.Model.Shape;
 
-var xml2js = __nccwpck_require__(6189);
+var xml2js = __nccwpck_require__(607);
 
 /**
  * @api private
@@ -19275,10 +19573,10 @@ module.exports = NodeXmlParser;
 
 /***/ }),
 
-/***/ 397:
+/***/ 8175:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var escapeAttribute = (__nccwpck_require__(8241).escapeAttribute);
+var escapeAttribute = (__nccwpck_require__(6510).escapeAttribute);
 
 /**
  * Represents an XML node.
@@ -19327,10 +19625,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ 971:
+/***/ 1064:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var escapeElement = (__nccwpck_require__(8464).escapeElement);
+var escapeElement = (__nccwpck_require__(6206).escapeElement);
 
 /**
  * Represents an XML text value.
@@ -19354,14 +19652,14 @@ module.exports = {
 
 /***/ }),
 
-/***/ 6323:
+/***/ 5578:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 var __webpack_unused_export__;
 
 __webpack_unused_export__ = ({ value: true });
-var LRU_1 = __nccwpck_require__(7710);
+var LRU_1 = __nccwpck_require__(1351);
 var CACHE_SIZE = 1000;
 /**
  * Inspired node-lru-cache[https://github.com/isaacs/node-lru-cache]
@@ -19434,7 +19732,7 @@ exports.$ = EndpointCache;
 
 /***/ }),
 
-/***/ 7710:
+/***/ 1351:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -19548,7 +19846,7 @@ exports.LRUCache = LRUCache;
 
 /***/ }),
 
-/***/ 8173:
+/***/ 1463:
 /***/ ((module) => {
 
 "use strict";
@@ -19579,13 +19877,13 @@ function clone (obj) {
 
 /***/ }),
 
-/***/ 7758:
+/***/ 1426:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var fs = __nccwpck_require__(7147)
-var polyfills = __nccwpck_require__(263)
-var legacy = __nccwpck_require__(3086)
-var clone = __nccwpck_require__(8173)
+var polyfills = __nccwpck_require__(6537)
+var legacy = __nccwpck_require__(4041)
+var clone = __nccwpck_require__(1463)
 
 var util = __nccwpck_require__(3837)
 
@@ -20034,7 +20332,7 @@ function retry () {
 
 /***/ }),
 
-/***/ 3086:
+/***/ 4041:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var Stream = (__nccwpck_require__(2781).Stream)
@@ -20159,7 +20457,7 @@ function legacy (fs) {
 
 /***/ }),
 
-/***/ 263:
+/***/ 6537:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var constants = __nccwpck_require__(2057)
@@ -20521,7 +20819,7 @@ function patch (fs) {
 
 /***/ }),
 
-/***/ 7783:
+/***/ 915:
 /***/ ((__unused_webpack_module, exports) => {
 
 (function(exports) {
@@ -22200,12 +22498,12 @@ function patch (fs) {
 
 /***/ }),
 
-/***/ 9036:
+/***/ 1279:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
-const fs = __nccwpck_require__(7758)
+const fs = __nccwpck_require__(1426)
 const path = __nccwpck_require__(1017)
 
 function klawSync (dir, opts, ls) {
@@ -22237,7 +22535,7 @@ module.exports = klawSync
 
 /***/ }),
 
-/***/ 7426:
+/***/ 471:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /*!
@@ -22256,7 +22554,7 @@ module.exports = __nccwpck_require__(3765)
 
 /***/ }),
 
-/***/ 3583:
+/***/ 6831:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -22274,7 +22572,7 @@ module.exports = __nccwpck_require__(3765)
  * @private
  */
 
-var db = __nccwpck_require__(7426)
+var db = __nccwpck_require__(471)
 var extname = (__nccwpck_require__(1017).extname)
 
 /**
@@ -22452,7 +22750,7 @@ function populateMaps (extensions, types) {
 
 /***/ }),
 
-/***/ 1516:
+/***/ 1692:
 /***/ ((module) => {
 
 /**
@@ -22526,7 +22824,7 @@ module.exports = function (random, alphabet, size) {
 
 /***/ }),
 
-/***/ 7395:
+/***/ 9118:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var crypto = __nccwpck_require__(6113)
@@ -22552,23 +22850,23 @@ if (crypto.randomFillSync) {
 
 /***/ }),
 
-/***/ 794:
+/***/ 3513:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
-module.exports = __nccwpck_require__(8341);
+module.exports = __nccwpck_require__(4968);
 
 
 /***/ }),
 
-/***/ 1211:
+/***/ 5865:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var randomFromSeed = __nccwpck_require__(3893);
+var randomFromSeed = __nccwpck_require__(1264);
 
 var ORIGINAL = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
 var alphabet;
@@ -22673,14 +22971,14 @@ module.exports = {
 
 /***/ }),
 
-/***/ 7911:
+/***/ 5828:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var generate = __nccwpck_require__(8389);
-var alphabet = __nccwpck_require__(1211);
+var generate = __nccwpck_require__(3769);
+var alphabet = __nccwpck_require__(5865);
 
 // Ignore all milliseconds before a certain time to reduce the size of the date entropy without sacrificing uniqueness.
 // This number should be updated every year or so to keep the generated id short.
@@ -22727,15 +23025,15 @@ module.exports = build;
 
 /***/ }),
 
-/***/ 8389:
+/***/ 3769:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var alphabet = __nccwpck_require__(1211);
-var random = __nccwpck_require__(3065);
-var format = __nccwpck_require__(1516);
+var alphabet = __nccwpck_require__(5865);
+var random = __nccwpck_require__(8409);
+var format = __nccwpck_require__(1692);
 
 function generate(number) {
     var loopCounter = 0;
@@ -22756,21 +23054,21 @@ module.exports = generate;
 
 /***/ }),
 
-/***/ 8341:
+/***/ 4968:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var alphabet = __nccwpck_require__(1211);
-var build = __nccwpck_require__(7911);
-var isValid = __nccwpck_require__(6817);
+var alphabet = __nccwpck_require__(5865);
+var build = __nccwpck_require__(5828);
+var isValid = __nccwpck_require__(9095);
 
 // if you are using cluster or multiple servers use this to make each instance
 // has a unique value for worker
 // Note: I don't know if this is automatically set when using third
 // party cluster solutions such as pm2.
-var clusterWorkerId = __nccwpck_require__(7756) || 0;
+var clusterWorkerId = __nccwpck_require__(7557) || 0;
 
 /**
  * Set the seed.
@@ -22826,12 +23124,12 @@ module.exports.isValid = isValid;
 
 /***/ }),
 
-/***/ 6817:
+/***/ 9095:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
-var alphabet = __nccwpck_require__(1211);
+var alphabet = __nccwpck_require__(5865);
 
 function isShortId(id) {
     if (!id || typeof id !== 'string' || id.length < 6 ) {
@@ -22849,15 +23147,15 @@ module.exports = isShortId;
 
 /***/ }),
 
-/***/ 3065:
+/***/ 8409:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-module.exports = __nccwpck_require__(7395);
+module.exports = __nccwpck_require__(9118);
 
 
 /***/ }),
 
-/***/ 3893:
+/***/ 1264:
 /***/ ((module) => {
 
 "use strict";
@@ -22890,7 +23188,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 7756:
+/***/ 7557:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
@@ -22907,15 +23205,15 @@ module.exports = parseInt(process.env.NODE_UNIQUE_ID || clusterId, 10);
 
 /***/ }),
 
-/***/ 4294:
+/***/ 605:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-module.exports = __nccwpck_require__(4219);
+module.exports = __nccwpck_require__(3781);
 
 
 /***/ }),
 
-/***/ 4219:
+/***/ 3781:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -23187,7 +23485,7 @@ exports.debug = debug; // for test
 
 /***/ }),
 
-/***/ 5971:
+/***/ 1544:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -23220,7 +23518,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 5840:
+/***/ 736:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -23255,19 +23553,19 @@ __webpack_unused_export__ = ({
   }
 });
 
-var _v = _interopRequireDefault(__nccwpck_require__(8628));
+var _v = _interopRequireDefault(__nccwpck_require__(4568));
 
-var _v2 = _interopRequireDefault(__nccwpck_require__(6409));
+var _v2 = _interopRequireDefault(__nccwpck_require__(5225));
 
-var _v3 = _interopRequireDefault(__nccwpck_require__(5122));
+var _v3 = _interopRequireDefault(__nccwpck_require__(6681));
 
-var _v4 = _interopRequireDefault(__nccwpck_require__(9120));
+var _v4 = _interopRequireDefault(__nccwpck_require__(2083));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 
-/***/ 4569:
+/***/ 3573:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -23297,7 +23595,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 807:
+/***/ 4726:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -23318,7 +23616,7 @@ function rng() {
 
 /***/ }),
 
-/***/ 5274:
+/***/ 2289:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -23348,7 +23646,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 8628:
+/***/ 4568:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -23359,9 +23657,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _rng = _interopRequireDefault(__nccwpck_require__(807));
+var _rng = _interopRequireDefault(__nccwpck_require__(4726));
 
-var _bytesToUuid = _interopRequireDefault(__nccwpck_require__(5971));
+var _bytesToUuid = _interopRequireDefault(__nccwpck_require__(1544));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23462,7 +23760,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6409:
+/***/ 5225:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -23473,9 +23771,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _v = _interopRequireDefault(__nccwpck_require__(5998));
+var _v = _interopRequireDefault(__nccwpck_require__(30));
 
-var _md = _interopRequireDefault(__nccwpck_require__(4569));
+var _md = _interopRequireDefault(__nccwpck_require__(3573));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23485,7 +23783,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 5998:
+/***/ 30:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -23497,7 +23795,7 @@ Object.defineProperty(exports, "__esModule", ({
 exports["default"] = _default;
 exports.URL = exports.DNS = void 0;
 
-var _bytesToUuid = _interopRequireDefault(__nccwpck_require__(5971));
+var _bytesToUuid = _interopRequireDefault(__nccwpck_require__(1544));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23561,7 +23859,7 @@ function _default(name, version, hashfunc) {
 
 /***/ }),
 
-/***/ 5122:
+/***/ 6681:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -23572,9 +23870,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _rng = _interopRequireDefault(__nccwpck_require__(807));
+var _rng = _interopRequireDefault(__nccwpck_require__(4726));
 
-var _bytesToUuid = _interopRequireDefault(__nccwpck_require__(5971));
+var _bytesToUuid = _interopRequireDefault(__nccwpck_require__(1544));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23608,7 +23906,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 9120:
+/***/ 2083:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -23619,9 +23917,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _v = _interopRequireDefault(__nccwpck_require__(5998));
+var _v = _interopRequireDefault(__nccwpck_require__(30));
 
-var _sha = _interopRequireDefault(__nccwpck_require__(5274));
+var _sha = _interopRequireDefault(__nccwpck_require__(2289));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23631,7 +23929,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 2624:
+/***/ 9329:
 /***/ (function(__unused_webpack_module, exports) {
 
 // Generated by CoffeeScript 1.12.7
@@ -23650,7 +23948,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 3337:
+/***/ 5555:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
@@ -23659,9 +23957,9 @@ exports["default"] = _default;
   var builder, defaults, escapeCDATA, requiresCDATA, wrapCDATA,
     hasProp = {}.hasOwnProperty;
 
-  builder = __nccwpck_require__(2958);
+  builder = __nccwpck_require__(4065);
 
-  defaults = (__nccwpck_require__(7251).defaults);
+  defaults = (__nccwpck_require__(7845).defaults);
 
   requiresCDATA = function(entry) {
     return typeof entry === "string" && (entry.indexOf('&') >= 0 || entry.indexOf('>') >= 0 || entry.indexOf('<') >= 0);
@@ -23784,7 +24082,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 7251:
+/***/ 7845:
 /***/ (function(__unused_webpack_module, exports) {
 
 // Generated by CoffeeScript 1.12.7
@@ -23863,28 +24161,28 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 3314:
+/***/ 3308:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
   "use strict";
-  var bom, defaults, events, isEmpty, processItem, processors, sax, setImmediate,
+  var bom, defaults, defineProperty, events, isEmpty, processItem, processors, sax, setImmediate,
     bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  sax = __nccwpck_require__(1695);
+  sax = __nccwpck_require__(2589);
 
   events = __nccwpck_require__(2361);
 
-  bom = __nccwpck_require__(2624);
+  bom = __nccwpck_require__(9329);
 
-  processors = __nccwpck_require__(9236);
+  processors = __nccwpck_require__(6765);
 
   setImmediate = (__nccwpck_require__(9512).setImmediate);
 
-  defaults = (__nccwpck_require__(7251).defaults);
+  defaults = (__nccwpck_require__(7845).defaults);
 
   isEmpty = function(thing) {
     return typeof thing === "object" && (thing != null) && Object.keys(thing).length === 0;
@@ -23899,10 +24197,21 @@ exports["default"] = _default;
     return item;
   };
 
+  defineProperty = function(obj, key, value) {
+    var descriptor;
+    descriptor = Object.create(null);
+    descriptor.value = value;
+    descriptor.writable = true;
+    descriptor.enumerable = true;
+    descriptor.configurable = true;
+    return Object.defineProperty(obj, key, descriptor);
+  };
+
   exports.Parser = (function(superClass) {
     extend(Parser, superClass);
 
     function Parser(opts) {
+      this.parseStringPromise = bind(this.parseStringPromise, this);
       this.parseString = bind(this.parseString, this);
       this.reset = bind(this.reset, this);
       this.assignOrPush = bind(this.assignOrPush, this);
@@ -23961,13 +24270,13 @@ exports["default"] = _default;
     Parser.prototype.assignOrPush = function(obj, key, newValue) {
       if (!(key in obj)) {
         if (!this.options.explicitArray) {
-          return obj[key] = newValue;
+          return defineProperty(obj, key, newValue);
         } else {
-          return obj[key] = [newValue];
+          return defineProperty(obj, key, [newValue]);
         }
       } else {
         if (!(obj[key] instanceof Array)) {
-          obj[key] = [obj[key]];
+          defineProperty(obj, key, [obj[key]]);
         }
         return obj[key].push(newValue);
       }
@@ -24022,7 +24331,7 @@ exports["default"] = _default;
               if (_this.options.mergeAttrs) {
                 _this.assignOrPush(obj, processedKey, newValue);
               } else {
-                obj[attrkey][processedKey] = newValue;
+                defineProperty(obj[attrkey], processedKey, newValue);
               }
             }
           }
@@ -24065,7 +24374,11 @@ exports["default"] = _default;
             }
           }
           if (isEmpty(obj)) {
-            obj = _this.options.emptyTag !== '' ? _this.options.emptyTag : emptyStr;
+            if (typeof _this.options.emptyTag === 'function') {
+              obj = _this.options.emptyTag();
+            } else {
+              obj = _this.options.emptyTag !== '' ? _this.options.emptyTag : emptyStr;
+            }
           }
           if (_this.options.validator != null) {
             xpath = "/" + ((function() {
@@ -24107,7 +24420,7 @@ exports["default"] = _default;
               objClone = {};
               for (key in obj) {
                 if (!hasProp.call(obj, key)) continue;
-                objClone[key] = obj[key];
+                defineProperty(objClone, key, obj[key]);
               }
               s[_this.options.childkey].push(objClone);
               delete obj["#name"];
@@ -24122,7 +24435,7 @@ exports["default"] = _default;
             if (_this.options.explicitRoot) {
               old = obj;
               obj = {};
-              obj[nodeName] = old;
+              defineProperty(obj, nodeName, old);
             }
             _this.resultObject = obj;
             _this.saxParser.ended = true;
@@ -24199,9 +24512,23 @@ exports["default"] = _default;
       }
     };
 
+    Parser.prototype.parseStringPromise = function(str) {
+      return new Promise((function(_this) {
+        return function(resolve, reject) {
+          return _this.parseString(str, function(err, value) {
+            if (err) {
+              return reject(err);
+            } else {
+              return resolve(value);
+            }
+          });
+        };
+      })(this));
+    };
+
     return Parser;
 
-  })(events.EventEmitter);
+  })(events);
 
   exports.parseString = function(str, a, b) {
     var cb, options, parser;
@@ -24222,12 +24549,21 @@ exports["default"] = _default;
     return parser.parseString(str, cb);
   };
 
+  exports.parseStringPromise = function(str, a) {
+    var options, parser;
+    if (typeof a === 'object') {
+      options = a;
+    }
+    parser = new exports.Parser(options);
+    return parser.parseStringPromise(str);
+  };
+
 }).call(this);
 
 
 /***/ }),
 
-/***/ 9236:
+/***/ 6765:
 /***/ (function(__unused_webpack_module, exports) {
 
 // Generated by CoffeeScript 1.12.7
@@ -24268,7 +24604,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6189:
+/***/ 607:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
@@ -24278,13 +24614,13 @@ exports["default"] = _default;
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  defaults = __nccwpck_require__(7251);
+  defaults = __nccwpck_require__(7845);
 
-  builder = __nccwpck_require__(3337);
+  builder = __nccwpck_require__(5555);
 
-  parser = __nccwpck_require__(3314);
+  parser = __nccwpck_require__(3308);
 
-  processors = __nccwpck_require__(9236);
+  processors = __nccwpck_require__(6765);
 
   exports.defaults = defaults.defaults;
 
@@ -24307,12 +24643,14 @@ exports["default"] = _default;
 
   exports.parseString = parser.parseString;
 
+  exports.parseStringPromise = parser.parseStringPromise;
+
 }).call(this);
 
 
 /***/ }),
 
-/***/ 1695:
+/***/ 2589:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 ;(function (sax) { // wrapper for non-node envs
@@ -25884,12 +26222,61 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 8229:
+/***/ 5188:
 /***/ (function(module) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var assign, isArray, isEmpty, isFunction, isObject, isPlainObject,
+  module.exports = {
+    Disconnected: 1,
+    Preceding: 2,
+    Following: 4,
+    Contains: 8,
+    ContainedBy: 16,
+    ImplementationSpecific: 32
+  };
+
+}).call(this);
+
+
+/***/ }),
+
+/***/ 651:
+/***/ (function(module) {
+
+// Generated by CoffeeScript 1.12.7
+(function() {
+  module.exports = {
+    Element: 1,
+    Attribute: 2,
+    Text: 3,
+    CData: 4,
+    EntityReference: 5,
+    EntityDeclaration: 6,
+    ProcessingInstruction: 7,
+    Comment: 8,
+    Document: 9,
+    DocType: 10,
+    DocumentFragment: 11,
+    NotationDeclaration: 12,
+    Declaration: 201,
+    Raw: 202,
+    AttributeDeclaration: 203,
+    ElementDeclaration: 204,
+    Dummy: 205
+  };
+
+}).call(this);
+
+
+/***/ }),
+
+/***/ 3376:
+/***/ (function(module) {
+
+// Generated by CoffeeScript 1.12.7
+(function() {
+  var assign, getValue, isArray, isEmpty, isFunction, isObject, isPlainObject,
     slice = [].slice,
     hasProp = {}.hasOwnProperty;
 
@@ -25947,6 +26334,14 @@ exports["default"] = _default;
     return isObject(val) && (proto = Object.getPrototypeOf(val)) && (ctor = proto.constructor) && (typeof ctor === 'function') && (ctor instanceof ctor) && (Function.prototype.toString.call(ctor) === Function.prototype.toString.call(Object));
   };
 
+  getValue = function(obj) {
+    if (isFunction(obj.valueOf)) {
+      return obj.valueOf();
+    } else {
+      return obj;
+    }
+  };
+
   module.exports.assign = assign;
 
   module.exports.isFunction = isFunction;
@@ -25959,38 +26354,134 @@ exports["default"] = _default;
 
   module.exports.isPlainObject = isPlainObject;
 
+  module.exports.getValue = getValue;
+
 }).call(this);
 
 
 /***/ }),
 
-/***/ 8376:
+/***/ 6626:
 /***/ (function(module) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLAttribute;
+  module.exports = {
+    None: 0,
+    OpenTag: 1,
+    InsideTag: 2,
+    CloseTag: 3
+  };
+
+}).call(this);
+
+
+/***/ }),
+
+/***/ 4552:
+/***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
+
+// Generated by CoffeeScript 1.12.7
+(function() {
+  var NodeType, XMLAttribute, XMLNode;
+
+  NodeType = __nccwpck_require__(651);
+
+  XMLNode = __nccwpck_require__(9295);
 
   module.exports = XMLAttribute = (function() {
     function XMLAttribute(parent, name, value) {
-      this.options = parent.options;
-      this.stringify = parent.stringify;
+      this.parent = parent;
+      if (this.parent) {
+        this.options = this.parent.options;
+        this.stringify = this.parent.stringify;
+      }
       if (name == null) {
-        throw new Error("Missing attribute name of element " + parent.name);
+        throw new Error("Missing attribute name. " + this.debugInfo(name));
       }
-      if (value == null) {
-        throw new Error("Missing attribute value for attribute " + name + " of element " + parent.name);
-      }
-      this.name = this.stringify.attName(name);
+      this.name = this.stringify.name(name);
       this.value = this.stringify.attValue(value);
+      this.type = NodeType.Attribute;
+      this.isId = false;
+      this.schemaTypeInfo = null;
     }
+
+    Object.defineProperty(XMLAttribute.prototype, 'nodeType', {
+      get: function() {
+        return this.type;
+      }
+    });
+
+    Object.defineProperty(XMLAttribute.prototype, 'ownerElement', {
+      get: function() {
+        return this.parent;
+      }
+    });
+
+    Object.defineProperty(XMLAttribute.prototype, 'textContent', {
+      get: function() {
+        return this.value;
+      },
+      set: function(value) {
+        return this.value = value || '';
+      }
+    });
+
+    Object.defineProperty(XMLAttribute.prototype, 'namespaceURI', {
+      get: function() {
+        return '';
+      }
+    });
+
+    Object.defineProperty(XMLAttribute.prototype, 'prefix', {
+      get: function() {
+        return '';
+      }
+    });
+
+    Object.defineProperty(XMLAttribute.prototype, 'localName', {
+      get: function() {
+        return this.name;
+      }
+    });
+
+    Object.defineProperty(XMLAttribute.prototype, 'specified', {
+      get: function() {
+        return true;
+      }
+    });
 
     XMLAttribute.prototype.clone = function() {
       return Object.create(this);
     };
 
     XMLAttribute.prototype.toString = function(options) {
-      return this.options.writer.set(options).attribute(this);
+      return this.options.writer.attribute(this, this.options.writer.filterOptions(options));
+    };
+
+    XMLAttribute.prototype.debugInfo = function(name) {
+      name = name || this.name;
+      if (name == null) {
+        return "parent: <" + this.parent.name + ">";
+      } else {
+        return "attribute: {" + name + "}, parent: <" + this.parent.name + ">";
+      }
+    };
+
+    XMLAttribute.prototype.isEqualNode = function(node) {
+      if (node.namespaceURI !== this.namespaceURI) {
+        return false;
+      }
+      if (node.prefix !== this.prefix) {
+        return false;
+      }
+      if (node.localName !== this.localName) {
+        return false;
+      }
+      if (node.value !== this.value) {
+        return false;
+      }
+      return true;
     };
 
     return XMLAttribute;
@@ -26002,16 +26493,18 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 333:
+/***/ 8117:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLCData, XMLNode,
+  var NodeType, XMLCData, XMLCharacterData,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  XMLNode = __nccwpck_require__(7608);
+  NodeType = __nccwpck_require__(651);
+
+  XMLCharacterData = __nccwpck_require__(75);
 
   module.exports = XMLCData = (function(superClass) {
     extend(XMLCData, superClass);
@@ -26019,9 +26512,11 @@ exports["default"] = _default;
     function XMLCData(parent, text) {
       XMLCData.__super__.constructor.call(this, parent);
       if (text == null) {
-        throw new Error("Missing CDATA text");
+        throw new Error("Missing CDATA text. " + this.debugInfo());
       }
-      this.text = this.stringify.cdata(text);
+      this.name = "#cdata-section";
+      this.type = NodeType.CData;
+      this.value = this.stringify.cdata(text);
     }
 
     XMLCData.prototype.clone = function() {
@@ -26029,10 +26524,96 @@ exports["default"] = _default;
     };
 
     XMLCData.prototype.toString = function(options) {
-      return this.options.writer.set(options).cdata(this);
+      return this.options.writer.cdata(this, this.options.writer.filterOptions(options));
     };
 
     return XMLCData;
+
+  })(XMLCharacterData);
+
+}).call(this);
+
+
+/***/ }),
+
+/***/ 75:
+/***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
+
+// Generated by CoffeeScript 1.12.7
+(function() {
+  var XMLCharacterData, XMLNode,
+    extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    hasProp = {}.hasOwnProperty;
+
+  XMLNode = __nccwpck_require__(9295);
+
+  module.exports = XMLCharacterData = (function(superClass) {
+    extend(XMLCharacterData, superClass);
+
+    function XMLCharacterData(parent) {
+      XMLCharacterData.__super__.constructor.call(this, parent);
+      this.value = '';
+    }
+
+    Object.defineProperty(XMLCharacterData.prototype, 'data', {
+      get: function() {
+        return this.value;
+      },
+      set: function(value) {
+        return this.value = value || '';
+      }
+    });
+
+    Object.defineProperty(XMLCharacterData.prototype, 'length', {
+      get: function() {
+        return this.value.length;
+      }
+    });
+
+    Object.defineProperty(XMLCharacterData.prototype, 'textContent', {
+      get: function() {
+        return this.value;
+      },
+      set: function(value) {
+        return this.value = value || '';
+      }
+    });
+
+    XMLCharacterData.prototype.clone = function() {
+      return Object.create(this);
+    };
+
+    XMLCharacterData.prototype.substringData = function(offset, count) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLCharacterData.prototype.appendData = function(arg) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLCharacterData.prototype.insertData = function(offset, arg) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLCharacterData.prototype.deleteData = function(offset, count) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLCharacterData.prototype.replaceData = function(offset, count, arg) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLCharacterData.prototype.isEqualNode = function(node) {
+      if (!XMLCharacterData.__super__.isEqualNode.apply(this, arguments).isEqualNode(node)) {
+        return false;
+      }
+      if (node.data !== this.data) {
+        return false;
+      }
+      return true;
+    };
+
+    return XMLCharacterData;
 
   })(XMLNode);
 
@@ -26041,16 +26622,18 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 4407:
+/***/ 3992:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLComment, XMLNode,
+  var NodeType, XMLCharacterData, XMLComment,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  XMLNode = __nccwpck_require__(7608);
+  NodeType = __nccwpck_require__(651);
+
+  XMLCharacterData = __nccwpck_require__(75);
 
   module.exports = XMLComment = (function(superClass) {
     extend(XMLComment, superClass);
@@ -26058,9 +26641,11 @@ exports["default"] = _default;
     function XMLComment(parent, text) {
       XMLComment.__super__.constructor.call(this, parent);
       if (text == null) {
-        throw new Error("Missing comment text");
+        throw new Error("Missing comment text. " + this.debugInfo());
       }
-      this.text = this.stringify.comment(text);
+      this.name = "#comment";
+      this.type = NodeType.Comment;
+      this.value = this.stringify.comment(text);
     }
 
     XMLComment.prototype.clone = function() {
@@ -26068,28 +26653,198 @@ exports["default"] = _default;
     };
 
     XMLComment.prototype.toString = function(options) {
-      return this.options.writer.set(options).comment(this);
+      return this.options.writer.comment(this, this.options.writer.filterOptions(options));
     };
 
     return XMLComment;
 
-  })(XMLNode);
+  })(XMLCharacterData);
 
 }).call(this);
 
 
 /***/ }),
 
-/***/ 1015:
+/***/ 910:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLDTDAttList, XMLNode,
+  var XMLDOMConfiguration, XMLDOMErrorHandler, XMLDOMStringList;
+
+  XMLDOMErrorHandler = __nccwpck_require__(2393);
+
+  XMLDOMStringList = __nccwpck_require__(5837);
+
+  module.exports = XMLDOMConfiguration = (function() {
+    function XMLDOMConfiguration() {
+      var clonedSelf;
+      this.defaultParams = {
+        "canonical-form": false,
+        "cdata-sections": false,
+        "comments": false,
+        "datatype-normalization": false,
+        "element-content-whitespace": true,
+        "entities": true,
+        "error-handler": new XMLDOMErrorHandler(),
+        "infoset": true,
+        "validate-if-schema": false,
+        "namespaces": true,
+        "namespace-declarations": true,
+        "normalize-characters": false,
+        "schema-location": '',
+        "schema-type": '',
+        "split-cdata-sections": true,
+        "validate": false,
+        "well-formed": true
+      };
+      this.params = clonedSelf = Object.create(this.defaultParams);
+    }
+
+    Object.defineProperty(XMLDOMConfiguration.prototype, 'parameterNames', {
+      get: function() {
+        return new XMLDOMStringList(Object.keys(this.defaultParams));
+      }
+    });
+
+    XMLDOMConfiguration.prototype.getParameter = function(name) {
+      if (this.params.hasOwnProperty(name)) {
+        return this.params[name];
+      } else {
+        return null;
+      }
+    };
+
+    XMLDOMConfiguration.prototype.canSetParameter = function(name, value) {
+      return true;
+    };
+
+    XMLDOMConfiguration.prototype.setParameter = function(name, value) {
+      if (value != null) {
+        return this.params[name] = value;
+      } else {
+        return delete this.params[name];
+      }
+    };
+
+    return XMLDOMConfiguration;
+
+  })();
+
+}).call(this);
+
+
+/***/ }),
+
+/***/ 2393:
+/***/ (function(module) {
+
+// Generated by CoffeeScript 1.12.7
+(function() {
+  var XMLDOMErrorHandler;
+
+  module.exports = XMLDOMErrorHandler = (function() {
+    function XMLDOMErrorHandler() {}
+
+    XMLDOMErrorHandler.prototype.handleError = function(error) {
+      throw new Error(error);
+    };
+
+    return XMLDOMErrorHandler;
+
+  })();
+
+}).call(this);
+
+
+/***/ }),
+
+/***/ 1413:
+/***/ (function(module) {
+
+// Generated by CoffeeScript 1.12.7
+(function() {
+  var XMLDOMImplementation;
+
+  module.exports = XMLDOMImplementation = (function() {
+    function XMLDOMImplementation() {}
+
+    XMLDOMImplementation.prototype.hasFeature = function(feature, version) {
+      return true;
+    };
+
+    XMLDOMImplementation.prototype.createDocumentType = function(qualifiedName, publicId, systemId) {
+      throw new Error("This DOM method is not implemented.");
+    };
+
+    XMLDOMImplementation.prototype.createDocument = function(namespaceURI, qualifiedName, doctype) {
+      throw new Error("This DOM method is not implemented.");
+    };
+
+    XMLDOMImplementation.prototype.createHTMLDocument = function(title) {
+      throw new Error("This DOM method is not implemented.");
+    };
+
+    XMLDOMImplementation.prototype.getFeature = function(feature, version) {
+      throw new Error("This DOM method is not implemented.");
+    };
+
+    return XMLDOMImplementation;
+
+  })();
+
+}).call(this);
+
+
+/***/ }),
+
+/***/ 5837:
+/***/ (function(module) {
+
+// Generated by CoffeeScript 1.12.7
+(function() {
+  var XMLDOMStringList;
+
+  module.exports = XMLDOMStringList = (function() {
+    function XMLDOMStringList(arr) {
+      this.arr = arr || [];
+    }
+
+    Object.defineProperty(XMLDOMStringList.prototype, 'length', {
+      get: function() {
+        return this.arr.length;
+      }
+    });
+
+    XMLDOMStringList.prototype.item = function(index) {
+      return this.arr[index] || null;
+    };
+
+    XMLDOMStringList.prototype.contains = function(str) {
+      return this.arr.indexOf(str) !== -1;
+    };
+
+    return XMLDOMStringList;
+
+  })();
+
+}).call(this);
+
+
+/***/ }),
+
+/***/ 816:
+/***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
+
+// Generated by CoffeeScript 1.12.7
+(function() {
+  var NodeType, XMLDTDAttList, XMLNode,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  XMLNode = __nccwpck_require__(7608);
+  XMLNode = __nccwpck_require__(9295);
+
+  NodeType = __nccwpck_require__(651);
 
   module.exports = XMLDTDAttList = (function(superClass) {
     extend(XMLDTDAttList, superClass);
@@ -26097,35 +26852,38 @@ exports["default"] = _default;
     function XMLDTDAttList(parent, elementName, attributeName, attributeType, defaultValueType, defaultValue) {
       XMLDTDAttList.__super__.constructor.call(this, parent);
       if (elementName == null) {
-        throw new Error("Missing DTD element name");
+        throw new Error("Missing DTD element name. " + this.debugInfo());
       }
       if (attributeName == null) {
-        throw new Error("Missing DTD attribute name");
+        throw new Error("Missing DTD attribute name. " + this.debugInfo(elementName));
       }
       if (!attributeType) {
-        throw new Error("Missing DTD attribute type");
+        throw new Error("Missing DTD attribute type. " + this.debugInfo(elementName));
       }
       if (!defaultValueType) {
-        throw new Error("Missing DTD attribute default");
+        throw new Error("Missing DTD attribute default. " + this.debugInfo(elementName));
       }
       if (defaultValueType.indexOf('#') !== 0) {
         defaultValueType = '#' + defaultValueType;
       }
       if (!defaultValueType.match(/^(#REQUIRED|#IMPLIED|#FIXED|#DEFAULT)$/)) {
-        throw new Error("Invalid default value type; expected: #REQUIRED, #IMPLIED, #FIXED or #DEFAULT");
+        throw new Error("Invalid default value type; expected: #REQUIRED, #IMPLIED, #FIXED or #DEFAULT. " + this.debugInfo(elementName));
       }
       if (defaultValue && !defaultValueType.match(/^(#FIXED|#DEFAULT)$/)) {
-        throw new Error("Default value only applies to #FIXED or #DEFAULT");
+        throw new Error("Default value only applies to #FIXED or #DEFAULT. " + this.debugInfo(elementName));
       }
-      this.elementName = this.stringify.eleName(elementName);
-      this.attributeName = this.stringify.attName(attributeName);
+      this.elementName = this.stringify.name(elementName);
+      this.type = NodeType.AttributeDeclaration;
+      this.attributeName = this.stringify.name(attributeName);
       this.attributeType = this.stringify.dtdAttType(attributeType);
-      this.defaultValue = this.stringify.dtdAttDefault(defaultValue);
+      if (defaultValue) {
+        this.defaultValue = this.stringify.dtdAttDefault(defaultValue);
+      }
       this.defaultValueType = defaultValueType;
     }
 
     XMLDTDAttList.prototype.toString = function(options) {
-      return this.options.writer.set(options).dtdAttList(this);
+      return this.options.writer.dtdAttList(this, this.options.writer.filterOptions(options));
     };
 
     return XMLDTDAttList;
@@ -26137,16 +26895,18 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 2421:
+/***/ 8900:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLDTDElement, XMLNode,
+  var NodeType, XMLDTDElement, XMLNode,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  XMLNode = __nccwpck_require__(7608);
+  XMLNode = __nccwpck_require__(9295);
+
+  NodeType = __nccwpck_require__(651);
 
   module.exports = XMLDTDElement = (function(superClass) {
     extend(XMLDTDElement, superClass);
@@ -26154,7 +26914,7 @@ exports["default"] = _default;
     function XMLDTDElement(parent, name, value) {
       XMLDTDElement.__super__.constructor.call(this, parent);
       if (name == null) {
-        throw new Error("Missing DTD element name");
+        throw new Error("Missing DTD element name. " + this.debugInfo());
       }
       if (!value) {
         value = '(#PCDATA)';
@@ -26162,12 +26922,13 @@ exports["default"] = _default;
       if (Array.isArray(value)) {
         value = '(' + value.join(',') + ')';
       }
-      this.name = this.stringify.eleName(name);
+      this.name = this.stringify.name(name);
+      this.type = NodeType.ElementDeclaration;
       this.value = this.stringify.dtdElementValue(value);
     }
 
     XMLDTDElement.prototype.toString = function(options) {
-      return this.options.writer.set(options).dtdElement(this);
+      return this.options.writer.dtdElement(this, this.options.writer.filterOptions(options));
     };
 
     return XMLDTDElement;
@@ -26179,18 +26940,20 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 53:
+/***/ 1301:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLDTDEntity, XMLNode, isObject,
+  var NodeType, XMLDTDEntity, XMLNode, isObject,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  isObject = (__nccwpck_require__(8229).isObject);
+  isObject = (__nccwpck_require__(3376).isObject);
 
-  XMLNode = __nccwpck_require__(7608);
+  XMLNode = __nccwpck_require__(9295);
+
+  NodeType = __nccwpck_require__(651);
 
   module.exports = XMLDTDEntity = (function(superClass) {
     extend(XMLDTDEntity, superClass);
@@ -26198,22 +26961,25 @@ exports["default"] = _default;
     function XMLDTDEntity(parent, pe, name, value) {
       XMLDTDEntity.__super__.constructor.call(this, parent);
       if (name == null) {
-        throw new Error("Missing entity name");
+        throw new Error("Missing DTD entity name. " + this.debugInfo(name));
       }
       if (value == null) {
-        throw new Error("Missing entity value");
+        throw new Error("Missing DTD entity value. " + this.debugInfo(name));
       }
       this.pe = !!pe;
-      this.name = this.stringify.eleName(name);
+      this.name = this.stringify.name(name);
+      this.type = NodeType.EntityDeclaration;
       if (!isObject(value)) {
         this.value = this.stringify.dtdEntityValue(value);
+        this.internal = true;
       } else {
         if (!value.pubID && !value.sysID) {
-          throw new Error("Public and/or system identifiers are required for an external entity");
+          throw new Error("Public and/or system identifiers are required for an external entity. " + this.debugInfo(name));
         }
         if (value.pubID && !value.sysID) {
-          throw new Error("System identifier is required for a public external entity");
+          throw new Error("System identifier is required for a public external entity. " + this.debugInfo(name));
         }
+        this.internal = false;
         if (value.pubID != null) {
           this.pubID = this.stringify.dtdPubID(value.pubID);
         }
@@ -26224,13 +26990,49 @@ exports["default"] = _default;
           this.nData = this.stringify.dtdNData(value.nData);
         }
         if (this.pe && this.nData) {
-          throw new Error("Notation declaration is not allowed in a parameter entity");
+          throw new Error("Notation declaration is not allowed in a parameter entity. " + this.debugInfo(name));
         }
       }
     }
 
+    Object.defineProperty(XMLDTDEntity.prototype, 'publicId', {
+      get: function() {
+        return this.pubID;
+      }
+    });
+
+    Object.defineProperty(XMLDTDEntity.prototype, 'systemId', {
+      get: function() {
+        return this.sysID;
+      }
+    });
+
+    Object.defineProperty(XMLDTDEntity.prototype, 'notationName', {
+      get: function() {
+        return this.nData || null;
+      }
+    });
+
+    Object.defineProperty(XMLDTDEntity.prototype, 'inputEncoding', {
+      get: function() {
+        return null;
+      }
+    });
+
+    Object.defineProperty(XMLDTDEntity.prototype, 'xmlEncoding', {
+      get: function() {
+        return null;
+      }
+    });
+
+    Object.defineProperty(XMLDTDEntity.prototype, 'xmlVersion', {
+      get: function() {
+        return null;
+      }
+    });
+
     XMLDTDEntity.prototype.toString = function(options) {
-      return this.options.writer.set(options).dtdEntity(this);
+      return this.options.writer.dtdEntity(this, this.options.writer.filterOptions(options));
     };
 
     return XMLDTDEntity;
@@ -26242,16 +27044,18 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 2837:
+/***/ 8970:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLDTDNotation, XMLNode,
+  var NodeType, XMLDTDNotation, XMLNode,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  XMLNode = __nccwpck_require__(7608);
+  XMLNode = __nccwpck_require__(9295);
+
+  NodeType = __nccwpck_require__(651);
 
   module.exports = XMLDTDNotation = (function(superClass) {
     extend(XMLDTDNotation, superClass);
@@ -26259,12 +27063,13 @@ exports["default"] = _default;
     function XMLDTDNotation(parent, name, value) {
       XMLDTDNotation.__super__.constructor.call(this, parent);
       if (name == null) {
-        throw new Error("Missing notation name");
+        throw new Error("Missing DTD notation name. " + this.debugInfo(name));
       }
       if (!value.pubID && !value.sysID) {
-        throw new Error("Public or system identifiers are required for an external entity");
+        throw new Error("Public or system identifiers are required for an external entity. " + this.debugInfo(name));
       }
-      this.name = this.stringify.eleName(name);
+      this.name = this.stringify.name(name);
+      this.type = NodeType.NotationDeclaration;
       if (value.pubID != null) {
         this.pubID = this.stringify.dtdPubID(value.pubID);
       }
@@ -26273,8 +27078,20 @@ exports["default"] = _default;
       }
     }
 
+    Object.defineProperty(XMLDTDNotation.prototype, 'publicId', {
+      get: function() {
+        return this.pubID;
+      }
+    });
+
+    Object.defineProperty(XMLDTDNotation.prototype, 'systemId', {
+      get: function() {
+        return this.sysID;
+      }
+    });
+
     XMLDTDNotation.prototype.toString = function(options) {
-      return this.options.writer.set(options).dtdNotation(this);
+      return this.options.writer.dtdNotation(this, this.options.writer.filterOptions(options));
     };
 
     return XMLDTDNotation;
@@ -26286,18 +27103,20 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6364:
+/***/ 1729:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLDeclaration, XMLNode, isObject,
+  var NodeType, XMLDeclaration, XMLNode, isObject,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  isObject = (__nccwpck_require__(8229).isObject);
+  isObject = (__nccwpck_require__(3376).isObject);
 
-  XMLNode = __nccwpck_require__(7608);
+  XMLNode = __nccwpck_require__(9295);
+
+  NodeType = __nccwpck_require__(651);
 
   module.exports = XMLDeclaration = (function(superClass) {
     extend(XMLDeclaration, superClass);
@@ -26311,6 +27130,7 @@ exports["default"] = _default;
       if (!version) {
         version = '1.0';
       }
+      this.type = NodeType.Declaration;
       this.version = this.stringify.xmlVersion(version);
       if (encoding != null) {
         this.encoding = this.stringify.xmlEncoding(encoding);
@@ -26321,7 +27141,7 @@ exports["default"] = _default;
     }
 
     XMLDeclaration.prototype.toString = function(options) {
-      return this.options.writer.set(options).declaration(this);
+      return this.options.writer.declaration(this, this.options.writer.filterOptions(options));
     };
 
     return XMLDeclaration;
@@ -26333,39 +27153,54 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 1801:
+/***/ 8393:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLDTDAttList, XMLDTDElement, XMLDTDEntity, XMLDTDNotation, XMLDocType, XMLNode, isObject,
+  var NodeType, XMLDTDAttList, XMLDTDElement, XMLDTDEntity, XMLDTDNotation, XMLDocType, XMLNamedNodeMap, XMLNode, isObject,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  isObject = (__nccwpck_require__(8229).isObject);
+  isObject = (__nccwpck_require__(3376).isObject);
 
-  XMLNode = __nccwpck_require__(7608);
+  XMLNode = __nccwpck_require__(9295);
 
-  XMLDTDAttList = __nccwpck_require__(1015);
+  NodeType = __nccwpck_require__(651);
 
-  XMLDTDEntity = __nccwpck_require__(53);
+  XMLDTDAttList = __nccwpck_require__(816);
 
-  XMLDTDElement = __nccwpck_require__(2421);
+  XMLDTDEntity = __nccwpck_require__(1301);
 
-  XMLDTDNotation = __nccwpck_require__(2837);
+  XMLDTDElement = __nccwpck_require__(8900);
+
+  XMLDTDNotation = __nccwpck_require__(8970);
+
+  XMLNamedNodeMap = __nccwpck_require__(495);
 
   module.exports = XMLDocType = (function(superClass) {
     extend(XMLDocType, superClass);
 
     function XMLDocType(parent, pubID, sysID) {
-      var ref, ref1;
+      var child, i, len, ref, ref1, ref2;
       XMLDocType.__super__.constructor.call(this, parent);
+      this.type = NodeType.DocType;
+      if (parent.children) {
+        ref = parent.children;
+        for (i = 0, len = ref.length; i < len; i++) {
+          child = ref[i];
+          if (child.type === NodeType.Element) {
+            this.name = child.name;
+            break;
+          }
+        }
+      }
       this.documentObject = parent;
       if (isObject(pubID)) {
-        ref = pubID, pubID = ref.pubID, sysID = ref.sysID;
+        ref1 = pubID, pubID = ref1.pubID, sysID = ref1.sysID;
       }
       if (sysID == null) {
-        ref1 = [pubID, sysID], sysID = ref1[0], pubID = ref1[1];
+        ref2 = [pubID, sysID], sysID = ref2[0], pubID = ref2[1];
       }
       if (pubID != null) {
         this.pubID = this.stringify.dtdPubID(pubID);
@@ -26374,6 +27209,54 @@ exports["default"] = _default;
         this.sysID = this.stringify.dtdSysID(sysID);
       }
     }
+
+    Object.defineProperty(XMLDocType.prototype, 'entities', {
+      get: function() {
+        var child, i, len, nodes, ref;
+        nodes = {};
+        ref = this.children;
+        for (i = 0, len = ref.length; i < len; i++) {
+          child = ref[i];
+          if ((child.type === NodeType.EntityDeclaration) && !child.pe) {
+            nodes[child.name] = child;
+          }
+        }
+        return new XMLNamedNodeMap(nodes);
+      }
+    });
+
+    Object.defineProperty(XMLDocType.prototype, 'notations', {
+      get: function() {
+        var child, i, len, nodes, ref;
+        nodes = {};
+        ref = this.children;
+        for (i = 0, len = ref.length; i < len; i++) {
+          child = ref[i];
+          if (child.type === NodeType.NotationDeclaration) {
+            nodes[child.name] = child;
+          }
+        }
+        return new XMLNamedNodeMap(nodes);
+      }
+    });
+
+    Object.defineProperty(XMLDocType.prototype, 'publicId', {
+      get: function() {
+        return this.pubID;
+      }
+    });
+
+    Object.defineProperty(XMLDocType.prototype, 'systemId', {
+      get: function() {
+        return this.sysID;
+      }
+    });
+
+    Object.defineProperty(XMLDocType.prototype, 'internalSubset', {
+      get: function() {
+        throw new Error("This DOM method is not implemented." + this.debugInfo());
+      }
+    });
 
     XMLDocType.prototype.element = function(name, value) {
       var child;
@@ -26411,7 +27294,7 @@ exports["default"] = _default;
     };
 
     XMLDocType.prototype.toString = function(options) {
-      return this.options.writer.set(options).docType(this);
+      return this.options.writer.docType(this, this.options.writer.filterOptions(options));
     };
 
     XMLDocType.prototype.ele = function(name, value) {
@@ -26438,6 +27321,22 @@ exports["default"] = _default;
       return this.root() || this.documentObject;
     };
 
+    XMLDocType.prototype.isEqualNode = function(node) {
+      if (!XMLDocType.__super__.isEqualNode.apply(this, arguments).isEqualNode(node)) {
+        return false;
+      }
+      if (node.name !== this.name) {
+        return false;
+      }
+      if (node.publicId !== this.publicId) {
+        return false;
+      }
+      if (node.systemId !== this.systemId) {
+        return false;
+      }
+      return true;
+    };
+
     return XMLDocType;
 
   })(XMLNode);
@@ -26447,50 +27346,244 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 3730:
+/***/ 5237:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLDocument, XMLNode, XMLStringWriter, XMLStringifier, isPlainObject,
+  var NodeType, XMLDOMConfiguration, XMLDOMImplementation, XMLDocument, XMLNode, XMLStringWriter, XMLStringifier, isPlainObject,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  isPlainObject = (__nccwpck_require__(8229).isPlainObject);
+  isPlainObject = (__nccwpck_require__(3376).isPlainObject);
 
-  XMLNode = __nccwpck_require__(7608);
+  XMLDOMImplementation = __nccwpck_require__(1413);
 
-  XMLStringifier = __nccwpck_require__(8594);
+  XMLDOMConfiguration = __nccwpck_require__(910);
 
-  XMLStringWriter = __nccwpck_require__(5913);
+  XMLNode = __nccwpck_require__(9295);
+
+  NodeType = __nccwpck_require__(651);
+
+  XMLStringifier = __nccwpck_require__(887);
+
+  XMLStringWriter = __nccwpck_require__(6514);
 
   module.exports = XMLDocument = (function(superClass) {
     extend(XMLDocument, superClass);
 
     function XMLDocument(options) {
       XMLDocument.__super__.constructor.call(this, null);
+      this.name = "#document";
+      this.type = NodeType.Document;
+      this.documentURI = null;
+      this.domConfig = new XMLDOMConfiguration();
       options || (options = {});
       if (!options.writer) {
         options.writer = new XMLStringWriter();
       }
       this.options = options;
       this.stringify = new XMLStringifier(options);
-      this.isDocument = true;
     }
+
+    Object.defineProperty(XMLDocument.prototype, 'implementation', {
+      value: new XMLDOMImplementation()
+    });
+
+    Object.defineProperty(XMLDocument.prototype, 'doctype', {
+      get: function() {
+        var child, i, len, ref;
+        ref = this.children;
+        for (i = 0, len = ref.length; i < len; i++) {
+          child = ref[i];
+          if (child.type === NodeType.DocType) {
+            return child;
+          }
+        }
+        return null;
+      }
+    });
+
+    Object.defineProperty(XMLDocument.prototype, 'documentElement', {
+      get: function() {
+        return this.rootObject || null;
+      }
+    });
+
+    Object.defineProperty(XMLDocument.prototype, 'inputEncoding', {
+      get: function() {
+        return null;
+      }
+    });
+
+    Object.defineProperty(XMLDocument.prototype, 'strictErrorChecking', {
+      get: function() {
+        return false;
+      }
+    });
+
+    Object.defineProperty(XMLDocument.prototype, 'xmlEncoding', {
+      get: function() {
+        if (this.children.length !== 0 && this.children[0].type === NodeType.Declaration) {
+          return this.children[0].encoding;
+        } else {
+          return null;
+        }
+      }
+    });
+
+    Object.defineProperty(XMLDocument.prototype, 'xmlStandalone', {
+      get: function() {
+        if (this.children.length !== 0 && this.children[0].type === NodeType.Declaration) {
+          return this.children[0].standalone === 'yes';
+        } else {
+          return false;
+        }
+      }
+    });
+
+    Object.defineProperty(XMLDocument.prototype, 'xmlVersion', {
+      get: function() {
+        if (this.children.length !== 0 && this.children[0].type === NodeType.Declaration) {
+          return this.children[0].version;
+        } else {
+          return "1.0";
+        }
+      }
+    });
+
+    Object.defineProperty(XMLDocument.prototype, 'URL', {
+      get: function() {
+        return this.documentURI;
+      }
+    });
+
+    Object.defineProperty(XMLDocument.prototype, 'origin', {
+      get: function() {
+        return null;
+      }
+    });
+
+    Object.defineProperty(XMLDocument.prototype, 'compatMode', {
+      get: function() {
+        return null;
+      }
+    });
+
+    Object.defineProperty(XMLDocument.prototype, 'characterSet', {
+      get: function() {
+        return null;
+      }
+    });
+
+    Object.defineProperty(XMLDocument.prototype, 'contentType', {
+      get: function() {
+        return null;
+      }
+    });
 
     XMLDocument.prototype.end = function(writer) {
       var writerOptions;
+      writerOptions = {};
       if (!writer) {
         writer = this.options.writer;
       } else if (isPlainObject(writer)) {
         writerOptions = writer;
-        writer = this.options.writer.set(writerOptions);
+        writer = this.options.writer;
       }
-      return writer.document(this);
+      return writer.document(this, writer.filterOptions(writerOptions));
     };
 
     XMLDocument.prototype.toString = function(options) {
-      return this.options.writer.set(options).document(this);
+      return this.options.writer.document(this, this.options.writer.filterOptions(options));
+    };
+
+    XMLDocument.prototype.createElement = function(tagName) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.createDocumentFragment = function() {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.createTextNode = function(data) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.createComment = function(data) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.createCDATASection = function(data) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.createProcessingInstruction = function(target, data) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.createAttribute = function(name) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.createEntityReference = function(name) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.getElementsByTagName = function(tagname) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.importNode = function(importedNode, deep) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.createElementNS = function(namespaceURI, qualifiedName) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.createAttributeNS = function(namespaceURI, qualifiedName) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.getElementsByTagNameNS = function(namespaceURI, localName) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.getElementById = function(elementId) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.adoptNode = function(source) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.normalizeDocument = function() {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.renameNode = function(node, namespaceURI, qualifiedName) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.getElementsByClassName = function(classNames) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.createEvent = function(eventInterface) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.createRange = function() {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.createNodeIterator = function(root, whatToShow, filter) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLDocument.prototype.createTreeWalker = function(root, whatToShow, filter) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
     };
 
     return XMLDocument;
@@ -26502,58 +27595,68 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 7356:
+/***/ 4208:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLAttribute, XMLCData, XMLComment, XMLDTDAttList, XMLDTDElement, XMLDTDEntity, XMLDTDNotation, XMLDeclaration, XMLDocType, XMLDocumentCB, XMLElement, XMLProcessingInstruction, XMLRaw, XMLStringWriter, XMLStringifier, XMLText, isFunction, isObject, isPlainObject, ref,
+  var NodeType, WriterState, XMLAttribute, XMLCData, XMLComment, XMLDTDAttList, XMLDTDElement, XMLDTDEntity, XMLDTDNotation, XMLDeclaration, XMLDocType, XMLDocument, XMLDocumentCB, XMLElement, XMLProcessingInstruction, XMLRaw, XMLStringWriter, XMLStringifier, XMLText, getValue, isFunction, isObject, isPlainObject, ref,
     hasProp = {}.hasOwnProperty;
 
-  ref = __nccwpck_require__(8229), isObject = ref.isObject, isFunction = ref.isFunction, isPlainObject = ref.isPlainObject;
+  ref = __nccwpck_require__(3376), isObject = ref.isObject, isFunction = ref.isFunction, isPlainObject = ref.isPlainObject, getValue = ref.getValue;
 
-  XMLElement = __nccwpck_require__(9437);
+  NodeType = __nccwpck_require__(651);
 
-  XMLCData = __nccwpck_require__(333);
+  XMLDocument = __nccwpck_require__(5237);
 
-  XMLComment = __nccwpck_require__(4407);
+  XMLElement = __nccwpck_require__(9669);
 
-  XMLRaw = __nccwpck_require__(6329);
+  XMLCData = __nccwpck_require__(8117);
 
-  XMLText = __nccwpck_require__(1318);
+  XMLComment = __nccwpck_require__(3992);
 
-  XMLProcessingInstruction = __nccwpck_require__(6939);
+  XMLRaw = __nccwpck_require__(4182);
 
-  XMLDeclaration = __nccwpck_require__(6364);
+  XMLText = __nccwpck_require__(7162);
 
-  XMLDocType = __nccwpck_require__(1801);
+  XMLProcessingInstruction = __nccwpck_require__(6466);
 
-  XMLDTDAttList = __nccwpck_require__(1015);
+  XMLDeclaration = __nccwpck_require__(1729);
 
-  XMLDTDEntity = __nccwpck_require__(53);
+  XMLDocType = __nccwpck_require__(8393);
 
-  XMLDTDElement = __nccwpck_require__(2421);
+  XMLDTDAttList = __nccwpck_require__(816);
 
-  XMLDTDNotation = __nccwpck_require__(2837);
+  XMLDTDEntity = __nccwpck_require__(1301);
 
-  XMLAttribute = __nccwpck_require__(8376);
+  XMLDTDElement = __nccwpck_require__(8900);
 
-  XMLStringifier = __nccwpck_require__(8594);
+  XMLDTDNotation = __nccwpck_require__(8970);
 
-  XMLStringWriter = __nccwpck_require__(5913);
+  XMLAttribute = __nccwpck_require__(4552);
+
+  XMLStringifier = __nccwpck_require__(887);
+
+  XMLStringWriter = __nccwpck_require__(6514);
+
+  WriterState = __nccwpck_require__(6626);
 
   module.exports = XMLDocumentCB = (function() {
     function XMLDocumentCB(options, onData, onEnd) {
       var writerOptions;
+      this.name = "?xml";
+      this.type = NodeType.Document;
       options || (options = {});
+      writerOptions = {};
       if (!options.writer) {
-        options.writer = new XMLStringWriter(options);
+        options.writer = new XMLStringWriter();
       } else if (isPlainObject(options.writer)) {
         writerOptions = options.writer;
-        options.writer = new XMLStringWriter(writerOptions);
+        options.writer = new XMLStringWriter();
       }
       this.options = options;
       this.writer = options.writer;
+      this.writerOptions = this.writer.filterOptions(writerOptions);
       this.stringify = new XMLStringifier(options);
       this.onDataCallback = onData || function() {};
       this.onEndCallback = onEnd || function() {};
@@ -26565,20 +27668,69 @@ exports["default"] = _default;
       this.root = null;
     }
 
+    XMLDocumentCB.prototype.createChildNode = function(node) {
+      var att, attName, attributes, child, i, len, ref1, ref2;
+      switch (node.type) {
+        case NodeType.CData:
+          this.cdata(node.value);
+          break;
+        case NodeType.Comment:
+          this.comment(node.value);
+          break;
+        case NodeType.Element:
+          attributes = {};
+          ref1 = node.attribs;
+          for (attName in ref1) {
+            if (!hasProp.call(ref1, attName)) continue;
+            att = ref1[attName];
+            attributes[attName] = att.value;
+          }
+          this.node(node.name, attributes);
+          break;
+        case NodeType.Dummy:
+          this.dummy();
+          break;
+        case NodeType.Raw:
+          this.raw(node.value);
+          break;
+        case NodeType.Text:
+          this.text(node.value);
+          break;
+        case NodeType.ProcessingInstruction:
+          this.instruction(node.target, node.value);
+          break;
+        default:
+          throw new Error("This XML node type is not supported in a JS object: " + node.constructor.name);
+      }
+      ref2 = node.children;
+      for (i = 0, len = ref2.length; i < len; i++) {
+        child = ref2[i];
+        this.createChildNode(child);
+        if (child.type === NodeType.Element) {
+          this.up();
+        }
+      }
+      return this;
+    };
+
+    XMLDocumentCB.prototype.dummy = function() {
+      return this;
+    };
+
     XMLDocumentCB.prototype.node = function(name, attributes, text) {
       var ref1;
       if (name == null) {
-        throw new Error("Missing node name");
+        throw new Error("Missing node name.");
       }
       if (this.root && this.currentLevel === -1) {
-        throw new Error("Document can only have one root node");
+        throw new Error("Document can only have one root node. " + this.debugInfo(name));
       }
       this.openCurrent();
-      name = name.valueOf();
+      name = getValue(name);
       if (attributes == null) {
         attributes = {};
       }
-      attributes = attributes.valueOf();
+      attributes = getValue(attributes);
       if (!isObject(attributes)) {
         ref1 = [attributes, text], text = ref1[0], attributes = ref1[1];
       }
@@ -26593,20 +27745,38 @@ exports["default"] = _default;
     };
 
     XMLDocumentCB.prototype.element = function(name, attributes, text) {
-      if (this.currentNode && this.currentNode instanceof XMLDocType) {
-        return this.dtdElement.apply(this, arguments);
+      var child, i, len, oldValidationFlag, ref1, root;
+      if (this.currentNode && this.currentNode.type === NodeType.DocType) {
+        this.dtdElement.apply(this, arguments);
       } else {
-        return this.node(name, attributes, text);
+        if (Array.isArray(name) || isObject(name) || isFunction(name)) {
+          oldValidationFlag = this.options.noValidation;
+          this.options.noValidation = true;
+          root = new XMLDocument(this.options).element('TEMP_ROOT');
+          root.element(name);
+          this.options.noValidation = oldValidationFlag;
+          ref1 = root.children;
+          for (i = 0, len = ref1.length; i < len; i++) {
+            child = ref1[i];
+            this.createChildNode(child);
+            if (child.type === NodeType.Element) {
+              this.up();
+            }
+          }
+        } else {
+          this.node(name, attributes, text);
+        }
       }
+      return this;
     };
 
     XMLDocumentCB.prototype.attribute = function(name, value) {
       var attName, attValue;
       if (!this.currentNode || this.currentNode.children) {
-        throw new Error("att() can only be used immediately after an ele() call in callback mode");
+        throw new Error("att() can only be used immediately after an ele() call in callback mode. " + this.debugInfo(name));
       }
       if (name != null) {
-        name = name.valueOf();
+        name = getValue(name);
       }
       if (isObject(name)) {
         for (attName in name) {
@@ -26618,8 +27788,10 @@ exports["default"] = _default;
         if (isFunction(value)) {
           value = value.apply();
         }
-        if (!this.options.skipNullAttributes || (value != null)) {
-          this.currentNode.attributes[name] = new XMLAttribute(this, name, value);
+        if (this.options.keepNullAttributes && (value == null)) {
+          this.currentNode.attribs[name] = new XMLAttribute(this, name, "");
+        } else if (value != null) {
+          this.currentNode.attribs[name] = new XMLAttribute(this, name, value);
         }
       }
       return this;
@@ -26629,7 +27801,7 @@ exports["default"] = _default;
       var node;
       this.openCurrent();
       node = new XMLText(this, value);
-      this.onData(this.writer.text(node, this.currentLevel + 1));
+      this.onData(this.writer.text(node, this.writerOptions, this.currentLevel + 1), this.currentLevel + 1);
       return this;
     };
 
@@ -26637,7 +27809,7 @@ exports["default"] = _default;
       var node;
       this.openCurrent();
       node = new XMLCData(this, value);
-      this.onData(this.writer.cdata(node, this.currentLevel + 1));
+      this.onData(this.writer.cdata(node, this.writerOptions, this.currentLevel + 1), this.currentLevel + 1);
       return this;
     };
 
@@ -26645,7 +27817,7 @@ exports["default"] = _default;
       var node;
       this.openCurrent();
       node = new XMLComment(this, value);
-      this.onData(this.writer.comment(node, this.currentLevel + 1));
+      this.onData(this.writer.comment(node, this.writerOptions, this.currentLevel + 1), this.currentLevel + 1);
       return this;
     };
 
@@ -26653,7 +27825,7 @@ exports["default"] = _default;
       var node;
       this.openCurrent();
       node = new XMLRaw(this, value);
-      this.onData(this.writer.raw(node, this.currentLevel + 1));
+      this.onData(this.writer.raw(node, this.writerOptions, this.currentLevel + 1), this.currentLevel + 1);
       return this;
     };
 
@@ -26661,10 +27833,10 @@ exports["default"] = _default;
       var i, insTarget, insValue, len, node;
       this.openCurrent();
       if (target != null) {
-        target = target.valueOf();
+        target = getValue(target);
       }
       if (value != null) {
-        value = value.valueOf();
+        value = getValue(value);
       }
       if (Array.isArray(target)) {
         for (i = 0, len = target.length; i < len; i++) {
@@ -26682,7 +27854,7 @@ exports["default"] = _default;
           value = value.apply();
         }
         node = new XMLProcessingInstruction(this, target, value);
-        this.onData(this.writer.processingInstruction(node, this.currentLevel + 1));
+        this.onData(this.writer.processingInstruction(node, this.writerOptions, this.currentLevel + 1), this.currentLevel + 1);
       }
       return this;
     };
@@ -26691,20 +27863,20 @@ exports["default"] = _default;
       var node;
       this.openCurrent();
       if (this.documentStarted) {
-        throw new Error("declaration() must be the first node");
+        throw new Error("declaration() must be the first node.");
       }
       node = new XMLDeclaration(this, version, encoding, standalone);
-      this.onData(this.writer.declaration(node, this.currentLevel + 1));
+      this.onData(this.writer.declaration(node, this.writerOptions, this.currentLevel + 1), this.currentLevel + 1);
       return this;
     };
 
     XMLDocumentCB.prototype.doctype = function(root, pubID, sysID) {
       this.openCurrent();
       if (root == null) {
-        throw new Error("Missing root node name");
+        throw new Error("Missing root node name.");
       }
       if (this.root) {
-        throw new Error("dtd() must come before the root node");
+        throw new Error("dtd() must come before the root node.");
       }
       this.currentNode = new XMLDocType(this, pubID, sysID);
       this.currentNode.rootNodeName = root;
@@ -26718,7 +27890,7 @@ exports["default"] = _default;
       var node;
       this.openCurrent();
       node = new XMLDTDElement(this, name, value);
-      this.onData(this.writer.dtdElement(node, this.currentLevel + 1));
+      this.onData(this.writer.dtdElement(node, this.writerOptions, this.currentLevel + 1), this.currentLevel + 1);
       return this;
     };
 
@@ -26726,7 +27898,7 @@ exports["default"] = _default;
       var node;
       this.openCurrent();
       node = new XMLDTDAttList(this, elementName, attributeName, attributeType, defaultValueType, defaultValue);
-      this.onData(this.writer.dtdAttList(node, this.currentLevel + 1));
+      this.onData(this.writer.dtdAttList(node, this.writerOptions, this.currentLevel + 1), this.currentLevel + 1);
       return this;
     };
 
@@ -26734,7 +27906,7 @@ exports["default"] = _default;
       var node;
       this.openCurrent();
       node = new XMLDTDEntity(this, false, name, value);
-      this.onData(this.writer.dtdEntity(node, this.currentLevel + 1));
+      this.onData(this.writer.dtdEntity(node, this.writerOptions, this.currentLevel + 1), this.currentLevel + 1);
       return this;
     };
 
@@ -26742,7 +27914,7 @@ exports["default"] = _default;
       var node;
       this.openCurrent();
       node = new XMLDTDEntity(this, true, name, value);
-      this.onData(this.writer.dtdEntity(node, this.currentLevel + 1));
+      this.onData(this.writer.dtdEntity(node, this.writerOptions, this.currentLevel + 1), this.currentLevel + 1);
       return this;
     };
 
@@ -26750,13 +27922,13 @@ exports["default"] = _default;
       var node;
       this.openCurrent();
       node = new XMLDTDNotation(this, name, value);
-      this.onData(this.writer.dtdNotation(node, this.currentLevel + 1));
+      this.onData(this.writer.dtdNotation(node, this.writerOptions, this.currentLevel + 1), this.currentLevel + 1);
       return this;
     };
 
     XMLDocumentCB.prototype.up = function() {
       if (this.currentLevel < 0) {
-        throw new Error("The document node has no parent");
+        throw new Error("The document node has no parent.");
       }
       if (this.currentNode) {
         if (this.currentNode.children) {
@@ -26788,30 +27960,77 @@ exports["default"] = _default;
     };
 
     XMLDocumentCB.prototype.openNode = function(node) {
+      var att, chunk, name, ref1;
       if (!node.isOpen) {
-        if (!this.root && this.currentLevel === 0 && node instanceof XMLElement) {
+        if (!this.root && this.currentLevel === 0 && node.type === NodeType.Element) {
           this.root = node;
         }
-        this.onData(this.writer.openNode(node, this.currentLevel));
+        chunk = '';
+        if (node.type === NodeType.Element) {
+          this.writerOptions.state = WriterState.OpenTag;
+          chunk = this.writer.indent(node, this.writerOptions, this.currentLevel) + '<' + node.name;
+          ref1 = node.attribs;
+          for (name in ref1) {
+            if (!hasProp.call(ref1, name)) continue;
+            att = ref1[name];
+            chunk += this.writer.attribute(att, this.writerOptions, this.currentLevel);
+          }
+          chunk += (node.children ? '>' : '/>') + this.writer.endline(node, this.writerOptions, this.currentLevel);
+          this.writerOptions.state = WriterState.InsideTag;
+        } else {
+          this.writerOptions.state = WriterState.OpenTag;
+          chunk = this.writer.indent(node, this.writerOptions, this.currentLevel) + '<!DOCTYPE ' + node.rootNodeName;
+          if (node.pubID && node.sysID) {
+            chunk += ' PUBLIC "' + node.pubID + '" "' + node.sysID + '"';
+          } else if (node.sysID) {
+            chunk += ' SYSTEM "' + node.sysID + '"';
+          }
+          if (node.children) {
+            chunk += ' [';
+            this.writerOptions.state = WriterState.InsideTag;
+          } else {
+            this.writerOptions.state = WriterState.CloseTag;
+            chunk += '>';
+          }
+          chunk += this.writer.endline(node, this.writerOptions, this.currentLevel);
+        }
+        this.onData(chunk, this.currentLevel);
         return node.isOpen = true;
       }
     };
 
     XMLDocumentCB.prototype.closeNode = function(node) {
+      var chunk;
       if (!node.isClosed) {
-        this.onData(this.writer.closeNode(node, this.currentLevel));
+        chunk = '';
+        this.writerOptions.state = WriterState.CloseTag;
+        if (node.type === NodeType.Element) {
+          chunk = this.writer.indent(node, this.writerOptions, this.currentLevel) + '</' + node.name + '>' + this.writer.endline(node, this.writerOptions, this.currentLevel);
+        } else {
+          chunk = this.writer.indent(node, this.writerOptions, this.currentLevel) + ']>' + this.writer.endline(node, this.writerOptions, this.currentLevel);
+        }
+        this.writerOptions.state = WriterState.None;
+        this.onData(chunk, this.currentLevel);
         return node.isClosed = true;
       }
     };
 
-    XMLDocumentCB.prototype.onData = function(chunk) {
+    XMLDocumentCB.prototype.onData = function(chunk, level) {
       this.documentStarted = true;
-      return this.onDataCallback(chunk);
+      return this.onDataCallback(chunk, level + 1);
     };
 
     XMLDocumentCB.prototype.onEnd = function() {
       this.documentCompleted = true;
       return this.onEndCallback();
+    };
+
+    XMLDocumentCB.prototype.debugInfo = function(name) {
+      if (name == null) {
+        return "";
+      } else {
+        return "node: <" + name + ">";
+      }
     };
 
     XMLDocumentCB.prototype.ele = function() {
@@ -26875,7 +28094,7 @@ exports["default"] = _default;
     };
 
     XMLDocumentCB.prototype.att = function() {
-      if (this.currentNode && this.currentNode instanceof XMLDocType) {
+      if (this.currentNode && this.currentNode.type === NodeType.DocType) {
         return this.attList.apply(this, arguments);
       } else {
         return this.attribute.apply(this, arguments);
@@ -26883,7 +28102,7 @@ exports["default"] = _default;
     };
 
     XMLDocumentCB.prototype.a = function() {
-      if (this.currentNode && this.currentNode instanceof XMLDocType) {
+      if (this.currentNode && this.currentNode.type === NodeType.DocType) {
         return this.attList.apply(this, arguments);
       } else {
         return this.attribute.apply(this, arguments);
@@ -26911,40 +28130,146 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 9437:
+/***/ 1482:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLAttribute, XMLElement, XMLNode, isFunction, isObject, ref,
+  var NodeType, XMLDummy, XMLNode,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  ref = __nccwpck_require__(8229), isObject = ref.isObject, isFunction = ref.isFunction;
+  XMLNode = __nccwpck_require__(9295);
 
-  XMLNode = __nccwpck_require__(7608);
+  NodeType = __nccwpck_require__(651);
 
-  XMLAttribute = __nccwpck_require__(8376);
+  module.exports = XMLDummy = (function(superClass) {
+    extend(XMLDummy, superClass);
+
+    function XMLDummy(parent) {
+      XMLDummy.__super__.constructor.call(this, parent);
+      this.type = NodeType.Dummy;
+    }
+
+    XMLDummy.prototype.clone = function() {
+      return Object.create(this);
+    };
+
+    XMLDummy.prototype.toString = function(options) {
+      return '';
+    };
+
+    return XMLDummy;
+
+  })(XMLNode);
+
+}).call(this);
+
+
+/***/ }),
+
+/***/ 9669:
+/***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
+
+// Generated by CoffeeScript 1.12.7
+(function() {
+  var NodeType, XMLAttribute, XMLElement, XMLNamedNodeMap, XMLNode, getValue, isFunction, isObject, ref,
+    extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    hasProp = {}.hasOwnProperty;
+
+  ref = __nccwpck_require__(3376), isObject = ref.isObject, isFunction = ref.isFunction, getValue = ref.getValue;
+
+  XMLNode = __nccwpck_require__(9295);
+
+  NodeType = __nccwpck_require__(651);
+
+  XMLAttribute = __nccwpck_require__(4552);
+
+  XMLNamedNodeMap = __nccwpck_require__(495);
 
   module.exports = XMLElement = (function(superClass) {
     extend(XMLElement, superClass);
 
     function XMLElement(parent, name, attributes) {
+      var child, j, len, ref1;
       XMLElement.__super__.constructor.call(this, parent);
       if (name == null) {
-        throw new Error("Missing element name");
+        throw new Error("Missing element name. " + this.debugInfo());
       }
-      this.name = this.stringify.eleName(name);
-      this.attributes = {};
+      this.name = this.stringify.name(name);
+      this.type = NodeType.Element;
+      this.attribs = {};
+      this.schemaTypeInfo = null;
       if (attributes != null) {
         this.attribute(attributes);
       }
-      if (parent.isDocument) {
+      if (parent.type === NodeType.Document) {
         this.isRoot = true;
         this.documentObject = parent;
         parent.rootObject = this;
+        if (parent.children) {
+          ref1 = parent.children;
+          for (j = 0, len = ref1.length; j < len; j++) {
+            child = ref1[j];
+            if (child.type === NodeType.DocType) {
+              child.name = this.name;
+              break;
+            }
+          }
+        }
       }
     }
+
+    Object.defineProperty(XMLElement.prototype, 'tagName', {
+      get: function() {
+        return this.name;
+      }
+    });
+
+    Object.defineProperty(XMLElement.prototype, 'namespaceURI', {
+      get: function() {
+        return '';
+      }
+    });
+
+    Object.defineProperty(XMLElement.prototype, 'prefix', {
+      get: function() {
+        return '';
+      }
+    });
+
+    Object.defineProperty(XMLElement.prototype, 'localName', {
+      get: function() {
+        return this.name;
+      }
+    });
+
+    Object.defineProperty(XMLElement.prototype, 'id', {
+      get: function() {
+        throw new Error("This DOM method is not implemented." + this.debugInfo());
+      }
+    });
+
+    Object.defineProperty(XMLElement.prototype, 'className', {
+      get: function() {
+        throw new Error("This DOM method is not implemented." + this.debugInfo());
+      }
+    });
+
+    Object.defineProperty(XMLElement.prototype, 'classList', {
+      get: function() {
+        throw new Error("This DOM method is not implemented." + this.debugInfo());
+      }
+    });
+
+    Object.defineProperty(XMLElement.prototype, 'attributes', {
+      get: function() {
+        if (!this.attributeMap || !this.attributeMap.nodes) {
+          this.attributeMap = new XMLNamedNodeMap(this.attribs);
+        }
+        return this.attributeMap;
+      }
+    });
 
     XMLElement.prototype.clone = function() {
       var att, attName, clonedSelf, ref1;
@@ -26952,12 +28277,12 @@ exports["default"] = _default;
       if (clonedSelf.isRoot) {
         clonedSelf.documentObject = null;
       }
-      clonedSelf.attributes = {};
-      ref1 = this.attributes;
+      clonedSelf.attribs = {};
+      ref1 = this.attribs;
       for (attName in ref1) {
         if (!hasProp.call(ref1, attName)) continue;
         att = ref1[attName];
-        clonedSelf.attributes[attName] = att.clone();
+        clonedSelf.attribs[attName] = att.clone();
       }
       clonedSelf.children = [];
       this.children.forEach(function(child) {
@@ -26972,7 +28297,7 @@ exports["default"] = _default;
     XMLElement.prototype.attribute = function(name, value) {
       var attName, attValue;
       if (name != null) {
-        name = name.valueOf();
+        name = getValue(name);
       }
       if (isObject(name)) {
         for (attName in name) {
@@ -26984,32 +28309,34 @@ exports["default"] = _default;
         if (isFunction(value)) {
           value = value.apply();
         }
-        if (!this.options.skipNullAttributes || (value != null)) {
-          this.attributes[name] = new XMLAttribute(this, name, value);
+        if (this.options.keepNullAttributes && (value == null)) {
+          this.attribs[name] = new XMLAttribute(this, name, "");
+        } else if (value != null) {
+          this.attribs[name] = new XMLAttribute(this, name, value);
         }
       }
       return this;
     };
 
     XMLElement.prototype.removeAttribute = function(name) {
-      var attName, i, len;
+      var attName, j, len;
       if (name == null) {
-        throw new Error("Missing attribute name");
+        throw new Error("Missing attribute name. " + this.debugInfo());
       }
-      name = name.valueOf();
+      name = getValue(name);
       if (Array.isArray(name)) {
-        for (i = 0, len = name.length; i < len; i++) {
-          attName = name[i];
-          delete this.attributes[attName];
+        for (j = 0, len = name.length; j < len; j++) {
+          attName = name[j];
+          delete this.attribs[attName];
         }
       } else {
-        delete this.attributes[name];
+        delete this.attribs[name];
       }
       return this;
     };
 
     XMLElement.prototype.toString = function(options) {
-      return this.options.writer.set(options).element(this);
+      return this.options.writer.element(this, this.options.writer.filterOptions(options));
     };
 
     XMLElement.prototype.att = function(name, value) {
@@ -27018,6 +28345,123 @@ exports["default"] = _default;
 
     XMLElement.prototype.a = function(name, value) {
       return this.attribute(name, value);
+    };
+
+    XMLElement.prototype.getAttribute = function(name) {
+      if (this.attribs.hasOwnProperty(name)) {
+        return this.attribs[name].value;
+      } else {
+        return null;
+      }
+    };
+
+    XMLElement.prototype.setAttribute = function(name, value) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.getAttributeNode = function(name) {
+      if (this.attribs.hasOwnProperty(name)) {
+        return this.attribs[name];
+      } else {
+        return null;
+      }
+    };
+
+    XMLElement.prototype.setAttributeNode = function(newAttr) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.removeAttributeNode = function(oldAttr) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.getElementsByTagName = function(name) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.getAttributeNS = function(namespaceURI, localName) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.setAttributeNS = function(namespaceURI, qualifiedName, value) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.removeAttributeNS = function(namespaceURI, localName) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.getAttributeNodeNS = function(namespaceURI, localName) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.setAttributeNodeNS = function(newAttr) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.getElementsByTagNameNS = function(namespaceURI, localName) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.hasAttribute = function(name) {
+      return this.attribs.hasOwnProperty(name);
+    };
+
+    XMLElement.prototype.hasAttributeNS = function(namespaceURI, localName) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.setIdAttribute = function(name, isId) {
+      if (this.attribs.hasOwnProperty(name)) {
+        return this.attribs[name].isId;
+      } else {
+        return isId;
+      }
+    };
+
+    XMLElement.prototype.setIdAttributeNS = function(namespaceURI, localName, isId) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.setIdAttributeNode = function(idAttr, isId) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.getElementsByTagName = function(tagname) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.getElementsByTagNameNS = function(namespaceURI, localName) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.getElementsByClassName = function(classNames) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLElement.prototype.isEqualNode = function(node) {
+      var i, j, ref1;
+      if (!XMLElement.__super__.isEqualNode.apply(this, arguments).isEqualNode(node)) {
+        return false;
+      }
+      if (node.namespaceURI !== this.namespaceURI) {
+        return false;
+      }
+      if (node.prefix !== this.prefix) {
+        return false;
+      }
+      if (node.localName !== this.localName) {
+        return false;
+      }
+      if (node.attribs.length !== this.attribs.length) {
+        return false;
+      }
+      for (i = j = 0, ref1 = this.attribs.length - 1; 0 <= ref1 ? j <= ref1 : j >= ref1; i = 0 <= ref1 ? ++j : --j) {
+        if (!this.attribs[i].isEqualNode(node.attribs[i])) {
+          return false;
+        }
+      }
+      return true;
     };
 
     return XMLElement;
@@ -27029,15 +28473,80 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 7608:
+/***/ 495:
+/***/ (function(module) {
+
+// Generated by CoffeeScript 1.12.7
+(function() {
+  var XMLNamedNodeMap;
+
+  module.exports = XMLNamedNodeMap = (function() {
+    function XMLNamedNodeMap(nodes) {
+      this.nodes = nodes;
+    }
+
+    Object.defineProperty(XMLNamedNodeMap.prototype, 'length', {
+      get: function() {
+        return Object.keys(this.nodes).length || 0;
+      }
+    });
+
+    XMLNamedNodeMap.prototype.clone = function() {
+      return this.nodes = null;
+    };
+
+    XMLNamedNodeMap.prototype.getNamedItem = function(name) {
+      return this.nodes[name];
+    };
+
+    XMLNamedNodeMap.prototype.setNamedItem = function(node) {
+      var oldNode;
+      oldNode = this.nodes[node.nodeName];
+      this.nodes[node.nodeName] = node;
+      return oldNode || null;
+    };
+
+    XMLNamedNodeMap.prototype.removeNamedItem = function(name) {
+      var oldNode;
+      oldNode = this.nodes[name];
+      delete this.nodes[name];
+      return oldNode || null;
+    };
+
+    XMLNamedNodeMap.prototype.item = function(index) {
+      return this.nodes[Object.keys(this.nodes)[index]] || null;
+    };
+
+    XMLNamedNodeMap.prototype.getNamedItemNS = function(namespaceURI, localName) {
+      throw new Error("This DOM method is not implemented.");
+    };
+
+    XMLNamedNodeMap.prototype.setNamedItemNS = function(node) {
+      throw new Error("This DOM method is not implemented.");
+    };
+
+    XMLNamedNodeMap.prototype.removeNamedItemNS = function(namespaceURI, localName) {
+      throw new Error("This DOM method is not implemented.");
+    };
+
+    return XMLNamedNodeMap;
+
+  })();
+
+}).call(this);
+
+
+/***/ }),
+
+/***/ 9295:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLCData, XMLComment, XMLDeclaration, XMLDocType, XMLElement, XMLNode, XMLProcessingInstruction, XMLRaw, XMLText, isEmpty, isFunction, isObject, ref,
+  var DocumentPosition, NodeType, XMLCData, XMLComment, XMLDeclaration, XMLDocType, XMLDummy, XMLElement, XMLNamedNodeMap, XMLNode, XMLNodeList, XMLProcessingInstruction, XMLRaw, XMLText, getValue, isEmpty, isFunction, isObject, ref1,
     hasProp = {}.hasOwnProperty;
 
-  ref = __nccwpck_require__(8229), isObject = ref.isObject, isFunction = ref.isFunction, isEmpty = ref.isEmpty;
+  ref1 = __nccwpck_require__(3376), isObject = ref1.isObject, isFunction = ref1.isFunction, isEmpty = ref1.isEmpty, getValue = ref1.getValue;
 
   XMLElement = null;
 
@@ -27055,38 +28564,163 @@ exports["default"] = _default;
 
   XMLProcessingInstruction = null;
 
+  XMLDummy = null;
+
+  NodeType = null;
+
+  XMLNodeList = null;
+
+  XMLNamedNodeMap = null;
+
+  DocumentPosition = null;
+
   module.exports = XMLNode = (function() {
-    function XMLNode(parent) {
-      this.parent = parent;
+    function XMLNode(parent1) {
+      this.parent = parent1;
       if (this.parent) {
         this.options = this.parent.options;
         this.stringify = this.parent.stringify;
       }
+      this.value = null;
       this.children = [];
+      this.baseURI = null;
       if (!XMLElement) {
-        XMLElement = __nccwpck_require__(9437);
-        XMLCData = __nccwpck_require__(333);
-        XMLComment = __nccwpck_require__(4407);
-        XMLDeclaration = __nccwpck_require__(6364);
-        XMLDocType = __nccwpck_require__(1801);
-        XMLRaw = __nccwpck_require__(6329);
-        XMLText = __nccwpck_require__(1318);
-        XMLProcessingInstruction = __nccwpck_require__(6939);
+        XMLElement = __nccwpck_require__(9669);
+        XMLCData = __nccwpck_require__(8117);
+        XMLComment = __nccwpck_require__(3992);
+        XMLDeclaration = __nccwpck_require__(1729);
+        XMLDocType = __nccwpck_require__(8393);
+        XMLRaw = __nccwpck_require__(4182);
+        XMLText = __nccwpck_require__(7162);
+        XMLProcessingInstruction = __nccwpck_require__(6466);
+        XMLDummy = __nccwpck_require__(1482);
+        NodeType = __nccwpck_require__(651);
+        XMLNodeList = __nccwpck_require__(3702);
+        XMLNamedNodeMap = __nccwpck_require__(495);
+        DocumentPosition = __nccwpck_require__(5188);
       }
     }
 
+    Object.defineProperty(XMLNode.prototype, 'nodeName', {
+      get: function() {
+        return this.name;
+      }
+    });
+
+    Object.defineProperty(XMLNode.prototype, 'nodeType', {
+      get: function() {
+        return this.type;
+      }
+    });
+
+    Object.defineProperty(XMLNode.prototype, 'nodeValue', {
+      get: function() {
+        return this.value;
+      }
+    });
+
+    Object.defineProperty(XMLNode.prototype, 'parentNode', {
+      get: function() {
+        return this.parent;
+      }
+    });
+
+    Object.defineProperty(XMLNode.prototype, 'childNodes', {
+      get: function() {
+        if (!this.childNodeList || !this.childNodeList.nodes) {
+          this.childNodeList = new XMLNodeList(this.children);
+        }
+        return this.childNodeList;
+      }
+    });
+
+    Object.defineProperty(XMLNode.prototype, 'firstChild', {
+      get: function() {
+        return this.children[0] || null;
+      }
+    });
+
+    Object.defineProperty(XMLNode.prototype, 'lastChild', {
+      get: function() {
+        return this.children[this.children.length - 1] || null;
+      }
+    });
+
+    Object.defineProperty(XMLNode.prototype, 'previousSibling', {
+      get: function() {
+        var i;
+        i = this.parent.children.indexOf(this);
+        return this.parent.children[i - 1] || null;
+      }
+    });
+
+    Object.defineProperty(XMLNode.prototype, 'nextSibling', {
+      get: function() {
+        var i;
+        i = this.parent.children.indexOf(this);
+        return this.parent.children[i + 1] || null;
+      }
+    });
+
+    Object.defineProperty(XMLNode.prototype, 'ownerDocument', {
+      get: function() {
+        return this.document() || null;
+      }
+    });
+
+    Object.defineProperty(XMLNode.prototype, 'textContent', {
+      get: function() {
+        var child, j, len, ref2, str;
+        if (this.nodeType === NodeType.Element || this.nodeType === NodeType.DocumentFragment) {
+          str = '';
+          ref2 = this.children;
+          for (j = 0, len = ref2.length; j < len; j++) {
+            child = ref2[j];
+            if (child.textContent) {
+              str += child.textContent;
+            }
+          }
+          return str;
+        } else {
+          return null;
+        }
+      },
+      set: function(value) {
+        throw new Error("This DOM method is not implemented." + this.debugInfo());
+      }
+    });
+
+    XMLNode.prototype.setParent = function(parent) {
+      var child, j, len, ref2, results;
+      this.parent = parent;
+      if (parent) {
+        this.options = parent.options;
+        this.stringify = parent.stringify;
+      }
+      ref2 = this.children;
+      results = [];
+      for (j = 0, len = ref2.length; j < len; j++) {
+        child = ref2[j];
+        results.push(child.setParent(this));
+      }
+      return results;
+    };
+
     XMLNode.prototype.element = function(name, attributes, text) {
-      var childNode, item, j, k, key, lastChild, len, len1, ref1, val;
+      var childNode, item, j, k, key, lastChild, len, len1, ref2, ref3, val;
       lastChild = null;
+      if (attributes === null && (text == null)) {
+        ref2 = [{}, null], attributes = ref2[0], text = ref2[1];
+      }
       if (attributes == null) {
         attributes = {};
       }
-      attributes = attributes.valueOf();
+      attributes = getValue(attributes);
       if (!isObject(attributes)) {
-        ref1 = [attributes, text], text = ref1[0], attributes = ref1[1];
+        ref3 = [attributes, text], text = ref3[0], attributes = ref3[1];
       }
       if (name != null) {
-        name = name.valueOf();
+        name = getValue(name);
       }
       if (Array.isArray(name)) {
         for (j = 0, len = name.length; j < len; j++) {
@@ -27102,11 +28736,14 @@ exports["default"] = _default;
           if (isFunction(val)) {
             val = val.apply();
           }
-          if ((isObject(val)) && (isEmpty(val))) {
-            val = null;
-          }
           if (!this.options.ignoreDecorators && this.stringify.convertAttKey && key.indexOf(this.stringify.convertAttKey) === 0) {
             lastChild = this.attribute(key.substr(this.stringify.convertAttKey.length), val);
+          } else if (!this.options.separateArrayItems && Array.isArray(val) && isEmpty(val)) {
+            lastChild = this.dummy();
+          } else if (isObject(val) && isEmpty(val)) {
+            lastChild = this.element(key);
+          } else if (!this.options.keepNullNodes && (val == null)) {
+            lastChild = this.dummy();
           } else if (!this.options.separateArrayItems && Array.isArray(val)) {
             for (k = 0, len1 = val.length; k < len1; k++) {
               item = val[k];
@@ -27115,12 +28752,18 @@ exports["default"] = _default;
               lastChild = this.element(childNode);
             }
           } else if (isObject(val)) {
-            lastChild = this.element(key);
-            lastChild.element(val);
+            if (!this.options.ignoreDecorators && this.stringify.convertTextKey && key.indexOf(this.stringify.convertTextKey) === 0) {
+              lastChild = this.element(val);
+            } else {
+              lastChild = this.element(key);
+              lastChild.element(val);
+            }
           } else {
             lastChild = this.element(key, val);
           }
         }
+      } else if (!this.options.keepNullNodes && text === null) {
+        lastChild = this.dummy();
       } else {
         if (!this.options.ignoreDecorators && this.stringify.convertTextKey && name.indexOf(this.stringify.convertTextKey) === 0) {
           lastChild = this.text(text);
@@ -27137,27 +28780,42 @@ exports["default"] = _default;
         }
       }
       if (lastChild == null) {
-        throw new Error("Could not create any elements with: " + name);
+        throw new Error("Could not create any elements with: " + name + ". " + this.debugInfo());
       }
       return lastChild;
     };
 
     XMLNode.prototype.insertBefore = function(name, attributes, text) {
-      var child, i, removed;
-      if (this.isRoot) {
-        throw new Error("Cannot insert elements at root level");
+      var child, i, newChild, refChild, removed;
+      if (name != null ? name.type : void 0) {
+        newChild = name;
+        refChild = attributes;
+        newChild.setParent(this);
+        if (refChild) {
+          i = children.indexOf(refChild);
+          removed = children.splice(i);
+          children.push(newChild);
+          Array.prototype.push.apply(children, removed);
+        } else {
+          children.push(newChild);
+        }
+        return newChild;
+      } else {
+        if (this.isRoot) {
+          throw new Error("Cannot insert elements at root level. " + this.debugInfo(name));
+        }
+        i = this.parent.children.indexOf(this);
+        removed = this.parent.children.splice(i);
+        child = this.parent.element(name, attributes, text);
+        Array.prototype.push.apply(this.parent.children, removed);
+        return child;
       }
-      i = this.parent.children.indexOf(this);
-      removed = this.parent.children.splice(i);
-      child = this.parent.element(name, attributes, text);
-      Array.prototype.push.apply(this.parent.children, removed);
-      return child;
     };
 
     XMLNode.prototype.insertAfter = function(name, attributes, text) {
       var child, i, removed;
       if (this.isRoot) {
-        throw new Error("Cannot insert elements at root level");
+        throw new Error("Cannot insert elements at root level. " + this.debugInfo(name));
       }
       i = this.parent.children.indexOf(this);
       removed = this.parent.children.splice(i + 1);
@@ -27167,24 +28825,24 @@ exports["default"] = _default;
     };
 
     XMLNode.prototype.remove = function() {
-      var i, ref1;
+      var i, ref2;
       if (this.isRoot) {
-        throw new Error("Cannot remove the root element");
+        throw new Error("Cannot remove the root element. " + this.debugInfo());
       }
       i = this.parent.children.indexOf(this);
-      [].splice.apply(this.parent.children, [i, i - i + 1].concat(ref1 = [])), ref1;
+      [].splice.apply(this.parent.children, [i, i - i + 1].concat(ref2 = [])), ref2;
       return this.parent;
     };
 
     XMLNode.prototype.node = function(name, attributes, text) {
-      var child, ref1;
+      var child, ref2;
       if (name != null) {
-        name = name.valueOf();
+        name = getValue(name);
       }
       attributes || (attributes = {});
-      attributes = attributes.valueOf();
+      attributes = getValue(attributes);
       if (!isObject(attributes)) {
-        ref1 = [attributes, text], text = ref1[0], attributes = ref1[1];
+        ref2 = [attributes, text], text = ref2[0], attributes = ref2[1];
       }
       child = new XMLElement(this, name, attributes);
       if (text != null) {
@@ -27196,6 +28854,9 @@ exports["default"] = _default;
 
     XMLNode.prototype.text = function(value) {
       var child;
+      if (isObject(value)) {
+        this.element(value);
+      }
       child = new XMLText(this, value);
       this.children.push(child);
       return this;
@@ -27240,13 +28901,19 @@ exports["default"] = _default;
       return this;
     };
 
+    XMLNode.prototype.dummy = function() {
+      var child;
+      child = new XMLDummy(this);
+      return child;
+    };
+
     XMLNode.prototype.instruction = function(target, value) {
       var insTarget, insValue, instruction, j, len;
       if (target != null) {
-        target = target.valueOf();
+        target = getValue(target);
       }
       if (value != null) {
-        value = value.valueOf();
+        value = getValue(value);
       }
       if (Array.isArray(target)) {
         for (j = 0, len = target.length; j < len; j++) {
@@ -27291,7 +28958,9 @@ exports["default"] = _default;
       var doc, xmldec;
       doc = this.document();
       xmldec = new XMLDeclaration(doc, version, encoding, standalone);
-      if (doc.children[0] instanceof XMLDeclaration) {
+      if (doc.children.length === 0) {
+        doc.children.unshift(xmldec);
+      } else if (doc.children[0].type === NodeType.Declaration) {
         doc.children[0] = xmldec;
       } else {
         doc.children.unshift(xmldec);
@@ -27299,21 +28968,21 @@ exports["default"] = _default;
       return doc.root() || doc;
     };
 
-    XMLNode.prototype.doctype = function(pubID, sysID) {
-      var child, doc, doctype, i, j, k, len, len1, ref1, ref2;
+    XMLNode.prototype.dtd = function(pubID, sysID) {
+      var child, doc, doctype, i, j, k, len, len1, ref2, ref3;
       doc = this.document();
       doctype = new XMLDocType(doc, pubID, sysID);
-      ref1 = doc.children;
-      for (i = j = 0, len = ref1.length; j < len; i = ++j) {
-        child = ref1[i];
-        if (child instanceof XMLDocType) {
+      ref2 = doc.children;
+      for (i = j = 0, len = ref2.length; j < len; i = ++j) {
+        child = ref2[i];
+        if (child.type === NodeType.DocType) {
           doc.children[i] = doctype;
           return doctype;
         }
       }
-      ref2 = doc.children;
-      for (i = k = 0, len1 = ref2.length; k < len1; i = ++k) {
-        child = ref2[i];
+      ref3 = doc.children;
+      for (i = k = 0, len1 = ref3.length; k < len1; i = ++k) {
+        child = ref3[i];
         if (child.isRoot) {
           doc.children.splice(i, 0, doctype);
           return doctype;
@@ -27334,7 +29003,7 @@ exports["default"] = _default;
       var node;
       node = this;
       while (node) {
-        if (node.isDocument) {
+        if (node.type === NodeType.Document) {
           return node.rootObject;
         } else if (node.isRoot) {
           return node;
@@ -27348,7 +29017,7 @@ exports["default"] = _default;
       var node;
       node = this;
       while (node) {
-        if (node.isDocument) {
+        if (node.type === NodeType.Document) {
           return node;
         } else {
           node = node.parent;
@@ -27364,7 +29033,7 @@ exports["default"] = _default;
       var i;
       i = this.parent.children.indexOf(this);
       if (i < 1) {
-        throw new Error("Already at the first node");
+        throw new Error("Already at the first node. " + this.debugInfo());
       }
       return this.parent.children[i - 1];
     };
@@ -27373,7 +29042,7 @@ exports["default"] = _default;
       var i;
       i = this.parent.children.indexOf(this);
       if (i === -1 || i === this.parent.children.length - 1) {
-        throw new Error("Already at the last node");
+        throw new Error("Already at the last node. " + this.debugInfo());
       }
       return this.parent.children[i + 1];
     };
@@ -27385,6 +29054,20 @@ exports["default"] = _default;
       clonedRoot.isRoot = false;
       this.children.push(clonedRoot);
       return this;
+    };
+
+    XMLNode.prototype.debugInfo = function(name) {
+      var ref2, ref3;
+      name = name || this.name;
+      if ((name == null) && !((ref2 = this.parent) != null ? ref2.name : void 0)) {
+        return "";
+      } else if (name == null) {
+        return "parent: <" + this.parent.name + ">";
+      } else if (!((ref3 = this.parent) != null ? ref3.name : void 0)) {
+        return "node: <" + name + ">";
+      } else {
+        return "node: <" + name + ">, parent: <" + this.parent.name + ">";
+      }
     };
 
     XMLNode.prototype.ele = function(name, attributes, text) {
@@ -27417,10 +29100,6 @@ exports["default"] = _default;
 
     XMLNode.prototype.dec = function(version, encoding, standalone) {
       return this.declaration(version, encoding, standalone);
-    };
-
-    XMLNode.prototype.dtd = function(pubID, sysID) {
-      return this.doctype(pubID, sysID);
     };
 
     XMLNode.prototype.e = function(name, attributes, text) {
@@ -27459,6 +29138,189 @@ exports["default"] = _default;
       return this.importDocument(doc);
     };
 
+    XMLNode.prototype.replaceChild = function(newChild, oldChild) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLNode.prototype.removeChild = function(oldChild) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLNode.prototype.appendChild = function(newChild) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLNode.prototype.hasChildNodes = function() {
+      return this.children.length !== 0;
+    };
+
+    XMLNode.prototype.cloneNode = function(deep) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLNode.prototype.normalize = function() {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLNode.prototype.isSupported = function(feature, version) {
+      return true;
+    };
+
+    XMLNode.prototype.hasAttributes = function() {
+      return this.attribs.length !== 0;
+    };
+
+    XMLNode.prototype.compareDocumentPosition = function(other) {
+      var ref, res;
+      ref = this;
+      if (ref === other) {
+        return 0;
+      } else if (this.document() !== other.document()) {
+        res = DocumentPosition.Disconnected | DocumentPosition.ImplementationSpecific;
+        if (Math.random() < 0.5) {
+          res |= DocumentPosition.Preceding;
+        } else {
+          res |= DocumentPosition.Following;
+        }
+        return res;
+      } else if (ref.isAncestor(other)) {
+        return DocumentPosition.Contains | DocumentPosition.Preceding;
+      } else if (ref.isDescendant(other)) {
+        return DocumentPosition.Contains | DocumentPosition.Following;
+      } else if (ref.isPreceding(other)) {
+        return DocumentPosition.Preceding;
+      } else {
+        return DocumentPosition.Following;
+      }
+    };
+
+    XMLNode.prototype.isSameNode = function(other) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLNode.prototype.lookupPrefix = function(namespaceURI) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLNode.prototype.isDefaultNamespace = function(namespaceURI) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLNode.prototype.lookupNamespaceURI = function(prefix) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLNode.prototype.isEqualNode = function(node) {
+      var i, j, ref2;
+      if (node.nodeType !== this.nodeType) {
+        return false;
+      }
+      if (node.children.length !== this.children.length) {
+        return false;
+      }
+      for (i = j = 0, ref2 = this.children.length - 1; 0 <= ref2 ? j <= ref2 : j >= ref2; i = 0 <= ref2 ? ++j : --j) {
+        if (!this.children[i].isEqualNode(node.children[i])) {
+          return false;
+        }
+      }
+      return true;
+    };
+
+    XMLNode.prototype.getFeature = function(feature, version) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLNode.prototype.setUserData = function(key, data, handler) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLNode.prototype.getUserData = function(key) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLNode.prototype.contains = function(other) {
+      if (!other) {
+        return false;
+      }
+      return other === this || this.isDescendant(other);
+    };
+
+    XMLNode.prototype.isDescendant = function(node) {
+      var child, isDescendantChild, j, len, ref2;
+      ref2 = this.children;
+      for (j = 0, len = ref2.length; j < len; j++) {
+        child = ref2[j];
+        if (node === child) {
+          return true;
+        }
+        isDescendantChild = child.isDescendant(node);
+        if (isDescendantChild) {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    XMLNode.prototype.isAncestor = function(node) {
+      return node.isDescendant(this);
+    };
+
+    XMLNode.prototype.isPreceding = function(node) {
+      var nodePos, thisPos;
+      nodePos = this.treePosition(node);
+      thisPos = this.treePosition(this);
+      if (nodePos === -1 || thisPos === -1) {
+        return false;
+      } else {
+        return nodePos < thisPos;
+      }
+    };
+
+    XMLNode.prototype.isFollowing = function(node) {
+      var nodePos, thisPos;
+      nodePos = this.treePosition(node);
+      thisPos = this.treePosition(this);
+      if (nodePos === -1 || thisPos === -1) {
+        return false;
+      } else {
+        return nodePos > thisPos;
+      }
+    };
+
+    XMLNode.prototype.treePosition = function(node) {
+      var found, pos;
+      pos = 0;
+      found = false;
+      this.foreachTreeNode(this.document(), function(childNode) {
+        pos++;
+        if (!found && childNode === node) {
+          return found = true;
+        }
+      });
+      if (found) {
+        return pos;
+      } else {
+        return -1;
+      }
+    };
+
+    XMLNode.prototype.foreachTreeNode = function(node, func) {
+      var child, j, len, ref2, res;
+      node || (node = this.document());
+      ref2 = node.children;
+      for (j = 0, len = ref2.length; j < len; j++) {
+        child = ref2[j];
+        if (res = func(child)) {
+          return res;
+        } else {
+          res = this.foreachTreeNode(child, func);
+          if (res) {
+            return res;
+          }
+        }
+      }
+    };
+
     return XMLNode;
 
   })();
@@ -27468,16 +29330,53 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6939:
+/***/ 3702:
+/***/ (function(module) {
+
+// Generated by CoffeeScript 1.12.7
+(function() {
+  var XMLNodeList;
+
+  module.exports = XMLNodeList = (function() {
+    function XMLNodeList(nodes) {
+      this.nodes = nodes;
+    }
+
+    Object.defineProperty(XMLNodeList.prototype, 'length', {
+      get: function() {
+        return this.nodes.length || 0;
+      }
+    });
+
+    XMLNodeList.prototype.clone = function() {
+      return this.nodes = null;
+    };
+
+    XMLNodeList.prototype.item = function(index) {
+      return this.nodes[index] || null;
+    };
+
+    return XMLNodeList;
+
+  })();
+
+}).call(this);
+
+
+/***/ }),
+
+/***/ 6466:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLNode, XMLProcessingInstruction,
+  var NodeType, XMLCharacterData, XMLProcessingInstruction,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  XMLNode = __nccwpck_require__(7608);
+  NodeType = __nccwpck_require__(651);
+
+  XMLCharacterData = __nccwpck_require__(75);
 
   module.exports = XMLProcessingInstruction = (function(superClass) {
     extend(XMLProcessingInstruction, superClass);
@@ -27485,9 +29384,11 @@ exports["default"] = _default;
     function XMLProcessingInstruction(parent, target, value) {
       XMLProcessingInstruction.__super__.constructor.call(this, parent);
       if (target == null) {
-        throw new Error("Missing instruction target");
+        throw new Error("Missing instruction target. " + this.debugInfo());
       }
+      this.type = NodeType.ProcessingInstruction;
       this.target = this.stringify.insTarget(target);
+      this.name = this.target;
       if (value) {
         this.value = this.stringify.insValue(value);
       }
@@ -27498,28 +29399,40 @@ exports["default"] = _default;
     };
 
     XMLProcessingInstruction.prototype.toString = function(options) {
-      return this.options.writer.set(options).processingInstruction(this);
+      return this.options.writer.processingInstruction(this, this.options.writer.filterOptions(options));
+    };
+
+    XMLProcessingInstruction.prototype.isEqualNode = function(node) {
+      if (!XMLProcessingInstruction.__super__.isEqualNode.apply(this, arguments).isEqualNode(node)) {
+        return false;
+      }
+      if (node.target !== this.target) {
+        return false;
+      }
+      return true;
     };
 
     return XMLProcessingInstruction;
 
-  })(XMLNode);
+  })(XMLCharacterData);
 
 }).call(this);
 
 
 /***/ }),
 
-/***/ 6329:
+/***/ 4182:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLNode, XMLRaw,
+  var NodeType, XMLNode, XMLRaw,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  XMLNode = __nccwpck_require__(7608);
+  NodeType = __nccwpck_require__(651);
+
+  XMLNode = __nccwpck_require__(9295);
 
   module.exports = XMLRaw = (function(superClass) {
     extend(XMLRaw, superClass);
@@ -27527,8 +29440,9 @@ exports["default"] = _default;
     function XMLRaw(parent, text) {
       XMLRaw.__super__.constructor.call(this, parent);
       if (text == null) {
-        throw new Error("Missing raw text");
+        throw new Error("Missing raw text. " + this.debugInfo());
       }
+      this.type = NodeType.Raw;
       this.value = this.stringify.raw(text);
     }
 
@@ -27537,7 +29451,7 @@ exports["default"] = _default;
     };
 
     XMLRaw.prototype.toString = function(options) {
-      return this.options.writer.set(options).raw(this);
+      return this.options.writer.raw(this, this.options.writer.filterOptions(options));
     };
 
     return XMLRaw;
@@ -27549,110 +29463,76 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 8601:
+/***/ 898:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLCData, XMLComment, XMLDTDAttList, XMLDTDElement, XMLDTDEntity, XMLDTDNotation, XMLDeclaration, XMLDocType, XMLElement, XMLProcessingInstruction, XMLRaw, XMLStreamWriter, XMLText, XMLWriterBase,
+  var NodeType, WriterState, XMLStreamWriter, XMLWriterBase,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  XMLDeclaration = __nccwpck_require__(6364);
+  NodeType = __nccwpck_require__(651);
 
-  XMLDocType = __nccwpck_require__(1801);
+  XMLWriterBase = __nccwpck_require__(1658);
 
-  XMLCData = __nccwpck_require__(333);
-
-  XMLComment = __nccwpck_require__(4407);
-
-  XMLElement = __nccwpck_require__(9437);
-
-  XMLRaw = __nccwpck_require__(6329);
-
-  XMLText = __nccwpck_require__(1318);
-
-  XMLProcessingInstruction = __nccwpck_require__(6939);
-
-  XMLDTDAttList = __nccwpck_require__(1015);
-
-  XMLDTDElement = __nccwpck_require__(2421);
-
-  XMLDTDEntity = __nccwpck_require__(53);
-
-  XMLDTDNotation = __nccwpck_require__(2837);
-
-  XMLWriterBase = __nccwpck_require__(5293);
+  WriterState = __nccwpck_require__(6626);
 
   module.exports = XMLStreamWriter = (function(superClass) {
     extend(XMLStreamWriter, superClass);
 
     function XMLStreamWriter(stream, options) {
-      XMLStreamWriter.__super__.constructor.call(this, options);
       this.stream = stream;
+      XMLStreamWriter.__super__.constructor.call(this, options);
     }
 
-    XMLStreamWriter.prototype.document = function(doc) {
-      var child, i, j, len, len1, ref, ref1, results;
-      ref = doc.children;
-      for (i = 0, len = ref.length; i < len; i++) {
-        child = ref[i];
-        child.isLastRootNode = false;
+    XMLStreamWriter.prototype.endline = function(node, options, level) {
+      if (node.isLastRootNode && options.state === WriterState.CloseTag) {
+        return '';
+      } else {
+        return XMLStreamWriter.__super__.endline.call(this, node, options, level);
       }
-      doc.children[doc.children.length - 1].isLastRootNode = true;
+    };
+
+    XMLStreamWriter.prototype.document = function(doc, options) {
+      var child, i, j, k, len, len1, ref, ref1, results;
+      ref = doc.children;
+      for (i = j = 0, len = ref.length; j < len; i = ++j) {
+        child = ref[i];
+        child.isLastRootNode = i === doc.children.length - 1;
+      }
+      options = this.filterOptions(options);
       ref1 = doc.children;
       results = [];
-      for (j = 0, len1 = ref1.length; j < len1; j++) {
-        child = ref1[j];
-        switch (false) {
-          case !(child instanceof XMLDeclaration):
-            results.push(this.declaration(child));
-            break;
-          case !(child instanceof XMLDocType):
-            results.push(this.docType(child));
-            break;
-          case !(child instanceof XMLComment):
-            results.push(this.comment(child));
-            break;
-          case !(child instanceof XMLProcessingInstruction):
-            results.push(this.processingInstruction(child));
-            break;
-          default:
-            results.push(this.element(child));
-        }
+      for (k = 0, len1 = ref1.length; k < len1; k++) {
+        child = ref1[k];
+        results.push(this.writeChildNode(child, options, 0));
       }
       return results;
     };
 
-    XMLStreamWriter.prototype.attribute = function(att) {
-      return this.stream.write(' ' + att.name + '="' + att.value + '"');
+    XMLStreamWriter.prototype.attribute = function(att, options, level) {
+      return this.stream.write(XMLStreamWriter.__super__.attribute.call(this, att, options, level));
     };
 
-    XMLStreamWriter.prototype.cdata = function(node, level) {
-      return this.stream.write(this.space(level) + '<![CDATA[' + node.text + ']]>' + this.endline(node));
+    XMLStreamWriter.prototype.cdata = function(node, options, level) {
+      return this.stream.write(XMLStreamWriter.__super__.cdata.call(this, node, options, level));
     };
 
-    XMLStreamWriter.prototype.comment = function(node, level) {
-      return this.stream.write(this.space(level) + '<!-- ' + node.text + ' -->' + this.endline(node));
+    XMLStreamWriter.prototype.comment = function(node, options, level) {
+      return this.stream.write(XMLStreamWriter.__super__.comment.call(this, node, options, level));
     };
 
-    XMLStreamWriter.prototype.declaration = function(node, level) {
-      this.stream.write(this.space(level));
-      this.stream.write('<?xml version="' + node.version + '"');
-      if (node.encoding != null) {
-        this.stream.write(' encoding="' + node.encoding + '"');
-      }
-      if (node.standalone != null) {
-        this.stream.write(' standalone="' + node.standalone + '"');
-      }
-      this.stream.write(this.spacebeforeslash + '?>');
-      return this.stream.write(this.endline(node));
+    XMLStreamWriter.prototype.declaration = function(node, options, level) {
+      return this.stream.write(XMLStreamWriter.__super__.declaration.call(this, node, options, level));
     };
 
-    XMLStreamWriter.prototype.docType = function(node, level) {
-      var child, i, len, ref;
+    XMLStreamWriter.prototype.docType = function(node, options, level) {
+      var child, j, len, ref;
       level || (level = 0);
-      this.stream.write(this.space(level));
+      this.openNode(node, options, level);
+      options.state = WriterState.OpenTag;
+      this.stream.write(this.indent(node, options, level));
       this.stream.write('<!DOCTYPE ' + node.root().name);
       if (node.pubID && node.sysID) {
         this.stream.write(' PUBLIC "' + node.pubID + '" "' + node.sysID + '"');
@@ -27661,169 +29541,100 @@ exports["default"] = _default;
       }
       if (node.children.length > 0) {
         this.stream.write(' [');
-        this.stream.write(this.endline(node));
+        this.stream.write(this.endline(node, options, level));
+        options.state = WriterState.InsideTag;
         ref = node.children;
-        for (i = 0, len = ref.length; i < len; i++) {
-          child = ref[i];
-          switch (false) {
-            case !(child instanceof XMLDTDAttList):
-              this.dtdAttList(child, level + 1);
-              break;
-            case !(child instanceof XMLDTDElement):
-              this.dtdElement(child, level + 1);
-              break;
-            case !(child instanceof XMLDTDEntity):
-              this.dtdEntity(child, level + 1);
-              break;
-            case !(child instanceof XMLDTDNotation):
-              this.dtdNotation(child, level + 1);
-              break;
-            case !(child instanceof XMLCData):
-              this.cdata(child, level + 1);
-              break;
-            case !(child instanceof XMLComment):
-              this.comment(child, level + 1);
-              break;
-            case !(child instanceof XMLProcessingInstruction):
-              this.processingInstruction(child, level + 1);
-              break;
-            default:
-              throw new Error("Unknown DTD node type: " + child.constructor.name);
-          }
+        for (j = 0, len = ref.length; j < len; j++) {
+          child = ref[j];
+          this.writeChildNode(child, options, level + 1);
         }
+        options.state = WriterState.CloseTag;
         this.stream.write(']');
       }
-      this.stream.write(this.spacebeforeslash + '>');
-      return this.stream.write(this.endline(node));
+      options.state = WriterState.CloseTag;
+      this.stream.write(options.spaceBeforeSlash + '>');
+      this.stream.write(this.endline(node, options, level));
+      options.state = WriterState.None;
+      return this.closeNode(node, options, level);
     };
 
-    XMLStreamWriter.prototype.element = function(node, level) {
-      var att, child, i, len, name, ref, ref1, space;
+    XMLStreamWriter.prototype.element = function(node, options, level) {
+      var att, child, childNodeCount, firstChildNode, j, len, name, prettySuppressed, ref, ref1;
       level || (level = 0);
-      space = this.space(level);
-      this.stream.write(space + '<' + node.name);
-      ref = node.attributes;
+      this.openNode(node, options, level);
+      options.state = WriterState.OpenTag;
+      this.stream.write(this.indent(node, options, level) + '<' + node.name);
+      ref = node.attribs;
       for (name in ref) {
         if (!hasProp.call(ref, name)) continue;
         att = ref[name];
-        this.attribute(att);
+        this.attribute(att, options, level);
       }
-      if (node.children.length === 0 || node.children.every(function(e) {
-        return e.value === '';
+      childNodeCount = node.children.length;
+      firstChildNode = childNodeCount === 0 ? null : node.children[0];
+      if (childNodeCount === 0 || node.children.every(function(e) {
+        return (e.type === NodeType.Text || e.type === NodeType.Raw) && e.value === '';
       })) {
-        if (this.allowEmpty) {
-          this.stream.write('></' + node.name + '>');
+        if (options.allowEmpty) {
+          this.stream.write('>');
+          options.state = WriterState.CloseTag;
+          this.stream.write('</' + node.name + '>');
         } else {
-          this.stream.write(this.spacebeforeslash + '/>');
+          options.state = WriterState.CloseTag;
+          this.stream.write(options.spaceBeforeSlash + '/>');
         }
-      } else if (this.pretty && node.children.length === 1 && (node.children[0].value != null)) {
+      } else if (options.pretty && childNodeCount === 1 && (firstChildNode.type === NodeType.Text || firstChildNode.type === NodeType.Raw) && (firstChildNode.value != null)) {
         this.stream.write('>');
-        this.stream.write(node.children[0].value);
+        options.state = WriterState.InsideTag;
+        options.suppressPrettyCount++;
+        prettySuppressed = true;
+        this.writeChildNode(firstChildNode, options, level + 1);
+        options.suppressPrettyCount--;
+        prettySuppressed = false;
+        options.state = WriterState.CloseTag;
         this.stream.write('</' + node.name + '>');
       } else {
-        this.stream.write('>' + this.newline);
+        this.stream.write('>' + this.endline(node, options, level));
+        options.state = WriterState.InsideTag;
         ref1 = node.children;
-        for (i = 0, len = ref1.length; i < len; i++) {
-          child = ref1[i];
-          switch (false) {
-            case !(child instanceof XMLCData):
-              this.cdata(child, level + 1);
-              break;
-            case !(child instanceof XMLComment):
-              this.comment(child, level + 1);
-              break;
-            case !(child instanceof XMLElement):
-              this.element(child, level + 1);
-              break;
-            case !(child instanceof XMLRaw):
-              this.raw(child, level + 1);
-              break;
-            case !(child instanceof XMLText):
-              this.text(child, level + 1);
-              break;
-            case !(child instanceof XMLProcessingInstruction):
-              this.processingInstruction(child, level + 1);
-              break;
-            default:
-              throw new Error("Unknown XML node type: " + child.constructor.name);
-          }
+        for (j = 0, len = ref1.length; j < len; j++) {
+          child = ref1[j];
+          this.writeChildNode(child, options, level + 1);
         }
-        this.stream.write(space + '</' + node.name + '>');
+        options.state = WriterState.CloseTag;
+        this.stream.write(this.indent(node, options, level) + '</' + node.name + '>');
       }
-      return this.stream.write(this.endline(node));
+      this.stream.write(this.endline(node, options, level));
+      options.state = WriterState.None;
+      return this.closeNode(node, options, level);
     };
 
-    XMLStreamWriter.prototype.processingInstruction = function(node, level) {
-      this.stream.write(this.space(level) + '<?' + node.target);
-      if (node.value) {
-        this.stream.write(' ' + node.value);
-      }
-      return this.stream.write(this.spacebeforeslash + '?>' + this.endline(node));
+    XMLStreamWriter.prototype.processingInstruction = function(node, options, level) {
+      return this.stream.write(XMLStreamWriter.__super__.processingInstruction.call(this, node, options, level));
     };
 
-    XMLStreamWriter.prototype.raw = function(node, level) {
-      return this.stream.write(this.space(level) + node.value + this.endline(node));
+    XMLStreamWriter.prototype.raw = function(node, options, level) {
+      return this.stream.write(XMLStreamWriter.__super__.raw.call(this, node, options, level));
     };
 
-    XMLStreamWriter.prototype.text = function(node, level) {
-      return this.stream.write(this.space(level) + node.value + this.endline(node));
+    XMLStreamWriter.prototype.text = function(node, options, level) {
+      return this.stream.write(XMLStreamWriter.__super__.text.call(this, node, options, level));
     };
 
-    XMLStreamWriter.prototype.dtdAttList = function(node, level) {
-      this.stream.write(this.space(level) + '<!ATTLIST ' + node.elementName + ' ' + node.attributeName + ' ' + node.attributeType);
-      if (node.defaultValueType !== '#DEFAULT') {
-        this.stream.write(' ' + node.defaultValueType);
-      }
-      if (node.defaultValue) {
-        this.stream.write(' "' + node.defaultValue + '"');
-      }
-      return this.stream.write(this.spacebeforeslash + '>' + this.endline(node));
+    XMLStreamWriter.prototype.dtdAttList = function(node, options, level) {
+      return this.stream.write(XMLStreamWriter.__super__.dtdAttList.call(this, node, options, level));
     };
 
-    XMLStreamWriter.prototype.dtdElement = function(node, level) {
-      this.stream.write(this.space(level) + '<!ELEMENT ' + node.name + ' ' + node.value);
-      return this.stream.write(this.spacebeforeslash + '>' + this.endline(node));
+    XMLStreamWriter.prototype.dtdElement = function(node, options, level) {
+      return this.stream.write(XMLStreamWriter.__super__.dtdElement.call(this, node, options, level));
     };
 
-    XMLStreamWriter.prototype.dtdEntity = function(node, level) {
-      this.stream.write(this.space(level) + '<!ENTITY');
-      if (node.pe) {
-        this.stream.write(' %');
-      }
-      this.stream.write(' ' + node.name);
-      if (node.value) {
-        this.stream.write(' "' + node.value + '"');
-      } else {
-        if (node.pubID && node.sysID) {
-          this.stream.write(' PUBLIC "' + node.pubID + '" "' + node.sysID + '"');
-        } else if (node.sysID) {
-          this.stream.write(' SYSTEM "' + node.sysID + '"');
-        }
-        if (node.nData) {
-          this.stream.write(' NDATA ' + node.nData);
-        }
-      }
-      return this.stream.write(this.spacebeforeslash + '>' + this.endline(node));
+    XMLStreamWriter.prototype.dtdEntity = function(node, options, level) {
+      return this.stream.write(XMLStreamWriter.__super__.dtdEntity.call(this, node, options, level));
     };
 
-    XMLStreamWriter.prototype.dtdNotation = function(node, level) {
-      this.stream.write(this.space(level) + '<!NOTATION ' + node.name);
-      if (node.pubID && node.sysID) {
-        this.stream.write(' PUBLIC "' + node.pubID + '" "' + node.sysID + '"');
-      } else if (node.pubID) {
-        this.stream.write(' PUBLIC "' + node.pubID + '"');
-      } else if (node.sysID) {
-        this.stream.write(' SYSTEM "' + node.sysID + '"');
-      }
-      return this.stream.write(this.spacebeforeslash + '>' + this.endline(node));
-    };
-
-    XMLStreamWriter.prototype.endline = function(node) {
-      if (!node.isLastRootNode) {
-        return this.newline;
-      } else {
-        return '';
-      }
+    XMLStreamWriter.prototype.dtdNotation = function(node, options, level) {
+      return this.stream.write(XMLStreamWriter.__super__.dtdNotation.call(this, node, options, level));
     };
 
     return XMLStreamWriter;
@@ -27835,40 +29646,16 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 5913:
+/***/ 6514:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLCData, XMLComment, XMLDTDAttList, XMLDTDElement, XMLDTDEntity, XMLDTDNotation, XMLDeclaration, XMLDocType, XMLElement, XMLProcessingInstruction, XMLRaw, XMLStringWriter, XMLText, XMLWriterBase,
+  var XMLStringWriter, XMLWriterBase,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  XMLDeclaration = __nccwpck_require__(6364);
-
-  XMLDocType = __nccwpck_require__(1801);
-
-  XMLCData = __nccwpck_require__(333);
-
-  XMLComment = __nccwpck_require__(4407);
-
-  XMLElement = __nccwpck_require__(9437);
-
-  XMLRaw = __nccwpck_require__(6329);
-
-  XMLText = __nccwpck_require__(1318);
-
-  XMLProcessingInstruction = __nccwpck_require__(6939);
-
-  XMLDTDAttList = __nccwpck_require__(1015);
-
-  XMLDTDElement = __nccwpck_require__(2421);
-
-  XMLDTDEntity = __nccwpck_require__(53);
-
-  XMLDTDNotation = __nccwpck_require__(2837);
-
-  XMLWriterBase = __nccwpck_require__(5293);
+  XMLWriterBase = __nccwpck_require__(1658);
 
   module.exports = XMLStringWriter = (function(superClass) {
     extend(XMLStringWriter, superClass);
@@ -27877,65 +29664,514 @@ exports["default"] = _default;
       XMLStringWriter.__super__.constructor.call(this, options);
     }
 
-    XMLStringWriter.prototype.document = function(doc) {
+    XMLStringWriter.prototype.document = function(doc, options) {
       var child, i, len, r, ref;
-      this.textispresent = false;
+      options = this.filterOptions(options);
       r = '';
       ref = doc.children;
       for (i = 0, len = ref.length; i < len; i++) {
         child = ref[i];
-        r += (function() {
-          switch (false) {
-            case !(child instanceof XMLDeclaration):
-              return this.declaration(child);
-            case !(child instanceof XMLDocType):
-              return this.docType(child);
-            case !(child instanceof XMLComment):
-              return this.comment(child);
-            case !(child instanceof XMLProcessingInstruction):
-              return this.processingInstruction(child);
-            default:
-              return this.element(child, 0);
-          }
-        }).call(this);
+        r += this.writeChildNode(child, options, 0);
       }
-      if (this.pretty && r.slice(-this.newline.length) === this.newline) {
-        r = r.slice(0, -this.newline.length);
+      if (options.pretty && r.slice(-options.newline.length) === options.newline) {
+        r = r.slice(0, -options.newline.length);
       }
       return r;
     };
 
-    XMLStringWriter.prototype.attribute = function(att) {
-      return ' ' + att.name + '="' + att.value + '"';
+    return XMLStringWriter;
+
+  })(XMLWriterBase);
+
+}).call(this);
+
+
+/***/ }),
+
+/***/ 887:
+/***/ (function(module) {
+
+// Generated by CoffeeScript 1.12.7
+(function() {
+  var XMLStringifier,
+    bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+    hasProp = {}.hasOwnProperty;
+
+  module.exports = XMLStringifier = (function() {
+    function XMLStringifier(options) {
+      this.assertLegalName = bind(this.assertLegalName, this);
+      this.assertLegalChar = bind(this.assertLegalChar, this);
+      var key, ref, value;
+      options || (options = {});
+      this.options = options;
+      if (!this.options.version) {
+        this.options.version = '1.0';
+      }
+      ref = options.stringify || {};
+      for (key in ref) {
+        if (!hasProp.call(ref, key)) continue;
+        value = ref[key];
+        this[key] = value;
+      }
+    }
+
+    XMLStringifier.prototype.name = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      return this.assertLegalName('' + val || '');
     };
 
-    XMLStringWriter.prototype.cdata = function(node, level) {
-      return this.space(level) + '<![CDATA[' + node.text + ']]>' + this.newline;
+    XMLStringifier.prototype.text = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      return this.assertLegalChar(this.textEscape('' + val || ''));
     };
 
-    XMLStringWriter.prototype.comment = function(node, level) {
-      return this.space(level) + '<!-- ' + node.text + ' -->' + this.newline;
+    XMLStringifier.prototype.cdata = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      val = '' + val || '';
+      val = val.replace(']]>', ']]]]><![CDATA[>');
+      return this.assertLegalChar(val);
     };
 
-    XMLStringWriter.prototype.declaration = function(node, level) {
+    XMLStringifier.prototype.comment = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      val = '' + val || '';
+      if (val.match(/--/)) {
+        throw new Error("Comment text cannot contain double-hypen: " + val);
+      }
+      return this.assertLegalChar(val);
+    };
+
+    XMLStringifier.prototype.raw = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      return '' + val || '';
+    };
+
+    XMLStringifier.prototype.attValue = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      return this.assertLegalChar(this.attEscape(val = '' + val || ''));
+    };
+
+    XMLStringifier.prototype.insTarget = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      return this.assertLegalChar('' + val || '');
+    };
+
+    XMLStringifier.prototype.insValue = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      val = '' + val || '';
+      if (val.match(/\?>/)) {
+        throw new Error("Invalid processing instruction value: " + val);
+      }
+      return this.assertLegalChar(val);
+    };
+
+    XMLStringifier.prototype.xmlVersion = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      val = '' + val || '';
+      if (!val.match(/1\.[0-9]+/)) {
+        throw new Error("Invalid version number: " + val);
+      }
+      return val;
+    };
+
+    XMLStringifier.prototype.xmlEncoding = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      val = '' + val || '';
+      if (!val.match(/^[A-Za-z](?:[A-Za-z0-9._-])*$/)) {
+        throw new Error("Invalid encoding: " + val);
+      }
+      return this.assertLegalChar(val);
+    };
+
+    XMLStringifier.prototype.xmlStandalone = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      if (val) {
+        return "yes";
+      } else {
+        return "no";
+      }
+    };
+
+    XMLStringifier.prototype.dtdPubID = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      return this.assertLegalChar('' + val || '');
+    };
+
+    XMLStringifier.prototype.dtdSysID = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      return this.assertLegalChar('' + val || '');
+    };
+
+    XMLStringifier.prototype.dtdElementValue = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      return this.assertLegalChar('' + val || '');
+    };
+
+    XMLStringifier.prototype.dtdAttType = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      return this.assertLegalChar('' + val || '');
+    };
+
+    XMLStringifier.prototype.dtdAttDefault = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      return this.assertLegalChar('' + val || '');
+    };
+
+    XMLStringifier.prototype.dtdEntityValue = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      return this.assertLegalChar('' + val || '');
+    };
+
+    XMLStringifier.prototype.dtdNData = function(val) {
+      if (this.options.noValidation) {
+        return val;
+      }
+      return this.assertLegalChar('' + val || '');
+    };
+
+    XMLStringifier.prototype.convertAttKey = '@';
+
+    XMLStringifier.prototype.convertPIKey = '?';
+
+    XMLStringifier.prototype.convertTextKey = '#text';
+
+    XMLStringifier.prototype.convertCDataKey = '#cdata';
+
+    XMLStringifier.prototype.convertCommentKey = '#comment';
+
+    XMLStringifier.prototype.convertRawKey = '#raw';
+
+    XMLStringifier.prototype.assertLegalChar = function(str) {
+      var regex, res;
+      if (this.options.noValidation) {
+        return str;
+      }
+      regex = '';
+      if (this.options.version === '1.0') {
+        regex = /[\0-\x08\x0B\f\x0E-\x1F\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
+        if (res = str.match(regex)) {
+          throw new Error("Invalid character in string: " + str + " at index " + res.index);
+        }
+      } else if (this.options.version === '1.1') {
+        regex = /[\0\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
+        if (res = str.match(regex)) {
+          throw new Error("Invalid character in string: " + str + " at index " + res.index);
+        }
+      }
+      return str;
+    };
+
+    XMLStringifier.prototype.assertLegalName = function(str) {
+      var regex;
+      if (this.options.noValidation) {
+        return str;
+      }
+      this.assertLegalChar(str);
+      regex = /^([:A-Z_a-z\xC0-\xD6\xD8-\xF6\xF8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]|[\uD800-\uDB7F][\uDC00-\uDFFF])([\x2D\.0-:A-Z_a-z\xB7\xC0-\xD6\xD8-\xF6\xF8-\u037D\u037F-\u1FFF\u200C\u200D\u203F\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]|[\uD800-\uDB7F][\uDC00-\uDFFF])*$/;
+      if (!str.match(regex)) {
+        throw new Error("Invalid character in name");
+      }
+      return str;
+    };
+
+    XMLStringifier.prototype.textEscape = function(str) {
+      var ampregex;
+      if (this.options.noValidation) {
+        return str;
+      }
+      ampregex = this.options.noDoubleEncoding ? /(?!&\S+;)&/g : /&/g;
+      return str.replace(ampregex, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\r/g, '&#xD;');
+    };
+
+    XMLStringifier.prototype.attEscape = function(str) {
+      var ampregex;
+      if (this.options.noValidation) {
+        return str;
+      }
+      ampregex = this.options.noDoubleEncoding ? /(?!&\S+;)&/g : /&/g;
+      return str.replace(ampregex, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;').replace(/\t/g, '&#x9;').replace(/\n/g, '&#xA;').replace(/\r/g, '&#xD;');
+    };
+
+    return XMLStringifier;
+
+  })();
+
+}).call(this);
+
+
+/***/ }),
+
+/***/ 7162:
+/***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
+
+// Generated by CoffeeScript 1.12.7
+(function() {
+  var NodeType, XMLCharacterData, XMLText,
+    extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    hasProp = {}.hasOwnProperty;
+
+  NodeType = __nccwpck_require__(651);
+
+  XMLCharacterData = __nccwpck_require__(75);
+
+  module.exports = XMLText = (function(superClass) {
+    extend(XMLText, superClass);
+
+    function XMLText(parent, text) {
+      XMLText.__super__.constructor.call(this, parent);
+      if (text == null) {
+        throw new Error("Missing element text. " + this.debugInfo());
+      }
+      this.name = "#text";
+      this.type = NodeType.Text;
+      this.value = this.stringify.text(text);
+    }
+
+    Object.defineProperty(XMLText.prototype, 'isElementContentWhitespace', {
+      get: function() {
+        throw new Error("This DOM method is not implemented." + this.debugInfo());
+      }
+    });
+
+    Object.defineProperty(XMLText.prototype, 'wholeText', {
+      get: function() {
+        var next, prev, str;
+        str = '';
+        prev = this.previousSibling;
+        while (prev) {
+          str = prev.data + str;
+          prev = prev.previousSibling;
+        }
+        str += this.data;
+        next = this.nextSibling;
+        while (next) {
+          str = str + next.data;
+          next = next.nextSibling;
+        }
+        return str;
+      }
+    });
+
+    XMLText.prototype.clone = function() {
+      return Object.create(this);
+    };
+
+    XMLText.prototype.toString = function(options) {
+      return this.options.writer.text(this, this.options.writer.filterOptions(options));
+    };
+
+    XMLText.prototype.splitText = function(offset) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    XMLText.prototype.replaceWholeText = function(content) {
+      throw new Error("This DOM method is not implemented." + this.debugInfo());
+    };
+
+    return XMLText;
+
+  })(XMLCharacterData);
+
+}).call(this);
+
+
+/***/ }),
+
+/***/ 1658:
+/***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
+
+// Generated by CoffeeScript 1.12.7
+(function() {
+  var NodeType, WriterState, XMLCData, XMLComment, XMLDTDAttList, XMLDTDElement, XMLDTDEntity, XMLDTDNotation, XMLDeclaration, XMLDocType, XMLDummy, XMLElement, XMLProcessingInstruction, XMLRaw, XMLText, XMLWriterBase, assign,
+    hasProp = {}.hasOwnProperty;
+
+  assign = (__nccwpck_require__(3376).assign);
+
+  NodeType = __nccwpck_require__(651);
+
+  XMLDeclaration = __nccwpck_require__(1729);
+
+  XMLDocType = __nccwpck_require__(8393);
+
+  XMLCData = __nccwpck_require__(8117);
+
+  XMLComment = __nccwpck_require__(3992);
+
+  XMLElement = __nccwpck_require__(9669);
+
+  XMLRaw = __nccwpck_require__(4182);
+
+  XMLText = __nccwpck_require__(7162);
+
+  XMLProcessingInstruction = __nccwpck_require__(6466);
+
+  XMLDummy = __nccwpck_require__(1482);
+
+  XMLDTDAttList = __nccwpck_require__(816);
+
+  XMLDTDElement = __nccwpck_require__(8900);
+
+  XMLDTDEntity = __nccwpck_require__(1301);
+
+  XMLDTDNotation = __nccwpck_require__(8970);
+
+  WriterState = __nccwpck_require__(6626);
+
+  module.exports = XMLWriterBase = (function() {
+    function XMLWriterBase(options) {
+      var key, ref, value;
+      options || (options = {});
+      this.options = options;
+      ref = options.writer || {};
+      for (key in ref) {
+        if (!hasProp.call(ref, key)) continue;
+        value = ref[key];
+        this["_" + key] = this[key];
+        this[key] = value;
+      }
+    }
+
+    XMLWriterBase.prototype.filterOptions = function(options) {
+      var filteredOptions, ref, ref1, ref2, ref3, ref4, ref5, ref6;
+      options || (options = {});
+      options = assign({}, this.options, options);
+      filteredOptions = {
+        writer: this
+      };
+      filteredOptions.pretty = options.pretty || false;
+      filteredOptions.allowEmpty = options.allowEmpty || false;
+      filteredOptions.indent = (ref = options.indent) != null ? ref : '  ';
+      filteredOptions.newline = (ref1 = options.newline) != null ? ref1 : '\n';
+      filteredOptions.offset = (ref2 = options.offset) != null ? ref2 : 0;
+      filteredOptions.dontPrettyTextNodes = (ref3 = (ref4 = options.dontPrettyTextNodes) != null ? ref4 : options.dontprettytextnodes) != null ? ref3 : 0;
+      filteredOptions.spaceBeforeSlash = (ref5 = (ref6 = options.spaceBeforeSlash) != null ? ref6 : options.spacebeforeslash) != null ? ref5 : '';
+      if (filteredOptions.spaceBeforeSlash === true) {
+        filteredOptions.spaceBeforeSlash = ' ';
+      }
+      filteredOptions.suppressPrettyCount = 0;
+      filteredOptions.user = {};
+      filteredOptions.state = WriterState.None;
+      return filteredOptions;
+    };
+
+    XMLWriterBase.prototype.indent = function(node, options, level) {
+      var indentLevel;
+      if (!options.pretty || options.suppressPrettyCount) {
+        return '';
+      } else if (options.pretty) {
+        indentLevel = (level || 0) + options.offset + 1;
+        if (indentLevel > 0) {
+          return new Array(indentLevel).join(options.indent);
+        }
+      }
+      return '';
+    };
+
+    XMLWriterBase.prototype.endline = function(node, options, level) {
+      if (!options.pretty || options.suppressPrettyCount) {
+        return '';
+      } else {
+        return options.newline;
+      }
+    };
+
+    XMLWriterBase.prototype.attribute = function(att, options, level) {
       var r;
-      r = this.space(level);
-      r += '<?xml version="' + node.version + '"';
+      this.openAttribute(att, options, level);
+      r = ' ' + att.name + '="' + att.value + '"';
+      this.closeAttribute(att, options, level);
+      return r;
+    };
+
+    XMLWriterBase.prototype.cdata = function(node, options, level) {
+      var r;
+      this.openNode(node, options, level);
+      options.state = WriterState.OpenTag;
+      r = this.indent(node, options, level) + '<![CDATA[';
+      options.state = WriterState.InsideTag;
+      r += node.value;
+      options.state = WriterState.CloseTag;
+      r += ']]>' + this.endline(node, options, level);
+      options.state = WriterState.None;
+      this.closeNode(node, options, level);
+      return r;
+    };
+
+    XMLWriterBase.prototype.comment = function(node, options, level) {
+      var r;
+      this.openNode(node, options, level);
+      options.state = WriterState.OpenTag;
+      r = this.indent(node, options, level) + '<!-- ';
+      options.state = WriterState.InsideTag;
+      r += node.value;
+      options.state = WriterState.CloseTag;
+      r += ' -->' + this.endline(node, options, level);
+      options.state = WriterState.None;
+      this.closeNode(node, options, level);
+      return r;
+    };
+
+    XMLWriterBase.prototype.declaration = function(node, options, level) {
+      var r;
+      this.openNode(node, options, level);
+      options.state = WriterState.OpenTag;
+      r = this.indent(node, options, level) + '<?xml';
+      options.state = WriterState.InsideTag;
+      r += ' version="' + node.version + '"';
       if (node.encoding != null) {
         r += ' encoding="' + node.encoding + '"';
       }
       if (node.standalone != null) {
         r += ' standalone="' + node.standalone + '"';
       }
-      r += this.spacebeforeslash + '?>';
-      r += this.newline;
+      options.state = WriterState.CloseTag;
+      r += options.spaceBeforeSlash + '?>';
+      r += this.endline(node, options, level);
+      options.state = WriterState.None;
+      this.closeNode(node, options, level);
       return r;
     };
 
-    XMLStringWriter.prototype.docType = function(node, level) {
+    XMLWriterBase.prototype.docType = function(node, options, level) {
       var child, i, len, r, ref;
       level || (level = 0);
-      r = this.space(level);
+      this.openNode(node, options, level);
+      options.state = WriterState.OpenTag;
+      r = this.indent(node, options, level);
       r += '<!DOCTYPE ' + node.root().name;
       if (node.pubID && node.sysID) {
         r += ' PUBLIC "' + node.pubID + '" "' + node.sysID + '"';
@@ -27944,160 +30180,211 @@ exports["default"] = _default;
       }
       if (node.children.length > 0) {
         r += ' [';
-        r += this.newline;
+        r += this.endline(node, options, level);
+        options.state = WriterState.InsideTag;
         ref = node.children;
         for (i = 0, len = ref.length; i < len; i++) {
           child = ref[i];
-          r += (function() {
-            switch (false) {
-              case !(child instanceof XMLDTDAttList):
-                return this.dtdAttList(child, level + 1);
-              case !(child instanceof XMLDTDElement):
-                return this.dtdElement(child, level + 1);
-              case !(child instanceof XMLDTDEntity):
-                return this.dtdEntity(child, level + 1);
-              case !(child instanceof XMLDTDNotation):
-                return this.dtdNotation(child, level + 1);
-              case !(child instanceof XMLCData):
-                return this.cdata(child, level + 1);
-              case !(child instanceof XMLComment):
-                return this.comment(child, level + 1);
-              case !(child instanceof XMLProcessingInstruction):
-                return this.processingInstruction(child, level + 1);
-              default:
-                throw new Error("Unknown DTD node type: " + child.constructor.name);
-            }
-          }).call(this);
+          r += this.writeChildNode(child, options, level + 1);
         }
+        options.state = WriterState.CloseTag;
         r += ']';
       }
-      r += this.spacebeforeslash + '>';
-      r += this.newline;
+      options.state = WriterState.CloseTag;
+      r += options.spaceBeforeSlash + '>';
+      r += this.endline(node, options, level);
+      options.state = WriterState.None;
+      this.closeNode(node, options, level);
       return r;
     };
 
-    XMLStringWriter.prototype.element = function(node, level) {
-      var att, child, i, j, len, len1, name, r, ref, ref1, ref2, space, textispresentwasset;
+    XMLWriterBase.prototype.element = function(node, options, level) {
+      var att, child, childNodeCount, firstChildNode, i, j, len, len1, name, prettySuppressed, r, ref, ref1, ref2;
       level || (level = 0);
-      textispresentwasset = false;
-      if (this.textispresent) {
-        this.newline = '';
-        this.pretty = false;
-      } else {
-        this.newline = this.newlinedefault;
-        this.pretty = this.prettydefault;
-      }
-      space = this.space(level);
+      prettySuppressed = false;
       r = '';
-      r += space + '<' + node.name;
-      ref = node.attributes;
+      this.openNode(node, options, level);
+      options.state = WriterState.OpenTag;
+      r += this.indent(node, options, level) + '<' + node.name;
+      ref = node.attribs;
       for (name in ref) {
         if (!hasProp.call(ref, name)) continue;
         att = ref[name];
-        r += this.attribute(att);
+        r += this.attribute(att, options, level);
       }
-      if (node.children.length === 0 || node.children.every(function(e) {
-        return e.value === '';
+      childNodeCount = node.children.length;
+      firstChildNode = childNodeCount === 0 ? null : node.children[0];
+      if (childNodeCount === 0 || node.children.every(function(e) {
+        return (e.type === NodeType.Text || e.type === NodeType.Raw) && e.value === '';
       })) {
-        if (this.allowEmpty) {
-          r += '></' + node.name + '>' + this.newline;
+        if (options.allowEmpty) {
+          r += '>';
+          options.state = WriterState.CloseTag;
+          r += '</' + node.name + '>' + this.endline(node, options, level);
         } else {
-          r += this.spacebeforeslash + '/>' + this.newline;
+          options.state = WriterState.CloseTag;
+          r += options.spaceBeforeSlash + '/>' + this.endline(node, options, level);
         }
-      } else if (this.pretty && node.children.length === 1 && (node.children[0].value != null)) {
+      } else if (options.pretty && childNodeCount === 1 && (firstChildNode.type === NodeType.Text || firstChildNode.type === NodeType.Raw) && (firstChildNode.value != null)) {
         r += '>';
-        r += node.children[0].value;
-        r += '</' + node.name + '>' + this.newline;
+        options.state = WriterState.InsideTag;
+        options.suppressPrettyCount++;
+        prettySuppressed = true;
+        r += this.writeChildNode(firstChildNode, options, level + 1);
+        options.suppressPrettyCount--;
+        prettySuppressed = false;
+        options.state = WriterState.CloseTag;
+        r += '</' + node.name + '>' + this.endline(node, options, level);
       } else {
-        if (this.dontprettytextnodes) {
+        if (options.dontPrettyTextNodes) {
           ref1 = node.children;
           for (i = 0, len = ref1.length; i < len; i++) {
             child = ref1[i];
-            if (child.value != null) {
-              this.textispresent++;
-              textispresentwasset = true;
+            if ((child.type === NodeType.Text || child.type === NodeType.Raw) && (child.value != null)) {
+              options.suppressPrettyCount++;
+              prettySuppressed = true;
               break;
             }
           }
         }
-        if (this.textispresent) {
-          this.newline = '';
-          this.pretty = false;
-          space = this.space(level);
-        }
-        r += '>' + this.newline;
+        r += '>' + this.endline(node, options, level);
+        options.state = WriterState.InsideTag;
         ref2 = node.children;
         for (j = 0, len1 = ref2.length; j < len1; j++) {
           child = ref2[j];
-          r += (function() {
-            switch (false) {
-              case !(child instanceof XMLCData):
-                return this.cdata(child, level + 1);
-              case !(child instanceof XMLComment):
-                return this.comment(child, level + 1);
-              case !(child instanceof XMLElement):
-                return this.element(child, level + 1);
-              case !(child instanceof XMLRaw):
-                return this.raw(child, level + 1);
-              case !(child instanceof XMLText):
-                return this.text(child, level + 1);
-              case !(child instanceof XMLProcessingInstruction):
-                return this.processingInstruction(child, level + 1);
-              default:
-                throw new Error("Unknown XML node type: " + child.constructor.name);
-            }
-          }).call(this);
+          r += this.writeChildNode(child, options, level + 1);
         }
-        if (textispresentwasset) {
-          this.textispresent--;
+        options.state = WriterState.CloseTag;
+        r += this.indent(node, options, level) + '</' + node.name + '>';
+        if (prettySuppressed) {
+          options.suppressPrettyCount--;
         }
-        if (!this.textispresent) {
-          this.newline = this.newlinedefault;
-          this.pretty = this.prettydefault;
-        }
-        r += space + '</' + node.name + '>' + this.newline;
+        r += this.endline(node, options, level);
+        options.state = WriterState.None;
       }
+      this.closeNode(node, options, level);
       return r;
     };
 
-    XMLStringWriter.prototype.processingInstruction = function(node, level) {
+    XMLWriterBase.prototype.writeChildNode = function(node, options, level) {
+      switch (node.type) {
+        case NodeType.CData:
+          return this.cdata(node, options, level);
+        case NodeType.Comment:
+          return this.comment(node, options, level);
+        case NodeType.Element:
+          return this.element(node, options, level);
+        case NodeType.Raw:
+          return this.raw(node, options, level);
+        case NodeType.Text:
+          return this.text(node, options, level);
+        case NodeType.ProcessingInstruction:
+          return this.processingInstruction(node, options, level);
+        case NodeType.Dummy:
+          return '';
+        case NodeType.Declaration:
+          return this.declaration(node, options, level);
+        case NodeType.DocType:
+          return this.docType(node, options, level);
+        case NodeType.AttributeDeclaration:
+          return this.dtdAttList(node, options, level);
+        case NodeType.ElementDeclaration:
+          return this.dtdElement(node, options, level);
+        case NodeType.EntityDeclaration:
+          return this.dtdEntity(node, options, level);
+        case NodeType.NotationDeclaration:
+          return this.dtdNotation(node, options, level);
+        default:
+          throw new Error("Unknown XML node type: " + node.constructor.name);
+      }
+    };
+
+    XMLWriterBase.prototype.processingInstruction = function(node, options, level) {
       var r;
-      r = this.space(level) + '<?' + node.target;
+      this.openNode(node, options, level);
+      options.state = WriterState.OpenTag;
+      r = this.indent(node, options, level) + '<?';
+      options.state = WriterState.InsideTag;
+      r += node.target;
       if (node.value) {
         r += ' ' + node.value;
       }
-      r += this.spacebeforeslash + '?>' + this.newline;
+      options.state = WriterState.CloseTag;
+      r += options.spaceBeforeSlash + '?>';
+      r += this.endline(node, options, level);
+      options.state = WriterState.None;
+      this.closeNode(node, options, level);
       return r;
     };
 
-    XMLStringWriter.prototype.raw = function(node, level) {
-      return this.space(level) + node.value + this.newline;
-    };
-
-    XMLStringWriter.prototype.text = function(node, level) {
-      return this.space(level) + node.value + this.newline;
-    };
-
-    XMLStringWriter.prototype.dtdAttList = function(node, level) {
+    XMLWriterBase.prototype.raw = function(node, options, level) {
       var r;
-      r = this.space(level) + '<!ATTLIST ' + node.elementName + ' ' + node.attributeName + ' ' + node.attributeType;
+      this.openNode(node, options, level);
+      options.state = WriterState.OpenTag;
+      r = this.indent(node, options, level);
+      options.state = WriterState.InsideTag;
+      r += node.value;
+      options.state = WriterState.CloseTag;
+      r += this.endline(node, options, level);
+      options.state = WriterState.None;
+      this.closeNode(node, options, level);
+      return r;
+    };
+
+    XMLWriterBase.prototype.text = function(node, options, level) {
+      var r;
+      this.openNode(node, options, level);
+      options.state = WriterState.OpenTag;
+      r = this.indent(node, options, level);
+      options.state = WriterState.InsideTag;
+      r += node.value;
+      options.state = WriterState.CloseTag;
+      r += this.endline(node, options, level);
+      options.state = WriterState.None;
+      this.closeNode(node, options, level);
+      return r;
+    };
+
+    XMLWriterBase.prototype.dtdAttList = function(node, options, level) {
+      var r;
+      this.openNode(node, options, level);
+      options.state = WriterState.OpenTag;
+      r = this.indent(node, options, level) + '<!ATTLIST';
+      options.state = WriterState.InsideTag;
+      r += ' ' + node.elementName + ' ' + node.attributeName + ' ' + node.attributeType;
       if (node.defaultValueType !== '#DEFAULT') {
         r += ' ' + node.defaultValueType;
       }
       if (node.defaultValue) {
         r += ' "' + node.defaultValue + '"';
       }
-      r += this.spacebeforeslash + '>' + this.newline;
+      options.state = WriterState.CloseTag;
+      r += options.spaceBeforeSlash + '>' + this.endline(node, options, level);
+      options.state = WriterState.None;
+      this.closeNode(node, options, level);
       return r;
     };
 
-    XMLStringWriter.prototype.dtdElement = function(node, level) {
-      return this.space(level) + '<!ELEMENT ' + node.name + ' ' + node.value + this.spacebeforeslash + '>' + this.newline;
+    XMLWriterBase.prototype.dtdElement = function(node, options, level) {
+      var r;
+      this.openNode(node, options, level);
+      options.state = WriterState.OpenTag;
+      r = this.indent(node, options, level) + '<!ELEMENT';
+      options.state = WriterState.InsideTag;
+      r += ' ' + node.name + ' ' + node.value;
+      options.state = WriterState.CloseTag;
+      r += options.spaceBeforeSlash + '>' + this.endline(node, options, level);
+      options.state = WriterState.None;
+      this.closeNode(node, options, level);
+      return r;
     };
 
-    XMLStringWriter.prototype.dtdEntity = function(node, level) {
+    XMLWriterBase.prototype.dtdEntity = function(node, options, level) {
       var r;
-      r = this.space(level) + '<!ENTITY';
+      this.openNode(node, options, level);
+      options.state = WriterState.OpenTag;
+      r = this.indent(node, options, level) + '<!ENTITY';
+      options.state = WriterState.InsideTag;
       if (node.pe) {
         r += ' %';
       }
@@ -28114,13 +30401,20 @@ exports["default"] = _default;
           r += ' NDATA ' + node.nData;
         }
       }
-      r += this.spacebeforeslash + '>' + this.newline;
+      options.state = WriterState.CloseTag;
+      r += options.spaceBeforeSlash + '>' + this.endline(node, options, level);
+      options.state = WriterState.None;
+      this.closeNode(node, options, level);
       return r;
     };
 
-    XMLStringWriter.prototype.dtdNotation = function(node, level) {
+    XMLWriterBase.prototype.dtdNotation = function(node, options, level) {
       var r;
-      r = this.space(level) + '<!NOTATION ' + node.name;
+      this.openNode(node, options, level);
+      options.state = WriterState.OpenTag;
+      r = this.indent(node, options, level) + '<!NOTATION';
+      options.state = WriterState.InsideTag;
+      r += ' ' + node.name;
       if (node.pubID && node.sysID) {
         r += ' PUBLIC "' + node.pubID + '" "' + node.sysID + '"';
       } else if (node.pubID) {
@@ -28128,350 +30422,20 @@ exports["default"] = _default;
       } else if (node.sysID) {
         r += ' SYSTEM "' + node.sysID + '"';
       }
-      r += this.spacebeforeslash + '>' + this.newline;
+      options.state = WriterState.CloseTag;
+      r += options.spaceBeforeSlash + '>' + this.endline(node, options, level);
+      options.state = WriterState.None;
+      this.closeNode(node, options, level);
       return r;
     };
 
-    XMLStringWriter.prototype.openNode = function(node, level) {
-      var att, name, r, ref;
-      level || (level = 0);
-      if (node instanceof XMLElement) {
-        r = this.space(level) + '<' + node.name;
-        ref = node.attributes;
-        for (name in ref) {
-          if (!hasProp.call(ref, name)) continue;
-          att = ref[name];
-          r += this.attribute(att);
-        }
-        r += (node.children ? '>' : '/>') + this.newline;
-        return r;
-      } else {
-        r = this.space(level) + '<!DOCTYPE ' + node.rootNodeName;
-        if (node.pubID && node.sysID) {
-          r += ' PUBLIC "' + node.pubID + '" "' + node.sysID + '"';
-        } else if (node.sysID) {
-          r += ' SYSTEM "' + node.sysID + '"';
-        }
-        r += (node.children ? ' [' : '>') + this.newline;
-        return r;
-      }
-    };
+    XMLWriterBase.prototype.openNode = function(node, options, level) {};
 
-    XMLStringWriter.prototype.closeNode = function(node, level) {
-      level || (level = 0);
-      switch (false) {
-        case !(node instanceof XMLElement):
-          return this.space(level) + '</' + node.name + '>' + this.newline;
-        case !(node instanceof XMLDocType):
-          return this.space(level) + ']>' + this.newline;
-      }
-    };
+    XMLWriterBase.prototype.closeNode = function(node, options, level) {};
 
-    return XMLStringWriter;
+    XMLWriterBase.prototype.openAttribute = function(att, options, level) {};
 
-  })(XMLWriterBase);
-
-}).call(this);
-
-
-/***/ }),
-
-/***/ 8594:
-/***/ (function(module) {
-
-// Generated by CoffeeScript 1.12.7
-(function() {
-  var XMLStringifier,
-    bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-    hasProp = {}.hasOwnProperty;
-
-  module.exports = XMLStringifier = (function() {
-    function XMLStringifier(options) {
-      this.assertLegalChar = bind(this.assertLegalChar, this);
-      var key, ref, value;
-      options || (options = {});
-      this.noDoubleEncoding = options.noDoubleEncoding;
-      ref = options.stringify || {};
-      for (key in ref) {
-        if (!hasProp.call(ref, key)) continue;
-        value = ref[key];
-        this[key] = value;
-      }
-    }
-
-    XMLStringifier.prototype.eleName = function(val) {
-      val = '' + val || '';
-      return this.assertLegalChar(val);
-    };
-
-    XMLStringifier.prototype.eleText = function(val) {
-      val = '' + val || '';
-      return this.assertLegalChar(this.elEscape(val));
-    };
-
-    XMLStringifier.prototype.cdata = function(val) {
-      val = '' + val || '';
-      val = val.replace(']]>', ']]]]><![CDATA[>');
-      return this.assertLegalChar(val);
-    };
-
-    XMLStringifier.prototype.comment = function(val) {
-      val = '' + val || '';
-      if (val.match(/--/)) {
-        throw new Error("Comment text cannot contain double-hypen: " + val);
-      }
-      return this.assertLegalChar(val);
-    };
-
-    XMLStringifier.prototype.raw = function(val) {
-      return '' + val || '';
-    };
-
-    XMLStringifier.prototype.attName = function(val) {
-      return val = '' + val || '';
-    };
-
-    XMLStringifier.prototype.attValue = function(val) {
-      val = '' + val || '';
-      return this.attEscape(val);
-    };
-
-    XMLStringifier.prototype.insTarget = function(val) {
-      return '' + val || '';
-    };
-
-    XMLStringifier.prototype.insValue = function(val) {
-      val = '' + val || '';
-      if (val.match(/\?>/)) {
-        throw new Error("Invalid processing instruction value: " + val);
-      }
-      return val;
-    };
-
-    XMLStringifier.prototype.xmlVersion = function(val) {
-      val = '' + val || '';
-      if (!val.match(/1\.[0-9]+/)) {
-        throw new Error("Invalid version number: " + val);
-      }
-      return val;
-    };
-
-    XMLStringifier.prototype.xmlEncoding = function(val) {
-      val = '' + val || '';
-      if (!val.match(/^[A-Za-z](?:[A-Za-z0-9._-])*$/)) {
-        throw new Error("Invalid encoding: " + val);
-      }
-      return val;
-    };
-
-    XMLStringifier.prototype.xmlStandalone = function(val) {
-      if (val) {
-        return "yes";
-      } else {
-        return "no";
-      }
-    };
-
-    XMLStringifier.prototype.dtdPubID = function(val) {
-      return '' + val || '';
-    };
-
-    XMLStringifier.prototype.dtdSysID = function(val) {
-      return '' + val || '';
-    };
-
-    XMLStringifier.prototype.dtdElementValue = function(val) {
-      return '' + val || '';
-    };
-
-    XMLStringifier.prototype.dtdAttType = function(val) {
-      return '' + val || '';
-    };
-
-    XMLStringifier.prototype.dtdAttDefault = function(val) {
-      if (val != null) {
-        return '' + val || '';
-      } else {
-        return val;
-      }
-    };
-
-    XMLStringifier.prototype.dtdEntityValue = function(val) {
-      return '' + val || '';
-    };
-
-    XMLStringifier.prototype.dtdNData = function(val) {
-      return '' + val || '';
-    };
-
-    XMLStringifier.prototype.convertAttKey = '@';
-
-    XMLStringifier.prototype.convertPIKey = '?';
-
-    XMLStringifier.prototype.convertTextKey = '#text';
-
-    XMLStringifier.prototype.convertCDataKey = '#cdata';
-
-    XMLStringifier.prototype.convertCommentKey = '#comment';
-
-    XMLStringifier.prototype.convertRawKey = '#raw';
-
-    XMLStringifier.prototype.assertLegalChar = function(str) {
-      var res;
-      res = str.match(/[\0\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/);
-      if (res) {
-        throw new Error("Invalid character in string: " + str + " at index " + res.index);
-      }
-      return str;
-    };
-
-    XMLStringifier.prototype.elEscape = function(str) {
-      var ampregex;
-      ampregex = this.noDoubleEncoding ? /(?!&\S+;)&/g : /&/g;
-      return str.replace(ampregex, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\r/g, '&#xD;');
-    };
-
-    XMLStringifier.prototype.attEscape = function(str) {
-      var ampregex;
-      ampregex = this.noDoubleEncoding ? /(?!&\S+;)&/g : /&/g;
-      return str.replace(ampregex, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;').replace(/\t/g, '&#x9;').replace(/\n/g, '&#xA;').replace(/\r/g, '&#xD;');
-    };
-
-    return XMLStringifier;
-
-  })();
-
-}).call(this);
-
-
-/***/ }),
-
-/***/ 1318:
-/***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
-
-// Generated by CoffeeScript 1.12.7
-(function() {
-  var XMLNode, XMLText,
-    extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-    hasProp = {}.hasOwnProperty;
-
-  XMLNode = __nccwpck_require__(7608);
-
-  module.exports = XMLText = (function(superClass) {
-    extend(XMLText, superClass);
-
-    function XMLText(parent, text) {
-      XMLText.__super__.constructor.call(this, parent);
-      if (text == null) {
-        throw new Error("Missing element text");
-      }
-      this.value = this.stringify.eleText(text);
-    }
-
-    XMLText.prototype.clone = function() {
-      return Object.create(this);
-    };
-
-    XMLText.prototype.toString = function(options) {
-      return this.options.writer.set(options).text(this);
-    };
-
-    return XMLText;
-
-  })(XMLNode);
-
-}).call(this);
-
-
-/***/ }),
-
-/***/ 5293:
-/***/ (function(module) {
-
-// Generated by CoffeeScript 1.12.7
-(function() {
-  var XMLWriterBase,
-    hasProp = {}.hasOwnProperty;
-
-  module.exports = XMLWriterBase = (function() {
-    function XMLWriterBase(options) {
-      var key, ref, ref1, ref2, ref3, ref4, ref5, ref6, value;
-      options || (options = {});
-      this.pretty = options.pretty || false;
-      this.allowEmpty = (ref = options.allowEmpty) != null ? ref : false;
-      if (this.pretty) {
-        this.indent = (ref1 = options.indent) != null ? ref1 : '  ';
-        this.newline = (ref2 = options.newline) != null ? ref2 : '\n';
-        this.offset = (ref3 = options.offset) != null ? ref3 : 0;
-        this.dontprettytextnodes = (ref4 = options.dontprettytextnodes) != null ? ref4 : 0;
-      } else {
-        this.indent = '';
-        this.newline = '';
-        this.offset = 0;
-        this.dontprettytextnodes = 0;
-      }
-      this.spacebeforeslash = (ref5 = options.spacebeforeslash) != null ? ref5 : '';
-      if (this.spacebeforeslash === true) {
-        this.spacebeforeslash = ' ';
-      }
-      this.newlinedefault = this.newline;
-      this.prettydefault = this.pretty;
-      ref6 = options.writer || {};
-      for (key in ref6) {
-        if (!hasProp.call(ref6, key)) continue;
-        value = ref6[key];
-        this[key] = value;
-      }
-    }
-
-    XMLWriterBase.prototype.set = function(options) {
-      var key, ref, value;
-      options || (options = {});
-      if ("pretty" in options) {
-        this.pretty = options.pretty;
-      }
-      if ("allowEmpty" in options) {
-        this.allowEmpty = options.allowEmpty;
-      }
-      if (this.pretty) {
-        this.indent = "indent" in options ? options.indent : '  ';
-        this.newline = "newline" in options ? options.newline : '\n';
-        this.offset = "offset" in options ? options.offset : 0;
-        this.dontprettytextnodes = "dontprettytextnodes" in options ? options.dontprettytextnodes : 0;
-      } else {
-        this.indent = '';
-        this.newline = '';
-        this.offset = 0;
-        this.dontprettytextnodes = 0;
-      }
-      this.spacebeforeslash = "spacebeforeslash" in options ? options.spacebeforeslash : '';
-      if (this.spacebeforeslash === true) {
-        this.spacebeforeslash = ' ';
-      }
-      this.newlinedefault = this.newline;
-      this.prettydefault = this.pretty;
-      ref = options.writer || {};
-      for (key in ref) {
-        if (!hasProp.call(ref, key)) continue;
-        value = ref[key];
-        this[key] = value;
-      }
-      return this;
-    };
-
-    XMLWriterBase.prototype.space = function(level) {
-      var indent;
-      if (this.pretty) {
-        indent = (level || 0) + this.offset + 1;
-        if (indent > 0) {
-          return new Array(indent).join(this.indent);
-        } else {
-          return '';
-        }
-      } else {
-        return '';
-      }
-    };
+    XMLWriterBase.prototype.closeAttribute = function(att, options, level) {};
 
     return XMLWriterBase;
 
@@ -28482,27 +30446,33 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 2958:
+/***/ 4065:
 /***/ (function(module, __unused_webpack_exports, __nccwpck_require__) {
 
 // Generated by CoffeeScript 1.12.7
 (function() {
-  var XMLDocument, XMLDocumentCB, XMLStreamWriter, XMLStringWriter, assign, isFunction, ref;
+  var NodeType, WriterState, XMLDOMImplementation, XMLDocument, XMLDocumentCB, XMLStreamWriter, XMLStringWriter, assign, isFunction, ref;
 
-  ref = __nccwpck_require__(8229), assign = ref.assign, isFunction = ref.isFunction;
+  ref = __nccwpck_require__(3376), assign = ref.assign, isFunction = ref.isFunction;
 
-  XMLDocument = __nccwpck_require__(3730);
+  XMLDOMImplementation = __nccwpck_require__(1413);
 
-  XMLDocumentCB = __nccwpck_require__(7356);
+  XMLDocument = __nccwpck_require__(5237);
 
-  XMLStringWriter = __nccwpck_require__(5913);
+  XMLDocumentCB = __nccwpck_require__(4208);
 
-  XMLStreamWriter = __nccwpck_require__(8601);
+  XMLStringWriter = __nccwpck_require__(6514);
+
+  XMLStreamWriter = __nccwpck_require__(898);
+
+  NodeType = __nccwpck_require__(651);
+
+  WriterState = __nccwpck_require__(6626);
 
   module.exports.create = function(name, xmldec, doctype, options) {
     var doc, root;
     if (name == null) {
-      throw new Error("Root element needs a name");
+      throw new Error("Root element needs a name.");
     }
     options = assign({}, xmldec, doctype, options);
     doc = new XMLDocument(options);
@@ -28510,7 +30480,7 @@ exports["default"] = _default;
     if (!options.headless) {
       doc.declaration(options);
       if ((options.pubID != null) || (options.sysID != null)) {
-        doc.doctype(options);
+        doc.dtd(options);
       }
     }
     return root;
@@ -28536,6 +30506,12 @@ exports["default"] = _default;
   module.exports.streamWriter = function(stream, options) {
     return new XMLStreamWriter(stream, options);
   };
+
+  module.exports.implementation = new XMLDOMImplementation();
+
+  module.exports.nodeType = NodeType;
+
+  module.exports.writerState = WriterState;
 
 }).call(this);
 
@@ -28598,7 +30574,7 @@ module.exports = require("dgram");
 
 /***/ }),
 
-/***/ 22:
+/***/ 3639:
 /***/ ((module) => {
 
 "use strict";
@@ -28718,7 +30694,7 @@ module.exports = require("util");
 
 /***/ }),
 
-/***/ 3433:
+/***/ 2950:
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __nccwpck_require__) => {
 
 "use strict";
@@ -28726,7 +30702,7 @@ module.exports = require("util");
 /* harmony export */   "Z": () => (/* binding */ slash)
 /* harmony export */ });
 function slash(path) {
-	const isExtendedLengthPath = /^\\\\\?\\/.test(path);
+	const isExtendedLengthPath = path.startsWith('\\\\?\\');
 
 	if (isExtendedLengthPath) {
 		return path;
@@ -28758,7 +30734,7 @@ module.exports = JSON.parse('{"o":{"ListIdentityPools":{"input_token":"NextToken
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"acm":{"name":"ACM","cors":true},"apigateway":{"name":"APIGateway","cors":true},"applicationautoscaling":{"prefix":"application-autoscaling","name":"ApplicationAutoScaling","cors":true},"appstream":{"name":"AppStream"},"autoscaling":{"name":"AutoScaling","cors":true},"batch":{"name":"Batch"},"budgets":{"name":"Budgets"},"clouddirectory":{"name":"CloudDirectory","versions":["2016-05-10*"]},"cloudformation":{"name":"CloudFormation","cors":true},"cloudfront":{"name":"CloudFront","versions":["2013-05-12*","2013-11-11*","2014-05-31*","2014-10-21*","2014-11-06*","2015-04-17*","2015-07-27*","2015-09-17*","2016-01-13*","2016-01-28*","2016-08-01*","2016-08-20*","2016-09-07*","2016-09-29*","2016-11-25*","2017-03-25*","2017-10-30*","2018-06-18*","2018-11-05*","2019-03-26*"],"cors":true},"cloudhsm":{"name":"CloudHSM","cors":true},"cloudsearch":{"name":"CloudSearch"},"cloudsearchdomain":{"name":"CloudSearchDomain"},"cloudtrail":{"name":"CloudTrail","cors":true},"cloudwatch":{"prefix":"monitoring","name":"CloudWatch","cors":true},"cloudwatchevents":{"prefix":"events","name":"CloudWatchEvents","versions":["2014-02-03*"],"cors":true},"cloudwatchlogs":{"prefix":"logs","name":"CloudWatchLogs","cors":true},"codebuild":{"name":"CodeBuild","cors":true},"codecommit":{"name":"CodeCommit","cors":true},"codedeploy":{"name":"CodeDeploy","cors":true},"codepipeline":{"name":"CodePipeline","cors":true},"cognitoidentity":{"prefix":"cognito-identity","name":"CognitoIdentity","cors":true},"cognitoidentityserviceprovider":{"prefix":"cognito-idp","name":"CognitoIdentityServiceProvider","cors":true},"cognitosync":{"prefix":"cognito-sync","name":"CognitoSync","cors":true},"configservice":{"prefix":"config","name":"ConfigService","cors":true},"cur":{"name":"CUR","cors":true},"datapipeline":{"name":"DataPipeline"},"devicefarm":{"name":"DeviceFarm","cors":true},"directconnect":{"name":"DirectConnect","cors":true},"directoryservice":{"prefix":"ds","name":"DirectoryService"},"discovery":{"name":"Discovery"},"dms":{"name":"DMS"},"dynamodb":{"name":"DynamoDB","cors":true},"dynamodbstreams":{"prefix":"streams.dynamodb","name":"DynamoDBStreams","cors":true},"ec2":{"name":"EC2","versions":["2013-06-15*","2013-10-15*","2014-02-01*","2014-05-01*","2014-06-15*","2014-09-01*","2014-10-01*","2015-03-01*","2015-04-15*","2015-10-01*","2016-04-01*","2016-09-15*"],"cors":true},"ecr":{"name":"ECR","cors":true},"ecs":{"name":"ECS","cors":true},"efs":{"prefix":"elasticfilesystem","name":"EFS","cors":true},"elasticache":{"name":"ElastiCache","versions":["2012-11-15*","2014-03-24*","2014-07-15*","2014-09-30*"],"cors":true},"elasticbeanstalk":{"name":"ElasticBeanstalk","cors":true},"elb":{"prefix":"elasticloadbalancing","name":"ELB","cors":true},"elbv2":{"prefix":"elasticloadbalancingv2","name":"ELBv2","cors":true},"emr":{"prefix":"elasticmapreduce","name":"EMR","cors":true},"es":{"name":"ES"},"elastictranscoder":{"name":"ElasticTranscoder","cors":true},"firehose":{"name":"Firehose","cors":true},"gamelift":{"name":"GameLift","cors":true},"glacier":{"name":"Glacier"},"health":{"name":"Health"},"iam":{"name":"IAM","cors":true},"importexport":{"name":"ImportExport"},"inspector":{"name":"Inspector","versions":["2015-08-18*"],"cors":true},"iot":{"name":"Iot","cors":true},"iotdata":{"prefix":"iot-data","name":"IotData","cors":true},"kinesis":{"name":"Kinesis","cors":true},"kinesisanalytics":{"name":"KinesisAnalytics"},"kms":{"name":"KMS","cors":true},"lambda":{"name":"Lambda","cors":true},"lexruntime":{"prefix":"runtime.lex","name":"LexRuntime","cors":true},"lightsail":{"name":"Lightsail"},"machinelearning":{"name":"MachineLearning","cors":true},"marketplacecommerceanalytics":{"name":"MarketplaceCommerceAnalytics","cors":true},"marketplacemetering":{"prefix":"meteringmarketplace","name":"MarketplaceMetering"},"mturk":{"prefix":"mturk-requester","name":"MTurk","cors":true},"mobileanalytics":{"name":"MobileAnalytics","cors":true},"opsworks":{"name":"OpsWorks","cors":true},"opsworkscm":{"name":"OpsWorksCM"},"organizations":{"name":"Organizations"},"pinpoint":{"name":"Pinpoint"},"polly":{"name":"Polly","cors":true},"rds":{"name":"RDS","versions":["2014-09-01*"],"cors":true},"redshift":{"name":"Redshift","cors":true},"rekognition":{"name":"Rekognition","cors":true},"resourcegroupstaggingapi":{"name":"ResourceGroupsTaggingAPI"},"route53":{"name":"Route53","cors":true},"route53domains":{"name":"Route53Domains","cors":true},"s3":{"name":"S3","dualstackAvailable":true,"cors":true},"s3control":{"name":"S3Control","dualstackAvailable":true,"xmlNoDefaultLists":true},"servicecatalog":{"name":"ServiceCatalog","cors":true},"ses":{"prefix":"email","name":"SES","cors":true},"shield":{"name":"Shield"},"simpledb":{"prefix":"sdb","name":"SimpleDB"},"sms":{"name":"SMS"},"snowball":{"name":"Snowball"},"sns":{"name":"SNS","cors":true},"sqs":{"name":"SQS","cors":true},"ssm":{"name":"SSM","cors":true},"storagegateway":{"name":"StorageGateway","cors":true},"stepfunctions":{"prefix":"states","name":"StepFunctions"},"sts":{"name":"STS","cors":true},"support":{"name":"Support"},"swf":{"name":"SWF"},"xray":{"name":"XRay","cors":true},"waf":{"name":"WAF","cors":true},"wafregional":{"prefix":"waf-regional","name":"WAFRegional"},"workdocs":{"name":"WorkDocs","cors":true},"workspaces":{"name":"WorkSpaces"},"codestar":{"name":"CodeStar"},"lexmodelbuildingservice":{"prefix":"lex-models","name":"LexModelBuildingService","cors":true},"marketplaceentitlementservice":{"prefix":"entitlement.marketplace","name":"MarketplaceEntitlementService"},"athena":{"name":"Athena","cors":true},"greengrass":{"name":"Greengrass"},"dax":{"name":"DAX"},"migrationhub":{"prefix":"AWSMigrationHub","name":"MigrationHub"},"cloudhsmv2":{"name":"CloudHSMV2","cors":true},"glue":{"name":"Glue"},"mobile":{"name":"Mobile"},"pricing":{"name":"Pricing","cors":true},"costexplorer":{"prefix":"ce","name":"CostExplorer","cors":true},"mediaconvert":{"name":"MediaConvert"},"medialive":{"name":"MediaLive"},"mediapackage":{"name":"MediaPackage"},"mediastore":{"name":"MediaStore"},"mediastoredata":{"prefix":"mediastore-data","name":"MediaStoreData","cors":true},"appsync":{"name":"AppSync"},"guardduty":{"name":"GuardDuty"},"mq":{"name":"MQ"},"comprehend":{"name":"Comprehend","cors":true},"iotjobsdataplane":{"prefix":"iot-jobs-data","name":"IoTJobsDataPlane"},"kinesisvideoarchivedmedia":{"prefix":"kinesis-video-archived-media","name":"KinesisVideoArchivedMedia","cors":true},"kinesisvideomedia":{"prefix":"kinesis-video-media","name":"KinesisVideoMedia","cors":true},"kinesisvideo":{"name":"KinesisVideo","cors":true},"sagemakerruntime":{"prefix":"runtime.sagemaker","name":"SageMakerRuntime"},"sagemaker":{"name":"SageMaker"},"translate":{"name":"Translate","cors":true},"resourcegroups":{"prefix":"resource-groups","name":"ResourceGroups","cors":true},"alexaforbusiness":{"name":"AlexaForBusiness"},"cloud9":{"name":"Cloud9"},"serverlessapplicationrepository":{"prefix":"serverlessrepo","name":"ServerlessApplicationRepository"},"servicediscovery":{"name":"ServiceDiscovery"},"workmail":{"name":"WorkMail"},"autoscalingplans":{"prefix":"autoscaling-plans","name":"AutoScalingPlans"},"transcribeservice":{"prefix":"transcribe","name":"TranscribeService"},"connect":{"name":"Connect","cors":true},"acmpca":{"prefix":"acm-pca","name":"ACMPCA"},"fms":{"name":"FMS"},"secretsmanager":{"name":"SecretsManager","cors":true},"iotanalytics":{"name":"IoTAnalytics","cors":true},"iot1clickdevicesservice":{"prefix":"iot1click-devices","name":"IoT1ClickDevicesService"},"iot1clickprojects":{"prefix":"iot1click-projects","name":"IoT1ClickProjects"},"pi":{"name":"PI"},"neptune":{"name":"Neptune"},"mediatailor":{"name":"MediaTailor"},"eks":{"name":"EKS"},"macie":{"name":"Macie"},"dlm":{"name":"DLM"},"signer":{"name":"Signer"},"chime":{"name":"Chime"},"pinpointemail":{"prefix":"pinpoint-email","name":"PinpointEmail"},"ram":{"name":"RAM"},"route53resolver":{"name":"Route53Resolver"},"pinpointsmsvoice":{"prefix":"sms-voice","name":"PinpointSMSVoice"},"quicksight":{"name":"QuickSight"},"rdsdataservice":{"prefix":"rds-data","name":"RDSDataService"},"amplify":{"name":"Amplify"},"datasync":{"name":"DataSync"},"robomaker":{"name":"RoboMaker"},"transfer":{"name":"Transfer"},"globalaccelerator":{"name":"GlobalAccelerator"},"comprehendmedical":{"name":"ComprehendMedical","cors":true},"kinesisanalyticsv2":{"name":"KinesisAnalyticsV2"},"mediaconnect":{"name":"MediaConnect"},"fsx":{"name":"FSx"},"securityhub":{"name":"SecurityHub"},"appmesh":{"name":"AppMesh","versions":["2018-10-01*"]},"licensemanager":{"prefix":"license-manager","name":"LicenseManager"},"kafka":{"name":"Kafka"},"apigatewaymanagementapi":{"name":"ApiGatewayManagementApi"},"apigatewayv2":{"name":"ApiGatewayV2"},"docdb":{"name":"DocDB"},"backup":{"name":"Backup"},"worklink":{"name":"WorkLink"},"textract":{"name":"Textract"},"managedblockchain":{"name":"ManagedBlockchain"},"mediapackagevod":{"prefix":"mediapackage-vod","name":"MediaPackageVod"},"groundstation":{"name":"GroundStation"},"iotthingsgraph":{"name":"IoTThingsGraph"},"iotevents":{"name":"IoTEvents"},"ioteventsdata":{"prefix":"iotevents-data","name":"IoTEventsData"},"personalize":{"name":"Personalize","cors":true},"personalizeevents":{"prefix":"personalize-events","name":"PersonalizeEvents","cors":true},"personalizeruntime":{"prefix":"personalize-runtime","name":"PersonalizeRuntime","cors":true},"applicationinsights":{"prefix":"application-insights","name":"ApplicationInsights"},"servicequotas":{"prefix":"service-quotas","name":"ServiceQuotas"},"ec2instanceconnect":{"prefix":"ec2-instance-connect","name":"EC2InstanceConnect"},"eventbridge":{"name":"EventBridge"},"lakeformation":{"name":"LakeFormation"},"forecastservice":{"prefix":"forecast","name":"ForecastService","cors":true},"forecastqueryservice":{"prefix":"forecastquery","name":"ForecastQueryService","cors":true},"qldb":{"name":"QLDB"},"qldbsession":{"prefix":"qldb-session","name":"QLDBSession"},"workmailmessageflow":{"name":"WorkMailMessageFlow"},"codestarnotifications":{"prefix":"codestar-notifications","name":"CodeStarNotifications"},"savingsplans":{"name":"SavingsPlans"},"sso":{"name":"SSO"},"ssooidc":{"prefix":"sso-oidc","name":"SSOOIDC"},"marketplacecatalog":{"prefix":"marketplace-catalog","name":"MarketplaceCatalog","cors":true},"dataexchange":{"name":"DataExchange"},"sesv2":{"name":"SESV2"},"migrationhubconfig":{"prefix":"migrationhub-config","name":"MigrationHubConfig"},"connectparticipant":{"name":"ConnectParticipant"},"appconfig":{"name":"AppConfig"},"iotsecuretunneling":{"name":"IoTSecureTunneling"},"wafv2":{"name":"WAFV2"},"elasticinference":{"prefix":"elastic-inference","name":"ElasticInference"},"imagebuilder":{"name":"Imagebuilder"},"schemas":{"name":"Schemas"},"accessanalyzer":{"name":"AccessAnalyzer"},"codegurureviewer":{"prefix":"codeguru-reviewer","name":"CodeGuruReviewer"},"codeguruprofiler":{"name":"CodeGuruProfiler"},"computeoptimizer":{"prefix":"compute-optimizer","name":"ComputeOptimizer"},"frauddetector":{"name":"FraudDetector"},"kendra":{"name":"Kendra"},"networkmanager":{"name":"NetworkManager"},"outposts":{"name":"Outposts"},"augmentedairuntime":{"prefix":"sagemaker-a2i-runtime","name":"AugmentedAIRuntime"},"ebs":{"name":"EBS"},"kinesisvideosignalingchannels":{"prefix":"kinesis-video-signaling","name":"KinesisVideoSignalingChannels","cors":true},"detective":{"name":"Detective"},"codestarconnections":{"prefix":"codestar-connections","name":"CodeStarconnections"},"synthetics":{"name":"Synthetics"},"iotsitewise":{"name":"IoTSiteWise"},"macie2":{"name":"Macie2"},"codeartifact":{"name":"CodeArtifact"},"honeycode":{"name":"Honeycode"},"ivs":{"name":"IVS"},"braket":{"name":"Braket"},"identitystore":{"name":"IdentityStore"},"appflow":{"name":"Appflow"},"redshiftdata":{"prefix":"redshift-data","name":"RedshiftData"},"ssoadmin":{"prefix":"sso-admin","name":"SSOAdmin"},"timestreamquery":{"prefix":"timestream-query","name":"TimestreamQuery"},"timestreamwrite":{"prefix":"timestream-write","name":"TimestreamWrite"},"s3outposts":{"name":"S3Outposts"},"databrew":{"name":"DataBrew"},"servicecatalogappregistry":{"prefix":"servicecatalog-appregistry","name":"ServiceCatalogAppRegistry"},"networkfirewall":{"prefix":"network-firewall","name":"NetworkFirewall"},"mwaa":{"name":"MWAA"},"amplifybackend":{"name":"AmplifyBackend"},"appintegrations":{"name":"AppIntegrations"},"connectcontactlens":{"prefix":"connect-contact-lens","name":"ConnectContactLens"},"devopsguru":{"prefix":"devops-guru","name":"DevOpsGuru"},"ecrpublic":{"prefix":"ecr-public","name":"ECRPUBLIC"},"lookoutvision":{"name":"LookoutVision"},"sagemakerfeaturestoreruntime":{"prefix":"sagemaker-featurestore-runtime","name":"SageMakerFeatureStoreRuntime"},"customerprofiles":{"prefix":"customer-profiles","name":"CustomerProfiles"},"auditmanager":{"name":"AuditManager"},"emrcontainers":{"prefix":"emr-containers","name":"EMRcontainers"},"healthlake":{"name":"HealthLake"},"sagemakeredge":{"prefix":"sagemaker-edge","name":"SagemakerEdge"},"amp":{"name":"Amp"},"greengrassv2":{"name":"GreengrassV2"},"iotdeviceadvisor":{"name":"IotDeviceAdvisor"},"iotfleethub":{"name":"IoTFleetHub"},"iotwireless":{"name":"IoTWireless"},"location":{"name":"Location","cors":true},"wellarchitected":{"name":"WellArchitected"},"lexmodelsv2":{"prefix":"models.lex.v2","name":"LexModelsV2"},"lexruntimev2":{"prefix":"runtime.lex.v2","name":"LexRuntimeV2","cors":true},"fis":{"name":"Fis"},"lookoutmetrics":{"name":"LookoutMetrics"},"mgn":{"name":"Mgn"},"lookoutequipment":{"name":"LookoutEquipment"},"nimble":{"name":"Nimble"},"finspace":{"name":"Finspace"},"finspacedata":{"prefix":"finspace-data","name":"Finspacedata"},"ssmcontacts":{"prefix":"ssm-contacts","name":"SSMContacts"},"ssmincidents":{"prefix":"ssm-incidents","name":"SSMIncidents"},"applicationcostprofiler":{"name":"ApplicationCostProfiler"},"apprunner":{"name":"AppRunner"},"proton":{"name":"Proton"},"route53recoverycluster":{"prefix":"route53-recovery-cluster","name":"Route53RecoveryCluster"},"route53recoverycontrolconfig":{"prefix":"route53-recovery-control-config","name":"Route53RecoveryControlConfig"},"route53recoveryreadiness":{"prefix":"route53-recovery-readiness","name":"Route53RecoveryReadiness"},"chimesdkidentity":{"prefix":"chime-sdk-identity","name":"ChimeSDKIdentity"},"chimesdkmessaging":{"prefix":"chime-sdk-messaging","name":"ChimeSDKMessaging"},"snowdevicemanagement":{"prefix":"snow-device-management","name":"SnowDeviceManagement"},"memorydb":{"name":"MemoryDB"},"opensearch":{"name":"OpenSearch"},"kafkaconnect":{"name":"KafkaConnect"},"voiceid":{"prefix":"voice-id","name":"VoiceID"},"wisdom":{"name":"Wisdom"},"account":{"name":"Account"},"cloudcontrol":{"name":"CloudControl"},"grafana":{"name":"Grafana"},"panorama":{"name":"Panorama"},"chimesdkmeetings":{"prefix":"chime-sdk-meetings","name":"ChimeSDKMeetings"},"resiliencehub":{"name":"Resiliencehub"},"migrationhubstrategy":{"name":"MigrationHubStrategy"},"appconfigdata":{"name":"AppConfigData"},"drs":{"name":"Drs"},"migrationhubrefactorspaces":{"prefix":"migration-hub-refactor-spaces","name":"MigrationHubRefactorSpaces"},"evidently":{"name":"Evidently"},"inspector2":{"name":"Inspector2"},"rbin":{"name":"Rbin"},"rum":{"name":"RUM"},"backupgateway":{"prefix":"backup-gateway","name":"BackupGateway"},"iottwinmaker":{"name":"IoTTwinMaker"},"workspacesweb":{"prefix":"workspaces-web","name":"WorkSpacesWeb"},"amplifyuibuilder":{"name":"AmplifyUIBuilder"},"keyspaces":{"name":"Keyspaces"},"billingconductor":{"name":"Billingconductor"},"gamesparks":{"name":"GameSparks"},"pinpointsmsvoicev2":{"prefix":"pinpoint-sms-voice-v2","name":"PinpointSMSVoiceV2"},"ivschat":{"name":"Ivschat"},"chimesdkmediapipelines":{"prefix":"chime-sdk-media-pipelines","name":"ChimeSDKMediaPipelines"},"emrserverless":{"prefix":"emr-serverless","name":"EMRServerless"},"m2":{"name":"M2"},"connectcampaigns":{"name":"ConnectCampaigns"},"redshiftserverless":{"prefix":"redshift-serverless","name":"RedshiftServerless"},"rolesanywhere":{"name":"RolesAnywhere"},"licensemanagerusersubscriptions":{"prefix":"license-manager-user-subscriptions","name":"LicenseManagerUserSubscriptions"},"backupstorage":{"name":"BackupStorage"},"privatenetworks":{"name":"PrivateNetworks"},"supportapp":{"prefix":"support-app","name":"SupportApp"},"controltower":{"name":"ControlTower"},"iotfleetwise":{"name":"IoTFleetWise"},"migrationhuborchestrator":{"name":"MigrationHubOrchestrator"},"connectcases":{"name":"ConnectCases"}}');
+module.exports = JSON.parse('{"acm":{"name":"ACM","cors":true},"apigateway":{"name":"APIGateway","cors":true},"applicationautoscaling":{"prefix":"application-autoscaling","name":"ApplicationAutoScaling","cors":true},"appstream":{"name":"AppStream"},"autoscaling":{"name":"AutoScaling","cors":true},"batch":{"name":"Batch"},"budgets":{"name":"Budgets"},"clouddirectory":{"name":"CloudDirectory","versions":["2016-05-10*"]},"cloudformation":{"name":"CloudFormation","cors":true},"cloudfront":{"name":"CloudFront","versions":["2013-05-12*","2013-11-11*","2014-05-31*","2014-10-21*","2014-11-06*","2015-04-17*","2015-07-27*","2015-09-17*","2016-01-13*","2016-01-28*","2016-08-01*","2016-08-20*","2016-09-07*","2016-09-29*","2016-11-25*","2017-03-25*","2017-10-30*","2018-06-18*","2018-11-05*","2019-03-26*"],"cors":true},"cloudhsm":{"name":"CloudHSM","cors":true},"cloudsearch":{"name":"CloudSearch"},"cloudsearchdomain":{"name":"CloudSearchDomain"},"cloudtrail":{"name":"CloudTrail","cors":true},"cloudwatch":{"prefix":"monitoring","name":"CloudWatch","cors":true},"cloudwatchevents":{"prefix":"events","name":"CloudWatchEvents","versions":["2014-02-03*"],"cors":true},"cloudwatchlogs":{"prefix":"logs","name":"CloudWatchLogs","cors":true},"codebuild":{"name":"CodeBuild","cors":true},"codecommit":{"name":"CodeCommit","cors":true},"codedeploy":{"name":"CodeDeploy","cors":true},"codepipeline":{"name":"CodePipeline","cors":true},"cognitoidentity":{"prefix":"cognito-identity","name":"CognitoIdentity","cors":true},"cognitoidentityserviceprovider":{"prefix":"cognito-idp","name":"CognitoIdentityServiceProvider","cors":true},"cognitosync":{"prefix":"cognito-sync","name":"CognitoSync","cors":true},"configservice":{"prefix":"config","name":"ConfigService","cors":true},"cur":{"name":"CUR","cors":true},"datapipeline":{"name":"DataPipeline"},"devicefarm":{"name":"DeviceFarm","cors":true},"directconnect":{"name":"DirectConnect","cors":true},"directoryservice":{"prefix":"ds","name":"DirectoryService"},"discovery":{"name":"Discovery"},"dms":{"name":"DMS"},"dynamodb":{"name":"DynamoDB","cors":true},"dynamodbstreams":{"prefix":"streams.dynamodb","name":"DynamoDBStreams","cors":true},"ec2":{"name":"EC2","versions":["2013-06-15*","2013-10-15*","2014-02-01*","2014-05-01*","2014-06-15*","2014-09-01*","2014-10-01*","2015-03-01*","2015-04-15*","2015-10-01*","2016-04-01*","2016-09-15*"],"cors":true},"ecr":{"name":"ECR","cors":true},"ecs":{"name":"ECS","cors":true},"efs":{"prefix":"elasticfilesystem","name":"EFS","cors":true},"elasticache":{"name":"ElastiCache","versions":["2012-11-15*","2014-03-24*","2014-07-15*","2014-09-30*"],"cors":true},"elasticbeanstalk":{"name":"ElasticBeanstalk","cors":true},"elb":{"prefix":"elasticloadbalancing","name":"ELB","cors":true},"elbv2":{"prefix":"elasticloadbalancingv2","name":"ELBv2","cors":true},"emr":{"prefix":"elasticmapreduce","name":"EMR","cors":true},"es":{"name":"ES"},"elastictranscoder":{"name":"ElasticTranscoder","cors":true},"firehose":{"name":"Firehose","cors":true},"gamelift":{"name":"GameLift","cors":true},"glacier":{"name":"Glacier"},"health":{"name":"Health"},"iam":{"name":"IAM","cors":true},"importexport":{"name":"ImportExport"},"inspector":{"name":"Inspector","versions":["2015-08-18*"],"cors":true},"iot":{"name":"Iot","cors":true},"iotdata":{"prefix":"iot-data","name":"IotData","cors":true},"kinesis":{"name":"Kinesis","cors":true},"kinesisanalytics":{"name":"KinesisAnalytics"},"kms":{"name":"KMS","cors":true},"lambda":{"name":"Lambda","cors":true},"lexruntime":{"prefix":"runtime.lex","name":"LexRuntime","cors":true},"lightsail":{"name":"Lightsail"},"machinelearning":{"name":"MachineLearning","cors":true},"marketplacecommerceanalytics":{"name":"MarketplaceCommerceAnalytics","cors":true},"marketplacemetering":{"prefix":"meteringmarketplace","name":"MarketplaceMetering"},"mturk":{"prefix":"mturk-requester","name":"MTurk","cors":true},"mobileanalytics":{"name":"MobileAnalytics","cors":true},"opsworks":{"name":"OpsWorks","cors":true},"opsworkscm":{"name":"OpsWorksCM"},"organizations":{"name":"Organizations"},"pinpoint":{"name":"Pinpoint"},"polly":{"name":"Polly","cors":true},"rds":{"name":"RDS","versions":["2014-09-01*"],"cors":true},"redshift":{"name":"Redshift","cors":true},"rekognition":{"name":"Rekognition","cors":true},"resourcegroupstaggingapi":{"name":"ResourceGroupsTaggingAPI"},"route53":{"name":"Route53","cors":true},"route53domains":{"name":"Route53Domains","cors":true},"s3":{"name":"S3","dualstackAvailable":true,"cors":true},"s3control":{"name":"S3Control","dualstackAvailable":true,"xmlNoDefaultLists":true},"servicecatalog":{"name":"ServiceCatalog","cors":true},"ses":{"prefix":"email","name":"SES","cors":true},"shield":{"name":"Shield"},"simpledb":{"prefix":"sdb","name":"SimpleDB"},"sms":{"name":"SMS"},"snowball":{"name":"Snowball"},"sns":{"name":"SNS","cors":true},"sqs":{"name":"SQS","cors":true},"ssm":{"name":"SSM","cors":true},"storagegateway":{"name":"StorageGateway","cors":true},"stepfunctions":{"prefix":"states","name":"StepFunctions"},"sts":{"name":"STS","cors":true},"support":{"name":"Support"},"swf":{"name":"SWF"},"xray":{"name":"XRay","cors":true},"waf":{"name":"WAF","cors":true},"wafregional":{"prefix":"waf-regional","name":"WAFRegional"},"workdocs":{"name":"WorkDocs","cors":true},"workspaces":{"name":"WorkSpaces"},"codestar":{"name":"CodeStar"},"lexmodelbuildingservice":{"prefix":"lex-models","name":"LexModelBuildingService","cors":true},"marketplaceentitlementservice":{"prefix":"entitlement.marketplace","name":"MarketplaceEntitlementService"},"athena":{"name":"Athena","cors":true},"greengrass":{"name":"Greengrass"},"dax":{"name":"DAX"},"migrationhub":{"prefix":"AWSMigrationHub","name":"MigrationHub"},"cloudhsmv2":{"name":"CloudHSMV2","cors":true},"glue":{"name":"Glue"},"mobile":{"name":"Mobile"},"pricing":{"name":"Pricing","cors":true},"costexplorer":{"prefix":"ce","name":"CostExplorer","cors":true},"mediaconvert":{"name":"MediaConvert"},"medialive":{"name":"MediaLive"},"mediapackage":{"name":"MediaPackage"},"mediastore":{"name":"MediaStore"},"mediastoredata":{"prefix":"mediastore-data","name":"MediaStoreData","cors":true},"appsync":{"name":"AppSync"},"guardduty":{"name":"GuardDuty"},"mq":{"name":"MQ"},"comprehend":{"name":"Comprehend","cors":true},"iotjobsdataplane":{"prefix":"iot-jobs-data","name":"IoTJobsDataPlane"},"kinesisvideoarchivedmedia":{"prefix":"kinesis-video-archived-media","name":"KinesisVideoArchivedMedia","cors":true},"kinesisvideomedia":{"prefix":"kinesis-video-media","name":"KinesisVideoMedia","cors":true},"kinesisvideo":{"name":"KinesisVideo","cors":true},"sagemakerruntime":{"prefix":"runtime.sagemaker","name":"SageMakerRuntime"},"sagemaker":{"name":"SageMaker"},"translate":{"name":"Translate","cors":true},"resourcegroups":{"prefix":"resource-groups","name":"ResourceGroups","cors":true},"cloud9":{"name":"Cloud9"},"serverlessapplicationrepository":{"prefix":"serverlessrepo","name":"ServerlessApplicationRepository"},"servicediscovery":{"name":"ServiceDiscovery"},"workmail":{"name":"WorkMail"},"autoscalingplans":{"prefix":"autoscaling-plans","name":"AutoScalingPlans"},"transcribeservice":{"prefix":"transcribe","name":"TranscribeService"},"connect":{"name":"Connect","cors":true},"acmpca":{"prefix":"acm-pca","name":"ACMPCA"},"fms":{"name":"FMS"},"secretsmanager":{"name":"SecretsManager","cors":true},"iotanalytics":{"name":"IoTAnalytics","cors":true},"iot1clickdevicesservice":{"prefix":"iot1click-devices","name":"IoT1ClickDevicesService"},"iot1clickprojects":{"prefix":"iot1click-projects","name":"IoT1ClickProjects"},"pi":{"name":"PI"},"neptune":{"name":"Neptune"},"mediatailor":{"name":"MediaTailor"},"eks":{"name":"EKS"},"dlm":{"name":"DLM"},"signer":{"name":"Signer"},"chime":{"name":"Chime"},"pinpointemail":{"prefix":"pinpoint-email","name":"PinpointEmail"},"ram":{"name":"RAM"},"route53resolver":{"name":"Route53Resolver"},"pinpointsmsvoice":{"prefix":"sms-voice","name":"PinpointSMSVoice"},"quicksight":{"name":"QuickSight"},"rdsdataservice":{"prefix":"rds-data","name":"RDSDataService"},"amplify":{"name":"Amplify"},"datasync":{"name":"DataSync"},"robomaker":{"name":"RoboMaker"},"transfer":{"name":"Transfer"},"globalaccelerator":{"name":"GlobalAccelerator"},"comprehendmedical":{"name":"ComprehendMedical","cors":true},"kinesisanalyticsv2":{"name":"KinesisAnalyticsV2"},"mediaconnect":{"name":"MediaConnect"},"fsx":{"name":"FSx"},"securityhub":{"name":"SecurityHub"},"appmesh":{"name":"AppMesh","versions":["2018-10-01*"]},"licensemanager":{"prefix":"license-manager","name":"LicenseManager"},"kafka":{"name":"Kafka"},"apigatewaymanagementapi":{"name":"ApiGatewayManagementApi"},"apigatewayv2":{"name":"ApiGatewayV2"},"docdb":{"name":"DocDB"},"backup":{"name":"Backup"},"worklink":{"name":"WorkLink"},"textract":{"name":"Textract"},"managedblockchain":{"name":"ManagedBlockchain"},"mediapackagevod":{"prefix":"mediapackage-vod","name":"MediaPackageVod"},"groundstation":{"name":"GroundStation"},"iotthingsgraph":{"name":"IoTThingsGraph"},"iotevents":{"name":"IoTEvents"},"ioteventsdata":{"prefix":"iotevents-data","name":"IoTEventsData"},"personalize":{"name":"Personalize","cors":true},"personalizeevents":{"prefix":"personalize-events","name":"PersonalizeEvents","cors":true},"personalizeruntime":{"prefix":"personalize-runtime","name":"PersonalizeRuntime","cors":true},"applicationinsights":{"prefix":"application-insights","name":"ApplicationInsights"},"servicequotas":{"prefix":"service-quotas","name":"ServiceQuotas"},"ec2instanceconnect":{"prefix":"ec2-instance-connect","name":"EC2InstanceConnect"},"eventbridge":{"name":"EventBridge"},"lakeformation":{"name":"LakeFormation"},"forecastservice":{"prefix":"forecast","name":"ForecastService","cors":true},"forecastqueryservice":{"prefix":"forecastquery","name":"ForecastQueryService","cors":true},"qldb":{"name":"QLDB"},"qldbsession":{"prefix":"qldb-session","name":"QLDBSession"},"workmailmessageflow":{"name":"WorkMailMessageFlow"},"codestarnotifications":{"prefix":"codestar-notifications","name":"CodeStarNotifications"},"savingsplans":{"name":"SavingsPlans"},"sso":{"name":"SSO"},"ssooidc":{"prefix":"sso-oidc","name":"SSOOIDC"},"marketplacecatalog":{"prefix":"marketplace-catalog","name":"MarketplaceCatalog","cors":true},"dataexchange":{"name":"DataExchange"},"sesv2":{"name":"SESV2"},"migrationhubconfig":{"prefix":"migrationhub-config","name":"MigrationHubConfig"},"connectparticipant":{"name":"ConnectParticipant"},"appconfig":{"name":"AppConfig"},"iotsecuretunneling":{"name":"IoTSecureTunneling"},"wafv2":{"name":"WAFV2"},"elasticinference":{"prefix":"elastic-inference","name":"ElasticInference"},"imagebuilder":{"name":"Imagebuilder"},"schemas":{"name":"Schemas"},"accessanalyzer":{"name":"AccessAnalyzer"},"codegurureviewer":{"prefix":"codeguru-reviewer","name":"CodeGuruReviewer"},"codeguruprofiler":{"name":"CodeGuruProfiler"},"computeoptimizer":{"prefix":"compute-optimizer","name":"ComputeOptimizer"},"frauddetector":{"name":"FraudDetector"},"kendra":{"name":"Kendra"},"networkmanager":{"name":"NetworkManager"},"outposts":{"name":"Outposts"},"augmentedairuntime":{"prefix":"sagemaker-a2i-runtime","name":"AugmentedAIRuntime"},"ebs":{"name":"EBS"},"kinesisvideosignalingchannels":{"prefix":"kinesis-video-signaling","name":"KinesisVideoSignalingChannels","cors":true},"detective":{"name":"Detective"},"codestarconnections":{"prefix":"codestar-connections","name":"CodeStarconnections"},"synthetics":{"name":"Synthetics"},"iotsitewise":{"name":"IoTSiteWise"},"macie2":{"name":"Macie2"},"codeartifact":{"name":"CodeArtifact"},"ivs":{"name":"IVS"},"braket":{"name":"Braket"},"identitystore":{"name":"IdentityStore"},"appflow":{"name":"Appflow"},"redshiftdata":{"prefix":"redshift-data","name":"RedshiftData"},"ssoadmin":{"prefix":"sso-admin","name":"SSOAdmin"},"timestreamquery":{"prefix":"timestream-query","name":"TimestreamQuery"},"timestreamwrite":{"prefix":"timestream-write","name":"TimestreamWrite"},"s3outposts":{"name":"S3Outposts"},"databrew":{"name":"DataBrew"},"servicecatalogappregistry":{"prefix":"servicecatalog-appregistry","name":"ServiceCatalogAppRegistry"},"networkfirewall":{"prefix":"network-firewall","name":"NetworkFirewall"},"mwaa":{"name":"MWAA"},"amplifybackend":{"name":"AmplifyBackend"},"appintegrations":{"name":"AppIntegrations"},"connectcontactlens":{"prefix":"connect-contact-lens","name":"ConnectContactLens"},"devopsguru":{"prefix":"devops-guru","name":"DevOpsGuru"},"ecrpublic":{"prefix":"ecr-public","name":"ECRPUBLIC"},"lookoutvision":{"name":"LookoutVision"},"sagemakerfeaturestoreruntime":{"prefix":"sagemaker-featurestore-runtime","name":"SageMakerFeatureStoreRuntime"},"customerprofiles":{"prefix":"customer-profiles","name":"CustomerProfiles"},"auditmanager":{"name":"AuditManager"},"emrcontainers":{"prefix":"emr-containers","name":"EMRcontainers"},"healthlake":{"name":"HealthLake"},"sagemakeredge":{"prefix":"sagemaker-edge","name":"SagemakerEdge"},"amp":{"name":"Amp","cors":true},"greengrassv2":{"name":"GreengrassV2"},"iotdeviceadvisor":{"name":"IotDeviceAdvisor"},"iotfleethub":{"name":"IoTFleetHub"},"iotwireless":{"name":"IoTWireless"},"location":{"name":"Location","cors":true},"wellarchitected":{"name":"WellArchitected"},"lexmodelsv2":{"prefix":"models.lex.v2","name":"LexModelsV2"},"lexruntimev2":{"prefix":"runtime.lex.v2","name":"LexRuntimeV2","cors":true},"fis":{"name":"Fis"},"lookoutmetrics":{"name":"LookoutMetrics"},"mgn":{"name":"Mgn"},"lookoutequipment":{"name":"LookoutEquipment"},"nimble":{"name":"Nimble"},"finspace":{"name":"Finspace"},"finspacedata":{"prefix":"finspace-data","name":"Finspacedata"},"ssmcontacts":{"prefix":"ssm-contacts","name":"SSMContacts"},"ssmincidents":{"prefix":"ssm-incidents","name":"SSMIncidents"},"applicationcostprofiler":{"name":"ApplicationCostProfiler"},"apprunner":{"name":"AppRunner"},"proton":{"name":"Proton"},"route53recoverycluster":{"prefix":"route53-recovery-cluster","name":"Route53RecoveryCluster"},"route53recoverycontrolconfig":{"prefix":"route53-recovery-control-config","name":"Route53RecoveryControlConfig"},"route53recoveryreadiness":{"prefix":"route53-recovery-readiness","name":"Route53RecoveryReadiness"},"chimesdkidentity":{"prefix":"chime-sdk-identity","name":"ChimeSDKIdentity"},"chimesdkmessaging":{"prefix":"chime-sdk-messaging","name":"ChimeSDKMessaging"},"snowdevicemanagement":{"prefix":"snow-device-management","name":"SnowDeviceManagement"},"memorydb":{"name":"MemoryDB"},"opensearch":{"name":"OpenSearch"},"kafkaconnect":{"name":"KafkaConnect"},"voiceid":{"prefix":"voice-id","name":"VoiceID"},"wisdom":{"name":"Wisdom"},"account":{"name":"Account"},"cloudcontrol":{"name":"CloudControl"},"grafana":{"name":"Grafana"},"panorama":{"name":"Panorama"},"chimesdkmeetings":{"prefix":"chime-sdk-meetings","name":"ChimeSDKMeetings"},"resiliencehub":{"name":"Resiliencehub"},"migrationhubstrategy":{"name":"MigrationHubStrategy"},"appconfigdata":{"name":"AppConfigData"},"drs":{"name":"Drs"},"migrationhubrefactorspaces":{"prefix":"migration-hub-refactor-spaces","name":"MigrationHubRefactorSpaces"},"evidently":{"name":"Evidently"},"inspector2":{"name":"Inspector2"},"rbin":{"name":"Rbin"},"rum":{"name":"RUM"},"backupgateway":{"prefix":"backup-gateway","name":"BackupGateway"},"iottwinmaker":{"name":"IoTTwinMaker"},"workspacesweb":{"prefix":"workspaces-web","name":"WorkSpacesWeb"},"amplifyuibuilder":{"name":"AmplifyUIBuilder"},"keyspaces":{"name":"Keyspaces"},"billingconductor":{"name":"Billingconductor"},"pinpointsmsvoicev2":{"prefix":"pinpoint-sms-voice-v2","name":"PinpointSMSVoiceV2"},"ivschat":{"name":"Ivschat"},"chimesdkmediapipelines":{"prefix":"chime-sdk-media-pipelines","name":"ChimeSDKMediaPipelines"},"emrserverless":{"prefix":"emr-serverless","name":"EMRServerless"},"m2":{"name":"M2"},"connectcampaigns":{"name":"ConnectCampaigns"},"redshiftserverless":{"prefix":"redshift-serverless","name":"RedshiftServerless"},"rolesanywhere":{"name":"RolesAnywhere"},"licensemanagerusersubscriptions":{"prefix":"license-manager-user-subscriptions","name":"LicenseManagerUserSubscriptions"},"backupstorage":{"name":"BackupStorage"},"privatenetworks":{"name":"PrivateNetworks"},"supportapp":{"prefix":"support-app","name":"SupportApp"},"controltower":{"name":"ControlTower"},"iotfleetwise":{"name":"IoTFleetWise"},"migrationhuborchestrator":{"name":"MigrationHubOrchestrator"},"connectcases":{"name":"ConnectCases"},"resourceexplorer2":{"prefix":"resource-explorer-2","name":"ResourceExplorer2"},"scheduler":{"name":"Scheduler"},"chimesdkvoice":{"prefix":"chime-sdk-voice","name":"ChimeSDKVoice"},"ssmsap":{"prefix":"ssm-sap","name":"SsmSap"},"oam":{"name":"OAM"},"arczonalshift":{"prefix":"arc-zonal-shift","name":"ARCZonalShift"},"omics":{"name":"Omics"},"opensearchserverless":{"name":"OpenSearchServerless"},"securitylake":{"name":"SecurityLake"},"simspaceweaver":{"name":"SimSpaceWeaver"},"docdbelastic":{"prefix":"docdb-elastic","name":"DocDBElastic"},"sagemakergeospatial":{"prefix":"sagemaker-geospatial","name":"SageMakerGeospatial"},"codecatalyst":{"name":"CodeCatalyst"},"pipes":{"name":"Pipes"},"sagemakermetrics":{"prefix":"sagemaker-metrics","name":"SageMakerMetrics"},"kinesisvideowebrtcstorage":{"prefix":"kinesis-video-webrtc-storage","name":"KinesisVideoWebRTCStorage"},"licensemanagerlinuxsubscriptions":{"prefix":"license-manager-linux-subscriptions","name":"LicenseManagerLinuxSubscriptions"},"kendraranking":{"prefix":"kendra-ranking","name":"KendraRanking"},"cleanrooms":{"name":"CleanRooms"},"cloudtraildata":{"prefix":"cloudtrail-data","name":"CloudTrailData"},"tnb":{"name":"Tnb"},"internetmonitor":{"name":"InternetMonitor"},"ivsrealtime":{"prefix":"ivs-realtime","name":"IVSRealTime"},"vpclattice":{"prefix":"vpc-lattice","name":"VPCLattice"},"osis":{"name":"OSIS"},"mediapackagev2":{"name":"MediaPackageV2"},"paymentcryptography":{"prefix":"payment-cryptography","name":"PaymentCryptography"},"paymentcryptographydata":{"prefix":"payment-cryptography-data","name":"PaymentCryptographyData"},"codegurusecurity":{"prefix":"codeguru-security","name":"CodeGuruSecurity"},"verifiedpermissions":{"name":"VerifiedPermissions"},"appfabric":{"name":"AppFabric"},"medicalimaging":{"prefix":"medical-imaging","name":"MedicalImaging"},"entityresolution":{"name":"EntityResolution"},"managedblockchainquery":{"prefix":"managedblockchain-query","name":"ManagedBlockchainQuery"},"neptunedata":{"name":"Neptunedata"},"pcaconnectorad":{"prefix":"pca-connector-ad","name":"PcaConnectorAd"},"bedrock":{"name":"Bedrock"},"bedrockruntime":{"prefix":"bedrock-runtime","name":"BedrockRuntime"},"datazone":{"name":"DataZone"},"launchwizard":{"prefix":"launch-wizard","name":"LaunchWizard"},"trustedadvisor":{"name":"TrustedAdvisor"},"inspectorscan":{"prefix":"inspector-scan","name":"InspectorScan"},"bcmdataexports":{"prefix":"bcm-data-exports","name":"BCMDataExports"},"costoptimizationhub":{"prefix":"cost-optimization-hub","name":"CostOptimizationHub"},"eksauth":{"prefix":"eks-auth","name":"EKSAuth"},"freetier":{"name":"FreeTier"},"repostspace":{"name":"Repostspace"},"workspacesthinclient":{"prefix":"workspaces-thin-client","name":"WorkSpacesThinClient"},"b2bi":{"name":"B2bi"},"bedrockagent":{"prefix":"bedrock-agent","name":"BedrockAgent"},"bedrockagentruntime":{"prefix":"bedrock-agent-runtime","name":"BedrockAgentRuntime"},"qbusiness":{"name":"QBusiness"},"qconnect":{"name":"QConnect"},"cleanroomsml":{"name":"CleanRoomsML"},"marketplaceagreement":{"prefix":"marketplace-agreement","name":"MarketplaceAgreement"},"marketplacedeployment":{"prefix":"marketplace-deployment","name":"MarketplaceDeployment"},"networkmonitor":{"name":"NetworkMonitor"},"supplychain":{"name":"SupplyChain"},"artifact":{"name":"Artifact"},"chatbot":{"name":"Chatbot"},"timestreaminfluxdb":{"prefix":"timestream-influxdb","name":"TimestreamInfluxDB"},"codeconnections":{"name":"CodeConnections"},"deadline":{"name":"Deadline"},"controlcatalog":{"name":"ControlCatalog"},"route53profiles":{"name":"Route53Profiles"},"mailmanager":{"name":"MailManager"}}');
 
 /***/ }),
 
@@ -28766,7 +30742,7 @@ module.exports = JSON.parse('{"acm":{"name":"ACM","cors":true},"apigateway":{"na
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"version":"2.0","metadata":{"apiVersion":"2006-03-01","checksumFormat":"md5","endpointPrefix":"s3","globalEndpoint":"s3.amazonaws.com","protocol":"rest-xml","serviceAbbreviation":"Amazon S3","serviceFullName":"Amazon Simple Storage Service","serviceId":"S3","signatureVersion":"s3","uid":"s3-2006-03-01"},"operations":{"AbortMultipartUpload":{"http":{"method":"DELETE","requestUri":"/{Bucket}/{Key+}","responseCode":204},"input":{"type":"structure","required":["Bucket","Key","UploadId"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"UploadId":{"location":"querystring","locationName":"uploadId"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}}},"CompleteMultipartUpload":{"http":{"requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","Key","UploadId"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"MultipartUpload":{"locationName":"CompleteMultipartUpload","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","members":{"Parts":{"locationName":"Part","type":"list","member":{"type":"structure","members":{"ETag":{},"ChecksumCRC32":{},"ChecksumCRC32C":{},"ChecksumSHA1":{},"ChecksumSHA256":{},"PartNumber":{"type":"integer"}}},"flattened":true}}},"UploadId":{"location":"querystring","locationName":"uploadId"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-checksum-sha256"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"}},"payload":"MultipartUpload"},"output":{"type":"structure","members":{"Location":{},"Bucket":{},"Key":{},"Expiration":{"location":"header","locationName":"x-amz-expiration"},"ETag":{},"ChecksumCRC32":{},"ChecksumCRC32C":{},"ChecksumSHA1":{},"ChecksumSHA256":{},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"VersionId":{"location":"header","locationName":"x-amz-version-id"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}}},"CopyObject":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","CopySource","Key"],"members":{"ACL":{"location":"header","locationName":"x-amz-acl"},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"CacheControl":{"location":"header","locationName":"Cache-Control"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-checksum-algorithm"},"ContentDisposition":{"location":"header","locationName":"Content-Disposition"},"ContentEncoding":{"location":"header","locationName":"Content-Encoding"},"ContentLanguage":{"location":"header","locationName":"Content-Language"},"ContentType":{"location":"header","locationName":"Content-Type"},"CopySource":{"location":"header","locationName":"x-amz-copy-source"},"CopySourceIfMatch":{"location":"header","locationName":"x-amz-copy-source-if-match"},"CopySourceIfModifiedSince":{"location":"header","locationName":"x-amz-copy-source-if-modified-since","type":"timestamp"},"CopySourceIfNoneMatch":{"location":"header","locationName":"x-amz-copy-source-if-none-match"},"CopySourceIfUnmodifiedSince":{"location":"header","locationName":"x-amz-copy-source-if-unmodified-since","type":"timestamp"},"Expires":{"location":"header","locationName":"Expires","type":"timestamp"},"GrantFullControl":{"location":"header","locationName":"x-amz-grant-full-control"},"GrantRead":{"location":"header","locationName":"x-amz-grant-read"},"GrantReadACP":{"location":"header","locationName":"x-amz-grant-read-acp"},"GrantWriteACP":{"location":"header","locationName":"x-amz-grant-write-acp"},"Key":{"location":"uri","locationName":"Key"},"Metadata":{"shape":"S1b","location":"headers","locationName":"x-amz-meta-"},"MetadataDirective":{"location":"header","locationName":"x-amz-metadata-directive"},"TaggingDirective":{"location":"header","locationName":"x-amz-tagging-directive"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"StorageClass":{"location":"header","locationName":"x-amz-storage-class"},"WebsiteRedirectLocation":{"location":"header","locationName":"x-amz-website-redirect-location"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"SSEKMSEncryptionContext":{"shape":"S1i","location":"header","locationName":"x-amz-server-side-encryption-context"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"CopySourceSSECustomerAlgorithm":{"location":"header","locationName":"x-amz-copy-source-server-side-encryption-customer-algorithm"},"CopySourceSSECustomerKey":{"shape":"S1k","location":"header","locationName":"x-amz-copy-source-server-side-encryption-customer-key"},"CopySourceSSECustomerKeyMD5":{"location":"header","locationName":"x-amz-copy-source-server-side-encryption-customer-key-MD5"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"Tagging":{"location":"header","locationName":"x-amz-tagging"},"ObjectLockMode":{"location":"header","locationName":"x-amz-object-lock-mode"},"ObjectLockRetainUntilDate":{"shape":"S1o","location":"header","locationName":"x-amz-object-lock-retain-until-date"},"ObjectLockLegalHoldStatus":{"location":"header","locationName":"x-amz-object-lock-legal-hold"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ExpectedSourceBucketOwner":{"location":"header","locationName":"x-amz-source-expected-bucket-owner"}}},"output":{"type":"structure","members":{"CopyObjectResult":{"type":"structure","members":{"ETag":{},"LastModified":{"type":"timestamp"},"ChecksumCRC32":{},"ChecksumCRC32C":{},"ChecksumSHA1":{},"ChecksumSHA256":{}}},"Expiration":{"location":"header","locationName":"x-amz-expiration"},"CopySourceVersionId":{"location":"header","locationName":"x-amz-copy-source-version-id"},"VersionId":{"location":"header","locationName":"x-amz-version-id"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"SSEKMSEncryptionContext":{"shape":"S1i","location":"header","locationName":"x-amz-server-side-encryption-context"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}},"payload":"CopyObjectResult"},"alias":"PutObjectCopy"},"CreateBucket":{"http":{"method":"PUT","requestUri":"/{Bucket}"},"input":{"type":"structure","required":["Bucket"],"members":{"ACL":{"location":"header","locationName":"x-amz-acl"},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"CreateBucketConfiguration":{"locationName":"CreateBucketConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","members":{"LocationConstraint":{}}},"GrantFullControl":{"location":"header","locationName":"x-amz-grant-full-control"},"GrantRead":{"location":"header","locationName":"x-amz-grant-read"},"GrantReadACP":{"location":"header","locationName":"x-amz-grant-read-acp"},"GrantWrite":{"location":"header","locationName":"x-amz-grant-write"},"GrantWriteACP":{"location":"header","locationName":"x-amz-grant-write-acp"},"ObjectLockEnabledForBucket":{"location":"header","locationName":"x-amz-bucket-object-lock-enabled","type":"boolean"},"ObjectOwnership":{"location":"header","locationName":"x-amz-object-ownership"}},"payload":"CreateBucketConfiguration"},"output":{"type":"structure","members":{"Location":{"location":"header","locationName":"Location"}}},"alias":"PutBucket","staticContextParams":{"DisableAccessPoints":{"value":true}}},"CreateMultipartUpload":{"http":{"requestUri":"/{Bucket}/{Key+}?uploads"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"ACL":{"location":"header","locationName":"x-amz-acl"},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"CacheControl":{"location":"header","locationName":"Cache-Control"},"ContentDisposition":{"location":"header","locationName":"Content-Disposition"},"ContentEncoding":{"location":"header","locationName":"Content-Encoding"},"ContentLanguage":{"location":"header","locationName":"Content-Language"},"ContentType":{"location":"header","locationName":"Content-Type"},"Expires":{"location":"header","locationName":"Expires","type":"timestamp"},"GrantFullControl":{"location":"header","locationName":"x-amz-grant-full-control"},"GrantRead":{"location":"header","locationName":"x-amz-grant-read"},"GrantReadACP":{"location":"header","locationName":"x-amz-grant-read-acp"},"GrantWriteACP":{"location":"header","locationName":"x-amz-grant-write-acp"},"Key":{"location":"uri","locationName":"Key"},"Metadata":{"shape":"S1b","location":"headers","locationName":"x-amz-meta-"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"StorageClass":{"location":"header","locationName":"x-amz-storage-class"},"WebsiteRedirectLocation":{"location":"header","locationName":"x-amz-website-redirect-location"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"SSEKMSEncryptionContext":{"shape":"S1i","location":"header","locationName":"x-amz-server-side-encryption-context"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"Tagging":{"location":"header","locationName":"x-amz-tagging"},"ObjectLockMode":{"location":"header","locationName":"x-amz-object-lock-mode"},"ObjectLockRetainUntilDate":{"shape":"S1o","location":"header","locationName":"x-amz-object-lock-retain-until-date"},"ObjectLockLegalHoldStatus":{"location":"header","locationName":"x-amz-object-lock-legal-hold"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-checksum-algorithm"}}},"output":{"type":"structure","members":{"AbortDate":{"location":"header","locationName":"x-amz-abort-date","type":"timestamp"},"AbortRuleId":{"location":"header","locationName":"x-amz-abort-rule-id"},"Bucket":{"locationName":"Bucket"},"Key":{},"UploadId":{},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"SSEKMSEncryptionContext":{"shape":"S1i","location":"header","locationName":"x-amz-server-side-encryption-context"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-checksum-algorithm"}}},"alias":"InitiateMultipartUpload"},"DeleteBucket":{"http":{"method":"DELETE","requestUri":"/{Bucket}","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}}},"DeleteBucketAnalyticsConfiguration":{"http":{"method":"DELETE","requestUri":"/{Bucket}?analytics","responseCode":204},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}}},"DeleteBucketCors":{"http":{"method":"DELETE","requestUri":"/{Bucket}?cors","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}}},"DeleteBucketEncryption":{"http":{"method":"DELETE","requestUri":"/{Bucket}?encryption","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}}},"DeleteBucketIntelligentTieringConfiguration":{"http":{"method":"DELETE","requestUri":"/{Bucket}?intelligent-tiering","responseCode":204},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"}}}},"DeleteBucketInventoryConfiguration":{"http":{"method":"DELETE","requestUri":"/{Bucket}?inventory","responseCode":204},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}}},"DeleteBucketLifecycle":{"http":{"method":"DELETE","requestUri":"/{Bucket}?lifecycle","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}}},"DeleteBucketMetricsConfiguration":{"http":{"method":"DELETE","requestUri":"/{Bucket}?metrics","responseCode":204},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}}},"DeleteBucketOwnershipControls":{"http":{"method":"DELETE","requestUri":"/{Bucket}?ownershipControls","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}}},"DeleteBucketPolicy":{"http":{"method":"DELETE","requestUri":"/{Bucket}?policy","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}}},"DeleteBucketReplication":{"http":{"method":"DELETE","requestUri":"/{Bucket}?replication","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}}},"DeleteBucketTagging":{"http":{"method":"DELETE","requestUri":"/{Bucket}?tagging","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}}},"DeleteBucketWebsite":{"http":{"method":"DELETE","requestUri":"/{Bucket}?website","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}}},"DeleteObject":{"http":{"method":"DELETE","requestUri":"/{Bucket}/{Key+}","responseCode":204},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"MFA":{"location":"header","locationName":"x-amz-mfa"},"VersionId":{"location":"querystring","locationName":"versionId"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"BypassGovernanceRetention":{"location":"header","locationName":"x-amz-bypass-governance-retention","type":"boolean"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"DeleteMarker":{"location":"header","locationName":"x-amz-delete-marker","type":"boolean"},"VersionId":{"location":"header","locationName":"x-amz-version-id"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}}},"DeleteObjectTagging":{"http":{"method":"DELETE","requestUri":"/{Bucket}/{Key+}?tagging","responseCode":204},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"VersionId":{"location":"header","locationName":"x-amz-version-id"}}}},"DeleteObjects":{"http":{"requestUri":"/{Bucket}?delete"},"input":{"type":"structure","required":["Bucket","Delete"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Delete":{"locationName":"Delete","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","required":["Objects"],"members":{"Objects":{"locationName":"Object","type":"list","member":{"type":"structure","required":["Key"],"members":{"Key":{},"VersionId":{}}},"flattened":true},"Quiet":{"type":"boolean"}}},"MFA":{"location":"header","locationName":"x-amz-mfa"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"BypassGovernanceRetention":{"location":"header","locationName":"x-amz-bypass-governance-retention","type":"boolean"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"}},"payload":"Delete"},"output":{"type":"structure","members":{"Deleted":{"type":"list","member":{"type":"structure","members":{"Key":{},"VersionId":{},"DeleteMarker":{"type":"boolean"},"DeleteMarkerVersionId":{}}},"flattened":true},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"},"Errors":{"locationName":"Error","type":"list","member":{"type":"structure","members":{"Key":{},"VersionId":{},"Code":{},"Message":{}}},"flattened":true}}},"alias":"DeleteMultipleObjects","httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"DeletePublicAccessBlock":{"http":{"method":"DELETE","requestUri":"/{Bucket}?publicAccessBlock","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}}},"GetBucketAccelerateConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?accelerate"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Status":{}}}},"GetBucketAcl":{"http":{"method":"GET","requestUri":"/{Bucket}?acl"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Owner":{"shape":"S3d"},"Grants":{"shape":"S3g","locationName":"AccessControlList"}}}},"GetBucketAnalyticsConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?analytics"},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"AnalyticsConfiguration":{"shape":"S3p"}},"payload":"AnalyticsConfiguration"}},"GetBucketCors":{"http":{"method":"GET","requestUri":"/{Bucket}?cors"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"CORSRules":{"shape":"S44","locationName":"CORSRule"}}}},"GetBucketEncryption":{"http":{"method":"GET","requestUri":"/{Bucket}?encryption"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"ServerSideEncryptionConfiguration":{"shape":"S4h"}},"payload":"ServerSideEncryptionConfiguration"}},"GetBucketIntelligentTieringConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?intelligent-tiering"},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"}}},"output":{"type":"structure","members":{"IntelligentTieringConfiguration":{"shape":"S4n"}},"payload":"IntelligentTieringConfiguration"}},"GetBucketInventoryConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?inventory"},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"InventoryConfiguration":{"shape":"S4x"}},"payload":"InventoryConfiguration"}},"GetBucketLifecycle":{"http":{"method":"GET","requestUri":"/{Bucket}?lifecycle"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Rules":{"shape":"S5d","locationName":"Rule"}}},"deprecated":true},"GetBucketLifecycleConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?lifecycle"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Rules":{"shape":"S5t","locationName":"Rule"}}}},"GetBucketLocation":{"http":{"method":"GET","requestUri":"/{Bucket}?location"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"LocationConstraint":{}}}},"GetBucketLogging":{"http":{"method":"GET","requestUri":"/{Bucket}?logging"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"LoggingEnabled":{"shape":"S65"}}}},"GetBucketMetricsConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?metrics"},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"MetricsConfiguration":{"shape":"S6d"}},"payload":"MetricsConfiguration"}},"GetBucketNotification":{"http":{"method":"GET","requestUri":"/{Bucket}?notification"},"input":{"shape":"S6h"},"output":{"shape":"S6i"},"deprecated":true},"GetBucketNotificationConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?notification"},"input":{"shape":"S6h"},"output":{"shape":"S6t"}},"GetBucketOwnershipControls":{"http":{"method":"GET","requestUri":"/{Bucket}?ownershipControls"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"OwnershipControls":{"shape":"S7a"}},"payload":"OwnershipControls"}},"GetBucketPolicy":{"http":{"method":"GET","requestUri":"/{Bucket}?policy"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Policy":{}},"payload":"Policy"}},"GetBucketPolicyStatus":{"http":{"method":"GET","requestUri":"/{Bucket}?policyStatus"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"PolicyStatus":{"type":"structure","members":{"IsPublic":{"locationName":"IsPublic","type":"boolean"}}}},"payload":"PolicyStatus"}},"GetBucketReplication":{"http":{"method":"GET","requestUri":"/{Bucket}?replication"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"ReplicationConfiguration":{"shape":"S7m"}},"payload":"ReplicationConfiguration"}},"GetBucketRequestPayment":{"http":{"method":"GET","requestUri":"/{Bucket}?requestPayment"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Payer":{}}}},"GetBucketTagging":{"http":{"method":"GET","requestUri":"/{Bucket}?tagging"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","required":["TagSet"],"members":{"TagSet":{"shape":"S3v"}}}},"GetBucketVersioning":{"http":{"method":"GET","requestUri":"/{Bucket}?versioning"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Status":{},"MFADelete":{"locationName":"MfaDelete"}}}},"GetBucketWebsite":{"http":{"method":"GET","requestUri":"/{Bucket}?website"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"RedirectAllRequestsTo":{"shape":"S8p"},"IndexDocument":{"shape":"S8s"},"ErrorDocument":{"shape":"S8u"},"RoutingRules":{"shape":"S8v"}}}},"GetObject":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"IfMatch":{"location":"header","locationName":"If-Match"},"IfModifiedSince":{"location":"header","locationName":"If-Modified-Since","type":"timestamp"},"IfNoneMatch":{"location":"header","locationName":"If-None-Match"},"IfUnmodifiedSince":{"location":"header","locationName":"If-Unmodified-Since","type":"timestamp"},"Key":{"location":"uri","locationName":"Key"},"Range":{"location":"header","locationName":"Range"},"ResponseCacheControl":{"location":"querystring","locationName":"response-cache-control"},"ResponseContentDisposition":{"location":"querystring","locationName":"response-content-disposition"},"ResponseContentEncoding":{"location":"querystring","locationName":"response-content-encoding"},"ResponseContentLanguage":{"location":"querystring","locationName":"response-content-language"},"ResponseContentType":{"location":"querystring","locationName":"response-content-type"},"ResponseExpires":{"location":"querystring","locationName":"response-expires","type":"timestamp","timestampFormat":"rfc822"},"VersionId":{"location":"querystring","locationName":"versionId"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"PartNumber":{"location":"querystring","locationName":"partNumber","type":"integer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ChecksumMode":{"location":"header","locationName":"x-amz-checksum-mode"}}},"output":{"type":"structure","members":{"Body":{"streaming":true,"type":"blob"},"DeleteMarker":{"location":"header","locationName":"x-amz-delete-marker","type":"boolean"},"AcceptRanges":{"location":"header","locationName":"accept-ranges"},"Expiration":{"location":"header","locationName":"x-amz-expiration"},"Restore":{"location":"header","locationName":"x-amz-restore"},"LastModified":{"location":"header","locationName":"Last-Modified","type":"timestamp"},"ContentLength":{"location":"header","locationName":"Content-Length","type":"long"},"ETag":{"location":"header","locationName":"ETag"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-checksum-sha256"},"MissingMeta":{"location":"header","locationName":"x-amz-missing-meta","type":"integer"},"VersionId":{"location":"header","locationName":"x-amz-version-id"},"CacheControl":{"location":"header","locationName":"Cache-Control"},"ContentDisposition":{"location":"header","locationName":"Content-Disposition"},"ContentEncoding":{"location":"header","locationName":"Content-Encoding"},"ContentLanguage":{"location":"header","locationName":"Content-Language"},"ContentRange":{"location":"header","locationName":"Content-Range"},"ContentType":{"location":"header","locationName":"Content-Type"},"Expires":{"location":"header","locationName":"Expires","type":"timestamp"},"WebsiteRedirectLocation":{"location":"header","locationName":"x-amz-website-redirect-location"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"Metadata":{"shape":"S1b","location":"headers","locationName":"x-amz-meta-"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"StorageClass":{"location":"header","locationName":"x-amz-storage-class"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"},"ReplicationStatus":{"location":"header","locationName":"x-amz-replication-status"},"PartsCount":{"location":"header","locationName":"x-amz-mp-parts-count","type":"integer"},"TagCount":{"location":"header","locationName":"x-amz-tagging-count","type":"integer"},"ObjectLockMode":{"location":"header","locationName":"x-amz-object-lock-mode"},"ObjectLockRetainUntilDate":{"shape":"S1o","location":"header","locationName":"x-amz-object-lock-retain-until-date"},"ObjectLockLegalHoldStatus":{"location":"header","locationName":"x-amz-object-lock-legal-hold"}},"payload":"Body"},"httpChecksum":{"requestValidationModeMember":"ChecksumMode","responseAlgorithms":["CRC32","CRC32C","SHA256","SHA1"]}},"GetObjectAcl":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}?acl"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Owner":{"shape":"S3d"},"Grants":{"shape":"S3g","locationName":"AccessControlList"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}}},"GetObjectAttributes":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}?attributes"},"input":{"type":"structure","required":["Bucket","Key","ObjectAttributes"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"MaxParts":{"location":"header","locationName":"x-amz-max-parts","type":"integer"},"PartNumberMarker":{"location":"header","locationName":"x-amz-part-number-marker","type":"integer"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ObjectAttributes":{"location":"header","locationName":"x-amz-object-attributes","type":"list","member":{}}}},"output":{"type":"structure","members":{"DeleteMarker":{"location":"header","locationName":"x-amz-delete-marker","type":"boolean"},"LastModified":{"location":"header","locationName":"Last-Modified","type":"timestamp"},"VersionId":{"location":"header","locationName":"x-amz-version-id"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"},"ETag":{},"Checksum":{"type":"structure","members":{"ChecksumCRC32":{},"ChecksumCRC32C":{},"ChecksumSHA1":{},"ChecksumSHA256":{}}},"ObjectParts":{"type":"structure","members":{"TotalPartsCount":{"locationName":"PartsCount","type":"integer"},"PartNumberMarker":{"type":"integer"},"NextPartNumberMarker":{"type":"integer"},"MaxParts":{"type":"integer"},"IsTruncated":{"type":"boolean"},"Parts":{"locationName":"Part","type":"list","member":{"type":"structure","members":{"PartNumber":{"type":"integer"},"Size":{"type":"integer"},"ChecksumCRC32":{},"ChecksumCRC32C":{},"ChecksumSHA1":{},"ChecksumSHA256":{}}},"flattened":true}}},"StorageClass":{},"ObjectSize":{"type":"long"}}}},"GetObjectLegalHold":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}?legal-hold"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"LegalHold":{"shape":"Sa9"}},"payload":"LegalHold"}},"GetObjectLockConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?object-lock"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"ObjectLockConfiguration":{"shape":"Sac"}},"payload":"ObjectLockConfiguration"}},"GetObjectRetention":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}?retention"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Retention":{"shape":"Sak"}},"payload":"Retention"}},"GetObjectTagging":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}?tagging"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"}}},"output":{"type":"structure","required":["TagSet"],"members":{"VersionId":{"location":"header","locationName":"x-amz-version-id"},"TagSet":{"shape":"S3v"}}}},"GetObjectTorrent":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}?torrent"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Body":{"streaming":true,"type":"blob"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}},"payload":"Body"}},"GetPublicAccessBlock":{"http":{"method":"GET","requestUri":"/{Bucket}?publicAccessBlock"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"PublicAccessBlockConfiguration":{"shape":"Sar"}},"payload":"PublicAccessBlockConfiguration"}},"HeadBucket":{"http":{"method":"HEAD","requestUri":"/{Bucket}"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}}},"HeadObject":{"http":{"method":"HEAD","requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"IfMatch":{"location":"header","locationName":"If-Match"},"IfModifiedSince":{"location":"header","locationName":"If-Modified-Since","type":"timestamp"},"IfNoneMatch":{"location":"header","locationName":"If-None-Match"},"IfUnmodifiedSince":{"location":"header","locationName":"If-Unmodified-Since","type":"timestamp"},"Key":{"location":"uri","locationName":"Key"},"Range":{"location":"header","locationName":"Range"},"VersionId":{"location":"querystring","locationName":"versionId"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"PartNumber":{"location":"querystring","locationName":"partNumber","type":"integer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ChecksumMode":{"location":"header","locationName":"x-amz-checksum-mode"}}},"output":{"type":"structure","members":{"DeleteMarker":{"location":"header","locationName":"x-amz-delete-marker","type":"boolean"},"AcceptRanges":{"location":"header","locationName":"accept-ranges"},"Expiration":{"location":"header","locationName":"x-amz-expiration"},"Restore":{"location":"header","locationName":"x-amz-restore"},"ArchiveStatus":{"location":"header","locationName":"x-amz-archive-status"},"LastModified":{"location":"header","locationName":"Last-Modified","type":"timestamp"},"ContentLength":{"location":"header","locationName":"Content-Length","type":"long"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-checksum-sha256"},"ETag":{"location":"header","locationName":"ETag"},"MissingMeta":{"location":"header","locationName":"x-amz-missing-meta","type":"integer"},"VersionId":{"location":"header","locationName":"x-amz-version-id"},"CacheControl":{"location":"header","locationName":"Cache-Control"},"ContentDisposition":{"location":"header","locationName":"Content-Disposition"},"ContentEncoding":{"location":"header","locationName":"Content-Encoding"},"ContentLanguage":{"location":"header","locationName":"Content-Language"},"ContentType":{"location":"header","locationName":"Content-Type"},"Expires":{"location":"header","locationName":"Expires","type":"timestamp"},"WebsiteRedirectLocation":{"location":"header","locationName":"x-amz-website-redirect-location"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"Metadata":{"shape":"S1b","location":"headers","locationName":"x-amz-meta-"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"StorageClass":{"location":"header","locationName":"x-amz-storage-class"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"},"ReplicationStatus":{"location":"header","locationName":"x-amz-replication-status"},"PartsCount":{"location":"header","locationName":"x-amz-mp-parts-count","type":"integer"},"ObjectLockMode":{"location":"header","locationName":"x-amz-object-lock-mode"},"ObjectLockRetainUntilDate":{"shape":"S1o","location":"header","locationName":"x-amz-object-lock-retain-until-date"},"ObjectLockLegalHoldStatus":{"location":"header","locationName":"x-amz-object-lock-legal-hold"}}}},"ListBucketAnalyticsConfigurations":{"http":{"method":"GET","requestUri":"/{Bucket}?analytics"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContinuationToken":{"location":"querystring","locationName":"continuation-token"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"IsTruncated":{"type":"boolean"},"ContinuationToken":{},"NextContinuationToken":{},"AnalyticsConfigurationList":{"locationName":"AnalyticsConfiguration","type":"list","member":{"shape":"S3p"},"flattened":true}}}},"ListBucketIntelligentTieringConfigurations":{"http":{"method":"GET","requestUri":"/{Bucket}?intelligent-tiering"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContinuationToken":{"location":"querystring","locationName":"continuation-token"}}},"output":{"type":"structure","members":{"IsTruncated":{"type":"boolean"},"ContinuationToken":{},"NextContinuationToken":{},"IntelligentTieringConfigurationList":{"locationName":"IntelligentTieringConfiguration","type":"list","member":{"shape":"S4n"},"flattened":true}}}},"ListBucketInventoryConfigurations":{"http":{"method":"GET","requestUri":"/{Bucket}?inventory"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContinuationToken":{"location":"querystring","locationName":"continuation-token"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"ContinuationToken":{},"InventoryConfigurationList":{"locationName":"InventoryConfiguration","type":"list","member":{"shape":"S4x"},"flattened":true},"IsTruncated":{"type":"boolean"},"NextContinuationToken":{}}}},"ListBucketMetricsConfigurations":{"http":{"method":"GET","requestUri":"/{Bucket}?metrics"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContinuationToken":{"location":"querystring","locationName":"continuation-token"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"IsTruncated":{"type":"boolean"},"ContinuationToken":{},"NextContinuationToken":{},"MetricsConfigurationList":{"locationName":"MetricsConfiguration","type":"list","member":{"shape":"S6d"},"flattened":true}}}},"ListBuckets":{"http":{"method":"GET"},"output":{"type":"structure","members":{"Buckets":{"type":"list","member":{"locationName":"Bucket","type":"structure","members":{"Name":{},"CreationDate":{"type":"timestamp"}}}},"Owner":{"shape":"S3d"}}},"alias":"GetService"},"ListMultipartUploads":{"http":{"method":"GET","requestUri":"/{Bucket}?uploads"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Delimiter":{"location":"querystring","locationName":"delimiter"},"EncodingType":{"location":"querystring","locationName":"encoding-type"},"KeyMarker":{"location":"querystring","locationName":"key-marker"},"MaxUploads":{"location":"querystring","locationName":"max-uploads","type":"integer"},"Prefix":{"location":"querystring","locationName":"prefix"},"UploadIdMarker":{"location":"querystring","locationName":"upload-id-marker"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Bucket":{},"KeyMarker":{},"UploadIdMarker":{},"NextKeyMarker":{},"Prefix":{},"Delimiter":{},"NextUploadIdMarker":{},"MaxUploads":{"type":"integer"},"IsTruncated":{"type":"boolean"},"Uploads":{"locationName":"Upload","type":"list","member":{"type":"structure","members":{"UploadId":{},"Key":{},"Initiated":{"type":"timestamp"},"StorageClass":{},"Owner":{"shape":"S3d"},"Initiator":{"shape":"Sbr"},"ChecksumAlgorithm":{}}},"flattened":true},"CommonPrefixes":{"shape":"Sbs"},"EncodingType":{}}}},"ListObjectVersions":{"http":{"method":"GET","requestUri":"/{Bucket}?versions"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Delimiter":{"location":"querystring","locationName":"delimiter"},"EncodingType":{"location":"querystring","locationName":"encoding-type"},"KeyMarker":{"location":"querystring","locationName":"key-marker"},"MaxKeys":{"location":"querystring","locationName":"max-keys","type":"integer"},"Prefix":{"location":"querystring","locationName":"prefix"},"VersionIdMarker":{"location":"querystring","locationName":"version-id-marker"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"IsTruncated":{"type":"boolean"},"KeyMarker":{},"VersionIdMarker":{},"NextKeyMarker":{},"NextVersionIdMarker":{},"Versions":{"locationName":"Version","type":"list","member":{"type":"structure","members":{"ETag":{},"ChecksumAlgorithm":{"shape":"Sc1"},"Size":{"type":"integer"},"StorageClass":{},"Key":{},"VersionId":{},"IsLatest":{"type":"boolean"},"LastModified":{"type":"timestamp"},"Owner":{"shape":"S3d"}}},"flattened":true},"DeleteMarkers":{"locationName":"DeleteMarker","type":"list","member":{"type":"structure","members":{"Owner":{"shape":"S3d"},"Key":{},"VersionId":{},"IsLatest":{"type":"boolean"},"LastModified":{"type":"timestamp"}}},"flattened":true},"Name":{},"Prefix":{},"Delimiter":{},"MaxKeys":{"type":"integer"},"CommonPrefixes":{"shape":"Sbs"},"EncodingType":{}}},"alias":"GetBucketObjectVersions"},"ListObjects":{"http":{"method":"GET","requestUri":"/{Bucket}"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Delimiter":{"location":"querystring","locationName":"delimiter"},"EncodingType":{"location":"querystring","locationName":"encoding-type"},"Marker":{"location":"querystring","locationName":"marker"},"MaxKeys":{"location":"querystring","locationName":"max-keys","type":"integer"},"Prefix":{"location":"querystring","locationName":"prefix"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"IsTruncated":{"type":"boolean"},"Marker":{},"NextMarker":{},"Contents":{"shape":"Sca"},"Name":{},"Prefix":{},"Delimiter":{},"MaxKeys":{"type":"integer"},"CommonPrefixes":{"shape":"Sbs"},"EncodingType":{}}},"alias":"GetBucket"},"ListObjectsV2":{"http":{"method":"GET","requestUri":"/{Bucket}?list-type=2"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Delimiter":{"location":"querystring","locationName":"delimiter"},"EncodingType":{"location":"querystring","locationName":"encoding-type"},"MaxKeys":{"location":"querystring","locationName":"max-keys","type":"integer"},"Prefix":{"location":"querystring","locationName":"prefix"},"ContinuationToken":{"location":"querystring","locationName":"continuation-token"},"FetchOwner":{"location":"querystring","locationName":"fetch-owner","type":"boolean"},"StartAfter":{"location":"querystring","locationName":"start-after"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"IsTruncated":{"type":"boolean"},"Contents":{"shape":"Sca"},"Name":{},"Prefix":{},"Delimiter":{},"MaxKeys":{"type":"integer"},"CommonPrefixes":{"shape":"Sbs"},"EncodingType":{},"KeyCount":{"type":"integer"},"ContinuationToken":{},"NextContinuationToken":{},"StartAfter":{}}}},"ListParts":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","Key","UploadId"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"MaxParts":{"location":"querystring","locationName":"max-parts","type":"integer"},"PartNumberMarker":{"location":"querystring","locationName":"part-number-marker","type":"integer"},"UploadId":{"location":"querystring","locationName":"uploadId"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"}}},"output":{"type":"structure","members":{"AbortDate":{"location":"header","locationName":"x-amz-abort-date","type":"timestamp"},"AbortRuleId":{"location":"header","locationName":"x-amz-abort-rule-id"},"Bucket":{},"Key":{},"UploadId":{},"PartNumberMarker":{"type":"integer"},"NextPartNumberMarker":{"type":"integer"},"MaxParts":{"type":"integer"},"IsTruncated":{"type":"boolean"},"Parts":{"locationName":"Part","type":"list","member":{"type":"structure","members":{"PartNumber":{"type":"integer"},"LastModified":{"type":"timestamp"},"ETag":{},"Size":{"type":"integer"},"ChecksumCRC32":{},"ChecksumCRC32C":{},"ChecksumSHA1":{},"ChecksumSHA256":{}}},"flattened":true},"Initiator":{"shape":"Sbr"},"Owner":{"shape":"S3d"},"StorageClass":{},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"},"ChecksumAlgorithm":{}}}},"PutBucketAccelerateConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?accelerate"},"input":{"type":"structure","required":["Bucket","AccelerateConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"AccelerateConfiguration":{"locationName":"AccelerateConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","members":{"Status":{}}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"}},"payload":"AccelerateConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":false}},"PutBucketAcl":{"http":{"method":"PUT","requestUri":"/{Bucket}?acl"},"input":{"type":"structure","required":["Bucket"],"members":{"ACL":{"location":"header","locationName":"x-amz-acl"},"AccessControlPolicy":{"shape":"Scp","locationName":"AccessControlPolicy","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"GrantFullControl":{"location":"header","locationName":"x-amz-grant-full-control"},"GrantRead":{"location":"header","locationName":"x-amz-grant-read"},"GrantReadACP":{"location":"header","locationName":"x-amz-grant-read-acp"},"GrantWrite":{"location":"header","locationName":"x-amz-grant-write"},"GrantWriteACP":{"location":"header","locationName":"x-amz-grant-write-acp"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"AccessControlPolicy"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutBucketAnalyticsConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?analytics"},"input":{"type":"structure","required":["Bucket","Id","AnalyticsConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"AnalyticsConfiguration":{"shape":"S3p","locationName":"AnalyticsConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"AnalyticsConfiguration"}},"PutBucketCors":{"http":{"method":"PUT","requestUri":"/{Bucket}?cors"},"input":{"type":"structure","required":["Bucket","CORSConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"CORSConfiguration":{"locationName":"CORSConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","required":["CORSRules"],"members":{"CORSRules":{"shape":"S44","locationName":"CORSRule"}}},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"CORSConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutBucketEncryption":{"http":{"method":"PUT","requestUri":"/{Bucket}?encryption"},"input":{"type":"structure","required":["Bucket","ServerSideEncryptionConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ServerSideEncryptionConfiguration":{"shape":"S4h","locationName":"ServerSideEncryptionConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"ServerSideEncryptionConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutBucketIntelligentTieringConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?intelligent-tiering"},"input":{"type":"structure","required":["Bucket","Id","IntelligentTieringConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"IntelligentTieringConfiguration":{"shape":"S4n","locationName":"IntelligentTieringConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}}},"payload":"IntelligentTieringConfiguration"}},"PutBucketInventoryConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?inventory"},"input":{"type":"structure","required":["Bucket","Id","InventoryConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"InventoryConfiguration":{"shape":"S4x","locationName":"InventoryConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"InventoryConfiguration"}},"PutBucketLifecycle":{"http":{"method":"PUT","requestUri":"/{Bucket}?lifecycle"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"LifecycleConfiguration":{"locationName":"LifecycleConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","required":["Rules"],"members":{"Rules":{"shape":"S5d","locationName":"Rule"}}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"LifecycleConfiguration"},"deprecated":true,"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutBucketLifecycleConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?lifecycle"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"LifecycleConfiguration":{"locationName":"LifecycleConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","required":["Rules"],"members":{"Rules":{"shape":"S5t","locationName":"Rule"}}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"LifecycleConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutBucketLogging":{"http":{"method":"PUT","requestUri":"/{Bucket}?logging"},"input":{"type":"structure","required":["Bucket","BucketLoggingStatus"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"BucketLoggingStatus":{"locationName":"BucketLoggingStatus","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","members":{"LoggingEnabled":{"shape":"S65"}}},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"BucketLoggingStatus"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutBucketMetricsConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?metrics"},"input":{"type":"structure","required":["Bucket","Id","MetricsConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"MetricsConfiguration":{"shape":"S6d","locationName":"MetricsConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"MetricsConfiguration"}},"PutBucketNotification":{"http":{"method":"PUT","requestUri":"/{Bucket}?notification"},"input":{"type":"structure","required":["Bucket","NotificationConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"NotificationConfiguration":{"shape":"S6i","locationName":"NotificationConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"NotificationConfiguration"},"deprecated":true,"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutBucketNotificationConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?notification"},"input":{"type":"structure","required":["Bucket","NotificationConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"NotificationConfiguration":{"shape":"S6t","locationName":"NotificationConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"SkipDestinationValidation":{"location":"header","locationName":"x-amz-skip-destination-validation","type":"boolean"}},"payload":"NotificationConfiguration"}},"PutBucketOwnershipControls":{"http":{"method":"PUT","requestUri":"/{Bucket}?ownershipControls"},"input":{"type":"structure","required":["Bucket","OwnershipControls"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"OwnershipControls":{"shape":"S7a","locationName":"OwnershipControls","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}}},"payload":"OwnershipControls"},"httpChecksum":{"requestChecksumRequired":true}},"PutBucketPolicy":{"http":{"method":"PUT","requestUri":"/{Bucket}?policy"},"input":{"type":"structure","required":["Bucket","Policy"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ConfirmRemoveSelfBucketAccess":{"location":"header","locationName":"x-amz-confirm-remove-self-bucket-access","type":"boolean"},"Policy":{},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"Policy"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutBucketReplication":{"http":{"method":"PUT","requestUri":"/{Bucket}?replication"},"input":{"type":"structure","required":["Bucket","ReplicationConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ReplicationConfiguration":{"shape":"S7m","locationName":"ReplicationConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"Token":{"location":"header","locationName":"x-amz-bucket-object-lock-token"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"ReplicationConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutBucketRequestPayment":{"http":{"method":"PUT","requestUri":"/{Bucket}?requestPayment"},"input":{"type":"structure","required":["Bucket","RequestPaymentConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"RequestPaymentConfiguration":{"locationName":"RequestPaymentConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","required":["Payer"],"members":{"Payer":{}}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"RequestPaymentConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutBucketTagging":{"http":{"method":"PUT","requestUri":"/{Bucket}?tagging"},"input":{"type":"structure","required":["Bucket","Tagging"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"Tagging":{"shape":"Sdf","locationName":"Tagging","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"Tagging"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutBucketVersioning":{"http":{"method":"PUT","requestUri":"/{Bucket}?versioning"},"input":{"type":"structure","required":["Bucket","VersioningConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"MFA":{"location":"header","locationName":"x-amz-mfa"},"VersioningConfiguration":{"locationName":"VersioningConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","members":{"MFADelete":{"locationName":"MfaDelete"},"Status":{}}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"VersioningConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutBucketWebsite":{"http":{"method":"PUT","requestUri":"/{Bucket}?website"},"input":{"type":"structure","required":["Bucket","WebsiteConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"WebsiteConfiguration":{"locationName":"WebsiteConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","members":{"ErrorDocument":{"shape":"S8u"},"IndexDocument":{"shape":"S8s"},"RedirectAllRequestsTo":{"shape":"S8p"},"RoutingRules":{"shape":"S8v"}}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"WebsiteConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutObject":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"ACL":{"location":"header","locationName":"x-amz-acl"},"Body":{"streaming":true,"type":"blob"},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"CacheControl":{"location":"header","locationName":"Cache-Control"},"ContentDisposition":{"location":"header","locationName":"Content-Disposition"},"ContentEncoding":{"location":"header","locationName":"Content-Encoding"},"ContentLanguage":{"location":"header","locationName":"Content-Language"},"ContentLength":{"location":"header","locationName":"Content-Length","type":"long"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ContentType":{"location":"header","locationName":"Content-Type"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-checksum-sha256"},"Expires":{"location":"header","locationName":"Expires","type":"timestamp"},"GrantFullControl":{"location":"header","locationName":"x-amz-grant-full-control"},"GrantRead":{"location":"header","locationName":"x-amz-grant-read"},"GrantReadACP":{"location":"header","locationName":"x-amz-grant-read-acp"},"GrantWriteACP":{"location":"header","locationName":"x-amz-grant-write-acp"},"Key":{"location":"uri","locationName":"Key"},"Metadata":{"shape":"S1b","location":"headers","locationName":"x-amz-meta-"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"StorageClass":{"location":"header","locationName":"x-amz-storage-class"},"WebsiteRedirectLocation":{"location":"header","locationName":"x-amz-website-redirect-location"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"SSEKMSEncryptionContext":{"shape":"S1i","location":"header","locationName":"x-amz-server-side-encryption-context"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"Tagging":{"location":"header","locationName":"x-amz-tagging"},"ObjectLockMode":{"location":"header","locationName":"x-amz-object-lock-mode"},"ObjectLockRetainUntilDate":{"shape":"S1o","location":"header","locationName":"x-amz-object-lock-retain-until-date"},"ObjectLockLegalHoldStatus":{"location":"header","locationName":"x-amz-object-lock-legal-hold"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"Body"},"output":{"type":"structure","members":{"Expiration":{"location":"header","locationName":"x-amz-expiration"},"ETag":{"location":"header","locationName":"ETag"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-checksum-sha256"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"VersionId":{"location":"header","locationName":"x-amz-version-id"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"SSEKMSEncryptionContext":{"shape":"S1i","location":"header","locationName":"x-amz-server-side-encryption-context"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":false}},"PutObjectAcl":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}?acl"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"ACL":{"location":"header","locationName":"x-amz-acl"},"AccessControlPolicy":{"shape":"Scp","locationName":"AccessControlPolicy","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"GrantFullControl":{"location":"header","locationName":"x-amz-grant-full-control"},"GrantRead":{"location":"header","locationName":"x-amz-grant-read"},"GrantReadACP":{"location":"header","locationName":"x-amz-grant-read-acp"},"GrantWrite":{"location":"header","locationName":"x-amz-grant-write"},"GrantWriteACP":{"location":"header","locationName":"x-amz-grant-write-acp"},"Key":{"location":"uri","locationName":"Key"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"VersionId":{"location":"querystring","locationName":"versionId"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"AccessControlPolicy"},"output":{"type":"structure","members":{"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutObjectLegalHold":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}?legal-hold"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"LegalHold":{"shape":"Sa9","locationName":"LegalHold","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"VersionId":{"location":"querystring","locationName":"versionId"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"LegalHold"},"output":{"type":"structure","members":{"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutObjectLockConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?object-lock"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ObjectLockConfiguration":{"shape":"Sac","locationName":"ObjectLockConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"Token":{"location":"header","locationName":"x-amz-bucket-object-lock-token"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"ObjectLockConfiguration"},"output":{"type":"structure","members":{"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutObjectRetention":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}?retention"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"Retention":{"shape":"Sak","locationName":"Retention","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"VersionId":{"location":"querystring","locationName":"versionId"},"BypassGovernanceRetention":{"location":"header","locationName":"x-amz-bypass-governance-retention","type":"boolean"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"Retention"},"output":{"type":"structure","members":{"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutObjectTagging":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}?tagging"},"input":{"type":"structure","required":["Bucket","Key","Tagging"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"Tagging":{"shape":"Sdf","locationName":"Tagging","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"}},"payload":"Tagging"},"output":{"type":"structure","members":{"VersionId":{"location":"header","locationName":"x-amz-version-id"}}},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutPublicAccessBlock":{"http":{"method":"PUT","requestUri":"/{Bucket}?publicAccessBlock"},"input":{"type":"structure","required":["Bucket","PublicAccessBlockConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"PublicAccessBlockConfiguration":{"shape":"Sar","locationName":"PublicAccessBlockConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"PublicAccessBlockConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"RestoreObject":{"http":{"requestUri":"/{Bucket}/{Key+}?restore"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"RestoreRequest":{"locationName":"RestoreRequest","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","members":{"Days":{"type":"integer"},"GlacierJobParameters":{"type":"structure","required":["Tier"],"members":{"Tier":{}}},"Type":{},"Tier":{},"Description":{},"SelectParameters":{"type":"structure","required":["InputSerialization","ExpressionType","Expression","OutputSerialization"],"members":{"InputSerialization":{"shape":"Se5"},"ExpressionType":{},"Expression":{},"OutputSerialization":{"shape":"Sek"}}},"OutputLocation":{"type":"structure","members":{"S3":{"type":"structure","required":["BucketName","Prefix"],"members":{"BucketName":{},"Prefix":{},"Encryption":{"type":"structure","required":["EncryptionType"],"members":{"EncryptionType":{},"KMSKeyId":{"shape":"Sr"},"KMSContext":{}}},"CannedACL":{},"AccessControlList":{"shape":"S3g"},"Tagging":{"shape":"Sdf"},"UserMetadata":{"type":"list","member":{"locationName":"MetadataEntry","type":"structure","members":{"Name":{},"Value":{}}}},"StorageClass":{}}}}}}},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"RestoreRequest"},"output":{"type":"structure","members":{"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"},"RestoreOutputPath":{"location":"header","locationName":"x-amz-restore-output-path"}}},"alias":"PostObjectRestore","httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":false}},"SelectObjectContent":{"http":{"requestUri":"/{Bucket}/{Key+}?select&select-type=2"},"input":{"locationName":"SelectObjectContentRequest","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","required":["Bucket","Key","Expression","ExpressionType","InputSerialization","OutputSerialization"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"Expression":{},"ExpressionType":{},"RequestProgress":{"type":"structure","members":{"Enabled":{"type":"boolean"}}},"InputSerialization":{"shape":"Se5"},"OutputSerialization":{"shape":"Sek"},"ScanRange":{"type":"structure","members":{"Start":{"type":"long"},"End":{"type":"long"}}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Payload":{"type":"structure","members":{"Records":{"type":"structure","members":{"Payload":{"eventpayload":true,"type":"blob"}},"event":true},"Stats":{"type":"structure","members":{"Details":{"eventpayload":true,"type":"structure","members":{"BytesScanned":{"type":"long"},"BytesProcessed":{"type":"long"},"BytesReturned":{"type":"long"}}}},"event":true},"Progress":{"type":"structure","members":{"Details":{"eventpayload":true,"type":"structure","members":{"BytesScanned":{"type":"long"},"BytesProcessed":{"type":"long"},"BytesReturned":{"type":"long"}}}},"event":true},"Cont":{"type":"structure","members":{},"event":true},"End":{"type":"structure","members":{},"event":true}},"eventstream":true}},"payload":"Payload"}},"UploadPart":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","Key","PartNumber","UploadId"],"members":{"Body":{"streaming":true,"type":"blob"},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentLength":{"location":"header","locationName":"Content-Length","type":"long"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-checksum-sha256"},"Key":{"location":"uri","locationName":"Key"},"PartNumber":{"location":"querystring","locationName":"partNumber","type":"integer"},"UploadId":{"location":"querystring","locationName":"uploadId"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"Body"},"output":{"type":"structure","members":{"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"ETag":{"location":"header","locationName":"ETag"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-checksum-sha256"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":false}},"UploadPartCopy":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","CopySource","Key","PartNumber","UploadId"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"CopySource":{"location":"header","locationName":"x-amz-copy-source"},"CopySourceIfMatch":{"location":"header","locationName":"x-amz-copy-source-if-match"},"CopySourceIfModifiedSince":{"location":"header","locationName":"x-amz-copy-source-if-modified-since","type":"timestamp"},"CopySourceIfNoneMatch":{"location":"header","locationName":"x-amz-copy-source-if-none-match"},"CopySourceIfUnmodifiedSince":{"location":"header","locationName":"x-amz-copy-source-if-unmodified-since","type":"timestamp"},"CopySourceRange":{"location":"header","locationName":"x-amz-copy-source-range"},"Key":{"location":"uri","locationName":"Key"},"PartNumber":{"location":"querystring","locationName":"partNumber","type":"integer"},"UploadId":{"location":"querystring","locationName":"uploadId"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"CopySourceSSECustomerAlgorithm":{"location":"header","locationName":"x-amz-copy-source-server-side-encryption-customer-algorithm"},"CopySourceSSECustomerKey":{"shape":"S1k","location":"header","locationName":"x-amz-copy-source-server-side-encryption-customer-key"},"CopySourceSSECustomerKeyMD5":{"location":"header","locationName":"x-amz-copy-source-server-side-encryption-customer-key-MD5"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ExpectedSourceBucketOwner":{"location":"header","locationName":"x-amz-source-expected-bucket-owner"}}},"output":{"type":"structure","members":{"CopySourceVersionId":{"location":"header","locationName":"x-amz-copy-source-version-id"},"CopyPartResult":{"type":"structure","members":{"ETag":{},"LastModified":{"type":"timestamp"},"ChecksumCRC32":{},"ChecksumCRC32C":{},"ChecksumSHA1":{},"ChecksumSHA256":{}}},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}},"payload":"CopyPartResult"}},"WriteGetObjectResponse":{"http":{"requestUri":"/WriteGetObjectResponse"},"input":{"type":"structure","required":["RequestRoute","RequestToken"],"members":{"RequestRoute":{"hostLabel":true,"location":"header","locationName":"x-amz-request-route"},"RequestToken":{"location":"header","locationName":"x-amz-request-token"},"Body":{"streaming":true,"type":"blob"},"StatusCode":{"location":"header","locationName":"x-amz-fwd-status","type":"integer"},"ErrorCode":{"location":"header","locationName":"x-amz-fwd-error-code"},"ErrorMessage":{"location":"header","locationName":"x-amz-fwd-error-message"},"AcceptRanges":{"location":"header","locationName":"x-amz-fwd-header-accept-ranges"},"CacheControl":{"location":"header","locationName":"x-amz-fwd-header-Cache-Control"},"ContentDisposition":{"location":"header","locationName":"x-amz-fwd-header-Content-Disposition"},"ContentEncoding":{"location":"header","locationName":"x-amz-fwd-header-Content-Encoding"},"ContentLanguage":{"location":"header","locationName":"x-amz-fwd-header-Content-Language"},"ContentLength":{"location":"header","locationName":"Content-Length","type":"long"},"ContentRange":{"location":"header","locationName":"x-amz-fwd-header-Content-Range"},"ContentType":{"location":"header","locationName":"x-amz-fwd-header-Content-Type"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-fwd-header-x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-fwd-header-x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-fwd-header-x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-fwd-header-x-amz-checksum-sha256"},"DeleteMarker":{"location":"header","locationName":"x-amz-fwd-header-x-amz-delete-marker","type":"boolean"},"ETag":{"location":"header","locationName":"x-amz-fwd-header-ETag"},"Expires":{"location":"header","locationName":"x-amz-fwd-header-Expires","type":"timestamp"},"Expiration":{"location":"header","locationName":"x-amz-fwd-header-x-amz-expiration"},"LastModified":{"location":"header","locationName":"x-amz-fwd-header-Last-Modified","type":"timestamp"},"MissingMeta":{"location":"header","locationName":"x-amz-fwd-header-x-amz-missing-meta","type":"integer"},"Metadata":{"shape":"S1b","location":"headers","locationName":"x-amz-meta-"},"ObjectLockMode":{"location":"header","locationName":"x-amz-fwd-header-x-amz-object-lock-mode"},"ObjectLockLegalHoldStatus":{"location":"header","locationName":"x-amz-fwd-header-x-amz-object-lock-legal-hold"},"ObjectLockRetainUntilDate":{"shape":"S1o","location":"header","locationName":"x-amz-fwd-header-x-amz-object-lock-retain-until-date"},"PartsCount":{"location":"header","locationName":"x-amz-fwd-header-x-amz-mp-parts-count","type":"integer"},"ReplicationStatus":{"location":"header","locationName":"x-amz-fwd-header-x-amz-replication-status"},"RequestCharged":{"location":"header","locationName":"x-amz-fwd-header-x-amz-request-charged"},"Restore":{"location":"header","locationName":"x-amz-fwd-header-x-amz-restore"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-fwd-header-x-amz-server-side-encryption"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-fwd-header-x-amz-server-side-encryption-customer-key-MD5"},"StorageClass":{"location":"header","locationName":"x-amz-fwd-header-x-amz-storage-class"},"TagCount":{"location":"header","locationName":"x-amz-fwd-header-x-amz-tagging-count","type":"integer"},"VersionId":{"location":"header","locationName":"x-amz-fwd-header-x-amz-version-id"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"}},"payload":"Body"},"authtype":"v4-unsigned-body","endpoint":{"hostPrefix":"{RequestRoute}."},"staticContextParams":{"UseObjectLambdaEndpoint":{"value":true}}}},"shapes":{"Sk":{"type":"blob","sensitive":true},"Sr":{"type":"string","sensitive":true},"S1b":{"type":"map","key":{},"value":{}},"S1i":{"type":"string","sensitive":true},"S1k":{"type":"blob","sensitive":true},"S1o":{"type":"timestamp","timestampFormat":"iso8601"},"S3d":{"type":"structure","members":{"DisplayName":{},"ID":{}}},"S3g":{"type":"list","member":{"locationName":"Grant","type":"structure","members":{"Grantee":{"shape":"S3i"},"Permission":{}}}},"S3i":{"type":"structure","required":["Type"],"members":{"DisplayName":{},"EmailAddress":{},"ID":{},"Type":{"locationName":"xsi:type","xmlAttribute":true},"URI":{}},"xmlNamespace":{"prefix":"xsi","uri":"http://www.w3.org/2001/XMLSchema-instance"}},"S3p":{"type":"structure","required":["Id","StorageClassAnalysis"],"members":{"Id":{},"Filter":{"type":"structure","members":{"Prefix":{},"Tag":{"shape":"S3s"},"And":{"type":"structure","members":{"Prefix":{},"Tags":{"shape":"S3v","flattened":true,"locationName":"Tag"}}}}},"StorageClassAnalysis":{"type":"structure","members":{"DataExport":{"type":"structure","required":["OutputSchemaVersion","Destination"],"members":{"OutputSchemaVersion":{},"Destination":{"type":"structure","required":["S3BucketDestination"],"members":{"S3BucketDestination":{"type":"structure","required":["Format","Bucket"],"members":{"Format":{},"BucketAccountId":{},"Bucket":{},"Prefix":{}}}}}}}}}}},"S3s":{"type":"structure","required":["Key","Value"],"members":{"Key":{},"Value":{}}},"S3v":{"type":"list","member":{"shape":"S3s","locationName":"Tag"}},"S44":{"type":"list","member":{"type":"structure","required":["AllowedMethods","AllowedOrigins"],"members":{"ID":{},"AllowedHeaders":{"locationName":"AllowedHeader","type":"list","member":{},"flattened":true},"AllowedMethods":{"locationName":"AllowedMethod","type":"list","member":{},"flattened":true},"AllowedOrigins":{"locationName":"AllowedOrigin","type":"list","member":{},"flattened":true},"ExposeHeaders":{"locationName":"ExposeHeader","type":"list","member":{},"flattened":true},"MaxAgeSeconds":{"type":"integer"}}},"flattened":true},"S4h":{"type":"structure","required":["Rules"],"members":{"Rules":{"locationName":"Rule","type":"list","member":{"type":"structure","members":{"ApplyServerSideEncryptionByDefault":{"type":"structure","required":["SSEAlgorithm"],"members":{"SSEAlgorithm":{},"KMSMasterKeyID":{"shape":"Sr"}}},"BucketKeyEnabled":{"type":"boolean"}}},"flattened":true}}},"S4n":{"type":"structure","required":["Id","Status","Tierings"],"members":{"Id":{},"Filter":{"type":"structure","members":{"Prefix":{},"Tag":{"shape":"S3s"},"And":{"type":"structure","members":{"Prefix":{},"Tags":{"shape":"S3v","flattened":true,"locationName":"Tag"}}}}},"Status":{},"Tierings":{"locationName":"Tiering","type":"list","member":{"type":"structure","required":["Days","AccessTier"],"members":{"Days":{"type":"integer"},"AccessTier":{}}},"flattened":true}}},"S4x":{"type":"structure","required":["Destination","IsEnabled","Id","IncludedObjectVersions","Schedule"],"members":{"Destination":{"type":"structure","required":["S3BucketDestination"],"members":{"S3BucketDestination":{"type":"structure","required":["Bucket","Format"],"members":{"AccountId":{},"Bucket":{},"Format":{},"Prefix":{},"Encryption":{"type":"structure","members":{"SSES3":{"locationName":"SSE-S3","type":"structure","members":{}},"SSEKMS":{"locationName":"SSE-KMS","type":"structure","required":["KeyId"],"members":{"KeyId":{"shape":"Sr"}}}}}}}}},"IsEnabled":{"type":"boolean"},"Filter":{"type":"structure","required":["Prefix"],"members":{"Prefix":{}}},"Id":{},"IncludedObjectVersions":{},"OptionalFields":{"type":"list","member":{"locationName":"Field"}},"Schedule":{"type":"structure","required":["Frequency"],"members":{"Frequency":{}}}}},"S5d":{"type":"list","member":{"type":"structure","required":["Prefix","Status"],"members":{"Expiration":{"shape":"S5f"},"ID":{},"Prefix":{},"Status":{},"Transition":{"shape":"S5k"},"NoncurrentVersionTransition":{"shape":"S5m"},"NoncurrentVersionExpiration":{"shape":"S5o"},"AbortIncompleteMultipartUpload":{"shape":"S5p"}}},"flattened":true},"S5f":{"type":"structure","members":{"Date":{"shape":"S5g"},"Days":{"type":"integer"},"ExpiredObjectDeleteMarker":{"type":"boolean"}}},"S5g":{"type":"timestamp","timestampFormat":"iso8601"},"S5k":{"type":"structure","members":{"Date":{"shape":"S5g"},"Days":{"type":"integer"},"StorageClass":{}}},"S5m":{"type":"structure","members":{"NoncurrentDays":{"type":"integer"},"StorageClass":{},"NewerNoncurrentVersions":{"type":"integer"}}},"S5o":{"type":"structure","members":{"NoncurrentDays":{"type":"integer"},"NewerNoncurrentVersions":{"type":"integer"}}},"S5p":{"type":"structure","members":{"DaysAfterInitiation":{"type":"integer"}}},"S5t":{"type":"list","member":{"type":"structure","required":["Status"],"members":{"Expiration":{"shape":"S5f"},"ID":{},"Prefix":{"deprecated":true},"Filter":{"type":"structure","members":{"Prefix":{},"Tag":{"shape":"S3s"},"ObjectSizeGreaterThan":{"type":"long"},"ObjectSizeLessThan":{"type":"long"},"And":{"type":"structure","members":{"Prefix":{},"Tags":{"shape":"S3v","flattened":true,"locationName":"Tag"},"ObjectSizeGreaterThan":{"type":"long"},"ObjectSizeLessThan":{"type":"long"}}}}},"Status":{},"Transitions":{"locationName":"Transition","type":"list","member":{"shape":"S5k"},"flattened":true},"NoncurrentVersionTransitions":{"locationName":"NoncurrentVersionTransition","type":"list","member":{"shape":"S5m"},"flattened":true},"NoncurrentVersionExpiration":{"shape":"S5o"},"AbortIncompleteMultipartUpload":{"shape":"S5p"}}},"flattened":true},"S65":{"type":"structure","required":["TargetBucket","TargetPrefix"],"members":{"TargetBucket":{},"TargetGrants":{"type":"list","member":{"locationName":"Grant","type":"structure","members":{"Grantee":{"shape":"S3i"},"Permission":{}}}},"TargetPrefix":{}}},"S6d":{"type":"structure","required":["Id"],"members":{"Id":{},"Filter":{"type":"structure","members":{"Prefix":{},"Tag":{"shape":"S3s"},"AccessPointArn":{},"And":{"type":"structure","members":{"Prefix":{},"Tags":{"shape":"S3v","flattened":true,"locationName":"Tag"},"AccessPointArn":{}}}}}}},"S6h":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"S6i":{"type":"structure","members":{"TopicConfiguration":{"type":"structure","members":{"Id":{},"Events":{"shape":"S6l","locationName":"Event"},"Event":{"deprecated":true},"Topic":{}}},"QueueConfiguration":{"type":"structure","members":{"Id":{},"Event":{"deprecated":true},"Events":{"shape":"S6l","locationName":"Event"},"Queue":{}}},"CloudFunctionConfiguration":{"type":"structure","members":{"Id":{},"Event":{"deprecated":true},"Events":{"shape":"S6l","locationName":"Event"},"CloudFunction":{},"InvocationRole":{}}}}},"S6l":{"type":"list","member":{},"flattened":true},"S6t":{"type":"structure","members":{"TopicConfigurations":{"locationName":"TopicConfiguration","type":"list","member":{"type":"structure","required":["TopicArn","Events"],"members":{"Id":{},"TopicArn":{"locationName":"Topic"},"Events":{"shape":"S6l","locationName":"Event"},"Filter":{"shape":"S6w"}}},"flattened":true},"QueueConfigurations":{"locationName":"QueueConfiguration","type":"list","member":{"type":"structure","required":["QueueArn","Events"],"members":{"Id":{},"QueueArn":{"locationName":"Queue"},"Events":{"shape":"S6l","locationName":"Event"},"Filter":{"shape":"S6w"}}},"flattened":true},"LambdaFunctionConfigurations":{"locationName":"CloudFunctionConfiguration","type":"list","member":{"type":"structure","required":["LambdaFunctionArn","Events"],"members":{"Id":{},"LambdaFunctionArn":{"locationName":"CloudFunction"},"Events":{"shape":"S6l","locationName":"Event"},"Filter":{"shape":"S6w"}}},"flattened":true},"EventBridgeConfiguration":{"type":"structure","members":{}}}},"S6w":{"type":"structure","members":{"Key":{"locationName":"S3Key","type":"structure","members":{"FilterRules":{"locationName":"FilterRule","type":"list","member":{"type":"structure","members":{"Name":{},"Value":{}}},"flattened":true}}}}},"S7a":{"type":"structure","required":["Rules"],"members":{"Rules":{"locationName":"Rule","type":"list","member":{"type":"structure","required":["ObjectOwnership"],"members":{"ObjectOwnership":{}}},"flattened":true}}},"S7m":{"type":"structure","required":["Role","Rules"],"members":{"Role":{},"Rules":{"locationName":"Rule","type":"list","member":{"type":"structure","required":["Status","Destination"],"members":{"ID":{},"Priority":{"type":"integer"},"Prefix":{"deprecated":true},"Filter":{"type":"structure","members":{"Prefix":{},"Tag":{"shape":"S3s"},"And":{"type":"structure","members":{"Prefix":{},"Tags":{"shape":"S3v","flattened":true,"locationName":"Tag"}}}}},"Status":{},"SourceSelectionCriteria":{"type":"structure","members":{"SseKmsEncryptedObjects":{"type":"structure","required":["Status"],"members":{"Status":{}}},"ReplicaModifications":{"type":"structure","required":["Status"],"members":{"Status":{}}}}},"ExistingObjectReplication":{"type":"structure","required":["Status"],"members":{"Status":{}}},"Destination":{"type":"structure","required":["Bucket"],"members":{"Bucket":{},"Account":{},"StorageClass":{},"AccessControlTranslation":{"type":"structure","required":["Owner"],"members":{"Owner":{}}},"EncryptionConfiguration":{"type":"structure","members":{"ReplicaKmsKeyID":{}}},"ReplicationTime":{"type":"structure","required":["Status","Time"],"members":{"Status":{},"Time":{"shape":"S88"}}},"Metrics":{"type":"structure","required":["Status"],"members":{"Status":{},"EventThreshold":{"shape":"S88"}}}}},"DeleteMarkerReplication":{"type":"structure","members":{"Status":{}}}}},"flattened":true}}},"S88":{"type":"structure","members":{"Minutes":{"type":"integer"}}},"S8p":{"type":"structure","required":["HostName"],"members":{"HostName":{},"Protocol":{}}},"S8s":{"type":"structure","required":["Suffix"],"members":{"Suffix":{}}},"S8u":{"type":"structure","required":["Key"],"members":{"Key":{}}},"S8v":{"type":"list","member":{"locationName":"RoutingRule","type":"structure","required":["Redirect"],"members":{"Condition":{"type":"structure","members":{"HttpErrorCodeReturnedEquals":{},"KeyPrefixEquals":{}}},"Redirect":{"type":"structure","members":{"HostName":{},"HttpRedirectCode":{},"Protocol":{},"ReplaceKeyPrefixWith":{},"ReplaceKeyWith":{}}}}}},"Sa9":{"type":"structure","members":{"Status":{}}},"Sac":{"type":"structure","members":{"ObjectLockEnabled":{},"Rule":{"type":"structure","members":{"DefaultRetention":{"type":"structure","members":{"Mode":{},"Days":{"type":"integer"},"Years":{"type":"integer"}}}}}}},"Sak":{"type":"structure","members":{"Mode":{},"RetainUntilDate":{"shape":"S5g"}}},"Sar":{"type":"structure","members":{"BlockPublicAcls":{"locationName":"BlockPublicAcls","type":"boolean"},"IgnorePublicAcls":{"locationName":"IgnorePublicAcls","type":"boolean"},"BlockPublicPolicy":{"locationName":"BlockPublicPolicy","type":"boolean"},"RestrictPublicBuckets":{"locationName":"RestrictPublicBuckets","type":"boolean"}}},"Sbr":{"type":"structure","members":{"ID":{},"DisplayName":{}}},"Sbs":{"type":"list","member":{"type":"structure","members":{"Prefix":{}}},"flattened":true},"Sc1":{"type":"list","member":{},"flattened":true},"Sca":{"type":"list","member":{"type":"structure","members":{"Key":{},"LastModified":{"type":"timestamp"},"ETag":{},"ChecksumAlgorithm":{"shape":"Sc1"},"Size":{"type":"integer"},"StorageClass":{},"Owner":{"shape":"S3d"}}},"flattened":true},"Scp":{"type":"structure","members":{"Grants":{"shape":"S3g","locationName":"AccessControlList"},"Owner":{"shape":"S3d"}}},"Sdf":{"type":"structure","required":["TagSet"],"members":{"TagSet":{"shape":"S3v"}}},"Se5":{"type":"structure","members":{"CSV":{"type":"structure","members":{"FileHeaderInfo":{},"Comments":{},"QuoteEscapeCharacter":{},"RecordDelimiter":{},"FieldDelimiter":{},"QuoteCharacter":{},"AllowQuotedRecordDelimiter":{"type":"boolean"}}},"CompressionType":{},"JSON":{"type":"structure","members":{"Type":{}}},"Parquet":{"type":"structure","members":{}}}},"Sek":{"type":"structure","members":{"CSV":{"type":"structure","members":{"QuoteFields":{},"QuoteEscapeCharacter":{},"RecordDelimiter":{},"FieldDelimiter":{},"QuoteCharacter":{}}},"JSON":{"type":"structure","members":{"RecordDelimiter":{}}}}}},"clientContextParams":{"Accelerate":{"documentation":"Enables this client to use S3 Transfer Acceleration endpoints.","type":"boolean"},"DisableMultiRegionAccessPoints":{"documentation":"Disables this client\'s usage of Multi-Region Access Points.","type":"boolean"},"ForcePathStyle":{"documentation":"Forces this client to use path-style addressing for buckets.","type":"boolean"},"UseArnRegion":{"documentation":"Enables this client to use an ARN\'s region when constructing an endpoint instead of the client\'s configured region.","type":"boolean"}}}');
+module.exports = JSON.parse('{"version":"2.0","metadata":{"apiVersion":"2006-03-01","checksumFormat":"md5","endpointPrefix":"s3","globalEndpoint":"s3.amazonaws.com","protocol":"rest-xml","protocols":["rest-xml"],"serviceAbbreviation":"Amazon S3","serviceFullName":"Amazon Simple Storage Service","serviceId":"S3","signatureVersion":"s3","uid":"s3-2006-03-01"},"operations":{"AbortMultipartUpload":{"http":{"method":"DELETE","requestUri":"/{Bucket}/{Key+}","responseCode":204},"input":{"type":"structure","required":["Bucket","Key","UploadId"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"contextParam":{"name":"Key"},"location":"uri","locationName":"Key"},"UploadId":{"location":"querystring","locationName":"uploadId"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}}},"CompleteMultipartUpload":{"http":{"requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","Key","UploadId"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"contextParam":{"name":"Key"},"location":"uri","locationName":"Key"},"MultipartUpload":{"locationName":"CompleteMultipartUpload","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","members":{"Parts":{"locationName":"Part","type":"list","member":{"type":"structure","members":{"ETag":{},"ChecksumCRC32":{},"ChecksumCRC32C":{},"ChecksumSHA1":{},"ChecksumSHA256":{},"PartNumber":{"type":"integer"}}},"flattened":true}}},"UploadId":{"location":"querystring","locationName":"uploadId"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-checksum-sha256"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"}},"payload":"MultipartUpload"},"output":{"type":"structure","members":{"Location":{},"Bucket":{},"Key":{},"Expiration":{"location":"header","locationName":"x-amz-expiration"},"ETag":{},"ChecksumCRC32":{},"ChecksumCRC32C":{},"ChecksumSHA1":{},"ChecksumSHA256":{},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"VersionId":{"location":"header","locationName":"x-amz-version-id"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}}},"CopyObject":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","CopySource","Key"],"members":{"ACL":{"location":"header","locationName":"x-amz-acl"},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"CacheControl":{"location":"header","locationName":"Cache-Control"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-checksum-algorithm"},"ContentDisposition":{"location":"header","locationName":"Content-Disposition"},"ContentEncoding":{"location":"header","locationName":"Content-Encoding"},"ContentLanguage":{"location":"header","locationName":"Content-Language"},"ContentType":{"location":"header","locationName":"Content-Type"},"CopySource":{"location":"header","locationName":"x-amz-copy-source"},"CopySourceIfMatch":{"location":"header","locationName":"x-amz-copy-source-if-match"},"CopySourceIfModifiedSince":{"location":"header","locationName":"x-amz-copy-source-if-modified-since","type":"timestamp"},"CopySourceIfNoneMatch":{"location":"header","locationName":"x-amz-copy-source-if-none-match"},"CopySourceIfUnmodifiedSince":{"location":"header","locationName":"x-amz-copy-source-if-unmodified-since","type":"timestamp"},"Expires":{"location":"header","locationName":"Expires","type":"timestamp"},"GrantFullControl":{"location":"header","locationName":"x-amz-grant-full-control"},"GrantRead":{"location":"header","locationName":"x-amz-grant-read"},"GrantReadACP":{"location":"header","locationName":"x-amz-grant-read-acp"},"GrantWriteACP":{"location":"header","locationName":"x-amz-grant-write-acp"},"Key":{"location":"uri","locationName":"Key"},"Metadata":{"shape":"S1b","location":"headers","locationName":"x-amz-meta-"},"MetadataDirective":{"location":"header","locationName":"x-amz-metadata-directive"},"TaggingDirective":{"location":"header","locationName":"x-amz-tagging-directive"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"StorageClass":{"location":"header","locationName":"x-amz-storage-class"},"WebsiteRedirectLocation":{"location":"header","locationName":"x-amz-website-redirect-location"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"SSEKMSEncryptionContext":{"shape":"S1i","location":"header","locationName":"x-amz-server-side-encryption-context"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"CopySourceSSECustomerAlgorithm":{"location":"header","locationName":"x-amz-copy-source-server-side-encryption-customer-algorithm"},"CopySourceSSECustomerKey":{"shape":"S1k","location":"header","locationName":"x-amz-copy-source-server-side-encryption-customer-key"},"CopySourceSSECustomerKeyMD5":{"location":"header","locationName":"x-amz-copy-source-server-side-encryption-customer-key-MD5"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"Tagging":{"location":"header","locationName":"x-amz-tagging"},"ObjectLockMode":{"location":"header","locationName":"x-amz-object-lock-mode"},"ObjectLockRetainUntilDate":{"shape":"S1o","location":"header","locationName":"x-amz-object-lock-retain-until-date"},"ObjectLockLegalHoldStatus":{"location":"header","locationName":"x-amz-object-lock-legal-hold"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ExpectedSourceBucketOwner":{"location":"header","locationName":"x-amz-source-expected-bucket-owner"}}},"output":{"type":"structure","members":{"CopyObjectResult":{"type":"structure","members":{"ETag":{},"LastModified":{"type":"timestamp"},"ChecksumCRC32":{},"ChecksumCRC32C":{},"ChecksumSHA1":{},"ChecksumSHA256":{}}},"Expiration":{"location":"header","locationName":"x-amz-expiration"},"CopySourceVersionId":{"location":"header","locationName":"x-amz-copy-source-version-id"},"VersionId":{"location":"header","locationName":"x-amz-version-id"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"SSEKMSEncryptionContext":{"shape":"S1i","location":"header","locationName":"x-amz-server-side-encryption-context"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}},"payload":"CopyObjectResult"},"alias":"PutObjectCopy","staticContextParams":{"DisableS3ExpressSessionAuth":{"value":true}}},"CreateBucket":{"http":{"method":"PUT","requestUri":"/{Bucket}"},"input":{"type":"structure","required":["Bucket"],"members":{"ACL":{"location":"header","locationName":"x-amz-acl"},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"CreateBucketConfiguration":{"locationName":"CreateBucketConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","members":{"LocationConstraint":{},"Location":{"type":"structure","members":{"Type":{},"Name":{}}},"Bucket":{"type":"structure","members":{"DataRedundancy":{},"Type":{}}}}},"GrantFullControl":{"location":"header","locationName":"x-amz-grant-full-control"},"GrantRead":{"location":"header","locationName":"x-amz-grant-read"},"GrantReadACP":{"location":"header","locationName":"x-amz-grant-read-acp"},"GrantWrite":{"location":"header","locationName":"x-amz-grant-write"},"GrantWriteACP":{"location":"header","locationName":"x-amz-grant-write-acp"},"ObjectLockEnabledForBucket":{"location":"header","locationName":"x-amz-bucket-object-lock-enabled","type":"boolean"},"ObjectOwnership":{"location":"header","locationName":"x-amz-object-ownership"}},"payload":"CreateBucketConfiguration"},"output":{"type":"structure","members":{"Location":{"location":"header","locationName":"Location"}}},"alias":"PutBucket","staticContextParams":{"DisableAccessPoints":{"value":true},"UseS3ExpressControlEndpoint":{"value":true}}},"CreateMultipartUpload":{"http":{"requestUri":"/{Bucket}/{Key+}?uploads"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"ACL":{"location":"header","locationName":"x-amz-acl"},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"CacheControl":{"location":"header","locationName":"Cache-Control"},"ContentDisposition":{"location":"header","locationName":"Content-Disposition"},"ContentEncoding":{"location":"header","locationName":"Content-Encoding"},"ContentLanguage":{"location":"header","locationName":"Content-Language"},"ContentType":{"location":"header","locationName":"Content-Type"},"Expires":{"location":"header","locationName":"Expires","type":"timestamp"},"GrantFullControl":{"location":"header","locationName":"x-amz-grant-full-control"},"GrantRead":{"location":"header","locationName":"x-amz-grant-read"},"GrantReadACP":{"location":"header","locationName":"x-amz-grant-read-acp"},"GrantWriteACP":{"location":"header","locationName":"x-amz-grant-write-acp"},"Key":{"contextParam":{"name":"Key"},"location":"uri","locationName":"Key"},"Metadata":{"shape":"S1b","location":"headers","locationName":"x-amz-meta-"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"StorageClass":{"location":"header","locationName":"x-amz-storage-class"},"WebsiteRedirectLocation":{"location":"header","locationName":"x-amz-website-redirect-location"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"SSEKMSEncryptionContext":{"shape":"S1i","location":"header","locationName":"x-amz-server-side-encryption-context"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"Tagging":{"location":"header","locationName":"x-amz-tagging"},"ObjectLockMode":{"location":"header","locationName":"x-amz-object-lock-mode"},"ObjectLockRetainUntilDate":{"shape":"S1o","location":"header","locationName":"x-amz-object-lock-retain-until-date"},"ObjectLockLegalHoldStatus":{"location":"header","locationName":"x-amz-object-lock-legal-hold"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-checksum-algorithm"}}},"output":{"type":"structure","members":{"AbortDate":{"location":"header","locationName":"x-amz-abort-date","type":"timestamp"},"AbortRuleId":{"location":"header","locationName":"x-amz-abort-rule-id"},"Bucket":{"locationName":"Bucket"},"Key":{},"UploadId":{},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"SSEKMSEncryptionContext":{"shape":"S1i","location":"header","locationName":"x-amz-server-side-encryption-context"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-checksum-algorithm"}}},"alias":"InitiateMultipartUpload"},"CreateSession":{"http":{"method":"GET","requestUri":"/{Bucket}?session"},"input":{"type":"structure","required":["Bucket"],"members":{"SessionMode":{"location":"header","locationName":"x-amz-create-session-mode"},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"}}},"output":{"type":"structure","required":["Credentials"],"members":{"Credentials":{"locationName":"Credentials","type":"structure","required":["AccessKeyId","SecretAccessKey","SessionToken","Expiration"],"members":{"AccessKeyId":{"locationName":"AccessKeyId"},"SecretAccessKey":{"shape":"S2h","locationName":"SecretAccessKey"},"SessionToken":{"shape":"S2h","locationName":"SessionToken"},"Expiration":{"locationName":"Expiration","type":"timestamp"}}}}},"staticContextParams":{"DisableS3ExpressSessionAuth":{"value":true}}},"DeleteBucket":{"http":{"method":"DELETE","requestUri":"/{Bucket}","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"DeleteBucketAnalyticsConfiguration":{"http":{"method":"DELETE","requestUri":"/{Bucket}?analytics","responseCode":204},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"DeleteBucketCors":{"http":{"method":"DELETE","requestUri":"/{Bucket}?cors","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"DeleteBucketEncryption":{"http":{"method":"DELETE","requestUri":"/{Bucket}?encryption","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"DeleteBucketIntelligentTieringConfiguration":{"http":{"method":"DELETE","requestUri":"/{Bucket}?intelligent-tiering","responseCode":204},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"DeleteBucketInventoryConfiguration":{"http":{"method":"DELETE","requestUri":"/{Bucket}?inventory","responseCode":204},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"DeleteBucketLifecycle":{"http":{"method":"DELETE","requestUri":"/{Bucket}?lifecycle","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"DeleteBucketMetricsConfiguration":{"http":{"method":"DELETE","requestUri":"/{Bucket}?metrics","responseCode":204},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"DeleteBucketOwnershipControls":{"http":{"method":"DELETE","requestUri":"/{Bucket}?ownershipControls","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"DeleteBucketPolicy":{"http":{"method":"DELETE","requestUri":"/{Bucket}?policy","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"DeleteBucketReplication":{"http":{"method":"DELETE","requestUri":"/{Bucket}?replication","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"DeleteBucketTagging":{"http":{"method":"DELETE","requestUri":"/{Bucket}?tagging","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"DeleteBucketWebsite":{"http":{"method":"DELETE","requestUri":"/{Bucket}?website","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"DeleteObject":{"http":{"method":"DELETE","requestUri":"/{Bucket}/{Key+}","responseCode":204},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"contextParam":{"name":"Key"},"location":"uri","locationName":"Key"},"MFA":{"location":"header","locationName":"x-amz-mfa"},"VersionId":{"location":"querystring","locationName":"versionId"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"BypassGovernanceRetention":{"location":"header","locationName":"x-amz-bypass-governance-retention","type":"boolean"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"DeleteMarker":{"location":"header","locationName":"x-amz-delete-marker","type":"boolean"},"VersionId":{"location":"header","locationName":"x-amz-version-id"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}}},"DeleteObjectTagging":{"http":{"method":"DELETE","requestUri":"/{Bucket}/{Key+}?tagging","responseCode":204},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"VersionId":{"location":"header","locationName":"x-amz-version-id"}}}},"DeleteObjects":{"http":{"requestUri":"/{Bucket}?delete"},"input":{"type":"structure","required":["Bucket","Delete"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Delete":{"locationName":"Delete","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","required":["Objects"],"members":{"Objects":{"locationName":"Object","type":"list","member":{"type":"structure","required":["Key"],"members":{"Key":{},"VersionId":{}}},"flattened":true},"Quiet":{"type":"boolean"}}},"MFA":{"location":"header","locationName":"x-amz-mfa"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"BypassGovernanceRetention":{"location":"header","locationName":"x-amz-bypass-governance-retention","type":"boolean"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"}},"payload":"Delete"},"output":{"type":"structure","members":{"Deleted":{"type":"list","member":{"type":"structure","members":{"Key":{},"VersionId":{},"DeleteMarker":{"type":"boolean"},"DeleteMarkerVersionId":{}}},"flattened":true},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"},"Errors":{"locationName":"Error","type":"list","member":{"type":"structure","members":{"Key":{},"VersionId":{},"Code":{},"Message":{}}},"flattened":true}}},"alias":"DeleteMultipleObjects","httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"DeletePublicAccessBlock":{"http":{"method":"DELETE","requestUri":"/{Bucket}?publicAccessBlock","responseCode":204},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketAccelerateConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?accelerate"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"}}},"output":{"type":"structure","members":{"Status":{},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketAcl":{"http":{"method":"GET","requestUri":"/{Bucket}?acl"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Owner":{"shape":"S3q"},"Grants":{"shape":"S3t","locationName":"AccessControlList"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketAnalyticsConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?analytics"},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"AnalyticsConfiguration":{"shape":"S42"}},"payload":"AnalyticsConfiguration"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketCors":{"http":{"method":"GET","requestUri":"/{Bucket}?cors"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"CORSRules":{"shape":"S4h","locationName":"CORSRule"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketEncryption":{"http":{"method":"GET","requestUri":"/{Bucket}?encryption"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"ServerSideEncryptionConfiguration":{"shape":"S4u"}},"payload":"ServerSideEncryptionConfiguration"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketIntelligentTieringConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?intelligent-tiering"},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"}}},"output":{"type":"structure","members":{"IntelligentTieringConfiguration":{"shape":"S50"}},"payload":"IntelligentTieringConfiguration"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketInventoryConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?inventory"},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"InventoryConfiguration":{"shape":"S5a"}},"payload":"InventoryConfiguration"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketLifecycle":{"http":{"method":"GET","requestUri":"/{Bucket}?lifecycle"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Rules":{"shape":"S5q","locationName":"Rule"}}},"deprecated":true,"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketLifecycleConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?lifecycle"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Rules":{"shape":"S66","locationName":"Rule"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketLocation":{"http":{"method":"GET","requestUri":"/{Bucket}?location"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"LocationConstraint":{}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketLogging":{"http":{"method":"GET","requestUri":"/{Bucket}?logging"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"LoggingEnabled":{"shape":"S6i"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketMetricsConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?metrics"},"input":{"type":"structure","required":["Bucket","Id"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"MetricsConfiguration":{"shape":"S6u"}},"payload":"MetricsConfiguration"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketNotification":{"http":{"method":"GET","requestUri":"/{Bucket}?notification"},"input":{"shape":"S6y"},"output":{"shape":"S6z"},"deprecated":true,"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketNotificationConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?notification"},"input":{"shape":"S6y"},"output":{"shape":"S7a"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketOwnershipControls":{"http":{"method":"GET","requestUri":"/{Bucket}?ownershipControls"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"OwnershipControls":{"shape":"S7r"}},"payload":"OwnershipControls"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketPolicy":{"http":{"method":"GET","requestUri":"/{Bucket}?policy"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Policy":{}},"payload":"Policy"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketPolicyStatus":{"http":{"method":"GET","requestUri":"/{Bucket}?policyStatus"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"PolicyStatus":{"type":"structure","members":{"IsPublic":{"locationName":"IsPublic","type":"boolean"}}}},"payload":"PolicyStatus"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketReplication":{"http":{"method":"GET","requestUri":"/{Bucket}?replication"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"ReplicationConfiguration":{"shape":"S83"}},"payload":"ReplicationConfiguration"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketRequestPayment":{"http":{"method":"GET","requestUri":"/{Bucket}?requestPayment"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Payer":{}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketTagging":{"http":{"method":"GET","requestUri":"/{Bucket}?tagging"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","required":["TagSet"],"members":{"TagSet":{"shape":"S48"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketVersioning":{"http":{"method":"GET","requestUri":"/{Bucket}?versioning"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Status":{},"MFADelete":{"locationName":"MfaDelete"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetBucketWebsite":{"http":{"method":"GET","requestUri":"/{Bucket}?website"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"RedirectAllRequestsTo":{"shape":"S96"},"IndexDocument":{"shape":"S99"},"ErrorDocument":{"shape":"S9b"},"RoutingRules":{"shape":"S9c"}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"GetObject":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"IfMatch":{"location":"header","locationName":"If-Match"},"IfModifiedSince":{"location":"header","locationName":"If-Modified-Since","type":"timestamp"},"IfNoneMatch":{"location":"header","locationName":"If-None-Match"},"IfUnmodifiedSince":{"location":"header","locationName":"If-Unmodified-Since","type":"timestamp"},"Key":{"contextParam":{"name":"Key"},"location":"uri","locationName":"Key"},"Range":{"location":"header","locationName":"Range"},"ResponseCacheControl":{"location":"querystring","locationName":"response-cache-control"},"ResponseContentDisposition":{"location":"querystring","locationName":"response-content-disposition"},"ResponseContentEncoding":{"location":"querystring","locationName":"response-content-encoding"},"ResponseContentLanguage":{"location":"querystring","locationName":"response-content-language"},"ResponseContentType":{"location":"querystring","locationName":"response-content-type"},"ResponseExpires":{"location":"querystring","locationName":"response-expires","type":"timestamp","timestampFormat":"rfc822"},"VersionId":{"location":"querystring","locationName":"versionId"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"PartNumber":{"location":"querystring","locationName":"partNumber","type":"integer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ChecksumMode":{"location":"header","locationName":"x-amz-checksum-mode"}}},"output":{"type":"structure","members":{"Body":{"streaming":true,"type":"blob"},"DeleteMarker":{"location":"header","locationName":"x-amz-delete-marker","type":"boolean"},"AcceptRanges":{"location":"header","locationName":"accept-ranges"},"Expiration":{"location":"header","locationName":"x-amz-expiration"},"Restore":{"location":"header","locationName":"x-amz-restore"},"LastModified":{"location":"header","locationName":"Last-Modified","type":"timestamp"},"ContentLength":{"location":"header","locationName":"Content-Length","type":"long"},"ETag":{"location":"header","locationName":"ETag"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-checksum-sha256"},"MissingMeta":{"location":"header","locationName":"x-amz-missing-meta","type":"integer"},"VersionId":{"location":"header","locationName":"x-amz-version-id"},"CacheControl":{"location":"header","locationName":"Cache-Control"},"ContentDisposition":{"location":"header","locationName":"Content-Disposition"},"ContentEncoding":{"location":"header","locationName":"Content-Encoding"},"ContentLanguage":{"location":"header","locationName":"Content-Language"},"ContentRange":{"location":"header","locationName":"Content-Range"},"ContentType":{"location":"header","locationName":"Content-Type"},"Expires":{"location":"header","locationName":"Expires","deprecated":true,"type":"timestamp"},"ExpiresString":{"location":"header","locationName":"ExpiresString"},"WebsiteRedirectLocation":{"location":"header","locationName":"x-amz-website-redirect-location"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"Metadata":{"shape":"S1b","location":"headers","locationName":"x-amz-meta-"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"StorageClass":{"location":"header","locationName":"x-amz-storage-class"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"},"ReplicationStatus":{"location":"header","locationName":"x-amz-replication-status"},"PartsCount":{"location":"header","locationName":"x-amz-mp-parts-count","type":"integer"},"TagCount":{"location":"header","locationName":"x-amz-tagging-count","type":"integer"},"ObjectLockMode":{"location":"header","locationName":"x-amz-object-lock-mode"},"ObjectLockRetainUntilDate":{"shape":"S1o","location":"header","locationName":"x-amz-object-lock-retain-until-date"},"ObjectLockLegalHoldStatus":{"location":"header","locationName":"x-amz-object-lock-legal-hold"}},"payload":"Body"},"httpChecksum":{"requestValidationModeMember":"ChecksumMode","responseAlgorithms":["CRC32","CRC32C","SHA256","SHA1"]}},"GetObjectAcl":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}?acl"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"contextParam":{"name":"Key"},"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Owner":{"shape":"S3q"},"Grants":{"shape":"S3t","locationName":"AccessControlList"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}}},"GetObjectAttributes":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}?attributes"},"input":{"type":"structure","required":["Bucket","Key","ObjectAttributes"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"MaxParts":{"location":"header","locationName":"x-amz-max-parts","type":"integer"},"PartNumberMarker":{"location":"header","locationName":"x-amz-part-number-marker","type":"integer"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ObjectAttributes":{"location":"header","locationName":"x-amz-object-attributes","type":"list","member":{}}}},"output":{"type":"structure","members":{"DeleteMarker":{"location":"header","locationName":"x-amz-delete-marker","type":"boolean"},"LastModified":{"location":"header","locationName":"Last-Modified","type":"timestamp"},"VersionId":{"location":"header","locationName":"x-amz-version-id"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"},"ETag":{},"Checksum":{"type":"structure","members":{"ChecksumCRC32":{},"ChecksumCRC32C":{},"ChecksumSHA1":{},"ChecksumSHA256":{}}},"ObjectParts":{"type":"structure","members":{"TotalPartsCount":{"locationName":"PartsCount","type":"integer"},"PartNumberMarker":{"type":"integer"},"NextPartNumberMarker":{"type":"integer"},"MaxParts":{"type":"integer"},"IsTruncated":{"type":"boolean"},"Parts":{"locationName":"Part","type":"list","member":{"type":"structure","members":{"PartNumber":{"type":"integer"},"Size":{"type":"long"},"ChecksumCRC32":{},"ChecksumCRC32C":{},"ChecksumSHA1":{},"ChecksumSHA256":{}}},"flattened":true}}},"StorageClass":{},"ObjectSize":{"type":"long"}}}},"GetObjectLegalHold":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}?legal-hold"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"LegalHold":{"shape":"Sar","locationName":"LegalHold"}},"payload":"LegalHold"}},"GetObjectLockConfiguration":{"http":{"method":"GET","requestUri":"/{Bucket}?object-lock"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"ObjectLockConfiguration":{"shape":"Sau"}},"payload":"ObjectLockConfiguration"}},"GetObjectRetention":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}?retention"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Retention":{"shape":"Sb2","locationName":"Retention"}},"payload":"Retention"}},"GetObjectTagging":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}?tagging"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"}}},"output":{"type":"structure","required":["TagSet"],"members":{"VersionId":{"location":"header","locationName":"x-amz-version-id"},"TagSet":{"shape":"S48"}}}},"GetObjectTorrent":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}?torrent"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Body":{"streaming":true,"type":"blob"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}},"payload":"Body"}},"GetPublicAccessBlock":{"http":{"method":"GET","requestUri":"/{Bucket}?publicAccessBlock"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"PublicAccessBlockConfiguration":{"shape":"Sb9"}},"payload":"PublicAccessBlockConfiguration"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"HeadBucket":{"http":{"method":"HEAD","requestUri":"/{Bucket}"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"BucketLocationType":{"location":"header","locationName":"x-amz-bucket-location-type"},"BucketLocationName":{"location":"header","locationName":"x-amz-bucket-location-name"},"BucketRegion":{"location":"header","locationName":"x-amz-bucket-region"},"AccessPointAlias":{"location":"header","locationName":"x-amz-access-point-alias","type":"boolean"}}}},"HeadObject":{"http":{"method":"HEAD","requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"IfMatch":{"location":"header","locationName":"If-Match"},"IfModifiedSince":{"location":"header","locationName":"If-Modified-Since","type":"timestamp"},"IfNoneMatch":{"location":"header","locationName":"If-None-Match"},"IfUnmodifiedSince":{"location":"header","locationName":"If-Unmodified-Since","type":"timestamp"},"Key":{"contextParam":{"name":"Key"},"location":"uri","locationName":"Key"},"Range":{"location":"header","locationName":"Range"},"VersionId":{"location":"querystring","locationName":"versionId"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"PartNumber":{"location":"querystring","locationName":"partNumber","type":"integer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ChecksumMode":{"location":"header","locationName":"x-amz-checksum-mode"}}},"output":{"type":"structure","members":{"DeleteMarker":{"location":"header","locationName":"x-amz-delete-marker","type":"boolean"},"AcceptRanges":{"location":"header","locationName":"accept-ranges"},"Expiration":{"location":"header","locationName":"x-amz-expiration"},"Restore":{"location":"header","locationName":"x-amz-restore"},"ArchiveStatus":{"location":"header","locationName":"x-amz-archive-status"},"LastModified":{"location":"header","locationName":"Last-Modified","type":"timestamp"},"ContentLength":{"location":"header","locationName":"Content-Length","type":"long"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-checksum-sha256"},"ETag":{"location":"header","locationName":"ETag"},"MissingMeta":{"location":"header","locationName":"x-amz-missing-meta","type":"integer"},"VersionId":{"location":"header","locationName":"x-amz-version-id"},"CacheControl":{"location":"header","locationName":"Cache-Control"},"ContentDisposition":{"location":"header","locationName":"Content-Disposition"},"ContentEncoding":{"location":"header","locationName":"Content-Encoding"},"ContentLanguage":{"location":"header","locationName":"Content-Language"},"ContentType":{"location":"header","locationName":"Content-Type"},"Expires":{"location":"header","locationName":"Expires","deprecated":true,"type":"timestamp"},"ExpiresString":{"location":"header","locationName":"ExpiresString"},"WebsiteRedirectLocation":{"location":"header","locationName":"x-amz-website-redirect-location"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"Metadata":{"shape":"S1b","location":"headers","locationName":"x-amz-meta-"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"StorageClass":{"location":"header","locationName":"x-amz-storage-class"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"},"ReplicationStatus":{"location":"header","locationName":"x-amz-replication-status"},"PartsCount":{"location":"header","locationName":"x-amz-mp-parts-count","type":"integer"},"ObjectLockMode":{"location":"header","locationName":"x-amz-object-lock-mode"},"ObjectLockRetainUntilDate":{"shape":"S1o","location":"header","locationName":"x-amz-object-lock-retain-until-date"},"ObjectLockLegalHoldStatus":{"location":"header","locationName":"x-amz-object-lock-legal-hold"}}}},"ListBucketAnalyticsConfigurations":{"http":{"method":"GET","requestUri":"/{Bucket}?analytics"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContinuationToken":{"location":"querystring","locationName":"continuation-token"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"IsTruncated":{"type":"boolean"},"ContinuationToken":{},"NextContinuationToken":{},"AnalyticsConfigurationList":{"locationName":"AnalyticsConfiguration","type":"list","member":{"shape":"S42"},"flattened":true}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"ListBucketIntelligentTieringConfigurations":{"http":{"method":"GET","requestUri":"/{Bucket}?intelligent-tiering"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContinuationToken":{"location":"querystring","locationName":"continuation-token"}}},"output":{"type":"structure","members":{"IsTruncated":{"type":"boolean"},"ContinuationToken":{},"NextContinuationToken":{},"IntelligentTieringConfigurationList":{"locationName":"IntelligentTieringConfiguration","type":"list","member":{"shape":"S50"},"flattened":true}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"ListBucketInventoryConfigurations":{"http":{"method":"GET","requestUri":"/{Bucket}?inventory"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContinuationToken":{"location":"querystring","locationName":"continuation-token"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"ContinuationToken":{},"InventoryConfigurationList":{"locationName":"InventoryConfiguration","type":"list","member":{"shape":"S5a"},"flattened":true},"IsTruncated":{"type":"boolean"},"NextContinuationToken":{}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"ListBucketMetricsConfigurations":{"http":{"method":"GET","requestUri":"/{Bucket}?metrics"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContinuationToken":{"location":"querystring","locationName":"continuation-token"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"IsTruncated":{"type":"boolean"},"ContinuationToken":{},"NextContinuationToken":{},"MetricsConfigurationList":{"locationName":"MetricsConfiguration","type":"list","member":{"shape":"S6u"},"flattened":true}}}},"ListBuckets":{"http":{"method":"GET"},"output":{"type":"structure","members":{"Buckets":{"shape":"Sby"},"Owner":{"shape":"S3q"}}},"alias":"GetService"},"ListDirectoryBuckets":{"http":{"method":"GET"},"input":{"type":"structure","members":{"ContinuationToken":{"location":"querystring","locationName":"continuation-token"},"MaxDirectoryBuckets":{"location":"querystring","locationName":"max-directory-buckets","type":"integer"}}},"output":{"type":"structure","members":{"Buckets":{"shape":"Sby"},"ContinuationToken":{}}},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"ListMultipartUploads":{"http":{"method":"GET","requestUri":"/{Bucket}?uploads"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Delimiter":{"location":"querystring","locationName":"delimiter"},"EncodingType":{"location":"querystring","locationName":"encoding-type"},"KeyMarker":{"location":"querystring","locationName":"key-marker"},"MaxUploads":{"location":"querystring","locationName":"max-uploads","type":"integer"},"Prefix":{"contextParam":{"name":"Prefix"},"location":"querystring","locationName":"prefix"},"UploadIdMarker":{"location":"querystring","locationName":"upload-id-marker"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"}}},"output":{"type":"structure","members":{"Bucket":{},"KeyMarker":{},"UploadIdMarker":{},"NextKeyMarker":{},"Prefix":{},"Delimiter":{},"NextUploadIdMarker":{},"MaxUploads":{"type":"integer"},"IsTruncated":{"type":"boolean"},"Uploads":{"locationName":"Upload","type":"list","member":{"type":"structure","members":{"UploadId":{},"Key":{},"Initiated":{"type":"timestamp"},"StorageClass":{},"Owner":{"shape":"S3q"},"Initiator":{"shape":"Sch"},"ChecksumAlgorithm":{}}},"flattened":true},"CommonPrefixes":{"shape":"Sci"},"EncodingType":{},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}}},"ListObjectVersions":{"http":{"method":"GET","requestUri":"/{Bucket}?versions"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Delimiter":{"location":"querystring","locationName":"delimiter"},"EncodingType":{"location":"querystring","locationName":"encoding-type"},"KeyMarker":{"location":"querystring","locationName":"key-marker"},"MaxKeys":{"location":"querystring","locationName":"max-keys","type":"integer"},"Prefix":{"contextParam":{"name":"Prefix"},"location":"querystring","locationName":"prefix"},"VersionIdMarker":{"location":"querystring","locationName":"version-id-marker"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"OptionalObjectAttributes":{"shape":"Scn","location":"header","locationName":"x-amz-optional-object-attributes"}}},"output":{"type":"structure","members":{"IsTruncated":{"type":"boolean"},"KeyMarker":{},"VersionIdMarker":{},"NextKeyMarker":{},"NextVersionIdMarker":{},"Versions":{"locationName":"Version","type":"list","member":{"type":"structure","members":{"ETag":{},"ChecksumAlgorithm":{"shape":"Sct"},"Size":{"type":"long"},"StorageClass":{},"Key":{},"VersionId":{},"IsLatest":{"type":"boolean"},"LastModified":{"type":"timestamp"},"Owner":{"shape":"S3q"},"RestoreStatus":{"shape":"Scw"}}},"flattened":true},"DeleteMarkers":{"locationName":"DeleteMarker","type":"list","member":{"type":"structure","members":{"Owner":{"shape":"S3q"},"Key":{},"VersionId":{},"IsLatest":{"type":"boolean"},"LastModified":{"type":"timestamp"}}},"flattened":true},"Name":{},"Prefix":{},"Delimiter":{},"MaxKeys":{"type":"integer"},"CommonPrefixes":{"shape":"Sci"},"EncodingType":{},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"alias":"GetBucketObjectVersions"},"ListObjects":{"http":{"method":"GET","requestUri":"/{Bucket}"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Delimiter":{"location":"querystring","locationName":"delimiter"},"EncodingType":{"location":"querystring","locationName":"encoding-type"},"Marker":{"location":"querystring","locationName":"marker"},"MaxKeys":{"location":"querystring","locationName":"max-keys","type":"integer"},"Prefix":{"contextParam":{"name":"Prefix"},"location":"querystring","locationName":"prefix"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"OptionalObjectAttributes":{"shape":"Scn","location":"header","locationName":"x-amz-optional-object-attributes"}}},"output":{"type":"structure","members":{"IsTruncated":{"type":"boolean"},"Marker":{},"NextMarker":{},"Contents":{"shape":"Sd5"},"Name":{},"Prefix":{},"Delimiter":{},"MaxKeys":{"type":"integer"},"CommonPrefixes":{"shape":"Sci"},"EncodingType":{},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"alias":"GetBucket"},"ListObjectsV2":{"http":{"method":"GET","requestUri":"/{Bucket}?list-type=2"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Delimiter":{"location":"querystring","locationName":"delimiter"},"EncodingType":{"location":"querystring","locationName":"encoding-type"},"MaxKeys":{"location":"querystring","locationName":"max-keys","type":"integer"},"Prefix":{"contextParam":{"name":"Prefix"},"location":"querystring","locationName":"prefix"},"ContinuationToken":{"location":"querystring","locationName":"continuation-token"},"FetchOwner":{"location":"querystring","locationName":"fetch-owner","type":"boolean"},"StartAfter":{"location":"querystring","locationName":"start-after"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"OptionalObjectAttributes":{"shape":"Scn","location":"header","locationName":"x-amz-optional-object-attributes"}}},"output":{"type":"structure","members":{"IsTruncated":{"type":"boolean"},"Contents":{"shape":"Sd5"},"Name":{},"Prefix":{},"Delimiter":{},"MaxKeys":{"type":"integer"},"CommonPrefixes":{"shape":"Sci"},"EncodingType":{},"KeyCount":{"type":"integer"},"ContinuationToken":{},"NextContinuationToken":{},"StartAfter":{},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}}},"ListParts":{"http":{"method":"GET","requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","Key","UploadId"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"contextParam":{"name":"Key"},"location":"uri","locationName":"Key"},"MaxParts":{"location":"querystring","locationName":"max-parts","type":"integer"},"PartNumberMarker":{"location":"querystring","locationName":"part-number-marker","type":"integer"},"UploadId":{"location":"querystring","locationName":"uploadId"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"}}},"output":{"type":"structure","members":{"AbortDate":{"location":"header","locationName":"x-amz-abort-date","type":"timestamp"},"AbortRuleId":{"location":"header","locationName":"x-amz-abort-rule-id"},"Bucket":{},"Key":{},"UploadId":{},"PartNumberMarker":{"type":"integer"},"NextPartNumberMarker":{"type":"integer"},"MaxParts":{"type":"integer"},"IsTruncated":{"type":"boolean"},"Parts":{"locationName":"Part","type":"list","member":{"type":"structure","members":{"PartNumber":{"type":"integer"},"LastModified":{"type":"timestamp"},"ETag":{},"Size":{"type":"long"},"ChecksumCRC32":{},"ChecksumCRC32C":{},"ChecksumSHA1":{},"ChecksumSHA256":{}}},"flattened":true},"Initiator":{"shape":"Sch"},"Owner":{"shape":"S3q"},"StorageClass":{},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"},"ChecksumAlgorithm":{}}}},"PutBucketAccelerateConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?accelerate"},"input":{"type":"structure","required":["Bucket","AccelerateConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"AccelerateConfiguration":{"locationName":"AccelerateConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","members":{"Status":{}}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"}},"payload":"AccelerateConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":false},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketAcl":{"http":{"method":"PUT","requestUri":"/{Bucket}?acl"},"input":{"type":"structure","required":["Bucket"],"members":{"ACL":{"location":"header","locationName":"x-amz-acl"},"AccessControlPolicy":{"shape":"Sdk","locationName":"AccessControlPolicy","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"GrantFullControl":{"location":"header","locationName":"x-amz-grant-full-control"},"GrantRead":{"location":"header","locationName":"x-amz-grant-read"},"GrantReadACP":{"location":"header","locationName":"x-amz-grant-read-acp"},"GrantWrite":{"location":"header","locationName":"x-amz-grant-write"},"GrantWriteACP":{"location":"header","locationName":"x-amz-grant-write-acp"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"AccessControlPolicy"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketAnalyticsConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?analytics"},"input":{"type":"structure","required":["Bucket","Id","AnalyticsConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"AnalyticsConfiguration":{"shape":"S42","locationName":"AnalyticsConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"AnalyticsConfiguration"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketCors":{"http":{"method":"PUT","requestUri":"/{Bucket}?cors"},"input":{"type":"structure","required":["Bucket","CORSConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"CORSConfiguration":{"locationName":"CORSConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","required":["CORSRules"],"members":{"CORSRules":{"shape":"S4h","locationName":"CORSRule"}}},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"CORSConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketEncryption":{"http":{"method":"PUT","requestUri":"/{Bucket}?encryption"},"input":{"type":"structure","required":["Bucket","ServerSideEncryptionConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ServerSideEncryptionConfiguration":{"shape":"S4u","locationName":"ServerSideEncryptionConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"ServerSideEncryptionConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketIntelligentTieringConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?intelligent-tiering"},"input":{"type":"structure","required":["Bucket","Id","IntelligentTieringConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"IntelligentTieringConfiguration":{"shape":"S50","locationName":"IntelligentTieringConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}}},"payload":"IntelligentTieringConfiguration"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketInventoryConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?inventory"},"input":{"type":"structure","required":["Bucket","Id","InventoryConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"InventoryConfiguration":{"shape":"S5a","locationName":"InventoryConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"InventoryConfiguration"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketLifecycle":{"http":{"method":"PUT","requestUri":"/{Bucket}?lifecycle"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"LifecycleConfiguration":{"locationName":"LifecycleConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","required":["Rules"],"members":{"Rules":{"shape":"S5q","locationName":"Rule"}}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"LifecycleConfiguration"},"deprecated":true,"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketLifecycleConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?lifecycle"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"LifecycleConfiguration":{"locationName":"LifecycleConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","required":["Rules"],"members":{"Rules":{"shape":"S66","locationName":"Rule"}}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"LifecycleConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketLogging":{"http":{"method":"PUT","requestUri":"/{Bucket}?logging"},"input":{"type":"structure","required":["Bucket","BucketLoggingStatus"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"BucketLoggingStatus":{"locationName":"BucketLoggingStatus","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","members":{"LoggingEnabled":{"shape":"S6i"}}},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"BucketLoggingStatus"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketMetricsConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?metrics"},"input":{"type":"structure","required":["Bucket","Id","MetricsConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Id":{"location":"querystring","locationName":"id"},"MetricsConfiguration":{"shape":"S6u","locationName":"MetricsConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"MetricsConfiguration"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketNotification":{"http":{"method":"PUT","requestUri":"/{Bucket}?notification"},"input":{"type":"structure","required":["Bucket","NotificationConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"NotificationConfiguration":{"shape":"S6z","locationName":"NotificationConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"NotificationConfiguration"},"deprecated":true,"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketNotificationConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?notification"},"input":{"type":"structure","required":["Bucket","NotificationConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"NotificationConfiguration":{"shape":"S7a","locationName":"NotificationConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"SkipDestinationValidation":{"location":"header","locationName":"x-amz-skip-destination-validation","type":"boolean"}},"payload":"NotificationConfiguration"},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketOwnershipControls":{"http":{"method":"PUT","requestUri":"/{Bucket}?ownershipControls"},"input":{"type":"structure","required":["Bucket","OwnershipControls"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"OwnershipControls":{"shape":"S7r","locationName":"OwnershipControls","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}}},"payload":"OwnershipControls"},"httpChecksum":{"requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketPolicy":{"http":{"method":"PUT","requestUri":"/{Bucket}?policy"},"input":{"type":"structure","required":["Bucket","Policy"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ConfirmRemoveSelfBucketAccess":{"location":"header","locationName":"x-amz-confirm-remove-self-bucket-access","type":"boolean"},"Policy":{},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"Policy"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketReplication":{"http":{"method":"PUT","requestUri":"/{Bucket}?replication"},"input":{"type":"structure","required":["Bucket","ReplicationConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ReplicationConfiguration":{"shape":"S83","locationName":"ReplicationConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"Token":{"location":"header","locationName":"x-amz-bucket-object-lock-token"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"ReplicationConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketRequestPayment":{"http":{"method":"PUT","requestUri":"/{Bucket}?requestPayment"},"input":{"type":"structure","required":["Bucket","RequestPaymentConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"RequestPaymentConfiguration":{"locationName":"RequestPaymentConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","required":["Payer"],"members":{"Payer":{}}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"RequestPaymentConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketTagging":{"http":{"method":"PUT","requestUri":"/{Bucket}?tagging"},"input":{"type":"structure","required":["Bucket","Tagging"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"Tagging":{"shape":"Sea","locationName":"Tagging","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"Tagging"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketVersioning":{"http":{"method":"PUT","requestUri":"/{Bucket}?versioning"},"input":{"type":"structure","required":["Bucket","VersioningConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"MFA":{"location":"header","locationName":"x-amz-mfa"},"VersioningConfiguration":{"locationName":"VersioningConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","members":{"MFADelete":{"locationName":"MfaDelete"},"Status":{}}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"VersioningConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutBucketWebsite":{"http":{"method":"PUT","requestUri":"/{Bucket}?website"},"input":{"type":"structure","required":["Bucket","WebsiteConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"WebsiteConfiguration":{"locationName":"WebsiteConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","members":{"ErrorDocument":{"shape":"S9b"},"IndexDocument":{"shape":"S99"},"RedirectAllRequestsTo":{"shape":"S96"},"RoutingRules":{"shape":"S9c"}}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"WebsiteConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"PutObject":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"ACL":{"location":"header","locationName":"x-amz-acl"},"Body":{"streaming":true,"type":"blob"},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"CacheControl":{"location":"header","locationName":"Cache-Control"},"ContentDisposition":{"location":"header","locationName":"Content-Disposition"},"ContentEncoding":{"location":"header","locationName":"Content-Encoding"},"ContentLanguage":{"location":"header","locationName":"Content-Language"},"ContentLength":{"location":"header","locationName":"Content-Length","type":"long"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ContentType":{"location":"header","locationName":"Content-Type"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-checksum-sha256"},"Expires":{"location":"header","locationName":"Expires","type":"timestamp"},"GrantFullControl":{"location":"header","locationName":"x-amz-grant-full-control"},"GrantRead":{"location":"header","locationName":"x-amz-grant-read"},"GrantReadACP":{"location":"header","locationName":"x-amz-grant-read-acp"},"GrantWriteACP":{"location":"header","locationName":"x-amz-grant-write-acp"},"Key":{"contextParam":{"name":"Key"},"location":"uri","locationName":"Key"},"Metadata":{"shape":"S1b","location":"headers","locationName":"x-amz-meta-"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"StorageClass":{"location":"header","locationName":"x-amz-storage-class"},"WebsiteRedirectLocation":{"location":"header","locationName":"x-amz-website-redirect-location"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"SSEKMSEncryptionContext":{"shape":"S1i","location":"header","locationName":"x-amz-server-side-encryption-context"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"Tagging":{"location":"header","locationName":"x-amz-tagging"},"ObjectLockMode":{"location":"header","locationName":"x-amz-object-lock-mode"},"ObjectLockRetainUntilDate":{"shape":"S1o","location":"header","locationName":"x-amz-object-lock-retain-until-date"},"ObjectLockLegalHoldStatus":{"location":"header","locationName":"x-amz-object-lock-legal-hold"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"Body"},"output":{"type":"structure","members":{"Expiration":{"location":"header","locationName":"x-amz-expiration"},"ETag":{"location":"header","locationName":"ETag"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-checksum-sha256"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"VersionId":{"location":"header","locationName":"x-amz-version-id"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"SSEKMSEncryptionContext":{"shape":"S1i","location":"header","locationName":"x-amz-server-side-encryption-context"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":false}},"PutObjectAcl":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}?acl"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"ACL":{"location":"header","locationName":"x-amz-acl"},"AccessControlPolicy":{"shape":"Sdk","locationName":"AccessControlPolicy","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"GrantFullControl":{"location":"header","locationName":"x-amz-grant-full-control"},"GrantRead":{"location":"header","locationName":"x-amz-grant-read"},"GrantReadACP":{"location":"header","locationName":"x-amz-grant-read-acp"},"GrantWrite":{"location":"header","locationName":"x-amz-grant-write"},"GrantWriteACP":{"location":"header","locationName":"x-amz-grant-write-acp"},"Key":{"contextParam":{"name":"Key"},"location":"uri","locationName":"Key"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"VersionId":{"location":"querystring","locationName":"versionId"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"AccessControlPolicy"},"output":{"type":"structure","members":{"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutObjectLegalHold":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}?legal-hold"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"LegalHold":{"shape":"Sar","locationName":"LegalHold","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"VersionId":{"location":"querystring","locationName":"versionId"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"LegalHold"},"output":{"type":"structure","members":{"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutObjectLockConfiguration":{"http":{"method":"PUT","requestUri":"/{Bucket}?object-lock"},"input":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ObjectLockConfiguration":{"shape":"Sau","locationName":"ObjectLockConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"Token":{"location":"header","locationName":"x-amz-bucket-object-lock-token"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"ObjectLockConfiguration"},"output":{"type":"structure","members":{"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutObjectRetention":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}?retention"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"Retention":{"shape":"Sb2","locationName":"Retention","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"VersionId":{"location":"querystring","locationName":"versionId"},"BypassGovernanceRetention":{"location":"header","locationName":"x-amz-bypass-governance-retention","type":"boolean"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"Retention"},"output":{"type":"structure","members":{"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutObjectTagging":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}?tagging"},"input":{"type":"structure","required":["Bucket","Key","Tagging"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"Tagging":{"shape":"Sea","locationName":"Tagging","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"}},"payload":"Tagging"},"output":{"type":"structure","members":{"VersionId":{"location":"header","locationName":"x-amz-version-id"}}},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true}},"PutPublicAccessBlock":{"http":{"method":"PUT","requestUri":"/{Bucket}?publicAccessBlock"},"input":{"type":"structure","required":["Bucket","PublicAccessBlockConfiguration"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"PublicAccessBlockConfiguration":{"shape":"Sb9","locationName":"PublicAccessBlockConfiguration","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"PublicAccessBlockConfiguration"},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":true},"staticContextParams":{"UseS3ExpressControlEndpoint":{"value":true}}},"RestoreObject":{"http":{"requestUri":"/{Bucket}/{Key+}?restore"},"input":{"type":"structure","required":["Bucket","Key"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"VersionId":{"location":"querystring","locationName":"versionId"},"RestoreRequest":{"locationName":"RestoreRequest","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","members":{"Days":{"type":"integer"},"GlacierJobParameters":{"type":"structure","required":["Tier"],"members":{"Tier":{}}},"Type":{},"Tier":{},"Description":{},"SelectParameters":{"type":"structure","required":["InputSerialization","ExpressionType","Expression","OutputSerialization"],"members":{"InputSerialization":{"shape":"Sf0"},"ExpressionType":{},"Expression":{},"OutputSerialization":{"shape":"Sff"}}},"OutputLocation":{"type":"structure","members":{"S3":{"type":"structure","required":["BucketName","Prefix"],"members":{"BucketName":{},"Prefix":{},"Encryption":{"type":"structure","required":["EncryptionType"],"members":{"EncryptionType":{},"KMSKeyId":{"shape":"Sr"},"KMSContext":{}}},"CannedACL":{},"AccessControlList":{"shape":"S3t"},"Tagging":{"shape":"Sea"},"UserMetadata":{"type":"list","member":{"locationName":"MetadataEntry","type":"structure","members":{"Name":{},"Value":{}}}},"StorageClass":{}}}}}}},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"RestoreRequest"},"output":{"type":"structure","members":{"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"},"RestoreOutputPath":{"location":"header","locationName":"x-amz-restore-output-path"}}},"alias":"PostObjectRestore","httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":false}},"SelectObjectContent":{"http":{"requestUri":"/{Bucket}/{Key+}?select&select-type=2"},"input":{"locationName":"SelectObjectContentRequest","xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},"type":"structure","required":["Bucket","Key","Expression","ExpressionType","InputSerialization","OutputSerialization"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"Key":{"location":"uri","locationName":"Key"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"Expression":{},"ExpressionType":{},"RequestProgress":{"type":"structure","members":{"Enabled":{"type":"boolean"}}},"InputSerialization":{"shape":"Sf0"},"OutputSerialization":{"shape":"Sff"},"ScanRange":{"type":"structure","members":{"Start":{"type":"long"},"End":{"type":"long"}}},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"output":{"type":"structure","members":{"Payload":{"type":"structure","members":{"Records":{"type":"structure","members":{"Payload":{"eventpayload":true,"type":"blob"}},"event":true},"Stats":{"type":"structure","members":{"Details":{"eventpayload":true,"type":"structure","members":{"BytesScanned":{"type":"long"},"BytesProcessed":{"type":"long"},"BytesReturned":{"type":"long"}}}},"event":true},"Progress":{"type":"structure","members":{"Details":{"eventpayload":true,"type":"structure","members":{"BytesScanned":{"type":"long"},"BytesProcessed":{"type":"long"},"BytesReturned":{"type":"long"}}}},"event":true},"Cont":{"type":"structure","members":{},"event":true},"End":{"type":"structure","members":{},"event":true}},"eventstream":true}},"payload":"Payload"}},"UploadPart":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","Key","PartNumber","UploadId"],"members":{"Body":{"streaming":true,"type":"blob"},"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ContentLength":{"location":"header","locationName":"Content-Length","type":"long"},"ContentMD5":{"location":"header","locationName":"Content-MD5"},"ChecksumAlgorithm":{"location":"header","locationName":"x-amz-sdk-checksum-algorithm"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-checksum-sha256"},"Key":{"contextParam":{"name":"Key"},"location":"uri","locationName":"Key"},"PartNumber":{"location":"querystring","locationName":"partNumber","type":"integer"},"UploadId":{"location":"querystring","locationName":"uploadId"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}},"payload":"Body"},"output":{"type":"structure","members":{"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"ETag":{"location":"header","locationName":"ETag"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-checksum-sha256"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}}},"httpChecksum":{"requestAlgorithmMember":"ChecksumAlgorithm","requestChecksumRequired":false}},"UploadPartCopy":{"http":{"method":"PUT","requestUri":"/{Bucket}/{Key+}"},"input":{"type":"structure","required":["Bucket","CopySource","Key","PartNumber","UploadId"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"CopySource":{"location":"header","locationName":"x-amz-copy-source"},"CopySourceIfMatch":{"location":"header","locationName":"x-amz-copy-source-if-match"},"CopySourceIfModifiedSince":{"location":"header","locationName":"x-amz-copy-source-if-modified-since","type":"timestamp"},"CopySourceIfNoneMatch":{"location":"header","locationName":"x-amz-copy-source-if-none-match"},"CopySourceIfUnmodifiedSince":{"location":"header","locationName":"x-amz-copy-source-if-unmodified-since","type":"timestamp"},"CopySourceRange":{"location":"header","locationName":"x-amz-copy-source-range"},"Key":{"location":"uri","locationName":"Key"},"PartNumber":{"location":"querystring","locationName":"partNumber","type":"integer"},"UploadId":{"location":"querystring","locationName":"uploadId"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKey":{"shape":"Sk","location":"header","locationName":"x-amz-server-side-encryption-customer-key"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"CopySourceSSECustomerAlgorithm":{"location":"header","locationName":"x-amz-copy-source-server-side-encryption-customer-algorithm"},"CopySourceSSECustomerKey":{"shape":"S1k","location":"header","locationName":"x-amz-copy-source-server-side-encryption-customer-key"},"CopySourceSSECustomerKeyMD5":{"location":"header","locationName":"x-amz-copy-source-server-side-encryption-customer-key-MD5"},"RequestPayer":{"location":"header","locationName":"x-amz-request-payer"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"},"ExpectedSourceBucketOwner":{"location":"header","locationName":"x-amz-source-expected-bucket-owner"}}},"output":{"type":"structure","members":{"CopySourceVersionId":{"location":"header","locationName":"x-amz-copy-source-version-id"},"CopyPartResult":{"type":"structure","members":{"ETag":{},"LastModified":{"type":"timestamp"},"ChecksumCRC32":{},"ChecksumCRC32C":{},"ChecksumSHA1":{},"ChecksumSHA256":{}}},"ServerSideEncryption":{"location":"header","locationName":"x-amz-server-side-encryption"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-server-side-encryption-customer-algorithm"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-server-side-encryption-customer-key-MD5"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-server-side-encryption-aws-kms-key-id"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"},"RequestCharged":{"location":"header","locationName":"x-amz-request-charged"}},"payload":"CopyPartResult"},"staticContextParams":{"DisableS3ExpressSessionAuth":{"value":true}}},"WriteGetObjectResponse":{"http":{"requestUri":"/WriteGetObjectResponse"},"input":{"type":"structure","required":["RequestRoute","RequestToken"],"members":{"RequestRoute":{"hostLabel":true,"location":"header","locationName":"x-amz-request-route"},"RequestToken":{"location":"header","locationName":"x-amz-request-token"},"Body":{"streaming":true,"type":"blob"},"StatusCode":{"location":"header","locationName":"x-amz-fwd-status","type":"integer"},"ErrorCode":{"location":"header","locationName":"x-amz-fwd-error-code"},"ErrorMessage":{"location":"header","locationName":"x-amz-fwd-error-message"},"AcceptRanges":{"location":"header","locationName":"x-amz-fwd-header-accept-ranges"},"CacheControl":{"location":"header","locationName":"x-amz-fwd-header-Cache-Control"},"ContentDisposition":{"location":"header","locationName":"x-amz-fwd-header-Content-Disposition"},"ContentEncoding":{"location":"header","locationName":"x-amz-fwd-header-Content-Encoding"},"ContentLanguage":{"location":"header","locationName":"x-amz-fwd-header-Content-Language"},"ContentLength":{"location":"header","locationName":"Content-Length","type":"long"},"ContentRange":{"location":"header","locationName":"x-amz-fwd-header-Content-Range"},"ContentType":{"location":"header","locationName":"x-amz-fwd-header-Content-Type"},"ChecksumCRC32":{"location":"header","locationName":"x-amz-fwd-header-x-amz-checksum-crc32"},"ChecksumCRC32C":{"location":"header","locationName":"x-amz-fwd-header-x-amz-checksum-crc32c"},"ChecksumSHA1":{"location":"header","locationName":"x-amz-fwd-header-x-amz-checksum-sha1"},"ChecksumSHA256":{"location":"header","locationName":"x-amz-fwd-header-x-amz-checksum-sha256"},"DeleteMarker":{"location":"header","locationName":"x-amz-fwd-header-x-amz-delete-marker","type":"boolean"},"ETag":{"location":"header","locationName":"x-amz-fwd-header-ETag"},"Expires":{"location":"header","locationName":"x-amz-fwd-header-Expires","type":"timestamp"},"Expiration":{"location":"header","locationName":"x-amz-fwd-header-x-amz-expiration"},"LastModified":{"location":"header","locationName":"x-amz-fwd-header-Last-Modified","type":"timestamp"},"MissingMeta":{"location":"header","locationName":"x-amz-fwd-header-x-amz-missing-meta","type":"integer"},"Metadata":{"shape":"S1b","location":"headers","locationName":"x-amz-meta-"},"ObjectLockMode":{"location":"header","locationName":"x-amz-fwd-header-x-amz-object-lock-mode"},"ObjectLockLegalHoldStatus":{"location":"header","locationName":"x-amz-fwd-header-x-amz-object-lock-legal-hold"},"ObjectLockRetainUntilDate":{"shape":"S1o","location":"header","locationName":"x-amz-fwd-header-x-amz-object-lock-retain-until-date"},"PartsCount":{"location":"header","locationName":"x-amz-fwd-header-x-amz-mp-parts-count","type":"integer"},"ReplicationStatus":{"location":"header","locationName":"x-amz-fwd-header-x-amz-replication-status"},"RequestCharged":{"location":"header","locationName":"x-amz-fwd-header-x-amz-request-charged"},"Restore":{"location":"header","locationName":"x-amz-fwd-header-x-amz-restore"},"ServerSideEncryption":{"location":"header","locationName":"x-amz-fwd-header-x-amz-server-side-encryption"},"SSECustomerAlgorithm":{"location":"header","locationName":"x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm"},"SSEKMSKeyId":{"shape":"Sr","location":"header","locationName":"x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id"},"SSECustomerKeyMD5":{"location":"header","locationName":"x-amz-fwd-header-x-amz-server-side-encryption-customer-key-MD5"},"StorageClass":{"location":"header","locationName":"x-amz-fwd-header-x-amz-storage-class"},"TagCount":{"location":"header","locationName":"x-amz-fwd-header-x-amz-tagging-count","type":"integer"},"VersionId":{"location":"header","locationName":"x-amz-fwd-header-x-amz-version-id"},"BucketKeyEnabled":{"location":"header","locationName":"x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled","type":"boolean"}},"payload":"Body"},"authtype":"v4-unsigned-body","endpoint":{"hostPrefix":"{RequestRoute}."},"staticContextParams":{"UseObjectLambdaEndpoint":{"value":true}}}},"shapes":{"Sk":{"type":"blob","sensitive":true},"Sr":{"type":"string","sensitive":true},"S1b":{"type":"map","key":{},"value":{}},"S1i":{"type":"string","sensitive":true},"S1k":{"type":"blob","sensitive":true},"S1o":{"type":"timestamp","timestampFormat":"iso8601"},"S2h":{"type":"string","sensitive":true},"S3q":{"type":"structure","members":{"DisplayName":{},"ID":{}}},"S3t":{"type":"list","member":{"locationName":"Grant","type":"structure","members":{"Grantee":{"shape":"S3v"},"Permission":{}}}},"S3v":{"type":"structure","required":["Type"],"members":{"DisplayName":{},"EmailAddress":{},"ID":{},"Type":{"locationName":"xsi:type","xmlAttribute":true},"URI":{}},"xmlNamespace":{"prefix":"xsi","uri":"http://www.w3.org/2001/XMLSchema-instance"}},"S42":{"type":"structure","required":["Id","StorageClassAnalysis"],"members":{"Id":{},"Filter":{"type":"structure","members":{"Prefix":{},"Tag":{"shape":"S45"},"And":{"type":"structure","members":{"Prefix":{},"Tags":{"shape":"S48","flattened":true,"locationName":"Tag"}}}}},"StorageClassAnalysis":{"type":"structure","members":{"DataExport":{"type":"structure","required":["OutputSchemaVersion","Destination"],"members":{"OutputSchemaVersion":{},"Destination":{"type":"structure","required":["S3BucketDestination"],"members":{"S3BucketDestination":{"type":"structure","required":["Format","Bucket"],"members":{"Format":{},"BucketAccountId":{},"Bucket":{},"Prefix":{}}}}}}}}}}},"S45":{"type":"structure","required":["Key","Value"],"members":{"Key":{},"Value":{}}},"S48":{"type":"list","member":{"shape":"S45","locationName":"Tag"}},"S4h":{"type":"list","member":{"type":"structure","required":["AllowedMethods","AllowedOrigins"],"members":{"ID":{},"AllowedHeaders":{"locationName":"AllowedHeader","type":"list","member":{},"flattened":true},"AllowedMethods":{"locationName":"AllowedMethod","type":"list","member":{},"flattened":true},"AllowedOrigins":{"locationName":"AllowedOrigin","type":"list","member":{},"flattened":true},"ExposeHeaders":{"locationName":"ExposeHeader","type":"list","member":{},"flattened":true},"MaxAgeSeconds":{"type":"integer"}}},"flattened":true},"S4u":{"type":"structure","required":["Rules"],"members":{"Rules":{"locationName":"Rule","type":"list","member":{"type":"structure","members":{"ApplyServerSideEncryptionByDefault":{"type":"structure","required":["SSEAlgorithm"],"members":{"SSEAlgorithm":{},"KMSMasterKeyID":{"shape":"Sr"}}},"BucketKeyEnabled":{"type":"boolean"}}},"flattened":true}}},"S50":{"type":"structure","required":["Id","Status","Tierings"],"members":{"Id":{},"Filter":{"type":"structure","members":{"Prefix":{},"Tag":{"shape":"S45"},"And":{"type":"structure","members":{"Prefix":{},"Tags":{"shape":"S48","flattened":true,"locationName":"Tag"}}}}},"Status":{},"Tierings":{"locationName":"Tiering","type":"list","member":{"type":"structure","required":["Days","AccessTier"],"members":{"Days":{"type":"integer"},"AccessTier":{}}},"flattened":true}}},"S5a":{"type":"structure","required":["Destination","IsEnabled","Id","IncludedObjectVersions","Schedule"],"members":{"Destination":{"type":"structure","required":["S3BucketDestination"],"members":{"S3BucketDestination":{"type":"structure","required":["Bucket","Format"],"members":{"AccountId":{},"Bucket":{},"Format":{},"Prefix":{},"Encryption":{"type":"structure","members":{"SSES3":{"locationName":"SSE-S3","type":"structure","members":{}},"SSEKMS":{"locationName":"SSE-KMS","type":"structure","required":["KeyId"],"members":{"KeyId":{"shape":"Sr"}}}}}}}}},"IsEnabled":{"type":"boolean"},"Filter":{"type":"structure","required":["Prefix"],"members":{"Prefix":{}}},"Id":{},"IncludedObjectVersions":{},"OptionalFields":{"type":"list","member":{"locationName":"Field"}},"Schedule":{"type":"structure","required":["Frequency"],"members":{"Frequency":{}}}}},"S5q":{"type":"list","member":{"type":"structure","required":["Prefix","Status"],"members":{"Expiration":{"shape":"S5s"},"ID":{},"Prefix":{},"Status":{},"Transition":{"shape":"S5x"},"NoncurrentVersionTransition":{"shape":"S5z"},"NoncurrentVersionExpiration":{"shape":"S61"},"AbortIncompleteMultipartUpload":{"shape":"S62"}}},"flattened":true},"S5s":{"type":"structure","members":{"Date":{"shape":"S5t"},"Days":{"type":"integer"},"ExpiredObjectDeleteMarker":{"type":"boolean"}}},"S5t":{"type":"timestamp","timestampFormat":"iso8601"},"S5x":{"type":"structure","members":{"Date":{"shape":"S5t"},"Days":{"type":"integer"},"StorageClass":{}}},"S5z":{"type":"structure","members":{"NoncurrentDays":{"type":"integer"},"StorageClass":{},"NewerNoncurrentVersions":{"type":"integer"}}},"S61":{"type":"structure","members":{"NoncurrentDays":{"type":"integer"},"NewerNoncurrentVersions":{"type":"integer"}}},"S62":{"type":"structure","members":{"DaysAfterInitiation":{"type":"integer"}}},"S66":{"type":"list","member":{"type":"structure","required":["Status"],"members":{"Expiration":{"shape":"S5s"},"ID":{},"Prefix":{"deprecated":true},"Filter":{"type":"structure","members":{"Prefix":{},"Tag":{"shape":"S45"},"ObjectSizeGreaterThan":{"type":"long"},"ObjectSizeLessThan":{"type":"long"},"And":{"type":"structure","members":{"Prefix":{},"Tags":{"shape":"S48","flattened":true,"locationName":"Tag"},"ObjectSizeGreaterThan":{"type":"long"},"ObjectSizeLessThan":{"type":"long"}}}}},"Status":{},"Transitions":{"locationName":"Transition","type":"list","member":{"shape":"S5x"},"flattened":true},"NoncurrentVersionTransitions":{"locationName":"NoncurrentVersionTransition","type":"list","member":{"shape":"S5z"},"flattened":true},"NoncurrentVersionExpiration":{"shape":"S61"},"AbortIncompleteMultipartUpload":{"shape":"S62"}}},"flattened":true},"S6i":{"type":"structure","required":["TargetBucket","TargetPrefix"],"members":{"TargetBucket":{},"TargetGrants":{"type":"list","member":{"locationName":"Grant","type":"structure","members":{"Grantee":{"shape":"S3v"},"Permission":{}}}},"TargetPrefix":{},"TargetObjectKeyFormat":{"type":"structure","members":{"SimplePrefix":{"locationName":"SimplePrefix","type":"structure","members":{}},"PartitionedPrefix":{"locationName":"PartitionedPrefix","type":"structure","members":{"PartitionDateSource":{}}}}}}},"S6u":{"type":"structure","required":["Id"],"members":{"Id":{},"Filter":{"type":"structure","members":{"Prefix":{},"Tag":{"shape":"S45"},"AccessPointArn":{},"And":{"type":"structure","members":{"Prefix":{},"Tags":{"shape":"S48","flattened":true,"locationName":"Tag"},"AccessPointArn":{}}}}}}},"S6y":{"type":"structure","required":["Bucket"],"members":{"Bucket":{"contextParam":{"name":"Bucket"},"location":"uri","locationName":"Bucket"},"ExpectedBucketOwner":{"location":"header","locationName":"x-amz-expected-bucket-owner"}}},"S6z":{"type":"structure","members":{"TopicConfiguration":{"type":"structure","members":{"Id":{},"Events":{"shape":"S72","locationName":"Event"},"Event":{"deprecated":true},"Topic":{}}},"QueueConfiguration":{"type":"structure","members":{"Id":{},"Event":{"deprecated":true},"Events":{"shape":"S72","locationName":"Event"},"Queue":{}}},"CloudFunctionConfiguration":{"type":"structure","members":{"Id":{},"Event":{"deprecated":true},"Events":{"shape":"S72","locationName":"Event"},"CloudFunction":{},"InvocationRole":{}}}}},"S72":{"type":"list","member":{},"flattened":true},"S7a":{"type":"structure","members":{"TopicConfigurations":{"locationName":"TopicConfiguration","type":"list","member":{"type":"structure","required":["TopicArn","Events"],"members":{"Id":{},"TopicArn":{"locationName":"Topic"},"Events":{"shape":"S72","locationName":"Event"},"Filter":{"shape":"S7d"}}},"flattened":true},"QueueConfigurations":{"locationName":"QueueConfiguration","type":"list","member":{"type":"structure","required":["QueueArn","Events"],"members":{"Id":{},"QueueArn":{"locationName":"Queue"},"Events":{"shape":"S72","locationName":"Event"},"Filter":{"shape":"S7d"}}},"flattened":true},"LambdaFunctionConfigurations":{"locationName":"CloudFunctionConfiguration","type":"list","member":{"type":"structure","required":["LambdaFunctionArn","Events"],"members":{"Id":{},"LambdaFunctionArn":{"locationName":"CloudFunction"},"Events":{"shape":"S72","locationName":"Event"},"Filter":{"shape":"S7d"}}},"flattened":true},"EventBridgeConfiguration":{"type":"structure","members":{}}}},"S7d":{"type":"structure","members":{"Key":{"locationName":"S3Key","type":"structure","members":{"FilterRules":{"locationName":"FilterRule","type":"list","member":{"type":"structure","members":{"Name":{},"Value":{}}},"flattened":true}}}}},"S7r":{"type":"structure","required":["Rules"],"members":{"Rules":{"locationName":"Rule","type":"list","member":{"type":"structure","required":["ObjectOwnership"],"members":{"ObjectOwnership":{}}},"flattened":true}}},"S83":{"type":"structure","required":["Role","Rules"],"members":{"Role":{},"Rules":{"locationName":"Rule","type":"list","member":{"type":"structure","required":["Status","Destination"],"members":{"ID":{},"Priority":{"type":"integer"},"Prefix":{"deprecated":true},"Filter":{"type":"structure","members":{"Prefix":{},"Tag":{"shape":"S45"},"And":{"type":"structure","members":{"Prefix":{},"Tags":{"shape":"S48","flattened":true,"locationName":"Tag"}}}}},"Status":{},"SourceSelectionCriteria":{"type":"structure","members":{"SseKmsEncryptedObjects":{"type":"structure","required":["Status"],"members":{"Status":{}}},"ReplicaModifications":{"type":"structure","required":["Status"],"members":{"Status":{}}}}},"ExistingObjectReplication":{"type":"structure","required":["Status"],"members":{"Status":{}}},"Destination":{"type":"structure","required":["Bucket"],"members":{"Bucket":{},"Account":{},"StorageClass":{},"AccessControlTranslation":{"type":"structure","required":["Owner"],"members":{"Owner":{}}},"EncryptionConfiguration":{"type":"structure","members":{"ReplicaKmsKeyID":{}}},"ReplicationTime":{"type":"structure","required":["Status","Time"],"members":{"Status":{},"Time":{"shape":"S8p"}}},"Metrics":{"type":"structure","required":["Status"],"members":{"Status":{},"EventThreshold":{"shape":"S8p"}}}}},"DeleteMarkerReplication":{"type":"structure","members":{"Status":{}}}}},"flattened":true}}},"S8p":{"type":"structure","members":{"Minutes":{"type":"integer"}}},"S96":{"type":"structure","required":["HostName"],"members":{"HostName":{},"Protocol":{}}},"S99":{"type":"structure","required":["Suffix"],"members":{"Suffix":{}}},"S9b":{"type":"structure","required":["Key"],"members":{"Key":{}}},"S9c":{"type":"list","member":{"locationName":"RoutingRule","type":"structure","required":["Redirect"],"members":{"Condition":{"type":"structure","members":{"HttpErrorCodeReturnedEquals":{},"KeyPrefixEquals":{}}},"Redirect":{"type":"structure","members":{"HostName":{},"HttpRedirectCode":{},"Protocol":{},"ReplaceKeyPrefixWith":{},"ReplaceKeyWith":{}}}}}},"Sar":{"type":"structure","members":{"Status":{}}},"Sau":{"type":"structure","members":{"ObjectLockEnabled":{},"Rule":{"type":"structure","members":{"DefaultRetention":{"type":"structure","members":{"Mode":{},"Days":{"type":"integer"},"Years":{"type":"integer"}}}}}}},"Sb2":{"type":"structure","members":{"Mode":{},"RetainUntilDate":{"shape":"S5t"}}},"Sb9":{"type":"structure","members":{"BlockPublicAcls":{"locationName":"BlockPublicAcls","type":"boolean"},"IgnorePublicAcls":{"locationName":"IgnorePublicAcls","type":"boolean"},"BlockPublicPolicy":{"locationName":"BlockPublicPolicy","type":"boolean"},"RestrictPublicBuckets":{"locationName":"RestrictPublicBuckets","type":"boolean"}}},"Sby":{"type":"list","member":{"locationName":"Bucket","type":"structure","members":{"Name":{},"CreationDate":{"type":"timestamp"}}}},"Sch":{"type":"structure","members":{"ID":{},"DisplayName":{}}},"Sci":{"type":"list","member":{"type":"structure","members":{"Prefix":{}}},"flattened":true},"Scn":{"type":"list","member":{}},"Sct":{"type":"list","member":{},"flattened":true},"Scw":{"type":"structure","members":{"IsRestoreInProgress":{"type":"boolean"},"RestoreExpiryDate":{"type":"timestamp"}}},"Sd5":{"type":"list","member":{"type":"structure","members":{"Key":{},"LastModified":{"type":"timestamp"},"ETag":{},"ChecksumAlgorithm":{"shape":"Sct"},"Size":{"type":"long"},"StorageClass":{},"Owner":{"shape":"S3q"},"RestoreStatus":{"shape":"Scw"}}},"flattened":true},"Sdk":{"type":"structure","members":{"Grants":{"shape":"S3t","locationName":"AccessControlList"},"Owner":{"shape":"S3q"}}},"Sea":{"type":"structure","required":["TagSet"],"members":{"TagSet":{"shape":"S48"}}},"Sf0":{"type":"structure","members":{"CSV":{"type":"structure","members":{"FileHeaderInfo":{},"Comments":{},"QuoteEscapeCharacter":{},"RecordDelimiter":{},"FieldDelimiter":{},"QuoteCharacter":{},"AllowQuotedRecordDelimiter":{"type":"boolean"}}},"CompressionType":{},"JSON":{"type":"structure","members":{"Type":{}}},"Parquet":{"type":"structure","members":{}}}},"Sff":{"type":"structure","members":{"CSV":{"type":"structure","members":{"QuoteFields":{},"QuoteEscapeCharacter":{},"RecordDelimiter":{},"FieldDelimiter":{},"QuoteCharacter":{}}},"JSON":{"type":"structure","members":{"RecordDelimiter":{}}}}}},"clientContextParams":{"Accelerate":{"documentation":"Enables this client to use S3 Transfer Acceleration endpoints.","type":"boolean"},"DisableMultiRegionAccessPoints":{"documentation":"Disables this client\'s usage of Multi-Region Access Points.","type":"boolean"},"DisableS3ExpressSessionAuth":{"documentation":"Disables this client\'s usage of Session Auth for S3Express\\n      buckets and reverts to using conventional SigV4 for those.","type":"boolean"},"ForcePathStyle":{"documentation":"Forces this client to use path-style addressing for buckets.","type":"boolean"},"UseArnRegion":{"documentation":"Enables this client to use an ARN\'s region when constructing an endpoint instead of the client\'s configured region.","type":"boolean"}}}');
 
 /***/ }),
 
@@ -28774,7 +30750,7 @@ module.exports = JSON.parse('{"version":"2.0","metadata":{"apiVersion":"2006-03-
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"o":{"ListBuckets":{"result_key":"Buckets"},"ListMultipartUploads":{"input_token":["KeyMarker","UploadIdMarker"],"limit_key":"MaxUploads","more_results":"IsTruncated","output_token":["NextKeyMarker","NextUploadIdMarker"],"result_key":["Uploads","CommonPrefixes"]},"ListObjectVersions":{"input_token":["KeyMarker","VersionIdMarker"],"limit_key":"MaxKeys","more_results":"IsTruncated","output_token":["NextKeyMarker","NextVersionIdMarker"],"result_key":["Versions","DeleteMarkers","CommonPrefixes"]},"ListObjects":{"input_token":"Marker","limit_key":"MaxKeys","more_results":"IsTruncated","output_token":"NextMarker || Contents[-1].Key","result_key":["Contents","CommonPrefixes"]},"ListObjectsV2":{"input_token":"ContinuationToken","limit_key":"MaxKeys","output_token":"NextContinuationToken","result_key":["Contents","CommonPrefixes"]},"ListParts":{"input_token":"PartNumberMarker","limit_key":"MaxParts","more_results":"IsTruncated","output_token":"NextPartNumberMarker","result_key":"Parts"}}}');
+module.exports = JSON.parse('{"o":{"ListBuckets":{"result_key":"Buckets"},"ListDirectoryBuckets":{"input_token":"ContinuationToken","limit_key":"MaxDirectoryBuckets","output_token":"ContinuationToken","result_key":"Buckets"},"ListMultipartUploads":{"input_token":["KeyMarker","UploadIdMarker"],"limit_key":"MaxUploads","more_results":"IsTruncated","output_token":["NextKeyMarker","NextUploadIdMarker"],"result_key":["Uploads","CommonPrefixes"]},"ListObjectVersions":{"input_token":["KeyMarker","VersionIdMarker"],"limit_key":"MaxKeys","more_results":"IsTruncated","output_token":["NextKeyMarker","NextVersionIdMarker"],"result_key":["Versions","DeleteMarkers","CommonPrefixes"]},"ListObjects":{"input_token":"Marker","limit_key":"MaxKeys","more_results":"IsTruncated","output_token":"NextMarker || Contents[-1].Key","result_key":["Contents","CommonPrefixes"]},"ListObjectsV2":{"input_token":"ContinuationToken","limit_key":"MaxKeys","output_token":"NextContinuationToken","result_key":["Contents","CommonPrefixes"]},"ListParts":{"input_token":"PartNumberMarker","limit_key":"MaxParts","more_results":"IsTruncated","output_token":"NextPartNumberMarker","result_key":"Parts"}}}');
 
 /***/ }),
 
@@ -28790,7 +30766,7 @@ module.exports = JSON.parse('{"V":{"BucketExists":{"delay":5,"operation":"HeadBu
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"version":"2.0","metadata":{"apiVersion":"2011-06-15","endpointPrefix":"sts","globalEndpoint":"sts.amazonaws.com","protocol":"query","serviceAbbreviation":"AWS STS","serviceFullName":"AWS Security Token Service","serviceId":"STS","signatureVersion":"v4","uid":"sts-2011-06-15","xmlNamespace":"https://sts.amazonaws.com/doc/2011-06-15/"},"operations":{"AssumeRole":{"input":{"type":"structure","required":["RoleArn","RoleSessionName"],"members":{"RoleArn":{},"RoleSessionName":{},"PolicyArns":{"shape":"S4"},"Policy":{},"DurationSeconds":{"type":"integer"},"Tags":{"shape":"S8"},"TransitiveTagKeys":{"type":"list","member":{}},"ExternalId":{},"SerialNumber":{},"TokenCode":{},"SourceIdentity":{}}},"output":{"resultWrapper":"AssumeRoleResult","type":"structure","members":{"Credentials":{"shape":"Si"},"AssumedRoleUser":{"shape":"Sn"},"PackedPolicySize":{"type":"integer"},"SourceIdentity":{}}}},"AssumeRoleWithSAML":{"input":{"type":"structure","required":["RoleArn","PrincipalArn","SAMLAssertion"],"members":{"RoleArn":{},"PrincipalArn":{},"SAMLAssertion":{},"PolicyArns":{"shape":"S4"},"Policy":{},"DurationSeconds":{"type":"integer"}}},"output":{"resultWrapper":"AssumeRoleWithSAMLResult","type":"structure","members":{"Credentials":{"shape":"Si"},"AssumedRoleUser":{"shape":"Sn"},"PackedPolicySize":{"type":"integer"},"Subject":{},"SubjectType":{},"Issuer":{},"Audience":{},"NameQualifier":{},"SourceIdentity":{}}}},"AssumeRoleWithWebIdentity":{"input":{"type":"structure","required":["RoleArn","RoleSessionName","WebIdentityToken"],"members":{"RoleArn":{},"RoleSessionName":{},"WebIdentityToken":{},"ProviderId":{},"PolicyArns":{"shape":"S4"},"Policy":{},"DurationSeconds":{"type":"integer"}}},"output":{"resultWrapper":"AssumeRoleWithWebIdentityResult","type":"structure","members":{"Credentials":{"shape":"Si"},"SubjectFromWebIdentityToken":{},"AssumedRoleUser":{"shape":"Sn"},"PackedPolicySize":{"type":"integer"},"Provider":{},"Audience":{},"SourceIdentity":{}}}},"DecodeAuthorizationMessage":{"input":{"type":"structure","required":["EncodedMessage"],"members":{"EncodedMessage":{}}},"output":{"resultWrapper":"DecodeAuthorizationMessageResult","type":"structure","members":{"DecodedMessage":{}}}},"GetAccessKeyInfo":{"input":{"type":"structure","required":["AccessKeyId"],"members":{"AccessKeyId":{}}},"output":{"resultWrapper":"GetAccessKeyInfoResult","type":"structure","members":{"Account":{}}}},"GetCallerIdentity":{"input":{"type":"structure","members":{}},"output":{"resultWrapper":"GetCallerIdentityResult","type":"structure","members":{"UserId":{},"Account":{},"Arn":{}}}},"GetFederationToken":{"input":{"type":"structure","required":["Name"],"members":{"Name":{},"Policy":{},"PolicyArns":{"shape":"S4"},"DurationSeconds":{"type":"integer"},"Tags":{"shape":"S8"}}},"output":{"resultWrapper":"GetFederationTokenResult","type":"structure","members":{"Credentials":{"shape":"Si"},"FederatedUser":{"type":"structure","required":["FederatedUserId","Arn"],"members":{"FederatedUserId":{},"Arn":{}}},"PackedPolicySize":{"type":"integer"}}}},"GetSessionToken":{"input":{"type":"structure","members":{"DurationSeconds":{"type":"integer"},"SerialNumber":{},"TokenCode":{}}},"output":{"resultWrapper":"GetSessionTokenResult","type":"structure","members":{"Credentials":{"shape":"Si"}}}}},"shapes":{"S4":{"type":"list","member":{"type":"structure","members":{"arn":{}}}},"S8":{"type":"list","member":{"type":"structure","required":["Key","Value"],"members":{"Key":{},"Value":{}}}},"Si":{"type":"structure","required":["AccessKeyId","SecretAccessKey","SessionToken","Expiration"],"members":{"AccessKeyId":{},"SecretAccessKey":{},"SessionToken":{},"Expiration":{"type":"timestamp"}}},"Sn":{"type":"structure","required":["AssumedRoleId","Arn"],"members":{"AssumedRoleId":{},"Arn":{}}}}}');
+module.exports = JSON.parse('{"version":"2.0","metadata":{"apiVersion":"2011-06-15","endpointPrefix":"sts","globalEndpoint":"sts.amazonaws.com","protocol":"query","serviceAbbreviation":"AWS STS","serviceFullName":"AWS Security Token Service","serviceId":"STS","signatureVersion":"v4","uid":"sts-2011-06-15","xmlNamespace":"https://sts.amazonaws.com/doc/2011-06-15/"},"operations":{"AssumeRole":{"input":{"type":"structure","required":["RoleArn","RoleSessionName"],"members":{"RoleArn":{},"RoleSessionName":{},"PolicyArns":{"shape":"S4"},"Policy":{},"DurationSeconds":{"type":"integer"},"Tags":{"shape":"S8"},"TransitiveTagKeys":{"type":"list","member":{}},"ExternalId":{},"SerialNumber":{},"TokenCode":{},"SourceIdentity":{},"ProvidedContexts":{"type":"list","member":{"type":"structure","members":{"ProviderArn":{},"ContextAssertion":{}}}}}},"output":{"resultWrapper":"AssumeRoleResult","type":"structure","members":{"Credentials":{"shape":"Sl"},"AssumedRoleUser":{"shape":"Sq"},"PackedPolicySize":{"type":"integer"},"SourceIdentity":{}}}},"AssumeRoleWithSAML":{"input":{"type":"structure","required":["RoleArn","PrincipalArn","SAMLAssertion"],"members":{"RoleArn":{},"PrincipalArn":{},"SAMLAssertion":{"type":"string","sensitive":true},"PolicyArns":{"shape":"S4"},"Policy":{},"DurationSeconds":{"type":"integer"}}},"output":{"resultWrapper":"AssumeRoleWithSAMLResult","type":"structure","members":{"Credentials":{"shape":"Sl"},"AssumedRoleUser":{"shape":"Sq"},"PackedPolicySize":{"type":"integer"},"Subject":{},"SubjectType":{},"Issuer":{},"Audience":{},"NameQualifier":{},"SourceIdentity":{}}}},"AssumeRoleWithWebIdentity":{"input":{"type":"structure","required":["RoleArn","RoleSessionName","WebIdentityToken"],"members":{"RoleArn":{},"RoleSessionName":{},"WebIdentityToken":{"type":"string","sensitive":true},"ProviderId":{},"PolicyArns":{"shape":"S4"},"Policy":{},"DurationSeconds":{"type":"integer"}}},"output":{"resultWrapper":"AssumeRoleWithWebIdentityResult","type":"structure","members":{"Credentials":{"shape":"Sl"},"SubjectFromWebIdentityToken":{},"AssumedRoleUser":{"shape":"Sq"},"PackedPolicySize":{"type":"integer"},"Provider":{},"Audience":{},"SourceIdentity":{}}}},"DecodeAuthorizationMessage":{"input":{"type":"structure","required":["EncodedMessage"],"members":{"EncodedMessage":{}}},"output":{"resultWrapper":"DecodeAuthorizationMessageResult","type":"structure","members":{"DecodedMessage":{}}}},"GetAccessKeyInfo":{"input":{"type":"structure","required":["AccessKeyId"],"members":{"AccessKeyId":{}}},"output":{"resultWrapper":"GetAccessKeyInfoResult","type":"structure","members":{"Account":{}}}},"GetCallerIdentity":{"input":{"type":"structure","members":{}},"output":{"resultWrapper":"GetCallerIdentityResult","type":"structure","members":{"UserId":{},"Account":{},"Arn":{}}}},"GetFederationToken":{"input":{"type":"structure","required":["Name"],"members":{"Name":{},"Policy":{},"PolicyArns":{"shape":"S4"},"DurationSeconds":{"type":"integer"},"Tags":{"shape":"S8"}}},"output":{"resultWrapper":"GetFederationTokenResult","type":"structure","members":{"Credentials":{"shape":"Sl"},"FederatedUser":{"type":"structure","required":["FederatedUserId","Arn"],"members":{"FederatedUserId":{},"Arn":{}}},"PackedPolicySize":{"type":"integer"}}}},"GetSessionToken":{"input":{"type":"structure","members":{"DurationSeconds":{"type":"integer"},"SerialNumber":{},"TokenCode":{}}},"output":{"resultWrapper":"GetSessionTokenResult","type":"structure","members":{"Credentials":{"shape":"Sl"}}}}},"shapes":{"S4":{"type":"list","member":{"type":"structure","members":{"arn":{}}}},"S8":{"type":"list","member":{"type":"structure","required":["Key","Value"],"members":{"Key":{},"Value":{}}}},"Sl":{"type":"structure","required":["AccessKeyId","SecretAccessKey","SessionToken","Expiration"],"members":{"AccessKeyId":{},"SecretAccessKey":{"type":"string","sensitive":true},"SessionToken":{},"Expiration":{"type":"timestamp"}}},"Sq":{"type":"structure","required":["AssumedRoleId","Arn"],"members":{"AssumedRoleId":{},"Arn":{}}}}}');
 
 /***/ }),
 
@@ -28806,7 +30782,7 @@ module.exports = {"o":{}};
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"rules":{"*/*":{"endpoint":"{service}.{region}.amazonaws.com"},"cn-*/*":{"endpoint":"{service}.{region}.amazonaws.com.cn"},"us-iso-*/*":"usIso","us-isob-*/*":"usIsob","*/budgets":"globalSSL","*/cloudfront":"globalSSL","*/sts":"globalSSL","*/importexport":{"endpoint":"{service}.amazonaws.com","signatureVersion":"v2","globalEndpoint":true},"*/route53":"globalSSL","cn-*/route53":{"endpoint":"{service}.amazonaws.com.cn","globalEndpoint":true,"signingRegion":"cn-northwest-1"},"us-gov-*/route53":"globalGovCloud","us-iso-*/route53":{"endpoint":"{service}.c2s.ic.gov","globalEndpoint":true,"signingRegion":"us-iso-east-1"},"us-isob-*/route53":{"endpoint":"{service}.sc2s.sgov.gov","globalEndpoint":true,"signingRegion":"us-isob-east-1"},"*/waf":"globalSSL","*/iam":"globalSSL","cn-*/iam":{"endpoint":"{service}.cn-north-1.amazonaws.com.cn","globalEndpoint":true,"signingRegion":"cn-north-1"},"us-gov-*/iam":"globalGovCloud","us-gov-*/sts":{"endpoint":"{service}.{region}.amazonaws.com"},"us-gov-west-1/s3":"s3signature","us-west-1/s3":"s3signature","us-west-2/s3":"s3signature","eu-west-1/s3":"s3signature","ap-southeast-1/s3":"s3signature","ap-southeast-2/s3":"s3signature","ap-northeast-1/s3":"s3signature","sa-east-1/s3":"s3signature","us-east-1/s3":{"endpoint":"{service}.amazonaws.com","signatureVersion":"s3"},"us-east-1/sdb":{"endpoint":"{service}.amazonaws.com","signatureVersion":"v2"},"*/sdb":{"endpoint":"{service}.{region}.amazonaws.com","signatureVersion":"v2"}},"fipsRules":{"*/*":"fipsStandard","us-gov-*/*":"fipsStandard","us-iso-*/*":{"endpoint":"{service}-fips.{region}.c2s.ic.gov"},"us-iso-*/dms":"usIso","us-isob-*/*":{"endpoint":"{service}-fips.{region}.sc2s.sgov.gov"},"us-isob-*/dms":"usIsob","cn-*/*":{"endpoint":"{service}-fips.{region}.amazonaws.com.cn"},"*/api.ecr":"fips.api.ecr","*/api.sagemaker":"fips.api.sagemaker","*/batch":"fipsDotPrefix","*/eks":"fipsDotPrefix","*/models.lex":"fips.models.lex","*/runtime.lex":"fips.runtime.lex","*/runtime.sagemaker":{"endpoint":"runtime-fips.sagemaker.{region}.amazonaws.com"},"*/iam":"fipsWithoutRegion","*/route53":"fipsWithoutRegion","*/transcribe":"fipsDotPrefix","*/waf":"fipsWithoutRegion","us-gov-*/transcribe":"fipsDotPrefix","us-gov-*/api.ecr":"fips.api.ecr","us-gov-*/api.sagemaker":"fips.api.sagemaker","us-gov-*/models.lex":"fips.models.lex","us-gov-*/runtime.lex":"fips.runtime.lex","us-gov-*/acm-pca":"fipsWithServiceOnly","us-gov-*/batch":"fipsWithServiceOnly","us-gov-*/config":"fipsWithServiceOnly","us-gov-*/eks":"fipsWithServiceOnly","us-gov-*/elasticmapreduce":"fipsWithServiceOnly","us-gov-*/identitystore":"fipsWithServiceOnly","us-gov-*/dynamodb":"fipsWithServiceOnly","us-gov-*/elasticloadbalancing":"fipsWithServiceOnly","us-gov-*/guardduty":"fipsWithServiceOnly","us-gov-*/monitoring":"fipsWithServiceOnly","us-gov-*/resource-groups":"fipsWithServiceOnly","us-gov-*/runtime.sagemaker":"fipsWithServiceOnly","us-gov-*/servicecatalog-appregistry":"fipsWithServiceOnly","us-gov-*/servicequotas":"fipsWithServiceOnly","us-gov-*/ssm":"fipsWithServiceOnly","us-gov-*/sts":"fipsWithServiceOnly","us-gov-*/support":"fipsWithServiceOnly","us-gov-west-1/states":"fipsWithServiceOnly","us-iso-east-1/elasticfilesystem":{"endpoint":"elasticfilesystem-fips.{region}.c2s.ic.gov"},"us-gov-west-1/organizations":"fipsWithServiceOnly","us-gov-west-1/route53":{"endpoint":"route53.us-gov.amazonaws.com"}},"dualstackRules":{"*/*":{"endpoint":"{service}.{region}.api.aws"},"cn-*/*":{"endpoint":"{service}.{region}.api.amazonwebservices.com.cn"},"*/s3":"dualstackLegacy","cn-*/s3":"dualstackLegacyCn","*/s3-control":"dualstackLegacy","cn-*/s3-control":"dualstackLegacyCn","ap-south-1/ec2":"dualstackLegacyEc2","eu-west-1/ec2":"dualstackLegacyEc2","sa-east-1/ec2":"dualstackLegacyEc2","us-east-1/ec2":"dualstackLegacyEc2","us-east-2/ec2":"dualstackLegacyEc2","us-west-2/ec2":"dualstackLegacyEc2"},"dualstackFipsRules":{"*/*":{"endpoint":"{service}-fips.{region}.api.aws"},"cn-*/*":{"endpoint":"{service}-fips.{region}.api.amazonwebservices.com.cn"},"*/s3":"dualstackFipsLegacy","cn-*/s3":"dualstackFipsLegacyCn","*/s3-control":"dualstackFipsLegacy","cn-*/s3-control":"dualstackFipsLegacyCn"},"patterns":{"globalSSL":{"endpoint":"https://{service}.amazonaws.com","globalEndpoint":true,"signingRegion":"us-east-1"},"globalGovCloud":{"endpoint":"{service}.us-gov.amazonaws.com","globalEndpoint":true,"signingRegion":"us-gov-west-1"},"s3signature":{"endpoint":"{service}.{region}.amazonaws.com","signatureVersion":"s3"},"usIso":{"endpoint":"{service}.{region}.c2s.ic.gov"},"usIsob":{"endpoint":"{service}.{region}.sc2s.sgov.gov"},"fipsStandard":{"endpoint":"{service}-fips.{region}.amazonaws.com"},"fipsDotPrefix":{"endpoint":"fips.{service}.{region}.amazonaws.com"},"fipsWithoutRegion":{"endpoint":"{service}-fips.amazonaws.com"},"fips.api.ecr":{"endpoint":"ecr-fips.{region}.amazonaws.com"},"fips.api.sagemaker":{"endpoint":"api-fips.sagemaker.{region}.amazonaws.com"},"fips.models.lex":{"endpoint":"models-fips.lex.{region}.amazonaws.com"},"fips.runtime.lex":{"endpoint":"runtime-fips.lex.{region}.amazonaws.com"},"fipsWithServiceOnly":{"endpoint":"{service}.{region}.amazonaws.com"},"dualstackLegacy":{"endpoint":"{service}.dualstack.{region}.amazonaws.com"},"dualstackLegacyCn":{"endpoint":"{service}.dualstack.{region}.amazonaws.com.cn"},"dualstackFipsLegacy":{"endpoint":"{service}-fips.dualstack.{region}.amazonaws.com"},"dualstackFipsLegacyCn":{"endpoint":"{service}-fips.dualstack.{region}.amazonaws.com.cn"},"dualstackLegacyEc2":{"endpoint":"api.ec2.{region}.aws"}}}');
+module.exports = JSON.parse('{"rules":{"*/*":{"endpoint":"{service}.{region}.amazonaws.com"},"cn-*/*":{"endpoint":"{service}.{region}.amazonaws.com.cn"},"eu-isoe-*/*":"euIsoe","us-iso-*/*":"usIso","us-isob-*/*":"usIsob","us-isof-*/*":"usIsof","*/budgets":"globalSSL","*/cloudfront":"globalSSL","*/sts":"globalSSL","*/importexport":{"endpoint":"{service}.amazonaws.com","signatureVersion":"v2","globalEndpoint":true},"*/route53":"globalSSL","cn-*/route53":{"endpoint":"{service}.amazonaws.com.cn","globalEndpoint":true,"signingRegion":"cn-northwest-1"},"us-gov-*/route53":"globalGovCloud","us-iso-*/route53":{"endpoint":"{service}.c2s.ic.gov","globalEndpoint":true,"signingRegion":"us-iso-east-1"},"us-isob-*/route53":{"endpoint":"{service}.sc2s.sgov.gov","globalEndpoint":true,"signingRegion":"us-isob-east-1"},"*/waf":"globalSSL","*/iam":"globalSSL","cn-*/iam":{"endpoint":"{service}.cn-north-1.amazonaws.com.cn","globalEndpoint":true,"signingRegion":"cn-north-1"},"us-iso-*/iam":{"endpoint":"{service}.us-iso-east-1.c2s.ic.gov","globalEndpoint":true,"signingRegion":"us-iso-east-1"},"us-gov-*/iam":"globalGovCloud","*/ce":{"endpoint":"{service}.us-east-1.amazonaws.com","globalEndpoint":true,"signingRegion":"us-east-1"},"cn-*/ce":{"endpoint":"{service}.cn-northwest-1.amazonaws.com.cn","globalEndpoint":true,"signingRegion":"cn-northwest-1"},"us-gov-*/sts":{"endpoint":"{service}.{region}.amazonaws.com"},"us-gov-west-1/s3":"s3signature","us-west-1/s3":"s3signature","us-west-2/s3":"s3signature","eu-west-1/s3":"s3signature","ap-southeast-1/s3":"s3signature","ap-southeast-2/s3":"s3signature","ap-northeast-1/s3":"s3signature","sa-east-1/s3":"s3signature","us-east-1/s3":{"endpoint":"{service}.amazonaws.com","signatureVersion":"s3"},"us-east-1/sdb":{"endpoint":"{service}.amazonaws.com","signatureVersion":"v2"},"*/sdb":{"endpoint":"{service}.{region}.amazonaws.com","signatureVersion":"v2"},"*/resource-explorer-2":"dualstackByDefault","*/kendra-ranking":"dualstackByDefault","*/internetmonitor":"dualstackByDefault","*/codecatalyst":"globalDualstackByDefault"},"fipsRules":{"*/*":"fipsStandard","us-gov-*/*":"fipsStandard","us-iso-*/*":{"endpoint":"{service}-fips.{region}.c2s.ic.gov"},"us-iso-*/dms":"usIso","us-isob-*/*":{"endpoint":"{service}-fips.{region}.sc2s.sgov.gov"},"us-isob-*/dms":"usIsob","cn-*/*":{"endpoint":"{service}-fips.{region}.amazonaws.com.cn"},"*/api.ecr":"fips.api.ecr","*/api.sagemaker":"fips.api.sagemaker","*/batch":"fipsDotPrefix","*/eks":"fipsDotPrefix","*/models.lex":"fips.models.lex","*/runtime.lex":"fips.runtime.lex","*/runtime.sagemaker":{"endpoint":"runtime-fips.sagemaker.{region}.amazonaws.com"},"*/iam":"fipsWithoutRegion","*/route53":"fipsWithoutRegion","*/transcribe":"fipsDotPrefix","*/waf":"fipsWithoutRegion","us-gov-*/transcribe":"fipsDotPrefix","us-gov-*/api.ecr":"fips.api.ecr","us-gov-*/models.lex":"fips.models.lex","us-gov-*/runtime.lex":"fips.runtime.lex","us-gov-*/access-analyzer":"fipsWithServiceOnly","us-gov-*/acm":"fipsWithServiceOnly","us-gov-*/acm-pca":"fipsWithServiceOnly","us-gov-*/api.sagemaker":"fipsWithServiceOnly","us-gov-*/appconfig":"fipsWithServiceOnly","us-gov-*/application-autoscaling":"fipsWithServiceOnly","us-gov-*/autoscaling":"fipsWithServiceOnly","us-gov-*/autoscaling-plans":"fipsWithServiceOnly","us-gov-*/batch":"fipsWithServiceOnly","us-gov-*/cassandra":"fipsWithServiceOnly","us-gov-*/clouddirectory":"fipsWithServiceOnly","us-gov-*/cloudformation":"fipsWithServiceOnly","us-gov-*/cloudshell":"fipsWithServiceOnly","us-gov-*/cloudtrail":"fipsWithServiceOnly","us-gov-*/config":"fipsWithServiceOnly","us-gov-*/connect":"fipsWithServiceOnly","us-gov-*/databrew":"fipsWithServiceOnly","us-gov-*/dlm":"fipsWithServiceOnly","us-gov-*/dms":"fipsWithServiceOnly","us-gov-*/dynamodb":"fipsWithServiceOnly","us-gov-*/ec2":"fipsWithServiceOnly","us-gov-*/eks":"fipsWithServiceOnly","us-gov-*/elasticache":"fipsWithServiceOnly","us-gov-*/elasticbeanstalk":"fipsWithServiceOnly","us-gov-*/elasticloadbalancing":"fipsWithServiceOnly","us-gov-*/elasticmapreduce":"fipsWithServiceOnly","us-gov-*/events":"fipsWithServiceOnly","us-gov-*/fis":"fipsWithServiceOnly","us-gov-*/glacier":"fipsWithServiceOnly","us-gov-*/greengrass":"fipsWithServiceOnly","us-gov-*/guardduty":"fipsWithServiceOnly","us-gov-*/identitystore":"fipsWithServiceOnly","us-gov-*/imagebuilder":"fipsWithServiceOnly","us-gov-*/kafka":"fipsWithServiceOnly","us-gov-*/kinesis":"fipsWithServiceOnly","us-gov-*/logs":"fipsWithServiceOnly","us-gov-*/mediaconvert":"fipsWithServiceOnly","us-gov-*/monitoring":"fipsWithServiceOnly","us-gov-*/networkmanager":"fipsWithServiceOnly","us-gov-*/organizations":"fipsWithServiceOnly","us-gov-*/outposts":"fipsWithServiceOnly","us-gov-*/participant.connect":"fipsWithServiceOnly","us-gov-*/ram":"fipsWithServiceOnly","us-gov-*/rds":"fipsWithServiceOnly","us-gov-*/redshift":"fipsWithServiceOnly","us-gov-*/resource-groups":"fipsWithServiceOnly","us-gov-*/runtime.sagemaker":"fipsWithServiceOnly","us-gov-*/serverlessrepo":"fipsWithServiceOnly","us-gov-*/servicecatalog-appregistry":"fipsWithServiceOnly","us-gov-*/servicequotas":"fipsWithServiceOnly","us-gov-*/sns":"fipsWithServiceOnly","us-gov-*/sqs":"fipsWithServiceOnly","us-gov-*/ssm":"fipsWithServiceOnly","us-gov-*/streams.dynamodb":"fipsWithServiceOnly","us-gov-*/sts":"fipsWithServiceOnly","us-gov-*/support":"fipsWithServiceOnly","us-gov-*/swf":"fipsWithServiceOnly","us-gov-west-1/states":"fipsWithServiceOnly","us-iso-east-1/elasticfilesystem":{"endpoint":"elasticfilesystem-fips.{region}.c2s.ic.gov"},"us-gov-west-1/organizations":"fipsWithServiceOnly","us-gov-west-1/route53":{"endpoint":"route53.us-gov.amazonaws.com"},"*/resource-explorer-2":"fipsDualstackByDefault","*/kendra-ranking":"dualstackByDefault","*/internetmonitor":"dualstackByDefault","*/codecatalyst":"fipsGlobalDualstackByDefault"},"dualstackRules":{"*/*":{"endpoint":"{service}.{region}.api.aws"},"cn-*/*":{"endpoint":"{service}.{region}.api.amazonwebservices.com.cn"},"*/s3":"dualstackLegacy","cn-*/s3":"dualstackLegacyCn","*/s3-control":"dualstackLegacy","cn-*/s3-control":"dualstackLegacyCn","ap-south-1/ec2":"dualstackLegacyEc2","eu-west-1/ec2":"dualstackLegacyEc2","sa-east-1/ec2":"dualstackLegacyEc2","us-east-1/ec2":"dualstackLegacyEc2","us-east-2/ec2":"dualstackLegacyEc2","us-west-2/ec2":"dualstackLegacyEc2"},"dualstackFipsRules":{"*/*":{"endpoint":"{service}-fips.{region}.api.aws"},"cn-*/*":{"endpoint":"{service}-fips.{region}.api.amazonwebservices.com.cn"},"*/s3":"dualstackFipsLegacy","cn-*/s3":"dualstackFipsLegacyCn","*/s3-control":"dualstackFipsLegacy","cn-*/s3-control":"dualstackFipsLegacyCn"},"patterns":{"globalSSL":{"endpoint":"https://{service}.amazonaws.com","globalEndpoint":true,"signingRegion":"us-east-1"},"globalGovCloud":{"endpoint":"{service}.us-gov.amazonaws.com","globalEndpoint":true,"signingRegion":"us-gov-west-1"},"s3signature":{"endpoint":"{service}.{region}.amazonaws.com","signatureVersion":"s3"},"euIsoe":{"endpoint":"{service}.{region}.cloud.adc-e.uk"},"usIso":{"endpoint":"{service}.{region}.c2s.ic.gov"},"usIsob":{"endpoint":"{service}.{region}.sc2s.sgov.gov"},"usIsof":{"endpoint":"{service}.{region}.csp.hci.ic.gov"},"fipsStandard":{"endpoint":"{service}-fips.{region}.amazonaws.com"},"fipsDotPrefix":{"endpoint":"fips.{service}.{region}.amazonaws.com"},"fipsWithoutRegion":{"endpoint":"{service}-fips.amazonaws.com"},"fips.api.ecr":{"endpoint":"ecr-fips.{region}.amazonaws.com"},"fips.api.sagemaker":{"endpoint":"api-fips.sagemaker.{region}.amazonaws.com"},"fips.models.lex":{"endpoint":"models-fips.lex.{region}.amazonaws.com"},"fips.runtime.lex":{"endpoint":"runtime-fips.lex.{region}.amazonaws.com"},"fipsWithServiceOnly":{"endpoint":"{service}.{region}.amazonaws.com"},"dualstackLegacy":{"endpoint":"{service}.dualstack.{region}.amazonaws.com"},"dualstackLegacyCn":{"endpoint":"{service}.dualstack.{region}.amazonaws.com.cn"},"dualstackFipsLegacy":{"endpoint":"{service}-fips.dualstack.{region}.amazonaws.com"},"dualstackFipsLegacyCn":{"endpoint":"{service}-fips.dualstack.{region}.amazonaws.com.cn"},"dualstackLegacyEc2":{"endpoint":"api.ec2.{region}.aws"},"dualstackByDefault":{"endpoint":"{service}.{region}.api.aws"},"fipsDualstackByDefault":{"endpoint":"{service}-fips.{region}.api.aws"},"globalDualstackByDefault":{"endpoint":"{service}.global.api.aws"},"fipsGlobalDualstackByDefault":{"endpoint":"{service}-fips.global.api.aws"}}}');
 
 /***/ }),
 
@@ -28876,14 +30852,14 @@ module.exports = JSON.parse('{"application/1d-interleaved-parityfec":{"source":"
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-const core = __nccwpck_require__(2186);
-const S3 = __nccwpck_require__(3256);
+const core = __nccwpck_require__(1681);
+const S3 = __nccwpck_require__(7054);
 const fs = __nccwpck_require__(7147);
 const path = __nccwpck_require__(1017);
-const shortid = __nccwpck_require__(794);
-const slash = (__nccwpck_require__(3433)/* ["default"] */ .Z);
-const klawSync = __nccwpck_require__(9036);
-const { lookup } = __nccwpck_require__(3583);
+const shortid = __nccwpck_require__(3513);
+const slash = (__nccwpck_require__(2950)/* ["default"] */ .Z);
+const klawSync = __nccwpck_require__(1279);
+const { lookup } = __nccwpck_require__(6831);
 
 const AWS_KEY_ID = core.getInput('aws_key_id', {
   required: true,
